@@ -36,8 +36,8 @@
 <body>
 <div class="container">
   <div class="check">✓</div>
-  <h1>Đã nhận thanh toán!</h1>
-  <p class="lead">Cảm ơn bạn đã đăng ký Vé VIP — Bản Đồ Tình Yêu. Đơn hàng đã được xác nhận và tài liệu đã gửi qua email.</p>
+  <h1 id="titleText">Đã nhận thanh toán!</h1>
+  <p class="lead" id="leadText">Cảm ơn bạn đã đăng ký Vé VIP — Bản Đồ Tình Yêu. Đơn hàng đã được xác nhận và tài liệu đã gửi qua email.</p>
 
   <div class="info">
     <div class="info-row"><span>Mã đơn</span><strong id="orderId">—</strong></div>
@@ -83,6 +83,11 @@
     document.getElementById('orderEmail').textContent = order.email || '—';
     const amt = Number(order.totalAmount || 0).toLocaleString('en-US').replace(/,/g, '.');
     document.getElementById('orderAmount').textContent = amt + 'đ';
+
+    if (Number(order.totalAmount) === 0) {
+      document.getElementById('titleText').textContent = 'Đăng ký thành công!';
+      document.getElementById('leadText').textContent = 'Cảm ơn bạn đã đăng ký Vé Tiêu Chuẩn — Bản Đồ Tình Yêu. Chỗ của bạn đã được giữ và thông tin tham dự đã gửi qua email.';
+    }
   }
 </script>
 </body>

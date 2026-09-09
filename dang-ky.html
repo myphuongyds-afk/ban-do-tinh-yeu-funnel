@@ -30,8 +30,8 @@
 </head>
 <body>
 <div class="container">
-  <h1>Đăng ký Vé VIP — Bản Đồ Tình Yêu</h1>
-  <p class="lead">Điền thông tin để tiếp tục đến trang thanh toán.</p>
+  <h1 id="pageTitle">Đăng ký Vé VIP — Bản Đồ Tình Yêu</h1>
+  <p class="lead" id="pageLead">Điền thông tin để tiếp tục đến trang thanh toán.</p>
 
   <form id="orderForm">
     <label>Họ tên *</label>
@@ -59,9 +59,18 @@
 <script>
   const GAS_URL = 'https://script.google.com/macros/s/AKfycbxgJsI1X1bJrDc0hbCk4EIrD7RzajFIuVk1jd22Z-7QNONFQ8XiTMHiRNZfBqbQHNulzQ/exec';
 
+  const isFree = new URLSearchParams(location.search).get('tier') === 'free';
+  const submitBtn = document.getElementById('submitBtn');
+
+  if (isFree) {
+    document.getElementById('pageTitle').textContent = 'Đăng ký Vé Tiêu Chuẩn — Bản Đồ Tình Yêu';
+    document.getElementById('pageLead').textContent = 'Điền thông tin để giữ chỗ tham dự — miễn phí, không cần thanh toán.';
+    submitBtn.textContent = 'Giữ Chỗ Miễn Phí →';
+  }
+
   document.getElementById('orderForm').addEventListener('submit', async (e) => {
     e.preventDefault();
-    const btn = document.getElementById('submitBtn');
+    const btn = submitBtn;
     const errEl = document.getElementById('error');
     errEl.style.display = 'none';
     btn.disabled = true;
@@ -75,7 +84,7 @@
       goal: form.get('goal'),
       bump1: false,
       bump2: false,
-      totalAmount: 99000
+      totalAmount: isFree ? 0 : 99000
     };
 
     try {
@@ -96,12 +105,12 @@
         goal: data.goal
       }));
 
-      window.location.href = '/checkout';
+      window.location.href = isFree ? '/xac-nhan' : '/checkout';
     } catch (err) {
       errEl.textContent = 'Lỗi: ' + err.message + '. Vui lòng thử lại.';
       errEl.style.display = 'block';
       btn.disabled = false;
-      btn.textContent = 'Tiếp tục thanh toán →';
+      btn.textContent = isFree ? 'Giữ Chỗ Miễn Phí →' : 'Tiếp tục thanh toán →';
     }
   });
 </script>

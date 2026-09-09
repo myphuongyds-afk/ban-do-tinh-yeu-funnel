@@ -16,18 +16,33 @@
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: var(--font-b); background: var(--bg); color: var(--text); line-height: 1.6; padding: 40px 20px; }
-  .container { max-width: 560px; margin: 0 auto; background: var(--surface); padding: 36px 32px; border-radius: var(--radius); box-shadow: 0 12px 40px var(--accent-soft); border: 1px solid var(--border); }
+  .container { max-width: 600px; margin: 0 auto; background: var(--surface); padding: 36px 32px; border-radius: var(--radius); box-shadow: 0 12px 40px var(--accent-soft); border: 1px solid var(--border); }
   h1 { font-family: var(--font-h); font-size: 22px; margin-bottom: 4px; color: var(--text); }
   .lead { color: var(--text-muted); margin-bottom: 24px; font-size: 14px; }
-  .bumps-label { font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent-deep); margin-bottom: 10px; }
-  .bumps { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 8px; margin-bottom: 20px; }
-  .bump { display: flex; align-items: flex-start; padding: 12px 10px; cursor: pointer; border-radius: 8px; }
-  .bump:hover { background: var(--accent-soft); }
-  .bump input { margin-right: 12px; margin-top: 4px; flex-shrink: 0; }
+  .bumps-label { font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent-deep); margin-bottom: 4px; }
+  .bumps-sub { font-size: 13px; color: var(--text-muted); margin-bottom: 14px; }
+  .bumps { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
+  .bump {
+    display: flex; align-items: flex-start; gap: 12px; padding: 16px; cursor: pointer;
+    border: 1px solid var(--border); border-radius: 10px; background: var(--bg); position: relative;
+  }
+  .bump:hover { border-color: var(--accent); }
+  .bump.checked { background: var(--accent-soft); border-color: var(--accent); }
+  .bump input { margin-top: 3px; flex-shrink: 0; width: 18px; height: 18px; accent-color: var(--accent); }
   .bump-info { flex: 1; }
-  .bump-name { font-weight: 600; font-size: 14px; }
-  .bump-price { color: var(--accent-deep); font-weight: 700; font-size: 14px; }
-  .bump-desc { font-size: 13px; color: var(--text-muted); }
+  .bump-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  .bump-name { font-weight: 700; font-size: 14.5px; font-family: var(--font-h); }
+  .bump-price-wrap { white-space: nowrap; }
+  .bump-price-strike { color: var(--text-muted); text-decoration: line-through; font-size: 12.5px; margin-right: 6px; }
+  .bump-price { color: var(--accent-deep); font-weight: 800; font-size: 15px; }
+  .bump-desc { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+  .bump-benefits { margin-top: 8px; font-size: 13px; color: var(--text); }
+  .bump-benefits div { padding: 2px 0; }
+  .bump.bundle { border-color: var(--accent); border-width: 2px; }
+  .save-badge {
+    position: absolute; top: -10px; right: 14px; background: var(--accent); color: #fff;
+    font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px;
+  }
   .summary { background: var(--text); color: #fff; padding: 20px; border-radius: 10px; margin-bottom: 20px; }
   .summary-row { display: flex; justify-content: space-between; padding: 4px 0; font-size: 14px; }
   .summary-total { font-size: 22px; font-weight: 800; font-family: var(--font-h); color: #F0C9C9; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.2); margin-top: 8px; }
@@ -48,34 +63,54 @@
   <h1>Hoàn tất thanh toán</h1>
   <p class="lead">Chuyển khoản theo thông tin dưới đây — đơn được xác nhận tự động trong 30 giây.</p>
 
-  <div class="bumps-label">Chọn gói của bạn (chỉ chọn 1)</div>
+  <div class="bumps-label">Ưu đãi đặc biệt</div>
+  <div class="bumps-sub">Chọn thêm nếu muốn — có thể tick từng món, hoặc chọn Bundle để được giá tốt nhất.</div>
   <div class="bumps" id="bumpsSection">
-    <label class="bump">
-      <input type="radio" name="bumpChoice" id="bumpNone" value="none" checked>
+    <label class="bump" data-key="diag">
+      <input type="checkbox" id="optDiag">
       <div class="bump-info">
-        <div><span class="bump-name">Chỉ Vé VIP</span></div>
-        <div class="bump-desc">Tham dự 2 buổi Workshop + Workbook + Video Recording</div>
+        <div class="bump-top">
+          <span class="bump-name">Blossomed Relationship Diagnosis</span>
+          <span class="bump-price-wrap"><span class="bump-price">+99.000đ</span></span>
+        </div>
+        <div class="bump-desc">Bộ công cụ chẩn đoán chuyên sâu giúp bạn nhìn rõ vì sao mình chưa có mối quan hệ hạnh phúc và con đường chuyển hóa phù hợp với chính mình.</div>
+        <div class="bump-benefits">
+          <div>• Nhìn rõ vì sao mình đang kẹt trong tình yêu (không phải lỗi của bạn, mà là mô thức)</div>
+          <div>• Xác định chính xác vòng tròn nào đang cản trở hạnh phúc của bạn</div>
+          <div>• Hiểu rõ mình cần chuyển hóa điều gì trước khi bước vào một mối quan hệ bền vững</div>
+        </div>
       </div>
     </label>
-    <label class="bump">
-      <input type="radio" name="bumpChoice" id="bump1" value="bump1">
+
+    <label class="bump" data-key="oneOnOne">
+      <input type="checkbox" id="opt1on1">
       <div class="bump-info">
-        <div><span class="bump-name">Bộ Công Cụ Chẩn Đoán Chuyên Sâu</span> · <span class="bump-price">+99.000đ</span></div>
-        <div class="bump-desc">Bài test chuyên sâu giúp bạn hiểu vì sao mình chưa gặp được người phù hợp</div>
+        <div class="bump-top">
+          <span class="bump-name">Phiên Khai Vấn 1:1 Chuyên Sâu 90 Phút</span>
+          <span class="bump-price-wrap"><span class="bump-price">+1.200.000đ</span></span>
+        </div>
+        <div class="bump-desc">Giải mã báo cáo chẩn đoán cùng Phương, 1:1 chuyên sâu để hiểu rõ hướng chuyển hóa của riêng bạn.</div>
       </div>
     </label>
-    <label class="bump">
-      <input type="radio" name="bumpChoice" id="bump2" value="bump2">
+
+    <label class="bump bundle" data-key="bundle">
+      <span class="save-badge">Tiết kiệm 62%</span>
+      <input type="checkbox" id="optBundle">
       <div class="bump-info">
-        <div><span class="bump-name">Bộ Công Cụ + Phiên Khai Vấn 1:1</span> · <span class="bump-price">+499.000đ</span></div>
-        <div class="bump-desc">Bao gồm bộ công cụ chẩn đoán + 1 phiên khai vấn 1:1 giải mã kết quả chuyên sâu cùng Phương</div>
+        <div class="bump-top">
+          <span class="bump-name">Bundle: Diagnosis + Phiên Khai Vấn 1:1 90 Phút</span>
+          <span class="bump-price-wrap"><span class="bump-price-strike">1.299.000đ</span><span class="bump-price">499.000đ</span></span>
+        </div>
+        <div class="bump-desc">Bao gồm cả Blossomed Relationship Diagnosis và Phiên Khai Vấn 1:1 — cách tiết kiệm nhất nếu bạn muốn cả 2.</div>
       </div>
     </label>
   </div>
 
   <div class="summary">
     <div class="summary-row"><span>Vé VIP — Bản Đồ Tình Yêu</span><span id="base">99.000đ</span></div>
-    <div class="summary-row" id="bumpRow" style="display:none"><span id="bumpRowName"></span><span id="bumpRowPrice"></span></div>
+    <div class="summary-row" id="rowDiag" style="display:none"><span>Blossomed Relationship Diagnosis</span><span>+99.000đ</span></div>
+    <div class="summary-row" id="row1on1" style="display:none"><span>Phiên Khai Vấn 1:1 Chuyên Sâu 90 Phút</span><span>+1.200.000đ</span></div>
+    <div class="summary-row" id="rowBundle" style="display:none"><span>Bundle Diagnosis + 1:1</span><span>+499.000đ</span></div>
     <div class="summary-row summary-total"><span>Tổng</span><span id="total">99.000đ</span></div>
   </div>
 
@@ -99,10 +134,9 @@
 <script>
   const GAS_URL = 'https://script.google.com/macros/s/AKfycbxgJsI1X1bJrDc0hbCk4EIrD7RzajFIuVk1jd22Z-7QNONFQ8XiTMHiRNZfBqbQHNulzQ/exec';
   const BASE_PRICE = 99000;
-  const BUMP1_PRICE = 99000;
-  const BUMP1_NAME = 'Bộ Công Cụ Chẩn Đoán Chuyên Sâu';
-  const BUMP2_PRICE = 499000;
-  const BUMP2_NAME = 'Bộ Công Cụ + Phiên Khai Vấn 1:1';
+  const DIAG_PRICE = 99000;
+  const ONEONONE_PRICE = 1200000;
+  const BUNDLE_PRICE = 499000;
   const BANK_ACCOUNT = '109006855197';
   const BANK_CODE = 'ICB'; // Mã ngân hàng VietinBank theo chuẩn VietQR — kiểm tra lại trong Sepay dashboard nếu QR không hiện
 
@@ -111,17 +145,31 @@
 
   document.getElementById('ckContent').textContent = order.ckContent;
 
+  const optDiag = document.getElementById('optDiag');
+  const opt1on1 = document.getElementById('opt1on1');
+  const optBundle = document.getElementById('optBundle');
+
   function formatVnd(n) { return Number(n).toLocaleString('en-US').replace(/,/g, '.'); }
 
+  function syncCardStyles() {
+    document.querySelectorAll('.bump').forEach(card => {
+      const input = card.querySelector('input');
+      card.classList.toggle('checked', input.checked);
+    });
+  }
+
   function calcTotal() {
-    const choice = document.querySelector('input[name="bumpChoice"]:checked').value;
     let total = BASE_PRICE;
-    let bumpName = '', bumpPrice = 0;
-    const b1 = choice === 'bump1';
-    const b2 = choice === 'bump2';
-    if (b1) { total += BUMP1_PRICE; bumpName = BUMP1_NAME; bumpPrice = BUMP1_PRICE; }
-    if (b2) { total += BUMP2_PRICE; bumpName = BUMP2_NAME; bumpPrice = BUMP2_PRICE; }
-    return { total, b1, b2, bumpName, bumpPrice };
+    let bump1 = false, bump2 = false; // bump1 = diagnosis included, bump2 = 1:1 included
+
+    if (optBundle.checked) {
+      total += BUNDLE_PRICE;
+      bump1 = true; bump2 = true;
+    } else {
+      if (optDiag.checked) { total += DIAG_PRICE; bump1 = true; }
+      if (opt1on1.checked) { total += ONEONONE_PRICE; bump2 = true; }
+    }
+    return { total, bump1, bump2 };
   }
 
   function updateQR(amount) {
@@ -144,23 +192,41 @@
     } catch (err) { console.error('updateOrder failed', err); }
   }
 
-  document.querySelectorAll('input[name="bumpChoice"]').forEach(el => {
+  function refresh() {
+    const { total, bump1, bump2 } = calcTotal();
+    const bundleOn = optBundle.checked;
+
+    document.getElementById('rowDiag').style.display = (!bundleOn && optDiag.checked) ? 'flex' : 'none';
+    document.getElementById('row1on1').style.display = (!bundleOn && opt1on1.checked) ? 'flex' : 'none';
+    document.getElementById('rowBundle').style.display = bundleOn ? 'flex' : 'none';
+
+    syncCardStyles();
+    updateQR(total);
+    updateOrderAPI(bump1, bump2, total);
+  }
+
+  optBundle.addEventListener('change', () => {
+    if (optBundle.checked) {
+      optDiag.checked = false;
+      opt1on1.checked = false;
+      optDiag.disabled = true;
+      opt1on1.disabled = true;
+    } else {
+      optDiag.disabled = false;
+      opt1on1.disabled = false;
+    }
+    refresh();
+  });
+
+  [optDiag, opt1on1].forEach(el => {
     el.addEventListener('change', () => {
-      const { total, b1, b2, bumpName, bumpPrice } = calcTotal();
-      const row = document.getElementById('bumpRow');
-      if (bumpName) {
-        row.style.display = 'flex';
-        document.getElementById('bumpRowName').textContent = bumpName;
-        document.getElementById('bumpRowPrice').textContent = '+' + formatVnd(bumpPrice) + 'đ';
-      } else {
-        row.style.display = 'none';
-      }
-      updateQR(total);
-      updateOrderAPI(b1, b2, total);
+      if (el.checked) { optBundle.checked = false; }
+      refresh();
     });
   });
 
   updateQR(BASE_PRICE);
+  syncCardStyles();
 
   async function pollStatus() {
     try {
