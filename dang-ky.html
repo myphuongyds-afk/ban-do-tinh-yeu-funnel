@@ -265,14 +265,6 @@
           <p class="success-lead">Cảm ơn bạn đã đăng ký Vé Tiêu Chuẩn — Bản Đồ Tình Yêu. Chỗ của bạn đã được giữ và thông tin tham dự đã gửi qua email.</p>
         </div>
 
-        <div class="sidebar-label">Bạn sẽ nhận được</div>
-        <ul class="benefit-list" style="margin-bottom: 20px;">
-          <li>Tham dự 2 buổi Workshop Live Online qua Zoom</li>
-          <li>Workbook cơ bản để thực hành trực tiếp</li>
-        </ul>
-
-        <hr class="divider">
-
         <div class="steps-list">
           <div class="step-item">
             <div class="step-item-num">1</div>
@@ -401,7 +393,8 @@
 
   // ---- Step 2 (VIP): payment logic ----
   function initVipStep(order) {
-    document.getElementById('ckContent').textContent = order.ckContent;
+    const ckContentFull = 'SEVQR ' + order.ckContent;
+    document.getElementById('ckContent').textContent = ckContentFull;
 
     const optDiag = document.getElementById('optDiag');
     const opt1on1 = document.getElementById('opt1on1');
@@ -427,7 +420,7 @@
     }
 
     function updateQR(amount) {
-      const url = 'https://qr.sepay.vn/img?acc=' + BANK_ACCOUNT + '&bank=' + BANK_CODE + '&amount=' + amount + '&des=' + encodeURIComponent(order.ckContent);
+      const url = 'https://qr.sepay.vn/img?acc=' + BANK_ACCOUNT + '&bank=' + BANK_CODE + '&amount=' + amount + '&des=' + encodeURIComponent(ckContentFull);
       document.getElementById('qrImg').src = url;
       document.getElementById('amount').textContent = formatVnd(amount) + 'đ';
       document.getElementById('total').textContent = formatVnd(amount) + 'đ';
