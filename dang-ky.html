@@ -95,17 +95,6 @@
   .pulse { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: currentColor; margin-right: 8px; vertical-align: middle; animation: pulse 1.5s ease-in-out infinite; }
   @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
-  /* Step 2 — Free success */
-  .success-box { text-align: center; padding: 10px 0 6px; }
-  .success-check { width: 56px; height: 56px; background: var(--accent); color: #fff; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 14px; }
-  .success-title { font-family: var(--font-h); font-size: 1.3rem; margin-bottom: 8px; }
-  .success-lead { color: var(--text-muted); font-size: 14px; margin-bottom: 20px; }
-  .steps-list { text-align: left; }
-  .step-item { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); }
-  .step-item:last-child { border-bottom: none; }
-  .step-item-num { background: var(--accent); color: #fff; min-width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; flex-shrink: 0; }
-  .step-item-title { font-weight: 600; font-size: 14px; margin-bottom: 3px; }
-  .step-item-desc { font-size: 13px; color: var(--text-muted); }
 </style>
 </head>
 <body>
@@ -135,11 +124,17 @@
 
       <hr class="divider">
       <div class="sidebar-label">Bạn sẽ nhận được</div>
-      <ul class="benefit-list" id="sbBenefits"></ul>
+      <ul class="benefit-list">
+        <li>Tham dự trực tiếp 02 buổi Workshop Live Online</li>
+        <li>Workbook để ghi chép và thực hành</li>
+        <li>Video Recording trọn đời của cả hai buổi học</li>
+        <li>The First 3 Dates: 20 câu hỏi tự vấn giúp bạn nhận diện mức độ phù hợp sau ba buổi hẹn đầu tiên</li>
+        <li>Ebook: Xuất hiện đúng nơi có xác suất gặp bạn đời tương lai cao nhất</li>
+      </ul>
 
       <hr class="divider">
       <div class="price-block">
-        <div class="price-final" id="sbPrice">99.000đ</div>
+        <div class="price-final">99.000đ</div>
       </div>
     </div>
 
@@ -185,14 +180,14 @@
         </div>
 
         <div class="bumps-label">Ưu đãi đặc biệt</div>
-        <div class="bumps-sub">Chọn thêm nếu muốn — có thể tick từng món, hoặc chọn Bundle để được giá tốt nhất.</div>
+        <div class="bumps-sub">Chọn thêm nếu muốn — có thể tick từng món, hoặc chọn Combo Tiết Kiệm để được giá tốt nhất.</div>
         <div class="bumps" id="bumpsSection">
           <label class="bump" data-key="diag">
             <input type="checkbox" id="optDiag">
             <div class="bump-info">
               <div class="bump-top">
-                <span class="bump-name">Blossomed Relationship Diagnosis</span>
-                <span class="bump-price-wrap"><span class="bump-price">+99.000đ</span></span>
+                <span class="bump-name">Bộ công cụ chẩn đoán năng lực xây dựng mối quan hệ hạnh phúc</span>
+                <span class="bump-price-wrap"><span class="bump-price">+149.000đ</span></span>
               </div>
               <div class="bump-desc">Bộ công cụ chẩn đoán chuyên sâu giúp bạn nhìn rõ vì sao mình chưa có mối quan hệ hạnh phúc và con đường chuyển hóa phù hợp với chính mình.</div>
               <div class="bump-benefits">
@@ -215,23 +210,23 @@
           </label>
 
           <label class="bump bundle" data-key="bundle">
-            <span class="save-badge">Tiết kiệm 62%</span>
+            <span class="save-badge">Tiết kiệm 63%</span>
             <input type="checkbox" id="optBundle">
             <div class="bump-info">
               <div class="bump-top">
-                <span class="bump-name">Bundle: Diagnosis + Phiên Khai Vấn 1:1 90 Phút</span>
-                <span class="bump-price-wrap"><span class="bump-price-strike">1.299.000đ</span><span class="bump-price">499.000đ</span></span>
+                <span class="bump-name">Combo Tiết Kiệm: Bộ Công Cụ Chẩn Đoán + Phiên Khai Vấn 1:1 90 Phút</span>
+                <span class="bump-price-wrap"><span class="bump-price-strike">1.349.000đ</span><span class="bump-price">499.000đ</span></span>
               </div>
-              <div class="bump-desc">Bao gồm cả Blossomed Relationship Diagnosis và Phiên Khai Vấn 1:1 — cách tiết kiệm nhất nếu bạn muốn cả 2.</div>
+              <div class="bump-desc">Bao gồm cả Bộ công cụ chẩn đoán năng lực xây dựng mối quan hệ hạnh phúc và Phiên Khai Vấn 1:1 — cách tiết kiệm nhất nếu bạn muốn cả 2.</div>
             </div>
           </label>
         </div>
 
         <div class="summary">
           <div class="summary-row"><span>Vé VIP — Bản Đồ Tình Yêu</span><span id="base">99.000đ</span></div>
-          <div class="summary-row" id="rowDiag" style="display:none"><span>Blossomed Relationship Diagnosis</span><span>+99.000đ</span></div>
+          <div class="summary-row" id="rowDiag" style="display:none"><span>Bộ công cụ chẩn đoán năng lực xây dựng mối quan hệ hạnh phúc</span><span>+149.000đ</span></div>
           <div class="summary-row" id="row1on1" style="display:none"><span>Phiên Khai Vấn 1:1 Chuyên Sâu 90 Phút</span><span>+1.200.000đ</span></div>
-          <div class="summary-row" id="rowBundle" style="display:none"><span>Bundle Diagnosis + 1:1</span><span>+499.000đ</span></div>
+          <div class="summary-row" id="rowBundle" style="display:none"><span>Combo Tiết Kiệm: Chẩn Đoán + 1:1</span><span>+499.000đ</span></div>
           <div class="summary-row summary-total"><span>Tổng</span><span id="total">99.000đ</span></div>
         </div>
 
@@ -253,43 +248,6 @@
         </div>
       </div>
 
-      <!-- STEP 2: Free success -->
-      <div class="card step-card hidden" id="step2Free">
-        <div class="step-head">
-          <div class="step-num" id="step2NumFree">2</div>
-          <div class="step-title">Đăng ký thành công</div>
-        </div>
-        <div class="success-box">
-          <div class="success-check">✓</div>
-          <div class="success-title">Đăng ký thành công!</div>
-          <p class="success-lead">Cảm ơn bạn đã đăng ký Vé Tiêu Chuẩn — Bản Đồ Tình Yêu. Chỗ của bạn đã được giữ và thông tin tham dự đã gửi qua email.</p>
-        </div>
-
-        <div class="steps-list">
-          <div class="step-item">
-            <div class="step-item-num">1</div>
-            <div>
-              <div class="step-item-title">Kiểm tra hộp thư email</div>
-              <div class="step-item-desc">Email xác nhận + link Zoom tham dự workshop đã được gửi. Nếu không thấy, check tab Promotions/Spam.</div>
-            </div>
-          </div>
-          <div class="step-item">
-            <div class="step-item-num">2</div>
-            <div>
-              <div class="step-item-title">Tham gia Zalo group hỗ trợ</div>
-              <div class="step-item-desc">Link nhóm có trong email xác nhận để nhận hỗ trợ và nhắc lịch trước 2 buổi học.</div>
-            </div>
-          </div>
-          <div class="step-item">
-            <div class="step-item-num">3</div>
-            <div>
-              <div class="step-item-title">Chuẩn bị cho Buổi 1</div>
-              <div class="step-item-desc">Mở Workbook được gửi và chuẩn bị tâm thế sẵn sàng cho buổi "Chẩn Đoán".</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
 </div>
@@ -297,36 +255,13 @@
 <script>
   const GAS_URL = 'https://script.google.com/macros/s/AKfycbxgJsI1X1bJrDc0hbCk4EIrD7RzajFIuVk1jd22Z-7QNONFQ8XiTMHiRNZfBqbQHNulzQ/exec';
   const BASE_PRICE = 99000;
-  const DIAG_PRICE = 99000;
+  const DIAG_PRICE = 149000;
   const ONEONONE_PRICE = 1200000;
   const BUNDLE_PRICE = 499000;
   const BANK_ACCOUNT = '109006855197';
   const BANK_CODE = 'ICB';
 
-  const isFree = new URLSearchParams(location.search).get('tier') === 'free';
   const submitBtn = document.getElementById('submitBtn');
-
-  // ---- Sidebar content per tier ----
-  const vipBenefits = [
-    'Tham dự trực tiếp 02 buổi Workshop Live Online',
-    'Workbook để ghi chép và thực hành',
-    'Video Recording trọn đời của cả hai buổi học',
-    'Bộ 20 câu hỏi "Lọc Đối Tượng" áp dụng ngay từ 3 buổi hẹn đầu tiên',
-    'Ebook: Xuất hiện đúng nơi có xác suất gặp bạn đời tương lai cao nhất'
-  ];
-  const freeBenefits = [
-    'Tham dự 2 buổi Workshop Live Online qua Zoom',
-    'Workbook cơ bản để thực hành trực tiếp'
-  ];
-
-  if (isFree) {
-    document.getElementById('sbTitle').textContent = 'Bản Đồ Tình Yêu — Vé Tiêu Chuẩn';
-    document.getElementById('sbPrice').textContent = '0 ĐỒNG';
-    document.getElementById('sbBenefits').innerHTML = freeBenefits.map(b => '<li>' + b + '</li>').join('');
-    submitBtn.textContent = 'Giữ Chỗ Miễn Phí →';
-  } else {
-    document.getElementById('sbBenefits').innerHTML = vipBenefits.map(b => '<li>' + b + '</li>').join('');
-  }
 
   function formatVnd(n) { return Number(n).toLocaleString('en-US').replace(/,/g, '.'); }
 
@@ -347,7 +282,7 @@
       goal: form.get('goal'),
       bump1: false,
       bump2: false,
-      totalAmount: isFree ? 0 : BASE_PRICE
+      totalAmount: BASE_PRICE
     };
 
     try {
@@ -375,19 +310,14 @@
       document.getElementById('orderForm').style.display = 'none';
       document.querySelector('#step1Card .form-note').style.display = 'none';
 
-      if (isFree) {
-        document.getElementById('step2Free').classList.remove('hidden');
-        document.getElementById('step2Free').scrollIntoView({ behavior: 'smooth', block: 'start' });
-      } else {
-        document.getElementById('step2Vip').classList.remove('hidden');
-        document.getElementById('step2Vip').scrollIntoView({ behavior: 'smooth', block: 'start' });
-        initVipStep(order);
-      }
+      document.getElementById('step2Vip').classList.remove('hidden');
+      document.getElementById('step2Vip').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      initVipStep(order);
     } catch (err) {
       errEl.textContent = 'Lỗi: ' + err.message + '. Vui lòng thử lại.';
       errEl.style.display = 'block';
       btn.disabled = false;
-      btn.textContent = isFree ? 'Giữ Chỗ Miễn Phí →' : 'Tiếp tục →';
+      btn.textContent = 'Tiếp tục →';
     }
   });
 

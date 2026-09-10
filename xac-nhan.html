@@ -58,7 +58,7 @@
       <div class="step-num">2</div>
       <div class="step-text">
         <div class="step-title">Tham gia Zalo group hỗ trợ</div>
-        <div class="step-desc">Link nhóm có trong email xác nhận để nhận hỗ trợ và nhắc lịch trước 2 buổi học (30 & 31/10/2026, 20h00).</div>
+        <div class="step-desc">Vào nhóm để nhận hỗ trợ và nhắc lịch trước 2 buổi học (30 & 31/10/2026, 20h00): <a href="https://zalo.me/g/pza1f6nusnkpoth1fgeh" id="zaloLink" target="_blank" rel="noopener">Tham gia nhóm Zalo →</a></div>
       </div>
     </div>
     <div class="step">
@@ -76,6 +76,9 @@
 </div>
 
 <script>
+  const FREE_ZALO_URL = 'https://zalo.me/g/cg1o5crvsuu9so2f9bc';
+  const VIP_ZALO_URL = 'https://zalo.me/g/pza1f6nusnkpoth1fgeh';
+
   const order = JSON.parse(sessionStorage.getItem('order') || '{}');
   if (order.orderId) {
     document.getElementById('orderId').textContent = order.orderId;
@@ -84,7 +87,10 @@
     const amt = Number(order.totalAmount || 0).toLocaleString('en-US').replace(/,/g, '.');
     document.getElementById('orderAmount').textContent = amt + 'đ';
 
-    if (Number(order.totalAmount) === 0) {
+    const isFree = Number(order.totalAmount) === 0;
+    document.getElementById('zaloLink').href = isFree ? FREE_ZALO_URL : VIP_ZALO_URL;
+
+    if (isFree) {
       document.getElementById('titleText').textContent = 'Đăng ký thành công!';
       document.getElementById('leadText').textContent = 'Cảm ơn bạn đã đăng ký Vé Tiêu Chuẩn — Bản Đồ Tình Yêu. Chỗ của bạn đã được giữ và thông tin tham dự đã gửi qua email.';
     }
