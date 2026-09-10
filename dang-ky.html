@@ -23,12 +23,12 @@
 
   .page { max-width: 1000px; margin: 0 auto; padding: 32px 20px 60px; }
   .layout { display: grid; grid-template-columns: 320px 1fr; gap: 28px; align-items: start; }
-  @media (max-width: 800px) { .layout { grid-template-columns: 1fr; } .sidebar { position: static; } }
 
   .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: 0 12px 36px var(--accent-soft); padding: 28px; }
 
   /* Sidebar */
   .sidebar { position: sticky; top: 20px; }
+  @media (max-width: 800px) { .layout { grid-template-columns: 1fr; } .sidebar { position: static; } }
   .sidebar-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent-deep); margin-bottom: 6px; }
   .sidebar h2 { font-family: var(--font-h); font-size: 1.3rem; margin-bottom: 18px; }
   .sched-row { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; }
