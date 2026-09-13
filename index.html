@@ -17,14 +17,14 @@
 
 <style>
 :root {
-  --bg: #FFFBF8;
+  --bg: #FCF1ED;
   --surface: #FFFFFF;
-  --surface-2: #FFF3ED;
+  --surface-2: #ECC8C8;
   --text: #3D2222;
   --text-muted: #6B4848;
-  --accent: #C96A6A;
-  --accent-soft: rgba(201, 106, 106, 0.12);
-  --accent-deep: #8C4646;
+  --accent: #D37881;
+  --accent-soft: rgba(211, 120, 129, 0.12);
+  --accent-deep: #8C4A4E;
   --border: rgba(61, 34, 34, 0.1);
 
   --font-h: 'Lora', Georgia, serif;
@@ -56,6 +56,7 @@ p { color: var(--text-muted); }
 .container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
 .container-narrow { max-width: var(--max-w-narrow); margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
 .section { padding: var(--section-py) 0; position: relative; overflow: hidden; }
+.section:has(.deco-daisy-cluster) { overflow: visible; }
 .section-alt { background: var(--surface-2); }
 
 /* Decorative flower accents (từ logo) */
@@ -71,6 +72,38 @@ p { color: var(--text-muted); }
 .deco-branch--right { bottom: 4%; right: -16px; width: 64px; height: 130px; transform: scaleX(-1); }
 @media (max-width: 700px) { .deco-branch { opacity: 0.12; width: 46px; height: 96px; } }
 
+.deco-daisy-cluster { position: absolute; top: -40px; left: 0; width: 140px; height: 140px; pointer-events: none; z-index: 2; }
+.deco-daisy-cluster .deco-daisy { position: absolute; }
+.deco-daisy-cluster .deco-daisy:nth-child(1) { top: 6px; left: 44px; width: 74px; height: 74px; }
+.deco-daisy-cluster .deco-daisy:nth-child(2) { top: 60px; left: 2px; width: 48px; height: 48px; }
+.deco-daisy-cluster .deco-daisy:nth-child(3) { top: 78px; left: 62px; width: 58px; height: 58px; }
+.deco-daisy-cluster--br { top: auto; left: auto; bottom: -40px; right: 0; }
+.deco-daisy-cluster--br .deco-daisy:nth-child(1) { top: auto; left: auto; bottom: 6px; right: 44px; }
+.deco-daisy-cluster--br .deco-daisy:nth-child(2) { top: auto; left: auto; bottom: 60px; right: 2px; }
+.deco-daisy-cluster--br .deco-daisy:nth-child(3) { top: auto; left: auto; bottom: 78px; right: 62px; }
+.deco-daisy-cluster--tr { top: -40px; left: auto; right: 0; }
+.deco-daisy-cluster--tr .deco-daisy:nth-child(1) { top: 6px; left: auto; right: 44px; }
+.deco-daisy-cluster--tr .deco-daisy:nth-child(2) { top: 60px; left: auto; right: 2px; }
+.deco-daisy-cluster--tr .deco-daisy:nth-child(3) { top: 78px; left: auto; right: 62px; }
+@media (max-width: 700px) { .deco-daisy-cluster { transform: scale(0.75); transform-origin: top left; } .deco-daisy-cluster--br { transform-origin: bottom right; } .deco-daisy-cluster--tr { transform-origin: top right; } }
+
+.wave-divider { position: absolute; left: 0; right: 0; bottom: -1px; width: 100%; height: 36px; line-height: 0; pointer-events: none; z-index: 1; }
+.wave-divider svg { width: 100%; height: 100%; display: block; }
+.wave-divider--top { bottom: auto; top: -1px; transform: scaleY(-1); }
+
+.philosophy-block { background: var(--surface); border-radius: var(--radius); padding: 48px 32px; margin: 40px 0; text-align: center; position: relative; overflow: hidden; }
+.philosophy-block::before { content: ''; position: absolute; inset: 0; background-image: var(--bg-photo, none); background-size: cover; background-position: center; opacity: 0.28; z-index: 0; }
+.philosophy-block > * { position: relative; z-index: 1; }
+.philosophy-block h3 { position: relative; font-family: var(--font-h); font-style: italic; font-weight: 600; font-size: clamp(1.35rem, 2.9vw, 1.9rem); color: var(--accent); margin: 0 auto 18px; max-width: 620px; line-height: 1.4; }
+.philosophy-block h3::before, .philosophy-block h3::after { content: '\201C'; font-family: Georgia, serif; font-size: 2.2em; font-weight: 700; color: var(--accent); opacity: 0.35; line-height: 0; vertical-align: -0.35em; }
+.philosophy-block h3::before { margin-right: 4px; }
+.philosophy-block h3::after { content: '\201D'; margin-left: 4px; }
+.philosophy-block p { color: var(--text); max-width: 640px; margin-left: auto; margin-right: auto; }
+.philosophy-block .philosophy-question { font-weight: 700; margin-top: 18px; font-size: 1.05rem; }
+
+.text-card { background: var(--surface); border-radius: var(--radius); padding: 40px 36px; box-shadow: 0 12px 36px rgba(61,34,34,0.08); }
+@media (max-width: 600px) { .text-card { padding: 28px 22px; } }
+
 .badge {
   display: inline-block; padding: 8px 18px; border-radius: 999px;
   background: var(--accent-soft); color: var(--accent-deep);
@@ -79,7 +112,7 @@ p { color: var(--text-muted); }
 }
 .btn-primary {
   display: inline-block; padding: 19px 42px;
-  background: linear-gradient(180deg, #DE8C8C 0%, var(--accent) 50%, var(--accent-deep) 100%);
+  background: linear-gradient(180deg, #E0A1A7 0%, var(--accent) 50%, var(--accent-deep) 100%);
   color: #FFFFFF; border-radius: 999px;
   font-weight: 800; font-size: 1.02rem; font-family: var(--font-h);
   text-transform: uppercase; letter-spacing: 0.03em;
@@ -153,7 +186,7 @@ p { color: var(--text-muted); }
 /* Eyebrow */
 .eyebrow {
   display: inline-block; font-family: var(--font-h); font-size: 0.85rem;
-  letter-spacing: 0.14em; text-transform: uppercase; color: #6E2F2F;
+  letter-spacing: 0.14em; text-transform: uppercase; color: #65393E;
   font-weight: 700; margin-bottom: 18px;
 }
 .eyebrow::before { content: "✦  "; }
@@ -165,7 +198,7 @@ p { color: var(--text-muted); }
 .story-narrative p.muted { color: var(--text-muted); }
 .story-narrative .pull-quote {
   font-family: var(--font-h); font-size: 1.3rem; font-style: italic;
-  color: #AA5757; border-left: 3px solid var(--accent);
+  color: #AF646B; border-left: 3px solid var(--accent);
   padding-left: 24px; margin: 32px 0; font-weight: 600;
 }
 
@@ -213,7 +246,7 @@ p { color: var(--text-muted); }
 .contrast-col h3 { margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
 .contrast-col ul { list-style: none; padding: 0; }
 .contrast-col li { padding: 10px 0 10px 28px; position: relative; color: var(--text); font-size: 0.96rem; }
-.contrast-no li::before { content: "✕"; position: absolute; left: 0; color: #8B4444; font-weight: 700; }
+.contrast-no li::before { content: "✕"; position: absolute; left: 0; color: var(--accent-deep); font-weight: 700; }
 .contrast-yes li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
 .contrast-yes h3 { color: var(--accent-deep); }
 .contrast-no h3 { color: var(--text-muted); }
@@ -238,13 +271,13 @@ p { color: var(--text-muted); }
 .pillar:nth-child(1) .pillar-num { background: var(--accent); }
 .pillar:nth-child(1) .pillar-quote { color: var(--accent-deep); border-left-color: var(--accent); }
 
-.pillar:nth-child(2) { background: #FDF2F0; }
-.pillar:nth-child(2) .pillar-num { background: #C07A78; }
-.pillar:nth-child(2) .pillar-quote { color: #97514F; border-left-color: #C07A78; }
+.pillar:nth-child(2) { background: #FCF5F6; }
+.pillar:nth-child(2) .pillar-num { background: #CA8A92; }
+.pillar:nth-child(2) .pillar-quote { color: #9F5C60; border-left-color: #CA8A92; }
 
-.pillar:nth-child(3) { background: #FBE6E4; }
-.pillar:nth-child(3) .pillar-num { background: #A85C58; }
-.pillar:nth-child(3) .pillar-quote { color: #7D3C39; border-left-color: #A85C58; }
+.pillar:nth-child(3) { background: #F9ECED; }
+.pillar:nth-child(3) .pillar-num { background: #B0686B; }
+.pillar:nth-child(3) .pillar-quote { color: #834445; border-left-color: #B0686B; }
 .pillar-num {
   position: absolute; top: -16px; left: 32px;
   background: var(--accent); color: #FFFFFF;
@@ -367,7 +400,7 @@ body.modal-open { overflow: hidden; }
 .sticky-cta a { display: block; text-align: center; }
 @media (max-width: 700px) { .sticky-cta { display: block; } body { padding-bottom: 76px; } }
 
-footer { padding: 32px 0; background: var(--accent-deep); border-top: 3px solid var(--accent); text-align: center; color: #FFFFFF; font-size: 0.875rem; font-weight: 600; }
+footer { padding: 32px 0; background: var(--accent); border-top: 1px solid rgba(255,255,255,0.25); text-align: center; color: #FFFFFF; font-size: 0.875rem; font-weight: 600; }
 footer p { color: inherit; }
 </style>
 </head>
@@ -391,6 +424,17 @@ footer p { color: inherit; }
       <circle cx="18" cy="68" r="3.5" fill="var(--accent)" stroke="none"/>
       <circle cx="72" cy="35" r="3.5" fill="var(--accent)" stroke="none"/>
       <circle cx="26" cy="4" r="3.5" fill="var(--accent)" stroke="none"/>
+    </g>
+    <g id="deco-daisy-shape">
+      <ellipse cx="50" cy="21" rx="7" ry="19" fill="var(--accent)" opacity="0.4"/>
+      <ellipse cx="50" cy="21" rx="7" ry="19" fill="var(--accent)" opacity="0.4" transform="rotate(45 50 50)"/>
+      <ellipse cx="50" cy="21" rx="7" ry="19" fill="var(--accent)" opacity="0.4" transform="rotate(90 50 50)"/>
+      <ellipse cx="50" cy="21" rx="7" ry="19" fill="var(--accent)" opacity="0.4" transform="rotate(135 50 50)"/>
+      <ellipse cx="50" cy="21" rx="7" ry="19" fill="var(--accent)" opacity="0.4" transform="rotate(180 50 50)"/>
+      <ellipse cx="50" cy="21" rx="7" ry="19" fill="var(--accent)" opacity="0.4" transform="rotate(225 50 50)"/>
+      <ellipse cx="50" cy="21" rx="7" ry="19" fill="var(--accent)" opacity="0.4" transform="rotate(270 50 50)"/>
+      <ellipse cx="50" cy="21" rx="7" ry="19" fill="var(--accent)" opacity="0.4" transform="rotate(315 50 50)"/>
+      <circle cx="50" cy="50" r="8" fill="#1A1A1A"/>
     </g>
   </defs>
 </svg>
@@ -436,11 +480,16 @@ footer p { color: inherit; }
 
 <!-- ===================== PROBLEM ===================== -->
 <section class="section section-alt" id="pain">
+  <div class="deco-daisy-cluster">
+    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
+    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
+    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
+  </div>
   <svg class="deco-branch deco-branch--right" viewBox="0 0 100 140"><use href="#deco-branch-shape"/></svg>
   <div class="container-narrow story-narrative">
     <span class="eyebrow">Có phải bạn đang...</span>
     <h2>Bạn Có Đang Thấy Mình Trong <span class="text-accent">Những Dòng Này?</span></h2>
-    <div class="mt-8">
+    <div class="mt-8 text-card">
       <p>Bạn là một người phụ nữ có học thức, tử tế và độc lập. Bạn có một công việc tốt, tự lo được cho cuộc sống của mình. Người ngoài nhìn vào thường không khỏi thắc mắc: "Xinh đẹp, giỏi giang thế này sao vẫn ế?"</p>
       <p>Nhưng họ không biết rằng, đằng sau lớp vỏ bọc bình ổn ấy... những đêm cuối tuần đi làm về một mình, bạn thực sự khao khát có một bờ vai để tựa vào.</p>
       <p>Bạn chỉ muốn một mối quan hệ khiến mình cảm thấy bình yên. Một người mà khi ở bên, bạn không phải đoán ý, tự trấn an mình hay thấp thỏm tự hỏi: "Anh ấy có thật lòng với mình không?"</p>
@@ -458,6 +507,11 @@ footer p { color: inherit; }
       <p>Đồng thời, Phương sẽ chỉ cho bạn một hệ thống 3 bước đã giúp rất nhiều phụ nữ tuổi 30 gỡ bỏ sự phòng thủ, nhìn thấu những rào cản ngầm đang ngăn bạn chạm tới tình yêu bình yên và thu hút đúng người bạn đời tử tế.</p>
       <p>Nhưng trước khi đi vào chi tiết, chúng ta cần làm rõ một sự thật đau lòng...</p>
     </div>
+  </div>
+  <div class="deco-daisy-cluster deco-daisy-cluster--br">
+    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
+    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
+    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
   </div>
 </section>
 
@@ -525,10 +579,18 @@ footer p { color: inherit; }
       <p>Nó đòi hỏi <strong>sự đồng bộ sâu sắc từ bên trong ra bên ngoài (inside - outside)</strong>, và đây là 3 trụ cột sẽ giúp bạn chấm dứt chuỗi ngày loay hoay mãi mãi:</p>
     </div>
   </div>
+  <div class="wave-divider">
+    <svg viewBox="0 0 1000 40" preserveAspectRatio="none"><path d="M0,0 C 150,38 350,4 500,18 C 650,32 850,2 1000,14 L1000,40 L0,40 Z" fill="var(--surface-2)"/></svg>
+  </div>
 </section>
 
 <!-- ===================== 3 TRỤ CỘT ===================== -->
 <section class="section section-alt" id="pillars">
+  <div class="deco-daisy-cluster">
+    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
+    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
+    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
+  </div>
   <svg class="deco-flower deco-flower--tr" viewBox="0 0 100 100"><use href="#deco-flower-shape"/></svg>
   <div class="container">
     <div class="text-center">
@@ -581,12 +643,19 @@ footer p { color: inherit; }
       <p class="stage-caption">Bộ công cụ đo lường năng lực kiến tạo mối quan hệ hạnh phúc (Blossomed Relationship Diagnosis) do Phương nghiên cứu và phát triển dựa trên mô hình ba trụ cột đã được vào chung kết cuộc thi Solo Star Contest.</p>
     </div>
   </div>
+  <div class="wave-divider">
+    <svg viewBox="0 0 1000 40" preserveAspectRatio="none"><path d="M0,0 C 150,38 350,4 500,18 C 650,32 850,2 1000,14 L1000,40 L0,40 Z" fill="var(--bg)"/></svg>
+  </div>
 </section>
 
 <!-- ===================== CASE STUDY ===================== -->
 <!-- ===================== CHƯƠNG TRÌNH 2 BUỔI ===================== -->
-<section class="section section-alt" id="curriculum">
-  <svg class="deco-flower deco-flower--tl" viewBox="0 0 100 100"><use href="#deco-flower-shape"/></svg>
+<section class="section" id="curriculum">
+  <div class="deco-daisy-cluster">
+    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
+    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
+    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
+  </div>
   <div class="container">
     <div class="text-center">
       <span class="eyebrow">Nội dung workshop</span>
@@ -621,10 +690,23 @@ footer p { color: inherit; }
       </div>
     </div>
   </div>
+  <div class="wave-divider">
+    <svg viewBox="0 0 1000 40" preserveAspectRatio="none"><path d="M0,0 C 150,38 350,4 500,18 C 650,32 850,2 1000,14 L1000,40 L0,40 Z" fill="var(--surface-2)"/></svg>
+  </div>
 </section>
 
 <!-- ===================== HÌNH ẢNH WORKSHOP THỰC TẾ ===================== -->
 <section class="section section-alt" id="workshop-real">
+  <div class="deco-daisy-cluster">
+    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
+    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
+    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
+  </div>
+  <div class="deco-daisy-cluster deco-daisy-cluster--br">
+    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
+    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
+    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
+  </div>
   <div class="container text-center">
     <span class="eyebrow">Đã diễn ra</span>
     <h2>Hình Ảnh <span class="text-accent">Thực Tế</span> Từ Các Buổi Workshop Đã Tổ Chức</h2>
@@ -678,6 +760,11 @@ footer p { color: inherit; }
 
 <!-- ===================== WORKSHOP NÀY CÓ DÀNH CHO BẠN ===================== -->
 <section class="section section-alt" id="audience-fit">
+  <div class="deco-daisy-cluster">
+    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
+    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
+    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
+  </div>
   <div class="container">
     <div class="text-center">
       <span class="eyebrow">Trước khi bạn quyết định</span>
@@ -703,6 +790,11 @@ footer p { color: inherit; }
         </ul>
       </div>
     </div>
+  </div>
+  <div class="deco-daisy-cluster deco-daisy-cluster--br">
+    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
+    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
+    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
   </div>
 </section>
 
@@ -736,6 +828,11 @@ footer p { color: inherit; }
 <section class="section section-alt" id="offer">
   <svg class="deco-flower deco-flower--tl" viewBox="0 0 100 100"><use href="#deco-flower-shape"/></svg>
   <svg class="deco-flower deco-flower--br" viewBox="0 0 100 100"><use href="#deco-flower-shape"/></svg>
+  <div class="deco-daisy-cluster deco-daisy-cluster--tr">
+    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
+    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
+    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
+  </div>
   <div class="container-narrow">
     <div class="text-center">
       <span class="eyebrow">Giữ chỗ ngay hôm nay</span>
@@ -778,6 +875,11 @@ footer p { color: inherit; }
       <p class="mt-4">Hãy đăng ký vé VIP và tham gia trọn vẹn Buổi 1. Nếu sau Buổi 1, bạn cảm thấy những gì Phương chia sẻ không mang lại sự sáng tỏ hay giá trị thực tế nào cho bạn, chỉ cần nhắn tin cho đội ngũ hỗ trợ, Phương sẽ hoàn trả 100% phí vé VIP cho bạn ngay lập tức, không hỏi thêm một lời nào.</p>
       <p class="mt-4">Bạn vẫn được giữ lại toàn bộ tài liệu như một lời cảm ơn vì đã dành thời gian cho Phương.</p>
     </div>
+  </div>
+  <div class="deco-daisy-cluster deco-daisy-cluster--br">
+    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
+    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
+    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
   </div>
 </section>
 
@@ -826,19 +928,21 @@ Bạn sẽ mang về một bản đồ và hệ quy chiếu để tiếp tục s
   <svg class="deco-flower deco-flower--tr" viewBox="0 0 100 100"><use href="#deco-flower-shape"/></svg>
   <div class="container-narrow text-center story-narrative">
     <h2>Trước Khi Bạn Rời Khỏi Trang Này...<br>Bạn Đang Đứng Trước <span class="text-accent">2 Ngã Rẽ</span></h2>
-    <div class="mt-8" style="text-align: left;">
+    <div class="mt-8 text-card" style="text-align: left;">
       <p>Phương biết bạn có thể nhấn nút [X] ở góc màn hình, đóng trang web này lại và quay trở về với nhịp sống bận rộn thường ngày.</p>
       <p style="color: var(--text); font-weight: 500;">Nhưng hãy thành thật với nhau: Ngày mai, mọi thứ sẽ vẫn như cũ.</p>
       <p>Bạn vẫn sẽ đi làm về trong căn phòng trống. Vẫn những cái thở dài khi thấy bạn bè đăng ảnh gia đình. Vẫn sự hoang mang mỗi khi có ai đó tiếp cận, không biết họ có thật lòng hay không. Thời gian trôi đi, và nỗi sợ tuổi tác sẽ càng làm bạn áp lực hơn.</p>
       <p style="color: var(--text); font-weight: 500;">Nhưng bạn có một lựa chọn khác tốt hơn rất nhiều.</p>
       <p>Chỉ cần dành ra 2 buổi tối cùng Phương. Không rủi ro. Không cần phải diễn kịch hay cố biến mình thành người khác.</p>
-      <p>Bạn sẽ bước ra với sự nhẹ nhõm, tự tin và một tấm bản đồ rõ ràng để biết mình cần làm gì tiếp theo nhằm đón nhận người đàn ông thực sự thuộc về bạn.</p>
-      <p class="pull-quote">Thanh xuân của phụ nữ rất ngắn, đừng lãng phí thêm thời gian để đi đường vòng hay đau lòng vì những người không xứng đáng nữa.</p>
+      <p>Bạn sẽ bước ra với một trái tim nhẹ nhõm, niềm tin dịu dàng mà vững vàng vào chính mình và Tấm Bản Đồ rõ ràng để từng bước mở lòng đón nhận người bạn đời phù hợp, cùng nhau viết nên câu chuyện tình yêu ấm áp và cuộc hôn nhân hạnh phúc mà bạn hằng mong ước.</p>
       <div class="inline-photo" style="max-width: 100%;">
         <img src="https://drive.google.com/thumbnail?id=1UTTPbYrhVw0oEZ2isLQMxmHBXY_ea_VD&sz=w1000" alt="My Phương - Happiness Coach">
       </div>
-      <p class="pull-quote">Bạn có sẵn sàng chọn mình và đầu tư cho hạnh phúc mà bạn thật sự xứng đáng?</p>
-      <p style="color: var(--text); font-weight: 600;">Quyết định là ở bạn.</p>
+    </div>
+    <div class="philosophy-block">
+      <h3>Đã Đến Lúc Bạn Đưa Ra Lựa Chọn Cho Mình</h3>
+      <p>Hạnh phúc của bạn xứng đáng được ưu tiên. Khi hiểu mình sâu hơn, bạn không chỉ sẵn sàng cho một mối quan hệ tốt đẹp hơn, mà còn đặt nền móng cho một cuộc sống bình an, rạng rỡ và bền vững hơn.</p>
+      <p class="philosophy-question">Bạn có sẵn sàng chọn mình và đầu tư cho hạnh phúc mà bạn thật sự xứng đáng?</p>
     </div>
     <div class="mt-12">
       <a href="dang-ky.html" class="btn-primary" style="font-size: 1.15rem;">TÔI MUỐN ĐĂNG KÝ VÉ VIP</a>
