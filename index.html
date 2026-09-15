@@ -158,6 +158,10 @@ p { color: var(--text-muted); }
 
 .text-center { text-align: center; }
 .text-accent { color: var(--accent); }
+.text-gold { color: var(--accent-gold); font-weight: 700; }
+.highlight-box { background: var(--accent-soft); border-radius: var(--radius); padding: 28px 30px; margin: 24px 0; }
+.highlight-box p { color: var(--text); font-weight: 500; margin-bottom: 10px; }
+.highlight-box p:last-child { margin-bottom: 0; }
 .text-muted { color: var(--text-muted); }
 .mt-2 { margin-top: 8px; } .mt-4 { margin-top: 16px; } .mt-6 { margin-top: 24px; }
 .mt-8 { margin-top: 32px; } .mt-12 { margin-top: 48px; } .mt-16 { margin-top: 64px; }
@@ -492,7 +496,7 @@ footer p { color: inherit; }
   <div class="container text-center">
     <span class="eyebrow-pill">✦ Dành cho phụ nữ độc thân từ 27-35 muốn có tình yêu nghiêm túc và tiến tới hôn nhân hạnh phúc</span>
     <h1>Làm thế nào để gặp <span class="text-accent">Đúng Người</span> và tiến đến <span class="text-accent">Hôn Nhân Viên Mãn</span></h1>
-    <p class="mt-6" style="font-size: 1.15rem; max-width: 680px; margin: 0 auto; color: var(--text);">
+    <p class="mt-6" style="font-size: 1.05rem; max-width: 680px; margin: 0 auto; color: var(--text);">
       Ngay cả khi bạn rất bận rộn, mất niềm tin về tình yêu hoặc từng chịu nhiều tổn thương trong quá khứ.
     </p>
     <p class="mt-4 text-muted" style="max-width: 640px; margin-left: auto; margin-right: auto;">
@@ -534,8 +538,10 @@ footer p { color: inherit; }
       <p>Bạn đã thử mở lòng và gặp gỡ, nhưng rồi vẫn thấy mình bước vào những mối quan hệ không phù hợp, lặp lại những tổn thương cũ mà không hiểu vì sao.</p>
       <p>Bạn dần mất niềm tin rằng mình có thể có được một tình yêu đẹp và một cuộc hôn nhân hạnh phúc, có lẽ những điều đó chẳng bao giờ dành cho mình.</p>
       <p>Thậm chí, có lúc bạn tự nghĩ: "Hay là do mình chưa đủ tốt? Hay là do mình quá khó tính? Khéo mình ở vậy đến già mất..."</p>
-      <p>Là phụ nữ, tất cả chúng ta đều mơ ước mình được yêu thương, tìm thấy chỗ dựa, được thấu hiểu, được trân trọng và gắn bó lâu dài với một người đàn ông mà chúng ta tôn trọng và yêu thương.</p>
-      <p>Và Phương biết bạn đã cố gắng bằng tất cả những gì bạn có để có được tình yêu mà bạn hằng mơ ước.</p>
+      <div class="highlight-box">
+        <p>Là phụ nữ, tất cả chúng ta đều mơ ước mình được yêu thương, tìm thấy chỗ dựa, được thấu hiểu, được trân trọng và gắn bó lâu dài với một người đàn ông mà chúng ta tôn trọng và tin tưởng.</p>
+        <p>Và Phương biết bạn đã cố gắng bằng tất cả những gì bạn có để có được tình yêu mà bạn hằng mơ ước.</p>
+      </div>
       <p style="color: var(--text); font-weight: 500;">Nhưng hãy dừng lại một chút.</p>
       <p class="pull-quote">"Việc bạn chưa gặp được đúng người... không phải vì bạn chưa đủ tốt. Và cũng không phải vì bạn 'chưa biết cách hẹn hò'. Vấn đề nằm ở chỗ khác."</p>
       <p>Trong vài phút tới đây, Phương sẽ tiết lộ cho bạn lý do tại sao những lời khuyên phổ biến như "chỉ cần tập trung phát triển bản thân thì người tuyệt vời sẽ tự đến" lại chính là thứ đang kìm hãm bạn.</p>
@@ -668,7 +674,7 @@ footer p { color: inherit; }
       <p style="color: var(--text); font-weight: 500;">Bạn hoàn toàn yên tâm.</p>
       <p>Bạn không cần phải ép mình tham gia hàng tá những cuộc hẹn hò vô nghĩa hay phải gồng mình trở thành một chuyên gia tâm lý.</p>
       <p>Hệ thống này sinh ra chính là để giúp bạn tiết kiệm tối đa thời gian và năng lượng cảm xúc của mình.</p>
-      <p>Thay vì phải tự mình "thử và sai" hết lần này đến lần khác, bạn chỉ cần nắm trong tay tấm bản đồ này để lọc đi những người không phù hợp và đi thẳng đến đích.</p>
+      <p>Thay vì phải tự mình "thử và sai" hết lần này đến lần khác, bạn chỉ cần nắm trong tay Tấm Bản Đồ Tình Yêu, một lộ trình rõ ràng, đã được kiểm chứng, dẫn bạn từng bước tiến gần hơn đến mối quan hệ tốt đẹp, nơi bạn được yêu thương, trân trọng và an tâm cùng bạn đời xây dựng tương lai hạnh phúc.</p>
     </div>
 
     <div class="text-center" id="workshop-gallery" style="margin-top: 56px; padding-top: 48px; border-top: 1px solid var(--border);">
@@ -909,8 +915,8 @@ footer p { color: inherit; }
 
     <div class="guarantee-box">
       <span class="badge" style="background: var(--accent); color: #FFFFFF; font-size: 1.05rem; padding: 12px 28px; box-shadow: 0 8px 24px var(--accent-soft);">Cam Kết Hoàn Tiền 100%</span>
-      <p class="mt-6" style="color: var(--text);">Đặc biệt, nếu bạn chọn đăng ký vé VIP, Phương mang đến cho bạn một cam kết hoàn tiền 100% hoàn toàn không rủi ro.</p>
-      <p class="mt-4">Hãy đăng ký vé VIP và tham gia trọn vẹn Buổi 1. Nếu sau Buổi 1, bạn cảm thấy những gì Phương chia sẻ không mang lại sự sáng tỏ hay giá trị thực tế nào cho bạn, chỉ cần nhắn tin cho đội ngũ hỗ trợ, Phương sẽ hoàn trả 100% phí vé VIP cho bạn ngay lập tức, không hỏi thêm một lời nào.</p>
+      <p class="mt-6" style="color: var(--text);">Đặc biệt, nếu bạn chọn đăng ký vé VIP, Phương mang đến cho bạn một cam kết hoàn tiền <span class="text-gold">100%</span> hoàn toàn không rủi ro.</p>
+      <p class="mt-4">Hãy đăng ký vé VIP và tham gia trọn vẹn Buổi 1. Nếu sau Buổi 1, bạn cảm thấy những gì Phương chia sẻ không mang lại sự sáng tỏ hay giá trị thực tế nào cho bạn, chỉ cần nhắn tin cho đội ngũ hỗ trợ, Phương sẽ hoàn trả <span class="text-gold">100%</span> phí vé VIP cho bạn ngay lập tức, không hỏi thêm một lời nào.</p>
       <p class="mt-4">Bạn vẫn được giữ lại toàn bộ tài liệu như một lời cảm ơn vì đã dành thời gian cho Phương.</p>
     </div>
   </div>
@@ -980,7 +986,7 @@ Bạn sẽ mang về một bản đồ và hệ quy chiếu để tiếp tục s
     <div class="philosophy-block">
       <h3>Đã Đến Lúc Bạn Đưa Ra Lựa Chọn Cho Mình</h3>
       <p>Hạnh phúc của bạn xứng đáng được ưu tiên. Khi hiểu mình sâu hơn, bạn không chỉ sẵn sàng cho một mối quan hệ tốt đẹp hơn, mà còn đặt nền móng cho một cuộc sống bình an, rạng rỡ và bền vững hơn.</p>
-      <p class="philosophy-question">Bạn có sẵn sàng chọn mình và đầu tư cho hạnh phúc mà bạn thật sự xứng đáng?</p>
+      <p class="philosophy-question">Bạn có sẵn sàng chọn mình và đầu tư cho mối quan hệ quan trọng và đáng giá nhất đời mình mà bạn thật sự xứng đáng?</p>
     </div>
     <div class="mt-12">
       <a href="dang-ky.html" class="btn-primary" style="font-size: 1.15rem;">TÔI MUỐN ĐĂNG KÝ VÉ VIP</a>
