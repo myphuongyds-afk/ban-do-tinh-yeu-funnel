@@ -127,7 +127,9 @@ p { color: var(--text-muted); }
 .philosophy-block p { color: var(--text); max-width: 640px; margin-left: auto; margin-right: auto; text-align: justify; }
 .philosophy-block .philosophy-question { font-family: var(--font-h); font-style: italic; font-weight: 700; color: var(--accent); margin-top: 18px; font-size: 1.25rem; text-align: center; }
 
-.text-card { background: var(--surface); border-radius: var(--radius); padding: 40px 36px; box-shadow: 0 12px 36px rgba(61,34,34,0.08); }
+.text-card { background: var(--surface); border-radius: var(--radius); padding: 40px 36px; box-shadow: 0 12px 36px rgba(61,34,34,0.08); position: relative; overflow: hidden; --bg-photo: none; }
+.text-card::before { content: ''; position: absolute; inset: 0; background-image: var(--bg-photo, none); background-size: cover; background-position: center; opacity: 0.28; z-index: 0; }
+.text-card > * { position: relative; z-index: 1; }
 @media (max-width: 600px) { .text-card { padding: 28px 22px; } }
 
 .badge {
@@ -162,6 +164,12 @@ p { color: var(--text-muted); }
 .highlight-box { background: var(--accent-soft); border-radius: var(--radius); padding: 28px 30px; margin: 24px 0; }
 .highlight-box p { color: var(--text); font-weight: 500; margin-bottom: 10px; text-align: justify; }
 .highlight-box p:last-child { margin-bottom: 0; }
+.milestone-row { display: flex; justify-content: center; align-items: flex-start; gap: 6px; flex-wrap: wrap; margin: 36px 0; }
+.milestone { text-align: center; width: 118px; }
+.milestone-circle { width: 68px; height: 68px; border-radius: 50%; background: var(--accent-soft); border: 2px solid var(--accent); display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; font-family: var(--font-h); font-weight: 700; color: var(--accent-deep); font-size: 0.85rem; line-height: 1.2; padding: 4px; }
+.milestone-label { font-size: 0.8rem; color: var(--text-muted); line-height: 1.35; }
+.milestone-arrow { align-self: center; color: var(--accent); font-size: 1.3rem; opacity: 0.5; margin-top: 24px; }
+@media (max-width: 600px) { .milestone-arrow { display: none; } }
 .benefit-list { list-style: none; max-width: 720px; margin: 0 auto; }
 .benefit-list li { padding: 12px 0 12px 34px; position: relative; color: var(--text); font-size: 1rem; }
 .benefit-list li::before { content: "✓"; position: absolute; left: 0; top: 12px; color: var(--accent); font-weight: 700; font-size: 1.1rem; }
@@ -191,7 +199,7 @@ p { color: var(--text-muted); }
 /* Hero */
 .hero {
   padding: clamp(56px, 10vw, 96px) 0 var(--section-py);
-  background: radial-gradient(ellipse at top, var(--accent-soft) 0%, var(--bg) 60%);
+  background: var(--surface);
   position: relative; overflow: hidden;
 }
 .hero-info {
@@ -257,6 +265,9 @@ p { color: var(--text-muted); }
 .founder-photo-wrap .name { font-family: var(--font-h); font-weight: 700; margin-top: 16px; font-size: 1.15rem; }
 .founder-photo-wrap .role { color: var(--accent-deep); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
 .founder-photo-wrap .credential { color: var(--text-muted); font-size: 0.85rem; margin-top: 8px; max-width: 380px; margin-left: auto; margin-right: auto; }
+.letter-avatar { width: 180px; height: 180px; border-radius: 50%; margin: 0 auto; padding: 8px; background: radial-gradient(circle, var(--accent-soft) 0%, transparent 70%); }
+.letter-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 12%; border-radius: 50%; border: 3px solid var(--accent); box-shadow: 0 8px 24px rgba(211,120,129,0.3); }
+.letter-signature { text-align: right; font-family: var(--font-h); font-style: italic; font-weight: 600; color: var(--accent); margin-top: 8px; }
 
 .inline-photo { border-radius: var(--radius); overflow: hidden; margin: 32px auto; max-width: 420px; box-shadow: 0 16px 40px var(--accent-soft); border: 1px solid var(--border); }
 
@@ -379,7 +390,9 @@ p { color: var(--text-muted); }
 /* Pricing table */
 .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; align-items: stretch; }
 .price-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 36px 30px; display: flex; flex-direction: column; }
-.price-card.vip { background: linear-gradient(160deg, var(--surface) 0%, var(--accent-soft) 100%); border: 2px solid var(--accent); position: relative; box-shadow: 0 20px 50px var(--accent-soft); }
+.price-card.vip { background: linear-gradient(160deg, var(--surface) 0%, var(--accent-soft) 100%); border: 3px solid var(--accent); position: relative; box-shadow: 0 24px 60px rgba(211,120,129,0.4); margin-top: 14px; }
+.price-card.vip .tag { font-size: 0.88rem; padding: 8px 20px; box-shadow: 0 6px 16px rgba(211,120,129,0.4); }
+.price-card.vip h3 { color: var(--accent); }
 .price-card .tag { position: absolute; top: -14px; right: 28px; background: var(--accent); color: #fff; padding: 6px 16px; border-radius: 999px; font-size: 0.8rem; font-weight: 700; font-family: var(--font-h); }
 .price-card h3 { text-align: center; }
 .price-card .price { font-family: var(--font-h); font-size: 2.2rem; font-weight: 800; text-align: center; margin: 12px 0 20px; color: var(--accent-deep); }
@@ -431,7 +444,9 @@ body.modal-open { overflow: hidden; }
 .faq-item .answer { padding: 0 24px 24px; color: var(--text-muted); white-space: pre-line; }
 
 /* Final CTA */
-.final-cta { background: linear-gradient(180deg, var(--surface-2) 0%, var(--accent-soft) 100%); border-top: 1px solid var(--border); }
+.final-cta { background: linear-gradient(180deg, var(--surface) 0%, var(--accent-soft) 100%); border-top: 1px solid var(--border); }
+.final-cta::before { content: ''; position: absolute; inset: 0; background-image: var(--bg-photo, none); background-size: cover; background-position: center; opacity: 0.35; z-index: 0; }
+.final-cta > .container-narrow { position: relative; z-index: 1; }
 .ps-note { margin-top: 40px; padding: 24px; border: 1px dashed var(--accent); border-radius: var(--radius); font-style: italic; color: var(--text); text-align: left; background: var(--surface); }
 .ps-note::before { content: "P.S. "; color: var(--accent-deep); font-weight: 700; font-style: normal; }
 
@@ -499,6 +514,11 @@ footer p { color: inherit; }
 <section class="hero" id="hero">
   <svg class="deco-flower deco-flower--tl" viewBox="0 0 100 100"><use href="#deco-flower-shape"/></svg>
   <svg class="deco-flower deco-flower--br" viewBox="0 0 100 100"><use href="#deco-flower-shape"/></svg>
+  <div class="deco-daisy-cluster deco-daisy-cluster--tr">
+    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
+    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
+    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
+  </div>
   <div class="container text-center">
     <span class="eyebrow-pill">✦ Dành cho phụ nữ độc thân từ 27-35 muốn có tình yêu nghiêm túc và tiến tới hôn nhân hạnh phúc</span>
     <h1>Làm thế nào để gặp <span class="text-accent">Đúng Người</span> và tiến&nbsp;đến <span class="text-accent">Hôn Nhân Viên Mãn</span></h1>
@@ -506,7 +526,7 @@ footer p { color: inherit; }
       Ngay cả khi bạn rất bận rộn, mất niềm tin về tình yêu hoặc từng chịu nhiều tổn thương trong quá khứ.
     </p>
     <p class="mt-4 text-muted" style="max-width: 640px; margin-left: auto; margin-right: auto;">
-      Trong 2 buổi đào tạo trực tuyến, bạn sẽ nhận được một "Tấm Bản Đồ" 3 bước giúp bạn nhìn rõ mình đang ở đâu trên hành trình tình yêu, biết cách lựa chọn người phù hợp và xây dựng một hôn nhân hạnh phúc.
+      Trong 2 buổi đào tạo trực tuyến, bạn sẽ hoàn thiện "Tấm Bản Đồ Tình Yêu" 3 bước: nhìn rõ mình đang ở đâu, sáng rõ khi lựa chọn bạn đời phù hợp và biết mình cần làm gì để tiến gần hơn đến một mối quan hệ cam kết, hôn nhân hạnh phúc.
     </p>
     <div class="stage-banner mt-8" style="max-width: 700px; margin-left: auto; margin-right: auto;">
       <img src="https://drive.google.com/thumbnail?id=1V-X11Ov4P8o2KyXyqS0DG-gjWvrtnb3d&sz=w1200" alt="My Phương chia sẻ trên sân khấu">
@@ -540,7 +560,6 @@ footer p { color: inherit; }
       <p>Bạn chỉ muốn một mối quan hệ khiến mình cảm thấy bình yên. Một người mà khi ở bên, bạn không phải đoán ý, tự trấn an mình hay thấp thỏm tự hỏi: "Anh ấy có thật lòng với mình không?"</p>
       <p>Nhưng sự thật, càng trưởng thành, việc tìm được một người đồng điệu và khiến trái tim mình rung động dường như càng khó.</p>
       <p>Bạn bắt đầu ngại mở lòng, sợ mất thời gian rồi cuối cùng lại chẳng đi đến đâu.</p>
-      <p>Bạn ghét việc hẹn hò trên mạng, ghét những cuộc trò chuyện hời hợt, vô nghĩa.</p>
       <p>Bạn nhận ra mình đã đi một chặng đường rất dài, đã từng mở lòng, từng ôm hy vọng, và từng dốc cạn lòng để vun vén cho những yêu thương. Nhưng đổi lại, sau tất cả những cố gắng ấy, thứ bạn nhận về lại là sự loay hoay trong một vòng lặp cũ. Vẫn gặp những người không phù hợp, vẫn nếm trải những tổn thương quen thuộc, chỉ là dưới một cái tên khác mà thôi.</p>
       <p>Bạn dần mất niềm tin rằng mình có thể có được một tình yêu đẹp và một cuộc hôn nhân hạnh phúc, có lẽ những điều đó chẳng bao giờ dành cho mình.</p>
       <p>Thậm chí, có lúc bạn tự nghĩ: "Hay là do mình chưa đủ tốt? Hay là do mình quá khó tính? Khéo mình ở vậy đến già mất..."</p>
@@ -565,6 +584,8 @@ footer p { color: inherit; }
 
 <!-- ===================== TRUTH / STORY ===================== -->
 <section class="section" id="story">
+  <svg class="deco-flower deco-flower--tr" viewBox="0 0 100 100"><use href="#deco-flower-shape"/></svg>
+  <svg class="deco-flower deco-flower--bl" viewBox="0 0 100 100"><use href="#deco-flower-shape"/></svg>
   <div class="container-narrow story-narrative">
     <span class="eyebrow">Sự thật cần được nói ra</span>
     <h2>Biết Nhiều Hơn Về Tình Yêu... <span class="text-accent">Không Có Nghĩa Là Sẽ Hạnh Phúc Hơn</span></h2>
@@ -589,7 +610,7 @@ footer p { color: inherit; }
     </div>
 
     <div class="story-narrative">
-      <p class="pull-quote">Bởi vì chính Phương cũng từng lãng phí gần 10 năm thanh xuân loay hoay trong những vòng lặp như thế.</p>
+      <p class="pull-quote">Bởi vì chính Phương cũng từng trải qua gần 10 năm thanh xuân loay hoay trong những vòng lặp như thế.</p>
       <p>Phương cũng từng yêu sai, từng vỡ mộng và tự hỏi: "Mình cũng tử tế, cũng nỗ lực phát triển bản thân, tại sao hạnh phúc vẫn cứ lỡ hẹn?"</p>
       <p>Phương cũng lao vào đọc sách tình yêu, nghe YouTube, cố gắng thay đổi và hoàn thiện chính mình.</p>
       <p>Nhưng Phương nhận ra: Nhồi nhét hàng tá kiến thức lý thuyết không hề giúp mình sáng suốt hơn khi đứng trước một người đàn ông làm mình rung động.</p>
@@ -625,7 +646,7 @@ footer p { color: inherit; }
 
     <div class="story-narrative mt-8">
       <p>Sự thật là, một tình yêu hạnh phúc không được tạo nên từ những mảnh ghép rời rạc như "chỉ cần chữa lành là đủ", "chỉ cần biết cách nói chuyện" hay "chỉ cần có kiến thức tình yêu".</p>
-      <p>Nó đòi hỏi <strong>sự đồng bộ sâu sắc từ bên trong ra bên ngoài (inside - outside)</strong>, và đây là 3 trụ cột sẽ giúp bạn chấm dứt chuỗi ngày loay hoay mãi mãi:</p>
+      <p>Nó đòi hỏi <strong>sự đồng bộ sâu sắc từ bên trong ra bên ngoài</strong>, và đây là 3 trụ cột sẽ giúp bạn chấm dứt chuỗi ngày loay hoay mãi mãi:</p>
     </div>
   </div>
   <div class="wave-divider">
@@ -737,9 +758,13 @@ footer p { color: inherit; }
         <ul>
           <li><strong>HEART Dating Filter (Bộ lọc hẹn hò từ trái tim):</strong> Bạn sẽ xây dựng một hệ tiêu chuẩn thực tế dựa trên giá trị cốt lõi và điều thực sự quan trọng với mình (không viễn vông) để ngay từ những buổi hẹn đầu tiên, bạn có thể nhận diện sớm mức độ phù hợp và tránh đầu tư quá nhiều cảm xúc vào những kết nối không cùng định hướng.</li>
           <li><strong>Sáng rõ hơn khi lựa chọn:</strong> Bạn sẽ biết điều gì cần quan sát, điều gì cần thêm thời gian kiểm chứng và chuyển câu hỏi từ "Anh ấy có chọn mình không?" sang "Người này có thực sự phù hợp để cùng mình xây dựng cuộc sống mình mong muốn không?"</li>
-          <li><strong>Kế hoạch ba bước bắt đầu ngay:</strong> Bạn sẽ đối chiếu những điều mình mong muốn với chính mình và kết quả chẩn đoán ở Buổi 1, từ đó chốt lại đúng ba ưu tiên cần bắt đầu sau workshop để từng bước tiến gần hơn đến một mối quan hệ cam kết và hôn nhân hạnh phúc mà bạn thực sự khao khát.</li>
+          <li><strong>Kế hoạch ba bước bắt đầu ngay:</strong> Bạn sẽ chốt lại đúng ba ưu tiên cần bắt đầu sau workshop để từng bước tiến gần hơn đến một mối quan hệ cam kết và hôn nhân hạnh phúc mà bạn thực sự khao khát.</li>
         </ul>
       </div>
+    </div>
+    <div class="text-center mt-16">
+      <p style="max-width: 640px; margin: 0 auto 28px; color: var(--accent-deep); font-family: var(--font-h); font-style: italic; font-weight: 600; font-size: 1.2rem; line-height: 1.5;">Sau 2 buổi, bạn sẽ biết rõ con đường để kiến tạo một tình yêu hạnh phúc và cuộc hôn nhân viên mãn, nơi bạn được là chính mình, được yêu thương trọn vẹn và cùng người bạn đời xây dựng một tương lai bình yên, sâu sắc và ý nghĩa.</p>
+      <a href="#offer" class="btn-primary">Đăng Ký Giữ Chỗ Ngay →</a>
     </div>
   </div>
   <div class="wave-divider">
@@ -778,10 +803,15 @@ footer p { color: inherit; }
     </div>
     <p class="stage-caption">Những buổi workshop online đã diễn ra thực tế, với sự tham gia và tương tác trực tiếp cùng học viên.</p>
   </div>
+  <div class="wave-divider">
+    <svg viewBox="0 0 1000 40" preserveAspectRatio="none"><path d="M0,0 C 150,38 350,4 500,18 C 650,32 850,2 1000,14 L1000,40 L0,40 Z" fill="var(--bg)"/></svg>
+  </div>
 </section>
 
 <!-- ===================== QUYỀN LỢI THAM DỰ ===================== -->
 <section class="section" id="benefits">
+  <svg class="deco-branch deco-branch--left" viewBox="0 0 100 140"><use href="#deco-branch-shape"/></svg>
+  <svg class="deco-branch deco-branch--right" viewBox="0 0 100 140"><use href="#deco-branch-shape"/></svg>
   <div class="container-narrow">
     <div class="text-center">
       <span class="eyebrow">Quyền lợi tham dự</span>
@@ -882,6 +912,11 @@ footer p { color: inherit; }
 
 <!-- ===================== FEEDBACK HỌC VIÊN ===================== -->
 <section class="section section-alt" id="feedback">
+  <div class="deco-daisy-cluster">
+    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
+    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
+    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
+  </div>
   <div class="container text-center">
     <span class="eyebrow">Học viên nói gì</span>
     <h2>Những Chia Sẻ Từ <span class="text-accent">Học Viên</span> Trong Các Workshop Trước</h2>
@@ -960,6 +995,9 @@ footer p { color: inherit; }
       <p class="mt-4">Bạn vẫn được giữ lại toàn bộ tài liệu như một lời cảm ơn vì đã dành thời gian cho Phương.</p>
     </div>
   </div>
+  <div class="wave-divider">
+    <svg viewBox="0 0 1000 40" preserveAspectRatio="none"><path d="M0,0 C 150,38 350,4 500,18 C 650,32 850,2 1000,14 L1000,40 L0,40 Z" fill="var(--surface-2)"/></svg>
+  </div>
   <div class="deco-daisy-cluster deco-daisy-cluster--br">
     <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
     <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
@@ -1007,21 +1045,23 @@ Bạn sẽ mang về một bản đồ và hệ quy chiếu để tiếp tục s
 </section>
 
 <!-- ===================== FINAL CTA ===================== -->
-<section class="section final-cta" id="final-cta">
+<section class="section final-cta" id="final-cta" style="--bg-photo: url('https://drive.google.com/thumbnail?id=1GihzlaKdIpbvEM_kYbXCpeUEyWwZmfaY&sz=w1200');">
   <svg class="deco-flower deco-flower--bl" viewBox="0 0 100 100"><use href="#deco-flower-shape"/></svg>
   <svg class="deco-flower deco-flower--tr" viewBox="0 0 100 100"><use href="#deco-flower-shape"/></svg>
   <div class="container-narrow text-center story-narrative">
-    <h2>Trước Khi Bạn Rời Khỏi Trang Này...<br>Bạn Đang Đứng Trước <span class="text-accent">2 Ngã Rẽ</span></h2>
+    <h2>Lời Nhắn Từ <span class="text-accent">My Phương</span></h2>
+    <div class="letter-avatar mt-8">
+      <img src="https://drive.google.com/thumbnail?id=1oWIFBiAeFJurWeMhkGSevlJjc5jPuuop&sz=w400" alt="My Phương - Happiness Coach">
+    </div>
     <div class="mt-8 text-card" style="text-align: left;">
-      <p>Phương biết bạn có thể nhấn nút [X] ở góc màn hình, đóng trang web này lại và quay trở về với nhịp sống bận rộn thường ngày.</p>
-      <p style="color: var(--text); font-weight: 500;">Nhưng hãy thành thật với nhau: Ngày mai, mọi thứ sẽ vẫn như cũ.</p>
-      <p>Bạn vẫn sẽ đi làm về trong căn phòng trống. Vẫn những cái thở dài khi thấy bạn bè đăng ảnh gia đình. Vẫn sự hoang mang mỗi khi có ai đó tiếp cận, không biết họ có thật lòng hay không. Thời gian trôi đi, và nỗi sợ tuổi tác sẽ càng làm bạn áp lực hơn.</p>
-      <p style="color: var(--text); font-weight: 500;">Nhưng bạn có một lựa chọn khác tốt hơn rất nhiều.</p>
-      <p>Chỉ cần dành ra 2 buổi tối cùng Phương. Không rủi ro. Không cần phải diễn kịch hay cố biến mình thành người khác.</p>
-      <p>Bạn sẽ bước ra với một trái tim nhẹ nhõm, niềm tin dịu dàng mà vững vàng vào chính mình và Tấm Bản Đồ rõ ràng để từng bước mở lòng đón nhận người bạn đời phù hợp, cùng nhau viết nên câu chuyện tình yêu ấm áp và cuộc hôn nhân hạnh phúc mà bạn hằng mong ước.</p>
-      <div class="inline-photo" style="max-width: 100%;">
-        <img src="https://drive.google.com/thumbnail?id=1UTTPbYrhVw0oEZ2isLQMxmHBXY_ea_VD&sz=w1000" alt="My Phương - Happiness Coach">
-      </div>
+      <p>Phương biết bạn đã cố gắng rồi.</p>
+      <p>Bạn đã đọc sách, học cách yêu bản thân, chữa lành, phát triển mình và có thể cũng đã thử mở lòng, hẹn hò, cho mình thêm những cơ hội mới. Nhưng dù biết rất nhiều về tình yêu, bạn vẫn có lúc không biết mình đang mắc ở đâu và nên bước tiếp như thế nào.</p>
+      <p>Workshop Bản Đồ Tình Yêu không dạy bạn thêm những "bí quyết" hẹn hò hay công thức để nhanh chóng có người yêu. Workshop giúp bạn nhìn rõ mình đang ở đâu, mình thực sự mong muốn điều gì và đâu là những điều cần được vun bồi để tiến gần hơn đến một mối quan hệ hạnh phúc.</p>
+      <p>Phương cũng đã mất gần một thập kỷ để đi tìm câu trả lời cho chuyện tình cảm của chính mình. Và điều Phương từng thiếu không phải thêm một lời khuyên, mà là <strong class="text-accent">một Tấm Bản Đồ đủ rõ</strong> để biết mình đang ở đâu và nên bước tiếp như thế nào.</p>
+      <p><strong class="text-accent">Bạn không cần phải hoàn hảo.</strong> Bạn cũng không cần phải chờ đến khi mình "sẵn sàng".</p>
+      <p>Bạn chỉ cần cho mình <strong class="text-accent">2 buổi tối</strong> để bắt đầu nhìn mọi thứ rõ hơn.</p>
+      <p>Bạn sẽ bước ra với một trái tim nhẹ nhõm, niềm tin dịu dàng mà vững vàng vào chính mình và <strong class="text-accent">một Tấm Bản Đồ rõ ràng</strong> để từng bước tiến gần hơn đến người bạn đời phù hợp cùng cuộc hôn nhân hạnh phúc mà bạn vẫn luôn mong ước.</p>
+      <p class="letter-signature">By My Phương, Happiness Coach</p>
     </div>
     <div class="philosophy-block">
       <h3>Đã Đến Lúc Bạn Đưa Ra Lựa Chọn Cho Mình</h3>
