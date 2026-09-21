@@ -373,20 +373,48 @@ p { color: var(--text-muted); }
 .session ul li::before { content: "→"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
 .session ul li strong { color: var(--accent-deep); }
 
-/* Before/after table */
-.compare-table { width: 100%; border-collapse: separate; border-spacing: 0; background: var(--surface); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
-.compare-table th { font-family: var(--font-h); padding: 18px; text-align: left; font-size: 1rem; }
-.compare-table th:first-child { background: var(--surface-2); color: var(--text-muted); }
-.compare-table th:last-child { background: var(--accent); color: #fff; }
-.compare-table td { padding: 18px; font-size: 0.95rem; border-top: 1px solid var(--border); vertical-align: top; }
-.compare-table td:first-child { color: var(--text-muted); }
-.compare-table td:last-child { color: var(--text); background: var(--accent-soft); }
-@media (max-width: 700px) {
-  .compare-table, .compare-table thead, .compare-table tbody, .compare-table th, .compare-table td, .compare-table tr { display: block; }
-  .compare-table thead { display: none; }
-  .compare-table tr { border-top: 1px solid var(--border); padding: 12px 0; }
-  .compare-table td:first-child::before { content: "✕ Trước: "; font-weight: 600; color: var(--accent-deep); }
-  .compare-table td:last-child::before { content: "✓ Sau: "; font-weight: 600; }
+/* Before/after panel */
+.ba-panel { background: var(--surface); border: 1px solid var(--border); border-radius: 28px; padding: 28px; box-shadow: 0 16px 40px rgba(61,34,34,0.08); }
+.ba-row-label { display: inline-block; font-family: var(--font-h); font-weight: 700; font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); background: var(--surface-2); padding: 7px 18px; border-radius: 999px; margin-bottom: 14px; }
+.ba-row-label--after { background: var(--accent); color: #fff; }
+.ba-grid[data-set="before"] .ba-card { background: var(--bg); opacity: 0.92; }
+.ba-grid[data-set="before"] .ba-card p { color: var(--text-muted); }
+.ba-heart { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 30px; height: 30px; border-radius: 50%; background: var(--surface); border: 1px solid var(--accent); color: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; }
+.ba-path { display: flex; align-items: center; gap: 10px; margin: 26px 0 22px; padding: 14px 20px; background: var(--accent-soft); border: 1px solid var(--border); border-radius: 20px; }
+.ba-node { text-align: center; flex-shrink: 0; min-width: 64px; }
+.ba-node small { display: block; font-size: 0.68rem; letter-spacing: 0.1em; color: var(--text-muted); font-weight: 700; }
+.ba-node strong { font-family: var(--font-h); font-size: 1.05rem; color: var(--text); }
+.ba-line { position: relative; flex: 1; height: 44px; min-width: 0; }
+.ba-line svg { width: 100%; height: 100%; display: block; }
+.ba-line-label { position: absolute; left: 50%; top: -10px; transform: translateX(-50%); font-size: 0.65rem; letter-spacing: 0.1em; font-weight: 700; color: var(--accent-deep); white-space: nowrap; }
+.ba-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+@media (min-width: 620px) { .ba-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .ba-card { padding: 16px; } }
+.ba-grid[hidden] { display: none; }
+.ba-card { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 20px; }
+.ba-grid[data-set="after"] .ba-card { border-color: var(--accent); background: linear-gradient(160deg, var(--surface) 0%, var(--accent-soft) 100%); }
+.ba-card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+.ba-icon { width: 40px; height: 40px; border-radius: 12px; background: var(--accent-soft); color: var(--accent-deep); display: flex; align-items: center; justify-content: center; }
+.ba-icon svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.ba-num { font-family: var(--font-h); font-style: italic; color: var(--text-muted); opacity: 0.6; }
+.ba-card h3 { font-size: 1.05rem; margin-bottom: 8px; }
+.ba-card p { font-size: 0.9rem; }
+.ba-card::before { display: none; }
+@media (max-width: 619px) {
+  .ba-panel { padding: 18px; display: flex; flex-direction: column; gap: 10px; }
+  .ba-path { order: 0; padding: 14px 12px; margin: 0 0 8px; }
+  .ba-node { min-width: 52px; }
+  .ba-line-label { display: none; }
+  .ba-row-label { display: none; }
+  .ba-grid { display: contents; }
+  .ba-card::before { display: inline-block; align-self: flex-start; font-family: var(--font-h); font-weight: 700; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 12px; border-radius: 999px; margin-bottom: 10px; }
+  .ba-grid[data-set="before"] .ba-card::before { content: "Trước"; background: var(--surface-2); color: var(--text-muted); }
+  .ba-grid[data-set="after"] .ba-card::before { content: "Sau"; background: var(--accent); color: #fff; }
+  .ba-grid[data-set="before"] .ba-card:nth-child(1) { order: 1; }
+  .ba-grid[data-set="after"] .ba-card:nth-child(1) { order: 2; margin-bottom: 14px; }
+  .ba-grid[data-set="before"] .ba-card:nth-child(2) { order: 3; }
+  .ba-grid[data-set="after"] .ba-card:nth-child(2) { order: 4; margin-bottom: 14px; }
+  .ba-grid[data-set="before"] .ba-card:nth-child(3) { order: 5; }
+  .ba-grid[data-set="after"] .ba-card:nth-child(3) { order: 6; margin-bottom: 0; }
 }
 
 /* Pricing table */
@@ -850,25 +878,55 @@ footer p { color: inherit; }
       <span class="eyebrow">Sự thay đổi</span>
       <h2>Bức Tranh Tình Yêu Của Bạn <span class="text-accent">Trước Và Sau</span> Khi Có "Tấm Bản Đồ" Này</h2>
     </div>
-    <table class="compare-table mt-16">
-      <thead>
-        <tr><th>TRƯỚC WORKSHOP</th><th>SAU WORKSHOP</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Không biết nên thay đổi điều gì trước:</strong> Đọc nhiều, nghe nhiều lời khuyên nhưng càng cố gắng càng rối vì không biết vấn đề thực sự của mình nằm ở đâu.</td>
-          <td><strong>Có hướng đi rõ ràng:</strong> Bạn nhìn thấy bức tranh tổng thể qua 3 yếu tố nền tảng, biết mình đang ở đâu, điều gì đang cản trở mình và đâu là những ưu tiên cần bắt đầu thay đổi.</td>
-        </tr>
-        <tr>
-          <td><strong>Hay đoán mò:</strong> Dễ bị cuốn vào việc phân tích từng tin nhắn, từng hành động và tự hỏi: "Anh ấy có thật lòng với mình không?"</td>
-          <td><strong>Sáng rõ hơn khi lựa chọn:</strong> Bạn biết mình cần quan sát điều gì và chuyển câu hỏi từ "Anh ấy có chọn mình không?" sang "Người này có thực sự phù hợp với mình và cuộc sống mình muốn xây dựng không?"</td>
-        </tr>
-        <tr>
-          <td><strong>Mất nhiều thời gian:</strong> Dễ ở lại quá lâu trong những mối quan hệ mập mờ hoặc không cùng định hướng vì tiếc thời gian, hy vọng người kia sẽ thay đổi hoặc sợ phải bắt đầu lại.</td>
-          <td><strong>Biết sàng lọc sớm hơn:</strong> Bạn có một "bộ lọc" rõ ràng để nhận diện ai đáng để tiếp tục tìm hiểu, ai không phù hợp và khi nào mình nên dừng lại thay vì tiếp tục đầu tư cảm xúc một cách mơ hồ.</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="ba-panel mt-16">
+      <div class="ba-row-label">Trước workshop</div>
+      <div class="ba-grid" data-set="before">
+        <div class="ba-card">
+          <div class="ba-card-top"><span class="ba-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.6a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1.1.9-1.1 1.7"/><path d="M12 17h.01"/></svg></span><span class="ba-num">01</span></div>
+          <h3>Không biết nên thay đổi điều gì trước</h3>
+          <p>Đọc nhiều, nghe nhiều lời khuyên nhưng càng cố gắng càng rối vì không biết vấn đề thực sự của mình nằm ở đâu.</p>
+        </div>
+        <div class="ba-card">
+          <div class="ba-card-top"><span class="ba-icon"><svg viewBox="0 0 24 24"><path d="M4 8h16M4 12h10M4 16h13"/></svg></span><span class="ba-num">02</span></div>
+          <h3>Hay đoán mò</h3>
+          <p>Dễ bị cuốn vào việc phân tích từng tin nhắn, từng hành động và tự hỏi: "Anh ấy có thật lòng với mình không?"</p>
+        </div>
+        <div class="ba-card">
+          <div class="ba-card-top"><span class="ba-icon"><svg viewBox="0 0 24 24"><path d="M7 4h10M7 20h10M8 4v3.5L12 12l-4 4.5V20M16 4v3.5L12 12l4 4.5V20"/></svg></span><span class="ba-num">03</span></div>
+          <h3>Mất nhiều thời gian</h3>
+          <p>Dễ ở lại quá lâu trong những mối quan hệ mập mờ hoặc không cùng định hướng vì tiếc thời gian, hy vọng người kia sẽ thay đổi hoặc sợ phải bắt đầu lại.</p>
+        </div>
+      </div>
+      <div class="ba-path">
+        <div class="ba-node"><small>TRƯỚC</small><strong>Mơ hồ</strong></div>
+        <div class="ba-line">
+          <svg viewBox="0 0 400 44" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M6,26 C70,10 120,34 200,24 C280,14 330,34 394,20" fill="none" stroke="#C5A255" stroke-width="2" stroke-dasharray="6 6" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+          </svg>
+          <span class="ba-heart">♥</span>
+          <span class="ba-line-label">TẤM BẢN ĐỒ</span>
+        </div>
+        <div class="ba-node"><small>SAU</small><strong>Sáng rõ</strong></div>
+      </div>
+      <div class="ba-row-label ba-row-label--after">Sau workshop</div>
+      <div class="ba-grid" data-set="after">
+        <div class="ba-card">
+          <div class="ba-card-top"><span class="ba-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg></span><span class="ba-num">01</span></div>
+          <h3>Có hướng đi rõ ràng</h3>
+          <p>Bạn nhìn thấy bức tranh tổng thể qua 3 yếu tố nền tảng, biết mình đang ở đâu, điều gì đang cản trở mình và đâu là những ưu tiên cần bắt đầu thay đổi.</p>
+        </div>
+        <div class="ba-card">
+          <div class="ba-card-top"><span class="ba-icon"><svg viewBox="0 0 24 24"><path d="M4 5h16l-6 7v6l-4 2v-8z"/></svg></span><span class="ba-num">02</span></div>
+          <h3>Sáng rõ hơn khi lựa chọn</h3>
+          <p>Bạn biết mình cần quan sát điều gì và chuyển câu hỏi từ "Anh ấy có chọn mình không?" sang "Người này có thực sự phù hợp với mình và cuộc sống mình muốn xây dựng không?"</p>
+        </div>
+        <div class="ba-card">
+          <div class="ba-card-top"><span class="ba-icon"><svg viewBox="0 0 24 24"><circle cx="6" cy="18" r="2"/><circle cx="18" cy="6" r="2"/><path d="M8 18h6a3 3 0 0 0 0-6h-4a3 3 0 0 1 0-6h6"/></svg></span><span class="ba-num">03</span></div>
+          <h3>Biết sàng lọc sớm hơn</h3>
+          <p>Bạn có một "bộ lọc" rõ ràng để nhận diện ai đáng để tiếp tục tìm hiểu, ai không phù hợp và khi nào mình nên dừng lại thay vì tiếp tục đầu tư cảm xúc một cách mơ hồ.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
