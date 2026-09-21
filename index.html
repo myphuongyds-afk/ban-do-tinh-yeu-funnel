@@ -1193,6 +1193,34 @@ Bạn sẽ mang về một bản đồ và hệ quy chiếu để tiếp tục s
     document.body.classList.remove('modal-open');
   }
 
+  function resetFreeForm() {
+    const btn = document.getElementById('freeSubmitBtn');
+    btn.disabled = false;
+    btn.textContent = 'Giữ Chỗ Miễn Phí →';
+    document.getElementById('freeError').style.display = 'none';
+  }
+
+  function prefillFreeForm() {
+    try {
+      const o = JSON.parse(sessionStorage.getItem('order') || '{}');
+      const f = document.getElementById('freeForm');
+      if (o.name && !f.name.value) f.name.value = o.name;
+      if (o.phone && !f.phone.value) f.phone.value = o.phone;
+      if (o.email && !f.email.value) f.email.value = o.email;
+      if (o.goal && !f.goal.value) f.goal.value = o.goal;
+    } catch (err) {}
+  }
+
+  window.addEventListener('pageshow', function (e) {
+    resetFreeForm();
+    if (e.persisted) prefillFreeForm();
+  });
+
+  if (new URLSearchParams(window.location.search).get('edit') === '1') {
+    prefillFreeForm();
+    openFreeModal();
+  }
+
   document.getElementById('freeForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     const btn = document.getElementById('freeSubmitBtn');
