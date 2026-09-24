@@ -117,7 +117,10 @@ p { color: var(--text-muted); }
 .wave-divider svg { width: 100%; height: 100%; display: block; }
 .wave-divider--top { bottom: auto; top: -1px; transform: scaleY(-1); }
 
-.philosophy-block { background: var(--surface); border-radius: var(--radius); padding: 48px 32px; margin: 40px 0; text-align: center; position: relative; overflow: hidden; }
+.philosophy-block { background: var(--surface); border-radius: var(--radius); padding: 48px 32px; margin: 8px 0 40px; text-align: center; position: relative; overflow: hidden; }
+.section-ornament { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 44px 0; }
+.section-ornament svg { width: 26px; height: 26px; opacity: 0.55; }
+.section-ornament::before, .section-ornament::after { content: ''; height: 1px; width: 64px; background: var(--border); }
 .philosophy-block::before { content: ''; position: absolute; inset: 0; background-image: var(--bg-photo, none); background-size: cover; background-position: center; opacity: 0.28; z-index: 0; }
 .philosophy-block > * { position: relative; z-index: 1; }
 .philosophy-block h3 { position: relative; font-family: var(--font-h); font-style: italic; font-weight: 600; font-size: clamp(1.35rem, 2.9vw, 1.9rem); color: var(--accent); margin: 0 auto 18px; max-width: 620px; line-height: 1.4; }
@@ -205,7 +208,7 @@ p { color: var(--text-muted); }
 .hero-info {
   display: flex; flex-wrap: wrap; justify-content: center; align-items: stretch;
   gap: 0; margin: 36px auto 0; max-width: 660px;
-  background: linear-gradient(180deg, var(--surface) 0%, var(--surface-2) 100%);
+  background: var(--surface);
   border: 1px solid var(--accent-soft); border-radius: 999px;
   padding: 8px 10px; box-shadow: 0 14px 36px var(--accent-soft);
 }
@@ -696,6 +699,9 @@ footer p { color: inherit; }
     <div class="text-center">
       <span class="eyebrow">Phương pháp cốt lõi</span>
       <h2>Tấm Bản Đồ <span class="text-accent">3 Trụ Cột</span></h2>
+      <p class="mt-4" style="max-width: 640px; margin-left: auto; margin-right: auto; color: var(--text); font-weight: 500;">Ứng dụng nền tảng Blossomed Relationship Model<br><span style="font-size: 0.85em; font-style: italic; font-weight: 400; color: var(--text-muted);">Developed exclusively by Coach My Phương</span></p>
+      <p class="mt-6 text-muted" style="max-width: 640px; margin-left: auto; margin-right: auto;">Thực tế nhiều phương pháp chỉ tập trung giải quyết một lát cắt rất nhỏ: chữa lành hoặc tập trung kỹ năng hẹn hò...</p>
+      <p class="mt-2 text-muted" style="max-width: 640px; margin-left: auto; margin-right: auto;">Bản đồ Tình yêu nhìn việc xây dựng mối quan hệ hạnh phúc như một hệ thống toàn diện. Bạn cần phát triển đồng thời cả con người mình, trí tuệ tình yêu và năng lực kết nối.</p>
     </div>
     <div class="grid-3 mt-16">
       <div class="pillar">
@@ -705,7 +711,7 @@ footer p { color: inherit; }
         <h3 class="mt-6">Rạng Rỡ Từ Bên Trong</h3>
         <p class="pillar-quote">"Không cần gồng mình"</p>
         <p class="pillar-lead">Bạn là ai và cách bạn nhìn nhận chính mình sẽ ảnh hưởng sâu sắc đến người bạn thu hút và lựa chọn làm bạn đời.</p>
-        <p>Chúng ta sẽ cùng nhận diện những niềm tin ngầm và tổn thương cũ đang khiến bạn khó mở lòng, âm thầm đẩy lùi những người đàn ông tốt ra xa bạn. Bạn sẽ học cách vững vàng từ bên trong, thấu hiểu giá trị bản thân để không còn yêu trong nỗi sợ bị bỏ rơi. Từ đó, bạn vun bồi nội tâm và trở thành hiện thân của sự mềm mại, nữ tính và rạng rỡ nhất trong chính mình, sẵn sàng đón nhận và xây dựng một tình yêu lành mạnh, đủ đầy và xứng đáng.</p>
+        <p>Chúng ta sẽ cùng nhận diện những niềm tin ẩn sâu và tổn thương cũ đang khiến bạn ngần ngại mở lòng, đôi khi vô thức tạo khoảng cách với cả những người thật lòng muốn đến bên bạn. Bạn sẽ học cách vững vàng từ bên trong, thấu hiểu giá trị bản thân để không còn yêu trong nỗi sợ bị bỏ rơi. Từ đó, bạn vun bồi nội tâm và trở thành hiện thân của sự mềm mại, nữ tính và rạng rỡ nhất trong chính mình, sẵn sàng đón nhận và xây dựng một tình yêu lành mạnh, đủ đầy và xứng đáng.</p>
       </div>
       <div class="pillar">
         <svg class="pillar-deco" viewBox="0 0 100 140"><use href="#deco-branch-shape"/></svg>
@@ -1123,8 +1129,10 @@ Bạn sẽ mang về một bản đồ và hệ quy chiếu để tiếp tục s
       <p>Bạn không cần phải hoàn hảo. Bạn cũng không cần phải chờ đến khi mình "sẵn sàng".</p>
       <p>Bạn chỉ cần cho mình <strong class="text-accent">2 buổi tối</strong> để bắt đầu nhìn mọi thứ rõ hơn.</p>
       <p>Bạn sẽ bước ra với một trái tim nhẹ nhõm, niềm tin dịu dàng mà vững vàng vào chính mình và <strong class="text-accent">một Tấm Bản Đồ rõ ràng</strong> để từng bước tiến gần hơn đến người bạn đời phù hợp cùng cuộc hôn nhân hạnh phúc mà bạn vẫn luôn mong ước.</p>
+      <p style="font-family: var(--font-h); font-style: italic; font-weight: 600; color: var(--accent-deep); font-size: 1.08rem;">Mong bạn rạng rỡ là chính mình, bên người bạn đời yêu thương, trân trọng và cùng bạn xây dựng một cuộc sống ấm áp, ý nghĩa.</p>
       <p class="letter-signature">By My Phương, Happiness Coach</p>
     </div>
+    <div class="section-ornament"><svg viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg></div>
     <div class="philosophy-block">
       <h3>Đã Đến Lúc Bạn Đưa Ra Lựa Chọn Cho Mình</h3>
       <p>Hạnh phúc của bạn xứng đáng được ưu tiên. Khi hiểu mình sâu hơn, bạn không chỉ sẵn sàng cho một mối quan hệ tốt đẹp hơn, mà còn đặt nền móng cho một cuộc sống bình an, rạng rỡ và bền vững hơn.</p>
