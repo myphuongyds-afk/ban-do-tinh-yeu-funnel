@@ -643,7 +643,7 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
           tip: 'Chọn một môi trường hợp với nhịp sống và giá trị của bạn (lớp học, câu lạc bộ, cộng đồng) và xuất hiện ở đó ít nhất hai lần trong tháng này.',
           items: [
             'Mình chủ động xuất hiện ở những nơi, những cộng đồng có khả năng gặp được người phù hợp với mình (lớp học, câu lạc bộ, sự kiện, bạn bè giới thiệu, ứng dụng hẹn hò nghiêm túc…).',
-            { t: 'Dù bận rộn, mình vẫn dành thời gian trong tuần cho việc gặp gỡ, làm quen và tìm hiểu người mới.', code: 'HPS26', isNew: true },
+            { t: 'Dù bận rộn, mình vẫn dành thời gian trong tuần cho việc gặp gỡ, làm quen và tìm hiểu người mới.', code: 'HPS26', isNew: true, removed: true },
             { t: 'Mình thường chờ tình yêu tự tìm đến hơn là chủ động tạo cơ hội gặp gỡ.', r: true, code: 'HPS27', isNew: true },
             'Khi cảm thấy được tôn trọng và đủ an toàn, mình cho phép mình mở lòng và đón nhận sự quan tâm của một người đàn ông.',
             { t: 'Mình có thể tận hưởng một cuộc tìm hiểu đang diễn ra mà không vội đòi hỏi sự chắc chắn, hay liên tục tìm "dấu hiệu" xem mọi chuyện sẽ đi đến đâu.', edited: true }
@@ -672,12 +672,14 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
             'Mình nói rõ điều mình đồng ý và không đồng ý về thời gian, sự thân mật và cách được đối xử.',
             'Khi nhận thấy một kết nối không phù hợp, mình có thể lùi lại hoặc kết thúc một cách rõ ràng, tôn trọng.'
           ] },
-        { name: 'Giữ hy vọng và cùng vun đắp kết nối',
+        { name: 'Giữ hy vọng và nuôi dưỡng sinh khí của kết nối',
           tip: 'Mỗi tuần, ghi lại một khoảnh khắc bạn được quan tâm chân thành, dù nhỏ, và cho người ấy biết bạn trân trọng điều đó.',
           items: [
             { t: 'Sau một lần hẹn không như ý, mình vẫn tin rằng mình có thể gặp được người phù hợp.', edited: true },
-            'Sau một tổn thương, mình có thể mở lòng trở lại theo nhịp độ phù hợp với mình.',
+            { t: 'Sau một tổn thương, mình có thể mở lòng trở lại theo nhịp độ phù hợp với mình.', removed: true },
             'Khi một người đàn ông dành cho mình sự quan tâm chân thành, mình có thể nhận ra và bày tỏ sự trân trọng.',
+            { t: 'Khi người mình quan tâm chia sẻ một câu chuyện nhỏ hay gửi một tin nhắn, mình để ý và đáp lại bằng sự hứng thú thật lòng.', code: 'HPS28', isNew: true },
+            { t: 'Mình mang niềm vui và sự hài hước vào các lần gặp gỡ, và hào hứng đón nhận khi người kia rủ mình cùng trải nghiệm điều mới, để kết nối luôn nhẹ nhàng và sống động.', code: 'HPS29', isNew: true },
             { t: 'Mình có thể để người mình đang tìm hiểu chủ động đề xuất, sắp xếp hay chăm sóc theo cách của họ, thay vì mình phải nhắc nhở, lên kế hoạch hay kiểm soát mọi việc.', edited: true }
           ] }
       ] }
@@ -768,9 +770,9 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
     'Hành động rõ ràng và giữ ranh giới': { q: 'Mình có thể hiện rõ điều mình muốn và giữ được ranh giới của mình không?',
       about: 'Đây là khả năng thể hiện sự quan tâm một cách phù hợp, nói rõ điều mình đồng ý và không đồng ý, và lùi lại hay kết thúc một cách tôn trọng khi thấy không phù hợp. Ranh giới rõ ràng giúp cả hai cùng thấy an toàn.',
       signs: ['Mình hay nói "không sao đâu" dù lòng thấy chưa ổn.', 'Mình để mối quan hệ tiến nhanh hơn nhịp mình muốn.', 'Mình khó kết thúc một kết nối dù biết nó không phù hợp.'] },
-    'Giữ hy vọng và cùng vun đắp kết nối': { q: 'Mình có giữ được niềm tin rằng tình yêu vẫn đang chờ mình không?',
-      about: 'Đây là khả năng giữ hy vọng sau những lần không như ý, mở lòng trở lại theo nhịp của mình, nhận ra và trân trọng sự quan tâm chân thành, và để người kia cùng góp phần vun đắp thay vì phải kiểm soát mọi thứ.',
-      signs: ['Sau một lần hẹn không như ý, mình nghĩ "chắc mình không có duyên".', 'Mình khó tin vào sự quan tâm chân thành của người khác.', 'Mình hay nhắc nhở, lên kế hoạch và lo liệu mọi thứ, khó để người kia chủ động chăm sóc mình.'] }
+    'Giữ hy vọng và nuôi dưỡng sinh khí của kết nối': { q: 'Mình có giữ được hy vọng, và mang niềm vui, sinh khí vào những kết nối của mình không?',
+      about: 'Đây là khả năng giữ hy vọng sau những lần không như ý, và nuôi dưỡng sinh khí cho kết nối: trân trọng sự quan tâm chân thành, đáp lại những lời mời kết nối nhỏ, mang niềm vui vào những lần bên nhau, hào hứng đón nhận khi người kia chủ động mời mình, và để người ấy cùng góp phần vun đắp. Một kết nối sống động không đến từ những điều lớn lao, mà từ những khoảnh khắc nhỏ được chăm chút mỗi ngày.',
+      signs: ['Sau một lần hẹn không như ý, mình nghĩ "chắc mình không có duyên".', 'Những cuộc trò chuyện dần trở nên nhạt, chỉ còn hỏi han cho có, và mình ít khi mang niềm vui hay sự hứng khởi vào đó.', 'Mình hay nhắc nhở, lên kế hoạch và lo liệu mọi thứ, khó để người kia chủ động chăm sóc mình.'] }
   };
 
   var REFLECT = [
@@ -999,7 +1001,7 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
         script: 'Anh hay gọi cho mình lúc gần nửa đêm. Mình thấy mệt vì hôm sau phải dậy sớm. Mình mong hai đứa nói chuyện trước 22 giờ nhé. Như vậy mình sẽ vui và tỉnh táo hơn khi trò chuyện với anh.' },
       watch: 'Để ý những lúc bạn nói "không sao đâu" trong khi lòng thấy chưa ổn.',
       basis: 'Kỹ năng DEAR MAN trong Liệu pháp Hành vi Biện chứng (DBT) của Marsha Linehan.' },
-    'Giữ hy vọng và cùng vun đắp kết nối': {
+    'Giữ hy vọng và nuôi dưỡng sinh khí của kết nối': {
       goal: 'Có một cuốn nhật ký những khoảnh khắc ấm áp, và một câu nói thay thế cho suy nghĩ "chắc mình không có duyên".',
       day1: { t: 'Viết lại câu chuyện', steps: [
         'Viết ra những câu bạn thường tự nói sau một lần hẹn hay một mối quan hệ không như ý.',
@@ -1007,10 +1009,10 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
         'Viết một câu thay thế vừa thật vừa dịu dàng (ví dụ: "Lần này chưa hợp, không có nghĩa là mình sẽ không bao giờ gặp được người phù hợp.").',
         'Viết 3 bước nhỏ bạn có thể làm trong tháng tới để tiến gần hơn đến tình yêu mong muốn.'] },
       daily: { when: 'Mỗi tối', do: 'ghi lại một khoảnh khắc ấm áp trong ngày, cho thấy tình yêu và sự quan tâm vẫn đang có mặt quanh bạn.' },
-      action: { t: 'Khi ai đó dành cho bạn sự quan tâm chân thành, gọi tên và cảm ơn đúng điều cụ thể họ đã làm.',
+      action: { t: 'Khi người ấy rủ bạn đi đâu hay thử điều gì mới, hãy hào hứng đón nhận và cho người ấy thấy bạn vui thế nào. Khi người ấy dành cho bạn sự quan tâm, gọi tên và cảm ơn đúng điều cụ thể họ đã làm. Để nuôi niềm vui của riêng mình, bạn cũng có thể cùng một người bạn thân thử một điều mới trong tuần.',
         script: 'Cảm ơn anh đã nhớ là mình thích trà gừng. Mình thấy được quan tâm lắm.' },
-      watch: 'Để ý những câu bạn tự nói với mình sau một lần hẹn không như ý, như "chắc mình không có duyên".',
-      basis: 'Lý thuyết hy vọng của C. R. Snyder (mục tiêu, con đường và động lực); kỹ thuật điều chỉnh suy nghĩ trong Liệu pháp Nhận thức Hành vi (CBT); nhật ký biết ơn của Robert Emmons.' }
+      watch: 'Để ý những lời mời kết nối nhỏ của người khác (một câu chuyện, một tin nhắn, một tấm ảnh) và cách bạn đáp lại: bạn hứng thú, lơ đãng, hay bỏ qua?',
+      basis: 'Lý thuyết hy vọng của C. R. Snyder; khái niệm "hướng về nhau" khi đáp lại lời mời kết nối (turning toward bids) của John Gottman; nghiên cứu của Arthur Aron cho thấy cùng nhau trải nghiệm điều mới mẻ giúp nuôi dưỡng sự gắn kết; nhật ký biết ơn của Robert Emmons.' }
   };
 
   // Diễn giải khi một yếu tố đang là vùng cần vun bồi
@@ -1033,7 +1035,7 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
     'Lắng nghe và giao tiếp chân thành': 'Khi mong muốn không được nói ra, người kia khó mà hiểu đúng, và bạn dễ thất vọng trong im lặng. Những lời dịu dàng mà rõ ràng là cây cầu nối hai trái tim.',
     'Sự ấm áp và khả năng đón nhận': 'Có thể bạn quen cho đi hơn là nhận về. Biết đón nhận là cách để người đàn ông được góp phần chăm sóc bạn, và để tình yêu có chỗ lớn lên.',
     'Hành động rõ ràng và giữ ranh giới': 'Khi chưa nói rõ điều mình đồng ý và không đồng ý, bạn dễ chiều theo rồi âm thầm tổn thương. Ranh giới rõ ràng giúp cả hai cùng thấy an toàn.',
-    'Giữ hy vọng và cùng vun đắp kết nối': 'Những lần không như ý có thể đang khiến bạn nghĩ rằng tình yêu không dành cho mình. Hy vọng sẽ được nuôi dưỡng lại từng chút một, qua những khoảnh khắc ấm áp nhỏ.'
+    'Giữ hy vọng và nuôi dưỡng sinh khí của kết nối': 'Những lần không như ý có thể đang khiến bạn nghĩ rằng tình yêu không dành cho mình, hoặc khiến bạn bước vào kết nối với sự dè dặt, thiếu niềm vui. Hy vọng và sinh khí của tình yêu sẽ được nuôi dưỡng lại từng chút một, qua những khoảnh khắc ấm áp và vui tươi nhỏ.'
   };
   Object.keys(MEANS).forEach(function (k) { PLAN[k].mean = MEANS[k]; });
 
