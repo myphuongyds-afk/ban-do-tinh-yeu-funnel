@@ -124,12 +124,17 @@ src="https://www.facebook.com/tr?id=963547762772869&ev=PageView&noscript=1"
       document.getElementById('leadText').textContent = 'Cảm ơn bạn đã đăng ký Vé Tiêu Chuẩn · Bản Đồ Tình Yêu. Chỗ của bạn đã được giữ và thông tin tham dự đã gửi qua email.';
     }
 
-    if (typeof fbq === 'function') {
+    const trackedKey = 'fbq_tracked_' + order.orderId;
+    let alreadyTracked = false;
+    try { alreadyTracked = !!localStorage.getItem(trackedKey); } catch (e) {}
+
+    if (typeof fbq === 'function' && !alreadyTracked) {
       if (isFree) {
         fbq('track', 'Lead', { content_name: 'Bản Đồ Tình Yêu - Vé Tiêu Chuẩn' });
       } else {
         fbq('track', 'Purchase', { value: Number(order.totalAmount) || 0, currency: 'VND', content_name: 'Bản Đồ Tình Yêu - Vé VIP' });
       }
+      try { localStorage.setItem(trackedKey, '1'); } catch (e) {}
     }
   }
 </script>
