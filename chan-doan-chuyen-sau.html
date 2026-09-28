@@ -215,6 +215,9 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
 .cta-list li { position: relative; padding: 12px 14px 12px 40px; background: var(--surface); border-radius: 10px; color: var(--text); font-weight: 500; }
 .cta-list li::before { content: '→'; position: absolute; left: 14px; top: 11px; color: var(--accent); font-weight: 700; }
 .cta-note { font-size: .88rem; text-align: center; margin-top: 18px; }
+.cta-copy { text-align: center; margin-top: 20px; padding: 14px 16px; background: var(--surface); border-radius: 12px; }
+.cta-copy p { font-size: .9rem; margin-bottom: 10px; }
+@media print { .coach-cta { display: none; } }
 .cta-sub { font-size: .88rem; text-align: center; margin-top: 14px; padding-top: 14px; border-top: 1px dashed var(--border); }
 .cta-sub a { color: var(--accent-deep); font-weight: 600; text-decoration: underline; }
 
@@ -412,7 +415,10 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
         <li>Làm rõ lựa chọn tiếp theo phù hợp với bạn</li>
       </ul>
       <div class="center"><a class="btn-primary" id="coach-link" href="#" target="_blank" rel="noopener">Đăng ký phiên khai vấn 1:1</a></div>
-      <p class="cta-note">Khi đăng ký, bạn nhớ bấm <b>"Sao chép kết quả gửi Phương"</b> ở cuối trang và gửi kèm, để Phương đọc trước tấm bản đồ của bạn nhé.</p>
+      <div class="cta-copy">
+        <p><b>Đã đặt lịch rồi?</b> Bạn bấm nút dưới đây rồi dán gửi Phương qua Zalo, để Phương đọc trước tấm bản đồ của bạn nhé.</p>
+        <button class="btn-ghost" id="copy">Sao chép kết quả gửi Phương</button>
+      </div>
       <p class="cta-sub" id="workshop-line">Bạn chưa tham gia workshop Bản Đồ Tình Yêu? <a id="workshop-link" href="/" target="_blank" rel="noopener">Xem thông tin workshop →</a></p>
     </div>
 
@@ -442,7 +448,6 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
       <p class="care-note">🤍 Bộ câu hỏi và kế hoạch này là công cụ để bạn tự nhìn lại và thực hành, không thay thế cho tư vấn tâm lý hay trị liệu. Nếu bạn đang ở trong một mối quan hệ khiến bạn sợ hãi, bị kiểm soát hay bị tổn thương, hoặc nỗi buồn kéo dài ảnh hưởng đến giấc ngủ và công việc, hãy tìm đến một chuyên gia tâm lý hoặc một người bạn tin tưởng. Phương luôn sẵn lòng lắng nghe và cùng bạn tìm hướng hỗ trợ phù hợp.</p>
       <div class="res-actions" style="margin-top:22px">
         <button class="btn-primary" id="print">Lưu kết quả (PDF)</button>
-        <button class="btn-ghost" id="copy">Sao chép kết quả gửi Phương</button>
         <button class="btn-ghost" id="retake">Làm lại từ đầu</button>
       </div>
       <p class="sign">Thương bạn trên hành trình này,<br>Phương 🌷</p>
