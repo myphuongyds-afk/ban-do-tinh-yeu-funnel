@@ -419,6 +419,18 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
       <p class="plan-progress" id="plan-progress"></p>
     </div>
 
+    <!-- 5. Bản đồ chi tiết (thu gọn) -->
+    <div class="card">
+      <details class="map-details" id="map-details">
+        <summary><span class="eyebrow">Dành cho bạn muốn đọc sâu hơn</span><h2>Xem tấm bản đồ chi tiết</h2><span class="more">Bấm để mở ↓</span></summary>
+        <div class="wheel-box"><svg id="wheel" viewBox="0 0 440 440" role="img" aria-label="Blossom Wheel: điểm từng yếu tố"></svg></div>
+        <div class="legend" id="legend"></div>
+        <p class="disclaimer">Đây là <b>Blossom Wheel</b> của bạn. Mỗi cánh hoa là một điều nhỏ trong ba vùng. Cánh càng dài, bạn càng thấy điều đó đúng với mình. Tất cả là điều bạn tự nhận thấy vào ngày <span id="res-date"></span>, và nó sẽ thay đổi khi bạn lớn lên.</p>
+        <p class="zone-legend"><span class="zone zone-high">Vùng điểm tựa</span> từ 70% · <span class="zone zone-mid">Vùng dao động</span> 40–69% · <span class="zone zone-low">Vùng cần vun bồi</span> dưới 40%</p>
+        <div id="round-cards"></div>
+      </details>
+    </div>
+
     <!-- 4b. Mời khai vấn 1:1 -->
     <div class="card coach-cta">
       <div class="eyebrow">Đồng hành cùng Phương</div>
@@ -434,18 +446,6 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
         <button class="btn-ghost" id="copy">Sao chép kết quả gửi Phương</button>
       </div>
       <p class="cta-sub" id="workshop-line">Bạn chưa tham gia workshop Bản Đồ Tình Yêu? <a id="workshop-link" href="/" target="_blank" rel="noopener">Xem thông tin workshop →</a></p>
-    </div>
-
-    <!-- 5. Bản đồ chi tiết (thu gọn) -->
-    <div class="card">
-      <details class="map-details" id="map-details">
-        <summary><span class="eyebrow">Dành cho bạn muốn đọc sâu hơn</span><h2>Xem tấm bản đồ chi tiết</h2><span class="more">Bấm để mở ↓</span></summary>
-        <div class="wheel-box"><svg id="wheel" viewBox="0 0 440 440" role="img" aria-label="Blossom Wheel: điểm từng yếu tố"></svg></div>
-        <div class="legend" id="legend"></div>
-        <p class="disclaimer">Đây là <b>Blossom Wheel</b> của bạn. Mỗi cánh hoa là một điều nhỏ trong ba vùng. Cánh càng dài, bạn càng thấy điều đó đúng với mình. Tất cả là điều bạn tự nhận thấy vào ngày <span id="res-date"></span>, và nó sẽ thay đổi khi bạn lớn lên.</p>
-        <p class="zone-legend"><span class="zone zone-high">Vùng điểm tựa</span> từ 70% · <span class="zone zone-mid">Vùng dao động</span> 40–69% · <span class="zone zone-low">Vùng cần vun bồi</span> dưới 40%</p>
-        <div id="round-cards"></div>
-      </details>
     </div>
 
     <!-- 6. Câu hỏi mang theo + chuẩn bị khai vấn + lời ký -->
