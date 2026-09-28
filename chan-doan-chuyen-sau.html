@@ -464,7 +464,7 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
         <button class="btn-primary" id="print">Lưu kết quả (PDF)</button>
         <button class="btn-ghost" id="retake">Làm lại từ đầu</button>
       </div>
-      <p class="sign">Thương bạn trên hành trình này,<br>Phương 🌷</p>
+      <p class="sign">Món quà đẹp nhất bạn mang vào một mối quan hệ là phiên bản bình an và hạnh phúc của chính bạn.<br><br>Thương bạn trên hành trình này,<br>Phương 🌷</p>
       <p class="footer">Hãy làm lại bài này sau 30 ngày thực hành để thấy mình đã nở hoa đến đâu.<br>Blossomed Relationship Diagnosis · Phiên bản 2.0 · Đang trong giai đoạn thử nghiệm.<br>Kết quả chỉ được lưu trên thiết bị của bạn.</p>
     </div>
   </section>
@@ -501,7 +501,7 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
             'Mình gọi tên được những giá trị và nhu cầu quan trọng của mình khi bước vào tình yêu.',
             'Mình nhận ra những tình huống khiến mình dễ đánh mất sự bình tĩnh hoặc đánh mất chính mình trong tình yêu.',
             'Mình nhận thấy trải nghiệm gia đình và những tình yêu trước đây đã ảnh hưởng đến cách mình nhìn nhận bản thân ra sao.',
-            { t: 'Khi nhận ra một niềm tin cũ về bản thân (như "mình không đủ tốt", "mình khó được yêu"), mình có thể nhìn lại và điều chỉnh nó.', edited: true },
+            { t: 'Khi nhận ra một niềm tin cũ về bản thân hay về tình yêu (như "mình không đủ tốt", "rồi ai cũng sẽ rời đi"), mình có thể nhìn lại và chọn một niềm tin nâng đỡ mình hơn.', edited: true },
             'Mình biết mình muốn trở thành người phụ nữ như thế nào, dù hiện tại có đang trong một tình yêu hay không.'
           ] },
         { name: 'Nhận biết và điều hòa cảm xúc',
@@ -529,7 +529,7 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
             'Mình tin rằng mình xứng đáng được yêu thương và tôn trọng mà không cần trở nên hoàn hảo.',
             { t: 'Mình thường cần sự lựa chọn hoặc công nhận của người khác để tin rằng mình đủ tốt.', r: true },
             'Mình có thể từ chối điều không phù hợp với mình, dù lo rằng người kia sẽ thất vọng.',
-            'Mình chủ động quyết định có tiếp tục một kết nối hay không, thay vì chỉ ở lại vì sợ cô đơn.'
+            { t: 'Khi tìm hiểu một người, mình tự hỏi "người này có phù hợp với cuộc sống mình muốn không?" nhiều hơn là "anh ấy có chọn mình không?".', edited: true }
           ] },
         { name: 'Đời sống riêng và định hướng phát triển',
           tip: 'Chọn một nguồn niềm vui hoặc ý nghĩa ngoài chuyện tình cảm (một sở thích, một người bạn, một mục tiêu) và dành cho nó một khoảng thời gian riêng mỗi tuần.',
@@ -537,7 +537,7 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
             'Mình nuôi dưỡng niềm vui, các mối quan hệ và mục đích sống của mình, để tình yêu là một phần phong phú của cuộc đời chứ không phải điểm tựa duy nhất.',
             { t: 'Mình chủ động chăm sóc sức khỏe, công việc và những mối quan hệ thân thiết với mình.', removed: true },
             { t: 'Mình chăm sóc cơ thể, vẻ ngoài và cảm xúc của mình như một cách yêu thương bản thân, không phải để làm vừa lòng ai.', code: 'PBS26', isNew: true },
-            'Mình tin mình có thể học thêm những kỹ năng cần thiết để xây dựng một tình yêu lành mạnh.',
+            { t: 'Những phẩm chất mình mong ở người bạn đời (như chân thành, biết lắng nghe, có trách nhiệm), mình cũng đang từng ngày vun bồi ở chính mình.', edited: true },
             { t: 'Mình có những mục tiêu và nguồn ý nghĩa trong cuộc sống ngoài chuyện tìm được bạn đời.', removed: true },
             { t: 'Mình cảm nhận được niềm vui, sự nhẹ nhàng và rạng rỡ trong đời sống hằng ngày của mình.', code: 'PBS27', isNew: true },
             'Khi gặp khó khăn, mình có thể tìm kiếm sự hỗ trợ phù hợp thay vì buộc mình phải tự gánh mọi thứ.'
@@ -548,8 +548,8 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
       q: 'Mình có sáng rõ về tình yêu mình mong muốn và cách lựa chọn người phù hợp?',
       enc: 'Bạn đã đi được một phần ba chặng đường rồi. Vòng này mời bạn nhìn vào tấm la bàn bên trong: điều bạn thật sự mong muốn và cách bạn lựa chọn người đồng hành.',
       advice: {
-        low: 'Có lẽ bạn đang lựa chọn nhiều bằng cảm xúc hơn là bằng một tấm la bàn rõ ràng. Khi trái tim rung động, những tiêu chuẩn từng đặt ra rất dễ bị xoá nhoà, và bạn dễ ở lại quá lâu ở những nơi không cùng định hướng. Điều bạn cần không phải là thêm thật nhiều kiến thức, mà là sự sáng rõ về điều mình thật sự mong muốn.',
-        mid: 'Bạn đã hiểu khá nhiều về tình yêu và biết mình cần gì. Nhưng tấm la bàn ấy đôi khi chưa đủ rõ để giữ bạn vững vàng khi đứng trước một người khiến mình rung động. Mỗi trải nghiệm đã qua đều có thể trở thành trí tuệ của riêng bạn, nếu bạn cho phép mình nhìn lại bằng sự dịu dàng.',
+        low: 'Có lẽ bạn đang lựa chọn nhiều bằng cảm xúc hơn là bằng một tấm la bàn rõ ràng. Khi trái tim rung động hay khi lo âu, những tiêu chuẩn từng đặt ra rất dễ bị xoá nhoà: bạn dễ vội tìm sự chắc chắn, hoặc ở lại quá lâu ở những nơi không cùng định hướng. Sự sáng rõ không đến từ việc nghĩ thật nhiều, mà từ việc bình tâm quan sát điều người kia thực sự làm, và lắng nghe điều mình thật sự mong muốn.',
+        mid: 'Bạn đã hiểu khá nhiều về tình yêu và biết mình cần gì. Nhưng tấm la bàn ấy đôi khi chưa đủ rõ để giữ bạn vững vàng khi đứng trước một người khiến mình rung động, hoặc khi người ấy bỗng lùi lại. Mỗi trải nghiệm đã qua đều có thể trở thành trí tuệ của riêng bạn, nếu bạn cho phép mình nhìn lại bằng sự dịu dàng.',
         high: 'Bạn lựa chọn bằng trí tuệ chứ không chỉ bằng rung động. Bạn biết mình mong muốn điều gì, biết quan sát điều gì và khi nào nên dừng lại. Đây là món quà giúp bạn giữ gìn thời gian, năng lượng và trái tim mình.'
       },
       tool: 'Công cụ đồng hành: HEART Dating Filter ở Buổi 2 và bộ 20 câu hỏi "The First 3 Dates" trong Love Blueprint Toolkit.',
@@ -558,16 +558,16 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
         { name: 'Ý nghĩa và mục đích của tình yêu',
           tip: 'Viết tiếp câu "Mình muốn có một tình yêu vì..." nhiều lần, cho đến khi bạn tìm thấy một lý do không xuất phát từ nỗi sợ cô đơn.',
           items: [
-            'Mình hiểu vì sao mình muốn có một tình yêu, ngoài mong muốn thoát khỏi cảm giác cô đơn.',
+            { t: 'Mình hiểu vì sao mình muốn có một tình yêu, không chỉ vì cô đơn, áp lực tuổi tác hay mong đợi của gia đình.', edited: true },
             'Mình hình dung được một tình yêu phù hợp sẽ đóng góp điều gì cho cuộc sống của cả hai người.',
-            'Mình nhận ra những điều mình có thể tự vun bồi, thay vì mong người yêu đáp ứng toàn bộ nhu cầu hạnh phúc của mình.'
+            { t: 'Mình tự nuôi dưỡng niềm vui và cảm xúc của mình, thay vì chờ người yêu làm mình hạnh phúc hay xoa dịu mọi nỗi lo cho mình.', edited: true }
           ] },
         { name: 'Tầm nhìn về gắn bó và hôn nhân',
           tip: 'Phác họa một ngày bình thường trong cuộc sống chung mà bạn mong muốn năm năm nữa: hai người trò chuyện, chia sẻ việc nhà và nghỉ ngơi cùng nhau như thế nào?',
           items: [
             'Mình rõ ràng về kiểu gắn bó mình đang hướng đến, chẳng hạn tìm hiểu nghiêm túc, cam kết lâu dài hoặc hôn nhân.',
             { t: 'Dù mong muốn kết hôn, mình vẫn dành thời gian tìm hiểu sự phù hợp và mức độ sẵn sàng của cả hai, thay vì vội vàng.', edited: true },
-            'Mình có thể diễn đạt những điều quan trọng trong bức tranh đời sống chung mà mình mong muốn xây dựng.'
+            { t: 'Khi đã tìm hiểu đủ lâu, mình có thể hỏi về định hướng của hai người một cách bình tĩnh, từ mong muốn hiểu rõ chứ không phải từ nỗi sợ mất người kia.', edited: true }
           ] },
         { name: 'Nhận diện niềm tin và mô thức tình yêu',
           tip: 'Nhìn lại hai, ba mối quan hệ đã qua: kiểu người nào thường thu hút bạn, và bạn thường phản ứng ra sao khi mọi thứ trở nên thiếu chắc chắn?',
@@ -580,19 +580,21 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
           tip: 'Sau mỗi cuộc gặp, hỏi mình: mình đang thấy rung động, hay thấy an toàn, được tôn trọng và thấu hiểu? Hai cảm giác ấy có thể rất khác nhau.',
           items: [
             'Mình có thể phân biệt cảm giác rung động với cảm giác được an toàn, tôn trọng và thấu hiểu.',
-            'Khi một người khiến mình bất an, mình xem xét cả hành vi thực tế của họ lẫn những lo sợ của mình trước khi kết luận.',
+            { t: 'Khi một người chậm trả lời hay có vẻ lùi lại, mình xem xét cả hành vi thực tế của họ lẫn nỗi lo của mình, trước khi kết luận hay phản ứng.', edited: true },
             { t: 'Mình biết những nhu cầu nào cần được trao đổi rõ ràng, thay vì mong người kia tự đoán ra.', removed: true },
             { t: 'Khi lựa chọn, mình lắng nghe cả trực giác và cảm nhận của cơ thể, chứ không chỉ dựa vào lý trí hay một danh sách tiêu chuẩn.', code: 'RWS25', isNew: true }
           ] },
-        { name: 'Tiêu chuẩn và lựa chọn bạn đời có ý thức',
-          tip: 'Chia tiêu chuẩn của bạn thành ba nhóm: điều không thể thỏa hiệp, điều mong muốn, và điều có thể cùng nhau thương lượng. HEART Dating Filter sẽ giúp bạn làm rõ phần này.',
+        { name: 'Tiêu chuẩn bạn đời từ trái tim',
+          tip: 'Chia tiêu chuẩn của bạn thành ba nhóm: Bắt buộc, Mong muốn và Không thể chấp nhận, rồi viết mỗi điều thành một hành vi có thể quan sát. HEART Dating Filter sẽ giúp bạn làm rõ phần này.',
           items: [
             { t: 'Mình xác định được những giá trị và phẩm chất quan trọng đối với một người bạn đời.', removed: true },
-            'Mình phân biệt được điều không thể thỏa hiệp, điều mình mong muốn và điều có thể cùng nhau thương lượng.',
-            'Mình quan sát cách một người cư xử nhất quán theo thời gian, thay vì chỉ dựa vào lời nói hoặc ấn tượng ban đầu.',
+            { t: 'Mình phân biệt được điều Bắt buộc cần có, điều Mong muốn và điều Không thể chấp nhận ở người bạn đời.', edited: true },
+            { t: 'Mình dành thời gian quan sát xem một người có nhất quán không (chủ động liên lạc, giữ lời hứa, có mặt khi mình cần), thay vì kết luận chỉ qua lời nói hay vài buổi hẹn đầu.', edited: true },
             { t: 'Khi rất rung động với một người, mình thường bỏ qua những khác biệt quan trọng về giá trị hoặc định hướng tương lai.', r: true },
-            'Mình có thể nhìn người mình đang tìm hiểu như họ đang là, thay vì chỉ gắn bó với hình dung về con người họ có thể trở thành.',
-            { t: 'Mình để ý xem khi ở bên một người, mình có được là người phụ nữ mềm mại và bình an, hay luôn phải gồng lên để giữ mối quan hệ.', code: 'RWS26', isNew: true }
+            { t: 'Mình biết mình muốn được cảm thấy như thế nào trong mối quan hệ (như bình yên, được trân trọng, được là người phụ nữ mềm mại của chính mình), chứ không chỉ biết người ấy cần có những đặc điểm gì.', edited: true },
+            { t: 'Với mỗi phẩm chất mình mong muốn (như tử tế, trách nhiệm, nghiêm túc), mình biết nó sẽ thể hiện qua những hành động cụ thể nào để có thể quan sát.', code: 'RWS28', isNew: true },
+            { t: 'Mình để ý xem khi ở bên một người, mình có được là người phụ nữ mềm mại và bình an, hay luôn phải gồng lên để giữ mối quan hệ.', code: 'RWS26', isNew: true, removed: true },
+            { t: 'Mình để ý cách một người đối xử với những người xung quanh, phản ứng khi mình nói "không" và nhận lỗi khi làm sai, chứ không chỉ cách họ đối xử với mình lúc đang tìm hiểu.', code: 'RWS29', isNew: true }
           ] },
         { name: 'Học hỏi từ trải nghiệm tình yêu',
           tip: 'Khi một cuộc tìm hiểu kết thúc, trả lời ba câu: mình đã biết gì, mình đã bỏ qua gì, và lần tới mình muốn làm khác đi điều gì?',
@@ -608,7 +610,7 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
             { t: 'Mình không ở lại trong một mối quan hệ thiếu tôn trọng chỉ vì đã cam kết hay đã dành nhiều thời gian cho nó.', edited: true },
             { t: 'Khi thấy chỉ có mình đang cố gắng vun vén, mình nhận ra và nói ra điều đó, thay vì lặng lẽ gánh một mình.', edited: true },
             { t: 'Mình hiểu rằng khác biệt có thể được đối thoại, nhưng không phải khác biệt nào cũng phù hợp để tiếp tục gắn bó.', removed: true },
-            { t: 'Mình hiểu rằng mềm mại và dịu dàng không có nghĩa là yếu đuối, hay phải chiều theo mọi mong muốn của người khác.', code: 'RWS27', isNew: true }
+            { t: 'Mình hiểu rằng mềm mại và dịu dàng không có nghĩa là yếu đuối, hay phải chiều theo mọi mong muốn của người khác.', code: 'RWS27', isNew: true, removed: true }
           ] }
       ] },
     { code: 'HPS', name: 'Hiện Diện Và Kết Nối Từ Trái Tim', en: 'Heartful Presence', color: 'var(--r3)', hex: '#C5A255',
@@ -660,7 +662,7 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
           items: [
             { t: 'Mình cho phép mình tận hưởng một cuộc gặp gỡ mà không liên tục tự đánh giá mình đã thể hiện tốt hay chưa.', removed: true },
             'Mình có thể đón nhận sự giúp đỡ, chăm sóc hoặc một lời khen mà không thấy mình mắc nợ hay phải đáp lại ngay.',
-            'Mình góp phần tạo nên những cuộc trò chuyện dễ chịu, nơi cả hai có thể chia sẻ và tò mò về nhau.',
+            { t: 'Mình tò mò tìm hiểu người kia cần gì và cảm nhận yêu thương theo cách nào (lời nói, thời gian bên nhau, hành động chăm sóc…), thay vì chỉ yêu theo cách mình muốn được yêu.', edited: true },
             { t: 'Mình thấy thoải mái khi được mềm mại, dịu dàng và nữ tính, mà không cần gồng lên để tỏ ra mạnh mẽ.', code: 'HPS25', isNew: true }
           ] },
         { name: 'Hành động rõ ràng và giữ ranh giới',
@@ -729,19 +731,19 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
       signs: ['Chuyện tình cảm chiếm gần hết suy nghĩ và năng lượng của mình.', 'Mình ít có niềm vui hay mục tiêu riêng ngoài việc tìm bạn đời.', 'Khi khó khăn, mình thường tự gánh một mình thay vì tìm sự hỗ trợ.'] },
     'Ý nghĩa và mục đích của tình yêu': { q: 'Mình có hiểu vì sao mình muốn có một tình yêu không?',
       about: 'Đây là sự rõ ràng về lý do sâu xa khiến bạn muốn yêu: để cùng xây dựng, cùng lớn lên, chứ không chỉ để lấp đầy nỗi cô đơn. Khi mục đích rõ, bạn tìm một người để đồng hành, không phải một người để cứu mình.',
-      signs: ['Mình muốn có người yêu chủ yếu để hết cô đơn hoặc để gia đình yên lòng.', 'Mình mong người yêu sẽ làm mình hạnh phúc trọn vẹn.', 'Mình chưa hình dung được tình yêu sẽ đóng góp gì cho cả hai người.'] },
+      signs: ['Mình muốn có người yêu chủ yếu để hết cô đơn hoặc để gia đình yên lòng.', 'Mình chờ người yêu làm mình hạnh phúc và xoa dịu mọi nỗi lo cho mình.', 'Mình chưa hình dung được tình yêu sẽ đóng góp gì cho cả hai người.'] },
     'Tầm nhìn về gắn bó và hôn nhân': { q: 'Mình có rõ ràng về cuộc sống chung mình muốn xây dựng không?',
       about: 'Đây là bức tranh bạn mang trong lòng về gắn bó và hôn nhân: kiểu cam kết bạn hướng tới, đời sống hằng ngày bạn mong có, và sự sẵn sàng của cả hai. Tầm nhìn rõ giúp bạn nhận ra ai thật sự cùng hướng đi với mình.',
-      signs: ['Mình muốn kết hôn nhưng chưa rõ mình muốn một cuộc hôn nhân như thế nào.', 'Mình ngại hỏi người kia về định hướng tương lai.', 'Mình dễ dành thời gian cho những người không cùng đích đến.'] },
+      signs: ['Mình muốn kết hôn nhưng chưa rõ mình muốn một cuộc hôn nhân như thế nào.', 'Mình ngại hỏi về định hướng tương lai, hoặc chỉ hỏi khi đang lo sợ.', 'Mình dễ dành thời gian cho những người không cùng đích đến.'] },
     'Nhận diện niềm tin và mô thức tình yêu': { q: 'Mình có nhận ra những vòng lặp trong cách mình yêu không?',
       about: 'Đây là khả năng nhìn thấy kiểu người mình hay bị thu hút và những phản ứng mình hay lặp lại, để có thể dừng lại và chọn khác đi. Nhận ra vòng lặp là bước đầu tiên để bước ra khỏi nó.',
       signs: ['Mình hay rung động với những người giống nhau, và mọi chuyện kết thúc giống nhau.', 'Mình phản ứng theo lối cũ dù biết nó không giúp được mình.', 'Những tổn thương cũ cứ lặp lại, chỉ dưới một cái tên khác.'] },
     'Hiểu cảm xúc, nhu cầu và tín hiệu trong tình yêu': { q: 'Mình có phân biệt được rung động và cảm giác an toàn không?',
       about: 'Đây là khả năng đọc đúng cảm xúc, nhu cầu và tín hiệu trong một mối quan hệ: biết đâu là hồi hộp, đâu là bình yên; nhìn vào hành động thay vì chỉ nghe theo nỗi sợ; và biết nói ra điều mình cần.',
-      signs: ['Mình dễ nhầm cảm giác thấp thỏm, chờ đợi là tình yêu.', 'Mình hay kết luận dựa trên nỗi sợ hơn là hành động thật của người kia.', 'Mình mong người kia tự đoán ra điều mình cần.'] },
-    'Tiêu chuẩn và lựa chọn bạn đời có ý thức': { q: 'Mình có lựa chọn bạn đời bằng một tấm la bàn rõ ràng không?',
-      about: 'Đây là việc bạn biết rõ những giá trị cốt lõi cần có ở người bạn đời, phân biệt điều không thể thỏa hiệp với điều có thể thương lượng, và quan sát một người qua hành động nhất quán theo thời gian.',
-      signs: ['Khi đã rung động, mình dễ bỏ qua những khác biệt quan trọng.', 'Mình tin vào lời hứa nhiều hơn là hành động.', 'Mình hay yêu hình ảnh người kia "có thể trở thành" hơn là con người hiện tại của họ.'] },
+      signs: ['Mình dễ nhầm cảm giác thấp thỏm, chờ đợi là tình yêu.', 'Mình hay kết luận dựa trên nỗi sợ hơn là hành động thật của người kia.', 'Khi người kia chậm trả lời, mình vội đoán rằng họ đã hết quan tâm.'] },
+    'Tiêu chuẩn bạn đời từ trái tim': { q: 'Mình có lựa chọn bạn đời bằng một bộ tiêu chuẩn từ trái tim không?',
+      about: 'Đây là việc bạn đặt tiêu chuẩn bạn đời từ trái tim theo HEART: cùng hướng trong những điều quan trọng (Harmony), biết mình muốn được cảm thấy thế nào (Emotional Experience), nhìn phẩm chất qua hành động (Actions), soi chiếu lại chính mình (Reflection) và kiểm chứng qua thời gian (Time-tested). Tiêu chuẩn không để chấm điểm ai, mà là hệ quy chiếu giúp bạn lựa chọn sáng rõ, đồng thời là tấm gương để bạn vun bồi chính mình.',
+      signs: ['Mình mới chỉ nhìn cách người ấy đối xử với mình, chưa để ý cách họ đối xử với người xung quanh hay phản ứng khi mình nói "không".','Mình tin vào lời hứa nhiều hơn là những gì người ấy thực sự làm qua thời gian.', 'Tiêu chuẩn của mình chủ yếu là ngoại hình, thu nhập, nhà cửa, hoặc được đặt ra từ nỗi sợ bị tổn thương lần nữa.'] },
     'Học hỏi từ trải nghiệm tình yêu': { q: 'Mình có biến những trải nghiệm đã qua thành trí tuệ của riêng mình không?',
       about: 'Đây là khả năng nhìn lại các mối quan hệ cũ như một nguồn dữ liệu quý: thấy điều mình đã biết, điều mình đã bỏ qua, phần của mình và phần của người kia, rồi điều chỉnh để lần sau khác đi.',
       signs: ['Mình hay đổ hết lỗi cho mình, hoặc cho người kia.', 'Mình tránh nghĩ về chuyện cũ vì vẫn còn đau.', 'Mình giữ nguyên tiêu chuẩn cũ dù trải nghiệm cho thấy nó chưa phù hợp.'] },
@@ -762,7 +764,7 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
       signs: ['Mình hay im lặng và chờ người kia tự hiểu.', 'Khi người kia đang chia sẻ, mình hay vội ngắt lời, góp ý hoặc giải thích phần của mình.', 'Khi không vui, mình nói "anh chẳng bao giờ…" thay vì nói ra mình đang cảm thấy gì.'] },
     'Sự ấm áp và khả năng đón nhận': { q: 'Mình có cho phép mình được chăm sóc và yêu thương không?',
       about: 'Đây là sự ấm áp và khả năng đón nhận: tận hưởng một cuộc gặp mà không tự chấm điểm mình, nhận một lời khen hay sự giúp đỡ mà không thấy mắc nợ. Biết đón nhận là một phần rất đẹp của năng lượng nữ tính.',
-      signs: ['Mình thấy ngại, hoặc muốn đáp lại ngay, khi được giúp đỡ.', 'Mình hay gạt đi lời khen.', 'Trong buổi hẹn, mình bận đánh giá xem mình đã thể hiện tốt chưa.'] },
+      signs: ['Mình thấy ngại, hoặc muốn đáp lại ngay, khi được giúp đỡ.', 'Mình hay gạt đi lời khen.', 'Mình thường yêu thương theo cách mình muốn được yêu, ít khi hỏi người kia thật sự cần gì.'] },
     'Hành động rõ ràng và giữ ranh giới': { q: 'Mình có thể hiện rõ điều mình muốn và giữ được ranh giới của mình không?',
       about: 'Đây là khả năng thể hiện sự quan tâm một cách phù hợp, nói rõ điều mình đồng ý và không đồng ý, và lùi lại hay kết thúc một cách tôn trọng khi thấy không phù hợp. Ranh giới rõ ràng giúp cả hai cùng thấy an toàn.',
       signs: ['Mình hay nói "không sao đâu" dù lòng thấy chưa ổn.', 'Mình để mối quan hệ tiến nhanh hơn nhịp mình muốn.', 'Mình khó kết thúc một kết nối dù biết nó không phù hợp.'] },
@@ -887,20 +889,20 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
       daily: { when: 'Sau mỗi lần trò chuyện hay nhắn tin với người đang tìm hiểu (hoặc với người thân)', do: 'viết hai dòng: "Điều thực sự đã xảy ra" và "Điều mình đang đoán".' },
       action: { t: 'Sau mỗi buổi hẹn hay cuộc trò chuyện dài, trả lời 3 câu: Mình thấy có thêm năng lượng hay mệt đi? Người này khơi dậy phiên bản nào của mình? Mình có thấy được tôn trọng không?',
         script: '' },
-      watch: 'Sau mỗi lần trò chuyện với một người, để ý bạn thấy nhẹ nhõm hay thấp thỏm.',
+      watch: 'Khi muốn hỏi "chuyện mình rồi sẽ đi đến đâu?", dừng lại tự hỏi: mình hỏi để hiểu, hay vì đang sợ? Nếu là vì sợ, hãy chăm sóc nỗi sợ ấy trước.',
       basis: 'Những câu hỏi tự vấn sau buổi hẹn, gợi ý từ Logan Ury (sách "How to Not Die Alone"); hiện tượng dễ nhầm sự bất an với rung động trong lý thuyết gắn bó (Levine và Heller).' },
-    'Tiêu chuẩn và lựa chọn bạn đời có ý thức': {
-      goal: 'Có bộ tiêu chuẩn chia làm 3 nhóm, và biết cách quan sát ít nhất 2 tiêu chuẩn quan trọng qua hành động.',
-      day1: { t: 'Bộ lọc ba tầng', steps: [
-        'Viết ra mọi điều bạn mong ở người bạn đời, không giới hạn.',
-        'Chia thành 3 nhóm: Không thể thỏa hiệp (tối đa 5 điều), Mong muốn, Có thể cùng nhau thương lượng.',
-        'Với mỗi điều không thể thỏa hiệp, viết: "Mình sẽ nhận ra điều này qua hành động nào?" (ví dụ: sự tôn trọng thể hiện qua cách anh ấy nói về người cũ, cách anh ấy đối xử với người phục vụ).',
-        'Kiểm tra lại: có tiêu chuẩn nào thật ra chỉ là sở thích bề ngoài không?'] },
-      daily: { when: 'Mỗi sáng', do: 'đọc lại 3–5 điều không thể thỏa hiệp, như một lời hẹn với chính mình.' },
-      action: { t: 'Với người đang tìm hiểu (hoặc khi nhớ lại người cũ), quan sát một tiêu chuẩn qua hành động trong 2–3 lần gặp, thay vì chỉ qua lời nói. Bạn có thể mở lời bằng một câu hỏi.',
+    'Tiêu chuẩn bạn đời từ trái tim': {
+      goal: 'Có bản tiêu chuẩn bạn đời từ trái tim gồm 3 nhóm, biết mình muốn được cảm thấy thế nào, và biết cách quan sát ít nhất 2 tiêu chuẩn qua hành động.',
+      day1: { t: 'Bản tiêu chuẩn từ trái tim', steps: [
+        'Chọn 3–5 cảm giác bạn muốn có trong mối quan hệ (như bình yên, được trân trọng, được lắng nghe, được là chính mình).',
+        'Với mỗi cảm giác, viết phẩm chất cần có và một hành vi có thể quan sát (ví dụ: tôn trọng thể hiện qua cách anh ấy phản ứng khi bạn nói "không", cách anh ấy nói về người cũ).',
+        'Chia tiêu chuẩn thành 3 nhóm: Bắt buộc, Mong muốn, Không thể chấp nhận. Viết bằng ngôn ngữ tích cực, ví dụ "biết điều hòa cảm xúc khi bất đồng" thay vì "không nóng tính".',
+        'Soi chiếu: chọn một phẩm chất bạn mong ở bạn đời và tự hỏi, mình đang sống với phẩm chất ấy đến đâu?'] },
+      daily: { when: 'Mỗi sáng', do: 'đọc lại những điều Bắt buộc và Không thể chấp nhận của bạn, như một lời hẹn với chính mình.' },
+      action: { t: 'Với người đang tìm hiểu (hoặc khi nhớ lại người cũ), quan sát một tiêu chuẩn qua hành động trong 2–3 lần gặp, thay vì chỉ qua lời nói. Không cần vội hỏi hay thúc giục, hãy để thời gian cho bạn thấy người ấy có nhất quán không. Bạn có thể mở lời bằng một câu hỏi.',
         script: 'Khi bất đồng với người thân, anh thường làm gì? Điều gì quan trọng nhất với anh trong một gia đình?' },
       watch: 'Để ý khoảng cách giữa lời nói và hành động của người bạn đang tìm hiểu, hoặc từng tìm hiểu.',
-      basis: 'HEART Dating Filter trong chương trình Bản Đồ Tình Yêu; nghiên cứu của John Gottman cho thấy cách hai người xử lý bất đồng là một chỉ dấu quan trọng về độ bền của mối quan hệ.' },
+      basis: 'Mô hình HEART Standards trong bài học "Đặt tiêu chuẩn bạn đời từ trái tim" của Phương; nghiên cứu của John Gottman cho thấy cách hai người xử lý bất đồng là một chỉ dấu quan trọng về độ bền của mối quan hệ.' },
     'Học hỏi từ trải nghiệm tình yêu': {
       goal: 'Viết được 3 bài học rõ ràng từ các mối quan hệ cũ, mà không đổ hết lỗi cho mình hay cho người kia.',
       day1: { t: 'Viết để hiểu', steps: [
@@ -1022,7 +1024,7 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
     'Tầm nhìn về gắn bó và hôn nhân': 'Khi bức tranh đời sống chung còn mờ, bạn khó nhận ra ai thật sự cùng hướng đi với mình, và dễ dành thời gian cho những kết nối không cùng đích đến.',
     'Nhận diện niềm tin và mô thức tình yêu': 'Có thể bạn đang ở trong một vòng lặp quen thuộc mà chưa kịp nhận ra: cùng một kiểu người, cùng một kiểu tổn thương, chỉ dưới một cái tên khác.',
     'Hiểu cảm xúc, nhu cầu và tín hiệu trong tình yêu': 'Khi rung động và cảm giác an toàn còn lẫn vào nhau, bạn dễ nhầm sự thấp thỏm là tình yêu, và bỏ lỡ những người mang đến bình yên.',
-    'Tiêu chuẩn và lựa chọn bạn đời có ý thức': 'Khi tiêu chuẩn chưa đủ rõ, trái tim rung động dễ xoá nhoà lý trí, và bạn có thể thỏa hiệp với những điều lẽ ra không nên chấp nhận.',
+    'Tiêu chuẩn bạn đời từ trái tim': 'Khi tiêu chuẩn chưa đủ rõ, trái tim rung động dễ xoá nhoà lý trí, và bạn có thể thỏa hiệp với những điều lẽ ra không nên chấp nhận.',
     'Học hỏi từ trải nghiệm tình yêu': 'Mỗi mối quan hệ đã qua đều là một nguồn dữ liệu quý. Khi chưa kịp nhìn lại bằng sự bình tĩnh, bài học dễ bị bỏ lỡ và câu chuyện cũ dễ lặp lại.',
     'Quan điểm về tình yêu trưởng thành': 'Có thể bạn đang một mình gánh phần vun đắp, hoặc chưa chắc đâu là ranh giới giữa bao dung và chịu đựng. Tình yêu trưởng thành cần cả hai người cùng góp phần.',
     'Hiện diện với chính mình khi kết nối': 'Khi quá bận tâm để gây ấn tượng, bạn dễ quên mất mình đang cảm thấy gì, và người kia cũng khó gặp được con người thật của bạn.',
@@ -1075,7 +1077,7 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
 
   // ---------- Lăng kính tính nữ ----------
   // Gom các câu thể hiện năng lượng nữ tính ở cả ba vòng (theo ghi chú của Phương + 3 câu bổ sung)
-  var FEM = ['PBS05', 'PBS12', 'PBS24', 'PBS25', 'PBS26', 'PBS27', 'RWS25', 'RWS26', 'RWS27', 'HPS08', 'HPS12', 'HPS16', 'HPS19', 'HPS23', 'HPS24', 'HPS25'];
+  var FEM = ['PBS05', 'PBS12', 'PBS24', 'PBS25', 'PBS26', 'PBS27', 'RWS17', 'RWS25', 'HPS08', 'HPS12', 'HPS16', 'HPS19', 'HPS23', 'HPS24', 'HPS25'];
   var FEM_TEXT = {
     low: 'Có lẽ bạn đang quen gồng mình, lo liệu mọi thứ và ít cho phép mình được mềm mại, được nghỉ ngơi, được chăm sóc. Năng lượng nữ tính trong bạn vẫn luôn ở đó, chỉ đang chờ được đánh thức một cách dịu dàng.',
     mid: 'Bạn đã có những khoảnh khắc được là người phụ nữ mềm mại, biết đón nhận và biết tận hưởng. Nhưng khi bận rộn hay bất an, bạn dễ quay về trạng thái gồng mình và tự gánh mọi thứ.',
