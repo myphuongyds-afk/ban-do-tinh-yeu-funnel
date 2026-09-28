@@ -1,0 +1,1593 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blossomed Relationship Diagnosis</title>
+<meta name="description" content="Bộ câu hỏi tự phản chiếu chuyên sâu về ba vùng năng lực trên hành trình tình yêu · Coach My Phương.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Fraunces:ital,wght@0,600;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FFFBF8;
+  --surface: #FFFFFF;
+  --surface-2: #F6E4E3;
+  --text: #3D2222;
+  --text-muted: #6B4848;
+  --accent: #D37881;
+  --accent-soft: rgba(211, 120, 129, 0.12);
+  --accent-teal: #24584C;
+  --accent-gold: #C5A255;
+  --accent-deep: #8C4A4E;
+  --border: rgba(61, 34, 34, 0.1);
+  --r1: #D37881;
+  --r2: #24584C;
+  --r3: #C5A255;
+  --font-h: 'Lora', Georgia, serif;
+  --font-b: 'Inter', system-ui, sans-serif;
+  --radius: 14px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-b); background: var(--bg); color: var(--text); line-height: 1.65; -webkit-font-smoothing: antialiased; min-height: 100vh; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+h1, h2, h3 { font-family: var(--font-h); line-height: 1.3; color: var(--text); }
+h1 { font-family: 'Fraunces', var(--font-h); font-style: italic; font-weight: 600; font-size: clamp(1.8rem, 5vw, 2.6rem); }
+h2 { font-weight: 600; font-size: clamp(1.3rem, 3.4vw, 1.7rem); }
+h3 { font-weight: 600; font-size: 1.1rem; }
+p { color: var(--text-muted); }
+.wrap { max-width: 760px; margin: 0 auto; padding: 32px 16px 64px; }
+.brand { text-align: center; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-deep); font-weight: 600; margin-bottom: 24px; }
+.card { background: var(--surface); border-radius: var(--radius); padding: 36px 32px; box-shadow: 0 12px 36px rgba(61,34,34,0.08); }
+.card + .card, .card + div > .card:first-child { margin-top: 20px; }
+#round-cards .card { margin-top: 20px; }
+@media (max-width: 600px) { .card { padding: 26px 20px; } }
+.screen { display: none; }
+.screen.active { display: block; animation: fade .35s ease; }
+@keyframes fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.center { text-align: center; }
+.eyebrow { font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-deep); font-weight: 600; }
+
+.btn-primary {
+  display: inline-block; padding: 16px 36px;
+  background: linear-gradient(180deg, #E0A1A7 0%, var(--accent) 50%, var(--accent-deep) 100%);
+  color: #fff; border-radius: 999px; font-weight: 700; font-size: 1rem; font-family: var(--font-h);
+  letter-spacing: 0.02em; box-shadow: 0 0 0 6px var(--accent-soft), 0 12px 28px var(--accent-soft); transition: transform .2s;
+}
+.btn-primary:hover { transform: translateY(-2px); }
+a.btn-primary { text-decoration: none; }
+.btn-ghost { padding: 12px 20px; border-radius: 999px; border: 1px solid var(--border); color: var(--text-muted); font-weight: 600; font-size: .92rem; }
+.btn-ghost:hover { background: var(--accent-soft); color: var(--accent-deep); }
+
+/* Intro */
+.intro h1 { text-align: center; margin: 8px 0 12px; }
+.intro .lead { text-align: center; font-size: 1.05rem; margin-bottom: 26px; }
+.rounds { display: grid; gap: 12px; margin-bottom: 24px; }
+.round-chip { display: flex; gap: 14px; align-items: flex-start; padding: 14px 16px; border-radius: 12px; background: var(--bg); border: 1px solid var(--border); }
+.round-chip .dot { flex: 0 0 12px; height: 12px; border-radius: 50%; margin-top: 7px; }
+.round-chip b { font-family: var(--font-h); color: var(--text); }
+.round-chip span { display: block; font-size: .93rem; color: var(--text-muted); font-style: italic; }
+.note { font-size: .95rem; background: var(--accent-soft); border-radius: 12px; padding: 16px 18px; margin-bottom: 18px; color: var(--accent-deep); }
+.note p { color: inherit; }
+.note p + p { margin-top: 8px; }
+.scale-table { width: 100%; border-collapse: collapse; margin: 6px 0 24px; font-size: .93rem; }
+.scale-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); color: var(--text); }
+.scale-table td:first-child { width: 44px; text-align: center; font-weight: 700; color: var(--accent-deep); }
+.field { margin-bottom: 26px; }
+.field label { display: block; font-weight: 600; font-size: .92rem; margin-bottom: 6px; }
+.field input { width: 100%; padding: 13px 16px; border: 1px solid var(--border); border-radius: 12px; font: inherit; background: var(--bg); color: var(--text); }
+.field input:focus, textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.resume { margin-top: 14px; font-size: .92rem; text-align: center; }
+.resume button { color: var(--accent-deep); text-decoration: underline; font-weight: 600; }
+
+/* Round transition */
+.round-intro { text-align: center; }
+.round-intro .num { font-family: 'Fraunces', var(--font-h); font-style: italic; font-size: 3.2rem; line-height: 1; margin-bottom: 8px; }
+.round-intro h2 { margin: 6px 0 10px; }
+.round-intro .q { font-family: var(--font-h); font-style: italic; font-size: 1.15rem; color: var(--text); margin: 18px auto 20px; max-width: 520px; }
+.round-intro .enc { margin: 0 auto 26px; max-width: 540px; }
+
+/* Question */
+.progress-top { display: flex; justify-content: space-between; align-items: center; font-size: .85rem; color: var(--text-muted); margin-bottom: 10px; gap: 12px; }
+.pill-tag { font-weight: 600; padding: 4px 12px; border-radius: 999px; font-size: .78rem; color: #fff; white-space: nowrap; }
+.bar { height: 6px; background: var(--surface-2); border-radius: 999px; overflow: hidden; margin-bottom: 6px; }
+.bar > i { display: block; height: 100%; border-radius: 999px; transition: width .3s; }
+.bar-sub { font-size: .78rem; color: var(--text-muted); margin-bottom: 26px; }
+.q-text { font-family: var(--font-h); font-size: clamp(1.15rem, 3vw, 1.4rem); font-weight: 500; color: var(--text); margin-bottom: 24px; min-height: 3.3em; }
+.scale { display: grid; gap: 9px; }
+.opt { display: flex; align-items: center; gap: 14px; padding: 13px 16px; border-radius: 12px; border: 1px solid var(--border); background: var(--bg); text-align: left; font-size: .97rem; transition: all .15s; }
+.opt:hover { border-color: var(--accent); background: var(--accent-soft); }
+.opt.sel { border-color: var(--accent); background: var(--accent); color: #fff; }
+.opt .n { flex: 0 0 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: .85rem; background: var(--surface); border: 1px solid var(--border); color: var(--accent-deep); }
+.opt.sel .n { background: rgba(255,255,255,.25); color: #fff; border-color: transparent; }
+.opt.na { margin-top: 6px; border-style: dashed; color: var(--text-muted); font-size: .92rem; }
+.opt.na .n { font-size: .75rem; }
+.opt.na.sel { color: #fff; }
+.q-nav { display: flex; justify-content: space-between; margin-top: 24px; }
+.kbd-hint { text-align: center; font-size: .8rem; color: var(--text-muted); margin-top: 16px; opacity: .8; }
+@media (hover: none) { .kbd-hint { display: none; } }
+
+/* Result */
+.res-head { text-align: center; }
+.res-head h1 { margin: 8px 0 10px; }
+.stage-flower { width: 88px; height: 88px; margin: 0 auto 8px; display: block; }
+.self-note { font-size: .88rem; font-style: italic; margin-top: 10px; }
+.wheel-box { max-width: 440px; margin: 18px auto 0; }
+.wheel-box svg { width: 100%; height: auto; display: block; overflow: visible; }
+.wheel-box .petal { transition: opacity .2s; cursor: pointer; }
+.wheel-box .petal:hover { opacity: .75; }
+.legend { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 18px; font-size: .85rem; margin-top: 8px; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.round-sum { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; margin-top: 22px; text-align: left; }
+.round-sum div { background: var(--bg); border-radius: 12px; padding: 12px 14px; border-top: 3px solid; }
+.round-sum b { display: block; font-family: var(--font-h); font-size: .95rem; color: var(--text); }
+.round-sum span { font-size: .88rem; }
+.round-sum .pct { display: block; font-family: var(--font-h); font-weight: 700; font-size: 1.35rem; line-height: 1.2; margin-top: 2px; }
+.index-box { margin: 6px 0 2px; }
+.index-num { display: block; font-family: 'Fraunces', var(--font-h); font-weight: 600; font-size: 3rem; line-height: 1; color: var(--accent-deep); }
+.index-label { font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; color: var(--text-muted); font-weight: 600; }
+.zone { display: inline-block; font-size: .72rem; font-weight: 700; border-radius: 999px; padding: 2px 9px; vertical-align: 2px; white-space: nowrap; font-family: var(--font-b); }
+.zone-high { background: rgba(36,88,76,.12); color: var(--accent-teal); }
+.zone-mid { background: rgba(197,162,85,.18); color: #8a6d2c; }
+.zone-low { background: var(--accent-soft); color: var(--accent-deep); }
+.strong { display: inline-block; font-size: .7rem; font-weight: 700; color: #fff; background: var(--accent-teal); border-radius: 999px; padding: 2px 8px; margin-left: 6px; vertical-align: 2px; font-family: var(--font-b); }
+details.f-row { padding: 0; }
+details.f-row > summary { list-style: none; cursor: pointer; padding: 14px 0; }
+details.f-row > summary::-webkit-details-marker { display: none; }
+details.f-row > summary .more { display: block; font-size: .8rem; color: var(--accent-deep); font-weight: 600; margin-top: 8px; }
+details.f-row[open] > summary .more { display: none; }
+.f-detail { padding: 0 0 16px; }
+.f-detail .fq { font-family: var(--font-h); font-style: italic; font-size: 1.05rem; color: var(--text); margin-bottom: 10px; }
+.f-detail h4 { font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-deep); margin: 12px 0 4px; font-family: var(--font-b); }
+.f-detail p { color: var(--text); font-size: .95rem; }
+.f-detail ul { margin: 4px 0 0 18px; display: grid; gap: 3px; font-size: .95rem; color: var(--text); }
+@media print { details.f-row > summary .more { display: none; } }
+.disclaimer { font-size: .85rem; text-align: center; max-width: 560px; margin: 16px auto 0; }
+.actions { list-style: none; display: grid; gap: 10px; margin: 14px 0 6px; }
+.actions li { padding: 12px 14px 12px 40px; background: var(--bg); border-radius: 10px; position: relative; font-size: .96rem; color: var(--text); }
+.actions li::before { content: '🌷'; position: absolute; left: 12px; top: 11px; font-size: .95rem; }
+.actions li b { display: block; font-family: var(--font-h); margin-bottom: 2px; }
+.tool { font-size: .92rem; background: var(--accent-soft); border-radius: 10px; padding: 12px 14px; color: var(--accent-deep); margin-top: 12px; }
+.reflect-box { background: var(--bg); border-radius: 12px; padding: 18px; margin-top: 20px; }
+.reflect-box p { color: var(--text); font-style: italic; font-family: var(--font-h); }
+.round-card .rc-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 4px; }
+.round-card .rc-score { font-family: var(--font-h); font-weight: 700; font-size: 1.5rem; white-space: nowrap; }
+.round-card .rc-score small { font-size: .9rem; font-weight: 500; color: var(--text-muted); }
+.round-card .rc-sub { font-size: .92rem; font-style: italic; margin-bottom: 18px; }
+.f-row { padding: 14px 0; border-top: 1px solid var(--border); }
+.f-row .top { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; margin-bottom: 6px; }
+.f-row .top b { font-weight: 600; font-size: .96rem; }
+.f-row .top b em { font-style: normal; color: var(--text-muted); font-weight: 500; margin-right: 4px; }
+.f-row .top span { font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; font-size: .95rem; }
+.f-row .top span.nd { font-weight: 500; font-style: italic; color: var(--text-muted); }
+.track { height: 8px; background: var(--surface-2); border-radius: 999px; overflow: hidden; }
+.track i { display: block; height: 100%; border-radius: 999px; }
+.empty { font-style: italic; font-size: .93rem; margin-top: 12px; }
+.reflect-q { margin-top: 20px; }
+.reflect-q label { display: block; font-family: var(--font-h); font-weight: 600; color: var(--text); margin-bottom: 8px; }
+textarea { width: 100%; min-height: 96px; padding: 12px 14px; border: 1px solid var(--border); border-radius: 12px; font: inherit; font-size: .95rem; background: var(--bg); color: var(--text); resize: vertical; }
+.res-actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+.sign { text-align: center; margin-top: 26px; font-family: var(--font-h); font-style: italic; color: var(--accent-deep); }
+.footer { text-align: center; font-size: .8rem; color: var(--text-muted); margin-top: 20px; }
+.print-only { display: none; }
+
+/* Báo cáo kết quả — bố cục thân thiện */
+.greet { text-align: left; background: var(--bg); border-radius: 12px; padding: 16px 18px; margin: 14px 0 20px; color: var(--text); font-size: .98rem; }
+.greet b { font-family: var(--font-h); font-size: 1.08rem; }
+.bars { margin-top: 24px; text-align: left; }
+.bar-row { margin-bottom: 18px; }
+.bar-row .top { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 6px; }
+.bar-row .top b { font-family: var(--font-h); font-size: 1.02rem; color: var(--text); }
+.bar-row .top b small, .rc-head h3 small { display: block; font-family: var(--font-b); font-weight: 500; font-size: .75rem; color: var(--text-muted); letter-spacing: .03em; }
+.bar-row .top span { font-weight: 700; font-variant-numeric: tabular-nums; }
+.bar-row .track { height: 12px; }
+.bar-row .track i { width: 0; transition: width 1s ease; }
+.bar-row .lvl { margin-top: 6px; }
+details.week > summary, details.map-details > summary, details.prep-coach > summary { list-style: none; cursor: pointer; }
+details.week > summary::-webkit-details-marker, details.map-details > summary::-webkit-details-marker, details.prep-coach > summary::-webkit-details-marker { display: none; }
+details.week > summary .more, details.map-details > summary .more, details.prep-coach > summary .more { display: inline-block; font-size: .82rem; color: var(--accent-deep); font-weight: 600; margin-top: 4px; }
+details[open] > summary .more { display: none; }
+details.week[open] > summary { margin-bottom: 10px; }
+details.map-details > summary h2 { margin: 6px 0 2px; }
+details.prep-coach { margin-top: 18px; border-top: 1px solid var(--border); padding-top: 16px; }
+details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem; display: block; }
+.zone-legend { font-size: .85rem; text-align: center; margin: 12px 0 4px; line-height: 2; }
+.round-block { margin-top: 24px; padding-top: 16px; }
+.round-block .rc-head h3 { font-size: 1.15rem; }
+.quote small:first-child { margin: 0 0 2px; font-weight: 600; }
+
+/* Lăng kính tính nữ */
+.fem { text-align: left; margin-top: 8px; background: linear-gradient(180deg, #FFF7F7 0%, #FBEFEF 100%); border: 1px solid rgba(211,120,129,.25); border-radius: 12px; padding: 16px 18px; }
+.fem:empty { display: none; }
+.fem-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+.fem-head b { font-family: var(--font-h); font-size: 1.05rem; color: var(--accent-deep); }
+.fem-head span { font-weight: 700; color: var(--accent-deep); }
+.fem .track { height: 12px; }
+.fem .track i { width: 0; transition: width 1s ease; }
+.fem p { color: var(--text); font-size: .95rem; margin-top: 10px; }
+.fem .fem-tip { font-size: .9rem; color: var(--accent-deep); }
+
+/* Mời khai vấn 1:1 */
+.coach-cta { background: linear-gradient(180deg, #FFFFFF 0%, #FBEFEF 100%); border: 1px solid rgba(211,120,129,.25); }
+.cta-list { list-style: none; display: grid; gap: 10px; margin: 14px 0 22px; }
+.cta-list li { position: relative; padding: 12px 14px 12px 40px; background: var(--surface); border-radius: 10px; color: var(--text); font-weight: 500; }
+.cta-list li::before { content: '→'; position: absolute; left: 14px; top: 11px; color: var(--accent); font-weight: 700; }
+.cta-note { font-size: .88rem; text-align: center; margin-top: 18px; }
+.cta-sub { font-size: .88rem; text-align: center; margin-top: 14px; padding-top: 14px; border-top: 1px dashed var(--border); }
+.cta-sub a { color: var(--accent-deep); font-weight: 600; text-decoration: underline; }
+
+/* Thông tin cá nhân */
+.info-section { border-top: 1px solid var(--border); padding-top: 22px; margin-bottom: 8px; }
+.info-section h3 { margin-bottom: 14px; }
+.info-section .field { margin-bottom: 16px; }
+.auto-date { font-size: .9rem; font-style: italic; padding: 12px 16px; background: var(--bg); border: 1px dashed var(--border); border-radius: 12px; }
+.form-err { color: var(--accent-deep); background: var(--accent-soft); border-radius: 10px; padding: 10px 14px; font-size: .92rem; margin-bottom: 16px; }
+.info-box { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 8px; text-align: left; background: var(--bg); border-radius: 12px; padding: 14px 16px; margin-bottom: 22px; }
+.info-box div { font-size: .9rem; color: var(--text); }
+.info-box small { display: block; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted); font-weight: 600; }
+
+/* Câu trả lời nổi bật */
+.quote-group h3 { margin: 22px 0 10px; }
+.quote { padding: 12px 14px 12px 16px; background: var(--bg); border-radius: 10px; border-left: 3px solid; margin-bottom: 10px; }
+.quote p { color: var(--text); font-family: var(--font-h); font-style: italic; font-size: 1rem; }
+.quote small { display: block; margin-top: 4px; color: var(--text-muted); font-size: .8rem; }
+
+/* Kế hoạch 30 ngày */
+.plan-intro { margin-top: 8px; }
+.grow-card { margin-top: 20px; border: 1px solid var(--border); border-left: 4px solid; border-radius: 12px; padding: 18px; }
+.gc-head { display: flex; gap: 12px; align-items: center; margin-bottom: 10px; }
+.gc-num { flex: 0 0 32px; height: 32px; border-radius: 50%; color: #fff; display: grid; place-items: center; font-family: 'Fraunces', var(--font-h); font-style: italic; font-weight: 600; }
+.gc-head b { display: block; font-family: var(--font-h); font-size: 1.08rem; color: var(--text); line-height: 1.3; }
+.gc-head small { font-size: .85rem; color: var(--text-muted); }
+.gc-mean { color: var(--text); margin-bottom: 12px; }
+.gc-label { font-size: .85rem; font-weight: 600; margin-bottom: 8px; }
+.gc-tip { font-size: .95rem; background: var(--accent-soft); color: var(--accent-deep); border-radius: 10px; padding: 12px 14px; margin-top: 4px; }
+.prio { display: inline-block; font-size: .7rem; font-weight: 700; color: #fff; background: var(--accent); border-radius: 999px; padding: 2px 8px; margin-left: 6px; vertical-align: 2px; font-family: var(--font-b); }
+.rc-advice { color: var(--text); margin-bottom: 14px; }
+.week { margin-top: 22px; border: 1px solid var(--border); border-top: 4px solid; border-radius: 12px; padding: 18px 18px 14px; }
+.wk-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 6px; margin-bottom: 4px; }
+.wk-num { font-family: 'Fraunces', var(--font-h); font-style: italic; font-weight: 600; font-size: 1.15rem; }
+.wk-date { font-size: .82rem; color: var(--text-muted); }
+.week h3 { margin-bottom: 6px; }
+.week .why { font-size: .9rem; margin-bottom: 10px; }
+.week .why i { color: var(--text); }
+.tasks { list-style: none; display: grid; gap: 8px; }
+.tasks label { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; font-size: .95rem; color: var(--text); padding: 10px 12px; background: var(--bg); border-radius: 10px; }
+.tasks input { margin-top: 5px; accent-color: var(--accent); flex: 0 0 auto; width: 16px; height: 16px; }
+.tasks b { font-weight: 600; }
+.tasks input:checked + .task { opacity: .55; }
+.tasks input:checked + .task .t-title { text-decoration: line-through; text-decoration-color: rgba(61,34,34,.3); }
+.task { flex: 1; min-width: 0; }
+.task p { color: var(--text); margin-top: 4px; }
+.task ol { margin: 6px 0 0 18px; display: grid; gap: 4px; color: var(--text); }
+.t-when { display: block; font-size: .75rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--accent-deep); }
+.t-title { display: block; font-family: var(--font-h); font-weight: 600; font-size: 1rem; margin-top: 2px; }
+.script { margin-top: 8px; padding: 10px 12px; border-radius: 8px; background: var(--surface); border: 1px dashed var(--border); font-family: var(--font-h); font-style: italic; color: var(--text); }
+.script small { display: block; font-family: var(--font-b); font-style: normal; font-size: .75rem; color: var(--text-muted); margin-bottom: 2px; }
+.goal { font-size: .95rem; background: rgba(36,88,76,.08); color: var(--accent-teal); border-radius: 10px; padding: 10px 14px; margin-bottom: 12px; }
+.basis { margin-top: 12px; font-size: .8rem; font-style: italic; }
+.prep { margin-top: 18px; background: var(--accent-soft); border-radius: 12px; padding: 14px 18px; color: var(--accent-deep); }
+.prep ul { margin: 6px 0 0 18px; display: grid; gap: 4px; font-size: .93rem; }
+.care-note { font-size: .85rem; background: var(--bg); border-radius: 10px; padding: 12px 14px; margin-top: 18px; }
+.sunday { margin-top: 10px; font-size: .92rem; font-family: var(--font-h); font-style: italic; color: var(--accent-deep); }
+.plan-progress { margin-top: 18px; font-size: .9rem; text-align: center; color: var(--accent-deep); font-weight: 600; }
+.to-plan { display: inline-block; margin-top: 12px; color: var(--accent-deep); font-weight: 600; text-decoration: underline; font-size: .95rem; }
+
+/* Xem trước câu hỏi (bản quản trị) */
+.admin h2 { margin: 28px 0 4px; }
+.admin h3 { margin: 18px 0 8px; font-size: 1rem; }
+.admin ol { list-style: none; display: grid; gap: 6px; }
+.admin li { font-size: .95rem; color: var(--text); padding: 8px 12px; background: var(--bg); border-radius: 8px; }
+.admin li code { font-family: var(--font-b); font-weight: 700; color: var(--accent-deep); margin-right: 6px; font-size: .85rem; }
+.admin .rev { display: inline-block; font-size: .72rem; font-weight: 700; color: #fff; background: var(--accent-deep); border-radius: 6px; padding: 1px 6px; margin-left: 6px; }
+
+@media print {
+  body { background: #fff; }
+  .wrap { padding: 0; }
+  .card { box-shadow: none; padding: 16px 0; }
+  .res-actions, .footer { display: none !important; }
+  textarea { display: none; }
+  .print-only { display: block; white-space: pre-wrap; color: var(--text); padding: 10px 0; border-bottom: 1px solid var(--border); }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">Blossomed Relationship Diagnosis · My Phương</div>
+
+  <!-- INTRO -->
+  <section class="screen card intro active" id="s-intro">
+    <div class="center"><span class="eyebrow">Bộ câu hỏi tự phản chiếu chuyên sâu · Phiên bản 2.0</span></div>
+    <h1>Lắng nghe trái tim mình qua ba vùng năng lực của tình yêu</h1>
+    <p class="lead">75 câu hỏi nhỏ, chia thành ba vòng, khoảng 15–20 phút. Hãy chọn một góc yên tĩnh, pha cho mình một tách trà, và cho phép mình được thật lòng. Bạn có thể nghỉ giữa các vòng và quay lại làm tiếp bất cứ lúc nào.</p>
+
+    <div class="rounds" id="round-chips"></div>
+
+    <div class="note">
+      <p>Kết quả là một <b>tấm bản đồ để bạn dịu dàng quan sát chính mình</b> và chọn điều mình muốn vun bồi.</p>
+      <p>Bộ câu hỏi không đánh giá bạn "đủ tốt" hay "chưa đủ tốt" để được yêu, và cũng không dự đoán khi nào bạn sẽ gặp người bạn đời. Bạn luôn xứng đáng được yêu thương, ở bất kỳ điểm nào trên hành trình.</p>
+    </div>
+
+    <h3 style="margin:22px 0 8px">Cách trả lời</h3>
+    <p style="margin-bottom:10px">Hãy chọn mức độ <b>đúng với trải nghiệm của bạn trong khoảng sáu tháng gần đây</b>. Với những câu về hẹn hò hay tình yêu, bạn có thể nghĩ đến một cuộc tìm hiểu gần đây hoặc một tình huống kết nối tương tự. Không có câu trả lời đúng hay sai. Hãy chọn điều bạn <i>thường cảm nhận và thực hiện</i>, không phải điều bạn mong mình sẽ như vậy. Càng thật lòng, tấm bản đồ càng rõ.</p>
+    <table class="scale-table" id="scale-table"></table>
+    <p style="margin:-10px 0 26px;font-size:.93rem">Nếu gặp tình huống bạn chưa từng trải qua, hãy chọn <b>"Chưa có đủ trải nghiệm để trả lời"</b>. Bạn không cần phải đoán.</p>
+
+    <div class="info-section">
+      <h3>I. Thông tin cá nhân</h3>
+      <div class="field">
+        <label for="name">Họ và tên</label>
+        <input id="name" type="text" placeholder="Ví dụ: Nguyễn Lan Anh" autocomplete="name" maxlength="60">
+      </div>
+      <div class="field">
+        <label for="birth">Năm sinh</label>
+        <input id="birth" type="number" inputmode="numeric" placeholder="Ví dụ: 1994" min="1940" max="2015">
+      </div>
+      <div class="field">
+        <label>Ngày hoàn thành bài đánh giá</label>
+        <p class="auto-date">Sẽ được ghi tự động khi bạn hoàn thành câu hỏi cuối cùng.</p>
+      </div>
+      <p class="form-err" id="form-err" hidden></p>
+    </div>
+    <div class="center">
+      <button class="btn-primary" id="start">Bắt đầu hành trình</button>
+    </div>
+    <div class="resume" id="resume" hidden>Bạn đang làm dở ở câu <span id="resume-at"></span>. <button id="resume-btn">Làm tiếp</button></div>
+    <div class="resume" id="last-res" hidden><button id="last-res-btn">Xem lại kết quả lần trước</button></div>
+  </section>
+
+  <!-- ROUND INTRO -->
+  <section class="screen card round-intro" id="s-round">
+    <div class="num" id="ri-num"></div>
+    <div class="eyebrow" id="ri-eyebrow"></div>
+    <h2 id="ri-title"></h2>
+    <p id="ri-sub"></p>
+    <p class="q" id="ri-q"></p>
+    <p class="enc" id="ri-enc"></p>
+    <button class="btn-primary" id="ri-go">Bắt đầu</button>
+  </section>
+
+  <!-- QUESTION -->
+  <section class="screen card" id="s-quiz">
+    <div class="progress-top">
+      <span id="q-count"></span>
+      <span class="pill-tag" id="q-round"></span>
+    </div>
+    <div class="bar"><i id="q-bar"></i></div>
+    <div class="bar-sub" id="q-total"></div>
+    <div class="q-text" id="q-text"></div>
+    <div class="scale" id="q-scale"></div>
+    <div class="q-nav">
+      <button class="btn-ghost" id="back">← Câu trước</button>
+      <button class="btn-ghost" id="next" hidden>Câu tiếp →</button>
+    </div>
+    <div class="kbd-hint">Mẹo: bấm phím 1–5 để chọn nhanh, phím 0 nếu chưa có đủ trải nghiệm</div>
+  </section>
+
+  <!-- RESULT -->
+  <section class="screen" id="s-result">
+    <!-- 1. Lời chào + giai đoạn + ba vòng -->
+    <div class="card res-head">
+      <div class="info-box" id="res-info"></div>
+      <svg class="stage-flower" id="stage-icon" viewBox="0 0 100 100" aria-hidden="true"></svg>
+      <div class="eyebrow" id="res-eyebrow">Tấm bản đồ của bạn</div>
+      <p class="greet" id="res-greet"></p>
+      <div class="index-box"><span class="index-num" id="res-index"></span><span class="index-label">Chỉ số Nở Hoa của bạn</span></div>
+      <h1 id="res-stage"></h1>
+      <p id="res-stage-desc"></p>
+      <div class="bars" id="res-bars"></div>
+      <div class="fem" id="res-fem"></div>
+    </div>
+
+    <!-- 2. Điều đẹp nhất nơi bạn -->
+    <div class="card" id="res-strength"></div>
+
+    <!-- 3. Nơi nên bắt đầu -->
+    <div class="card">
+      <div class="eyebrow">Nơi nên bắt đầu</div>
+      <h2 style="margin-top:6px" id="grow-title">Ba điều trái tim bạn đang cần được chăm sóc</h2>
+      <p style="margin-top:8px">Đây là ba nơi bạn đang thấy khó nhất lúc này, dựa trên chính những câu trả lời của bạn. Chúng không nói rằng bạn chưa đủ tốt. Chúng chỉ cho bạn biết một chút chăm sóc nên bắt đầu từ đâu.</p>
+      <div id="res-grow"></div>
+      <a class="to-plan" href="#plan">Xem kế hoạch 30 ngày dành riêng cho bạn ↓</a>
+    </div>
+
+    <!-- 4. Kế hoạch 30 ngày -->
+    <div class="card" id="plan">
+      <div class="eyebrow">Dành riêng cho bạn</div>
+      <h2 style="margin-top:6px">Kế hoạch 30 ngày nở hoa</h2>
+      <p class="plan-intro">Mỗi tuần, bạn chăm một điều nhỏ. Mỗi ngày chỉ cần khoảng 5 phút. Hãy bắt đầu từ Tuần 1, các tuần sau bạn mở ra khi đến lượt.</p>
+      <div id="plan-weeks"></div>
+      <p class="plan-progress" id="plan-progress"></p>
+    </div>
+
+    <!-- 4b. Mời khai vấn 1:1 -->
+    <div class="card coach-cta">
+      <div class="eyebrow">Đồng hành cùng Phương</div>
+      <h2 style="margin-top:6px">Bạn muốn Phương cùng giải mã tấm bản đồ này?</h2>
+      <p style="margin-top:10px">Nếu bạn muốn Phương giải mã báo cáo chuyên sâu của bạn, bạn có thể đăng ký thêm <b>một phiên khai vấn 1:1</b> cùng Phương. Trong phiên này, Phương và bạn sẽ cùng:</p>
+      <ul class="cta-list">
+        <li>Đọc, giải mã và kết nối các mảnh ghép trong tấm bản đồ của bạn</li>
+        <li>Làm rõ lựa chọn tiếp theo phù hợp với bạn</li>
+      </ul>
+      <div class="center"><a class="btn-primary" id="coach-link" href="#" target="_blank" rel="noopener">Đăng ký phiên khai vấn 1:1</a></div>
+      <p class="cta-note">Khi đăng ký, bạn nhớ bấm <b>"Sao chép kết quả gửi Phương"</b> ở cuối trang và gửi kèm, để Phương đọc trước tấm bản đồ của bạn nhé.</p>
+      <p class="cta-sub" id="workshop-line">Bạn chưa tham gia workshop Bản Đồ Tình Yêu? <a id="workshop-link" href="/" target="_blank" rel="noopener">Xem thông tin workshop →</a></p>
+    </div>
+
+    <!-- 5. Bản đồ chi tiết (thu gọn) -->
+    <div class="card">
+      <details class="map-details" id="map-details">
+        <summary><span class="eyebrow">Dành cho bạn muốn đọc sâu hơn</span><h2>Xem tấm bản đồ chi tiết</h2><span class="more">Bấm để mở ↓</span></summary>
+        <div class="wheel-box"><svg id="wheel" viewBox="0 0 440 440" role="img" aria-label="Blossom Wheel: điểm từng yếu tố"></svg></div>
+        <div class="legend" id="legend"></div>
+        <p class="disclaimer">Đây là <b>Blossom Wheel</b> của bạn. Mỗi cánh hoa là một điều nhỏ trong ba vùng. Cánh càng dài, bạn càng thấy điều đó đúng với mình. Tất cả là điều bạn tự nhận thấy vào ngày <span id="res-date"></span>, và nó sẽ thay đổi khi bạn lớn lên.</p>
+        <p class="zone-legend"><span class="zone zone-high">Vùng điểm tựa</span> từ 70% · <span class="zone zone-mid">Vùng dao động</span> 40–69% · <span class="zone zone-low">Vùng cần vun bồi</span> dưới 40%</p>
+        <div id="round-cards"></div>
+      </details>
+    </div>
+
+    <!-- 6. Câu hỏi mang theo + chuẩn bị khai vấn + lời ký -->
+    <div class="card">
+      <div class="reflect-box" style="margin-top:0">
+        <h3 style="margin-bottom:8px">Một câu hỏi để bạn mang theo tuần này</h3>
+        <p id="res-reflect"></p>
+      </div>
+      <details class="prep-coach">
+        <summary><b>Chuẩn bị cho buổi khai vấn với Phương</b><span class="more">Bấm để mở ↓</span></summary>
+        <p style="margin-top:8px">Nếu bạn sẽ gặp Phương, hãy dành vài phút viết ra câu trả lời thật lòng. Đây là phần Phương sẽ cùng bạn nhìn sâu hơn.</p>
+        <div id="reflect"></div>
+      </details>
+      <p class="care-note">🤍 Bộ câu hỏi và kế hoạch này là công cụ để bạn tự nhìn lại và thực hành, không thay thế cho tư vấn tâm lý hay trị liệu. Nếu bạn đang ở trong một mối quan hệ khiến bạn sợ hãi, bị kiểm soát hay bị tổn thương, hoặc nỗi buồn kéo dài ảnh hưởng đến giấc ngủ và công việc, hãy tìm đến một chuyên gia tâm lý hoặc một người bạn tin tưởng. Phương luôn sẵn lòng lắng nghe và cùng bạn tìm hướng hỗ trợ phù hợp.</p>
+      <div class="res-actions" style="margin-top:22px">
+        <button class="btn-primary" id="print">Lưu kết quả (PDF)</button>
+        <button class="btn-ghost" id="copy">Sao chép kết quả gửi Phương</button>
+        <button class="btn-ghost" id="retake">Làm lại từ đầu</button>
+      </div>
+      <p class="sign">Thương bạn trên hành trình này,<br>Phương 🌷</p>
+      <p class="footer">Hãy làm lại bài này sau 30 ngày thực hành để thấy mình đã nở hoa đến đâu.<br>Blossomed Relationship Diagnosis · Phiên bản 2.0 · Đang trong giai đoạn thử nghiệm.<br>Kết quả chỉ được lưu trên thiết bị của bạn.</p>
+    </div>
+  </section>
+
+  <!-- XEM TRƯỚC TOÀN BỘ CÂU HỎI (bản quản trị: thêm ?xem=cau-hoi vào cuối đường dẫn) -->
+  <section class="screen card admin" id="s-admin">
+    <div class="center"><span class="eyebrow">Bản quản trị · chỉ dành cho Phương</span></div>
+    <h1 class="center" style="margin-top:8px" id="admin-title">Toàn bộ câu hỏi</h1>
+    <p class="center" style="margin-top:8px">Nhãn <span class="rev">Đ</span> là câu đảo điểm. Khách hàng không nhìn thấy mã câu và nhãn này.</p>
+    <div id="admin-list"></div>
+  </section>
+</div>
+
+<script>
+(function () {
+  // ---------- Dữ liệu ----------
+  // r: true = câu đảo điểm (chỉ dùng nội bộ, không hiển thị cho khách hàng)
+  var ROUNDS = [
+    { code: 'PBS', name: 'Rạng Rỡ Từ Bên Trong', en: 'Personal Blossoming', color: 'var(--r1)', hex: '#D37881',
+      sub: 'Sự trưởng thành nội tâm và khả năng vững vàng với chính mình trong tình yêu',
+      q: 'Mình có đang vững vàng và chăm sóc tốt cho chính mình?',
+      enc: 'Vòng đầu tiên mời bạn quay về với chính mình: cách bạn hiểu, đối xử và nâng niu bản thân khi yêu. Hãy trả lời chậm rãi, như đang trò chuyện với một người bạn thân.',
+      advice: {
+        low: 'Có vẻ bạn đang dành rất nhiều yêu thương cho người khác, nhưng lại chưa dành đủ cho chính mình. Khi bên trong còn chông chênh, tình yêu dễ trở thành nơi ta tìm kiếm sự công nhận, và ta dễ đánh mất mình để giữ một người. Đó không phải lỗi của bạn. Đó là tín hiệu dịu dàng rằng bạn xứng đáng được chăm sóc nhiều hơn, trước hết từ chính bạn.',
+        mid: 'Bạn đã có những khoảnh khắc thấy mình vững vàng và đáng quý. Nhưng khi bất an ghé đến, hay khi một người bắt đầu trở nên quan trọng, những nỗi sợ và thói quen tự trách cũ đôi lúc vẫn quay về. Chỉ cần chăm đúng chỗ, sự vững vàng ấy sẽ lớn dần thành nền móng bình yên cho tình yêu của bạn.',
+        high: 'Bạn đang đứng vững từ bên trong. Bạn hiểu mình, biết nâng đỡ mình, và không cần một mối quan hệ để thấy mình trọn vẹn. Đây là nền móng quý giá nhất để bạn yêu và được yêu một cách bình an.'
+      },
+      tool: 'Công cụ đồng hành: Video Training "Tỏa Rạng Từ Bên Trong Để Kiến Tạo Mối Quan Hệ Như Ý" trong Love Blueprint Toolkit.',
+      reflect: 'Nếu mình tin chắc rằng mình xứng đáng được yêu thương, hôm nay mình sẽ đối xử với bản thân khác đi như thế nào?',
+      factors: [
+        { name: 'Thấu hiểu bản thân',
+          tip: 'Viết ra 3 giá trị và 3 nhu cầu quan trọng nhất của bạn khi bước vào tình yêu. Sau mỗi cuộc gặp, nhẹ nhàng hỏi mình: hôm nay mình có được là chính mình không?',
+          items: [
+            'Mình gọi tên được những giá trị và nhu cầu quan trọng của mình khi bước vào tình yêu.',
+            'Mình nhận ra những tình huống khiến mình dễ đánh mất sự bình tĩnh hoặc đánh mất chính mình trong tình yêu.',
+            'Mình nhận thấy trải nghiệm gia đình và những tình yêu trước đây đã ảnh hưởng đến cách mình nhìn nhận bản thân ra sao.',
+            'Khi nhận ra một niềm tin về bản thân không còn phù hợp, mình có thể xem xét và điều chỉnh nó.',
+            'Mình biết mình muốn trở thành người phụ nữ như thế nào, dù hiện tại có đang trong một tình yêu hay không.'
+          ] },
+        { name: 'Nhận biết và điều hòa cảm xúc',
+          tip: 'Khi bất an ghé đến, thử viết ra hai cột: "Điều đã thực sự xảy ra" và "Điều mình đang lo sợ". Cho mình ít nhất một đêm trước khi trả lời một tin nhắn quan trọng.',
+          items: [
+            'Mình nhận ra cảm xúc của mình khi bắt đầu bất an, thất vọng hoặc tổn thương.',
+            'Mình có thể phân biệt điều đã thực sự xảy ra với điều mình đang lo sợ hoặc suy đoán.',
+            { t: 'Khi cảm xúc dâng cao, mình thường nói hoặc làm ngay điều mà sau đó mình hối tiếc.', r: true },
+            'Mình có cách giúp bản thân bình tĩnh hơn trước khi đưa ra một quyết định quan trọng trong tình yêu.',
+            'Khi thấy bất an, mình có thể chăm sóc cảm xúc của mình và chia sẻ điều mình cần, thay vì cố kiểm soát phản ứng của người kia.'
+          ] },
+        { name: 'Tự trắc ẩn và khả năng nâng đỡ bản thân',
+          tip: 'Khi một cuộc tìm hiểu không như mong đợi, hãy viết cho mình vài dòng, như cách bạn viết cho người bạn thân nhất đang trải qua điều tương tự.',
+          items: [
+            'Khi một cuộc tìm hiểu hoặc tình yêu không như mong đợi, mình đối xử với bản thân bằng sự tử tế.',
+            'Mình có thể thừa nhận mình đang buồn, sợ hoặc thất vọng mà không xem đó là một điểm yếu đáng xấu hổ.',
+            'Khi mắc sai lầm trong tình yêu, mình tìm cách hiểu và sửa chữa thay vì liên tục trách móc bản thân.',
+            'Mình cho mình thời gian hồi phục sau tổn thương, thay vì ép bản thân phải ổn ngay.',
+            { t: 'Mình cho phép mình nghỉ ngơi, chậm lại và tận hưởng, không cần lúc nào cũng phải cố gắng thật nhiều mới thấy mình xứng đáng.', code: 'PBS25', isNew: true }
+          ] },
+        { name: 'Giá trị bản thân và quyền tự lựa chọn',
+          tip: 'Tuần này, tập nói "không" với một điều nhỏ không phù hợp với mình, rồi để ý rằng bạn vẫn an toàn và vẫn đáng quý sau lời từ chối ấy.',
+          items: [
+            'Mình vẫn cảm nhận được giá trị của mình khi không được một người mình thích đáp lại.',
+            'Mình tin rằng mình xứng đáng được yêu thương và tôn trọng mà không cần trở nên hoàn hảo.',
+            { t: 'Mình thường cần sự lựa chọn hoặc công nhận của người khác để tin rằng mình đủ tốt.', r: true },
+            'Mình có thể từ chối điều không phù hợp với mình, dù lo rằng người kia sẽ thất vọng.',
+            'Mình chủ động quyết định có tiếp tục một kết nối hay không, thay vì chỉ ở lại vì sợ cô đơn.'
+          ] },
+        { name: 'Đời sống riêng và định hướng phát triển',
+          tip: 'Chọn một nguồn niềm vui hoặc ý nghĩa ngoài chuyện tình cảm (một sở thích, một người bạn, một mục tiêu) và dành cho nó một khoảng thời gian riêng mỗi tuần.',
+          items: [
+            'Mình nuôi dưỡng niềm vui, các mối quan hệ và mục đích sống của mình, để tình yêu là một phần phong phú của cuộc đời chứ không phải điểm tựa duy nhất.',
+            'Mình chủ động chăm sóc sức khỏe, công việc và những mối quan hệ thân thiết với mình.',
+            { t: 'Mình chăm sóc cơ thể, vẻ ngoài và cảm xúc của mình như một cách yêu thương bản thân, không phải để làm vừa lòng ai.', code: 'PBS26', isNew: true },
+            'Mình tin mình có thể học thêm những kỹ năng cần thiết để xây dựng một tình yêu lành mạnh.',
+            'Mình có những mục tiêu và nguồn ý nghĩa trong cuộc sống ngoài chuyện tìm được bạn đời.',
+            'Khi gặp khó khăn, mình có thể tìm kiếm sự hỗ trợ phù hợp thay vì buộc mình phải tự gánh mọi thứ.'
+          ] }
+      ] },
+    { code: 'RWS', name: 'Sáng Rõ Khi Lựa Chọn', en: 'Relationship Wisdom', color: 'var(--r2)', hex: '#24584C',
+      sub: 'Sự sáng rõ, hiểu biết và năng lực lựa chọn trong tình yêu',
+      q: 'Mình có sáng rõ về tình yêu mình mong muốn và cách lựa chọn người phù hợp?',
+      enc: 'Bạn đã đi được một phần ba chặng đường rồi. Vòng này mời bạn nhìn vào tấm la bàn bên trong: điều bạn thật sự mong muốn và cách bạn lựa chọn người đồng hành.',
+      advice: {
+        low: 'Có lẽ bạn đang lựa chọn nhiều bằng cảm xúc hơn là bằng một tấm la bàn rõ ràng. Khi trái tim rung động, những tiêu chuẩn từng đặt ra rất dễ bị xoá nhoà, và bạn dễ ở lại quá lâu ở những nơi không cùng định hướng. Điều bạn cần không phải là thêm thật nhiều kiến thức, mà là sự sáng rõ về điều mình thật sự mong muốn.',
+        mid: 'Bạn đã hiểu khá nhiều về tình yêu và biết mình cần gì. Nhưng tấm la bàn ấy đôi khi chưa đủ rõ để giữ bạn vững vàng khi đứng trước một người khiến mình rung động. Mỗi trải nghiệm đã qua đều có thể trở thành trí tuệ của riêng bạn, nếu bạn cho phép mình nhìn lại bằng sự dịu dàng.',
+        high: 'Bạn lựa chọn bằng trí tuệ chứ không chỉ bằng rung động. Bạn biết mình mong muốn điều gì, biết quan sát điều gì và khi nào nên dừng lại. Đây là món quà giúp bạn giữ gìn thời gian, năng lượng và trái tim mình.'
+      },
+      tool: 'Công cụ đồng hành: HEART Dating Filter ở Buổi 2 và bộ 20 câu hỏi "The First 3 Dates" trong Love Blueprint Toolkit.',
+      reflect: 'Điều gì mình từng tự hứa sẽ không chấp nhận, nhưng rồi vẫn chấp nhận khi đã rung động?',
+      factors: [
+        { name: 'Ý nghĩa và mục đích của tình yêu',
+          tip: 'Viết tiếp câu "Mình muốn có một tình yêu vì..." nhiều lần, cho đến khi bạn tìm thấy một lý do không xuất phát từ nỗi sợ cô đơn.',
+          items: [
+            'Mình hiểu vì sao mình muốn có một tình yêu, ngoài mong muốn thoát khỏi cảm giác cô đơn.',
+            'Mình hình dung được một tình yêu phù hợp sẽ đóng góp điều gì cho cuộc sống của cả hai người.',
+            'Mình nhận ra những điều mình có thể tự vun bồi, thay vì mong người yêu đáp ứng toàn bộ nhu cầu hạnh phúc của mình.'
+          ] },
+        { name: 'Tầm nhìn về gắn bó và hôn nhân',
+          tip: 'Phác họa một ngày bình thường trong cuộc sống chung mà bạn mong muốn năm năm nữa: hai người trò chuyện, chia sẻ việc nhà và nghỉ ngơi cùng nhau như thế nào?',
+          items: [
+            'Mình rõ ràng về kiểu gắn bó mình đang hướng đến, chẳng hạn tìm hiểu nghiêm túc, cam kết lâu dài hoặc hôn nhân.',
+            'Mình hiểu rằng mong muốn kết hôn cần đi cùng quá trình tìm hiểu sự phù hợp và mức độ sẵn sàng của cả hai.',
+            'Mình có thể diễn đạt những điều quan trọng trong bức tranh đời sống chung mà mình mong muốn xây dựng.'
+          ] },
+        { name: 'Nhận diện niềm tin và mô thức tình yêu',
+          tip: 'Nhìn lại hai, ba mối quan hệ đã qua: kiểu người nào thường thu hút bạn, và bạn thường phản ứng ra sao khi mọi thứ trở nên thiếu chắc chắn?',
+          items: [
+            'Mình nhận ra kiểu người hoặc kiểu tương tác mình thường bị thu hút.',
+            'Mình nhận ra những phản ứng của mình thường lặp lại khi một kết nối trở nên gần gũi hoặc thiếu chắc chắn.',
+            'Khi thấy một mô thức cũ xuất hiện, mình có thể dừng lại để xem điều gì đang diễn ra trước khi tiếp tục lựa chọn như trước.'
+          ] },
+        { name: 'Hiểu cảm xúc, nhu cầu và tín hiệu trong tình yêu',
+          tip: 'Sau mỗi cuộc gặp, hỏi mình: mình đang thấy rung động, hay thấy an toàn, được tôn trọng và thấu hiểu? Hai cảm giác ấy có thể rất khác nhau.',
+          items: [
+            'Mình có thể phân biệt cảm giác rung động với cảm giác được an toàn, tôn trọng và thấu hiểu.',
+            'Khi một người khiến mình bất an, mình xem xét cả hành vi thực tế của họ lẫn những lo sợ của mình trước khi kết luận.',
+            'Mình biết những nhu cầu nào cần được trao đổi rõ ràng, thay vì mong người kia tự đoán ra.'
+          ] },
+        { name: 'Tiêu chuẩn và lựa chọn bạn đời có ý thức',
+          tip: 'Chia tiêu chuẩn của bạn thành ba nhóm: điều không thể thỏa hiệp, điều mong muốn, và điều có thể cùng nhau thương lượng. HEART Dating Filter sẽ giúp bạn làm rõ phần này.',
+          items: [
+            'Mình xác định được những giá trị và phẩm chất quan trọng đối với một người bạn đời.',
+            'Mình phân biệt được điều không thể thỏa hiệp, điều mình mong muốn và điều có thể cùng nhau thương lượng.',
+            'Mình quan sát cách một người cư xử nhất quán theo thời gian, thay vì chỉ dựa vào lời nói hoặc ấn tượng ban đầu.',
+            { t: 'Khi rất rung động với một người, mình thường bỏ qua những khác biệt quan trọng về giá trị hoặc định hướng tương lai.', r: true },
+            'Mình có thể nhìn người mình đang tìm hiểu như họ đang là, thay vì chỉ gắn bó với hình dung về con người họ có thể trở thành.'
+          ] },
+        { name: 'Học hỏi từ trải nghiệm tình yêu',
+          tip: 'Khi một cuộc tìm hiểu kết thúc, trả lời ba câu: mình đã biết gì, mình đã bỏ qua gì, và lần tới mình muốn làm khác đi điều gì?',
+          items: [
+            'Sau một cuộc tìm hiểu không đi đến đâu, mình có thể xem lại điều mình đã biết, đã bỏ qua và có thể làm khác đi.',
+            'Mình rút ra bài học từ những tình yêu trước mà không quy toàn bộ trách nhiệm cho bản thân hoặc cho người kia.',
+            'Mình có thể thay đổi một tiêu chuẩn hoặc kỳ vọng khi trải nghiệm mới cho thấy nó chưa phù hợp.'
+          ] },
+        { name: 'Quan điểm về tình yêu trưởng thành',
+          tip: 'Khi cân nhắc một người, hãy quan sát cách hai bạn cùng giải quyết một bất đồng nhỏ. Điều đó thường nói thật nhiều hơn mọi lời hứa.',
+          items: [
+            'Mình hiểu rằng sự phù hợp lâu dài cần được xem xét qua giá trị, hành động và cách hai người cùng giải quyết vấn đề.',
+            'Mình hiểu rằng cam kết không có nghĩa là phải chịu đựng sự thiếu tôn trọng hoặc từ bỏ bản thân.',
+            'Mình nhận ra một tình yêu bền vững cần sự tham gia và lựa chọn của cả hai người, không thể chỉ do một người cố gắng.',
+            'Mình hiểu rằng khác biệt có thể được đối thoại, nhưng không phải khác biệt nào cũng phù hợp để tiếp tục gắn bó.'
+          ] }
+      ] },
+    { code: 'HPS', name: 'Hiện Diện Và Kết Nối Từ Trái Tim', en: 'Heartful Presence', color: 'var(--r3)', hex: '#C5A255',
+      sub: 'Khả năng hiện diện, mở lòng, đón nhận và cùng vun đắp kết nối',
+      q: 'Mình có thể mở lòng, kết nối và hành động chân thành trong đời sống thực tế?',
+      enc: 'Vòng cuối rồi, bạn đã đi một chặng thật đẹp. Vòng này mời bạn nhìn vào cách bạn xuất hiện, trò chuyện, đón nhận và cùng người kia vun đắp kết nối.',
+      advice: {
+        low: 'Có thể bạn đang giữ trái tim mình thật cẩn thận, chờ tình yêu tự tìm đến, hoặc khi có người đến gần lại lặng lẽ đoán ý thay vì mở lời. Điều đó rất dễ hiểu, nhất là khi bạn từng tổn thương. Nhưng người bạn đời chỉ có cơ hội tìm thấy bạn khi bạn cho phép mình xuất hiện và được nhìn thấy.',
+        mid: 'Bạn đã sẵn lòng mở lòng, nhưng đôi khi vẫn ngập ngừng giữa chủ động và giữ mình, giữa nói ra và im lặng chờ người kia hiểu. Chỉ cần thêm một chút dịu dàng và can đảm, bạn sẽ thấy kết nối trở nên tự nhiên và ấm áp hơn.',
+        high: 'Bạn hiện diện, mở lòng và trò chuyện chân thành mà vẫn giữ được giá trị của mình. Bạn biết đón nhận, biết trân trọng và biết cùng người kia vun đắp. Tình yêu đang có rất nhiều cánh cửa để bước đến bên bạn.'
+      },
+      tool: 'Công cụ đồng hành: Ebook "Để Người Bạn Đời Tương Lai Có Cơ Hội Tìm Thấy Bạn" và nhóm Zalo học viên để chia sẻ tiến trình cùng Phương.',
+      reflect: 'Tuần này, mình có thể xuất hiện ở đâu, hoặc mở lòng thêm một chút với ai?',
+      factors: [
+        { name: 'Hiện diện với chính mình khi kết nối',
+          tip: 'Trong buổi gặp tới, thỉnh thoảng hít một hơi thật chậm và tự hỏi: mình đang cảm thấy gì ngay lúc này?',
+          items: [
+            'Khi gặp gỡ hoặc trò chuyện với một người mình quan tâm, mình nhận biết được cảm xúc đang diễn ra trong mình.',
+            'Mình để ý khi mình đang cố gây ấn tượng đến mức không còn tự nhiên là chính mình.',
+            'Trước một quyết định trong tình yêu, mình dành thời gian lắng nghe nhu cầu và giới hạn của bản thân.'
+          ] },
+        { name: 'Tôn trọng người khác và bớt phán xét',
+          tip: 'Khi người kia chưa phản hồi như mong đợi, thử viết ra ba cách hiểu khác nhau trước khi kết luận rằng họ không quan tâm.',
+          items: [
+            'Mình tìm hiểu một người qua những gì họ thực sự nói và làm, thay vì vội xếp họ vào một khuôn mẫu.',
+            { t: 'Khi người khác không phản hồi như mong đợi, mình thường vội cho rằng họ không quan tâm đến mình.', r: true },
+            'Mình có thể tôn trọng sự khác biệt của một người dù sau cùng nhận ra hai người không phù hợp.'
+          ] },
+        { name: 'Dám xuất hiện và mở lòng',
+          tip: 'Chọn một môi trường hợp với nhịp sống và giá trị của bạn (lớp học, câu lạc bộ, cộng đồng) và xuất hiện ở đó ít nhất hai lần trong tháng này.',
+          items: [
+            'Mình tạo cơ hội gặp gỡ người mới theo cách phù hợp với nhịp sống và giá trị của mình.',
+            'Khi cảm thấy được tôn trọng và đủ an toàn, mình cho phép mình mở lòng và đón nhận sự quan tâm của một người đàn ông.',
+            'Mình có thể bước vào một cuộc tìm hiểu mà không đòi hỏi phải biết chắc kết quả ngay từ đầu.'
+          ] },
+        { name: 'Lắng nghe và giao tiếp chân thành',
+          tip: 'Tập nói ra một mong muốn nhỏ bằng câu bắt đầu với "Mình thích khi..." hoặc "Mình sẽ thấy dễ chịu hơn nếu...".',
+          items: [
+            'Trong cuộc trò chuyện, mình dành sự chú ý để hiểu điều người kia muốn chia sẻ.',
+            'Mình hỏi thêm khi chưa hiểu ý người kia, thay vì tự suy đoán.',
+            'Mình bày tỏ cảm xúc và mong muốn của mình rõ ràng, dịu dàng, thay vì mong người kia tự đoán hoặc dùng im lặng để thể hiện sự không hài lòng.',
+            'Mình có thể nói về một điều khiến mình không thoải mái mà không công kích hoặc đổ lỗi.',
+            { t: 'Khi xuất hiện khác biệt hoặc hiểu lầm, mình thường im lặng kéo dài hoặc chờ người kia tự hiểu.', r: true }
+          ] },
+        { name: 'Sự ấm áp và khả năng đón nhận',
+          tip: 'Lần tới khi nhận được một lời khen hay một sự giúp đỡ, chỉ cần mỉm cười và nói "Cảm ơn anh", không cần giải thích hay vội đáp lại.',
+          items: [
+            'Mình cho phép mình tận hưởng một cuộc gặp gỡ mà không liên tục tự đánh giá mình đã thể hiện tốt hay chưa.',
+            'Mình có thể đón nhận sự giúp đỡ, chăm sóc hoặc một lời khen mà không thấy mình mắc nợ hay phải đáp lại ngay.',
+            'Mình góp phần tạo nên những cuộc trò chuyện dễ chịu, nơi cả hai có thể chia sẻ và tò mò về nhau.',
+            { t: 'Mình thấy thoải mái khi được mềm mại, dịu dàng và nữ tính, mà không cần gồng lên để tỏ ra mạnh mẽ.', code: 'HPS25', isNew: true }
+          ] },
+        { name: 'Hành động rõ ràng và giữ ranh giới',
+          tip: 'Viết sẵn một câu nói dịu dàng mà rõ ràng cho điều bạn không đồng ý, để khi cần, bạn đã có sẵn lời để nói.',
+          items: [
+            'Khi muốn tìm hiểu một người, mình có thể thể hiện sự quan tâm một cách phù hợp thay vì chỉ chờ đợi.',
+            'Mình nói rõ điều mình đồng ý và không đồng ý về thời gian, sự thân mật và cách được đối xử.',
+            'Khi nhận thấy một kết nối không phù hợp, mình có thể lùi lại hoặc kết thúc một cách rõ ràng, tôn trọng.'
+          ] },
+        { name: 'Giữ hy vọng và cùng vun đắp kết nối',
+          tip: 'Mỗi tuần, ghi lại một khoảnh khắc bạn được quan tâm chân thành, dù nhỏ, và cho người ấy biết bạn trân trọng điều đó.',
+          items: [
+            'Một trải nghiệm hẹn hò không như ý không khiến mình kết luận rằng mình sẽ luôn thất bại trong tình yêu.',
+            'Sau một tổn thương, mình có thể mở lòng trở lại theo nhịp độ phù hợp với mình.',
+            'Khi một người đàn ông dành cho mình sự quan tâm chân thành, mình có thể nhận ra và bày tỏ sự trân trọng.',
+            'Mình có thể để người mình đang tìm hiểu chủ động đề xuất, giúp đỡ hoặc chăm sóc theo cách phù hợp, thay vì cảm thấy mình phải kiểm soát mọi việc.'
+          ] }
+      ] }
+  ];
+
+  var SCALE = [
+    'Hoàn toàn chưa đúng với mình',
+    'Ít đúng với mình',
+    'Đúng với mình trong một số tình huống',
+    'Khá đúng với mình',
+    'Rất đúng với mình'
+  ];
+  var NA = 0; // "Chưa có đủ trải nghiệm để trả lời"
+
+  // Giai đoạn (thang 1–5) — cùng hình ảnh với phiên bản 1.0
+  var STAGES = [
+    { min: 0, name: 'Hạt Mầm', title: 'Bạn đang ở giai đoạn Hạt Mầm',
+      desc: 'Có những phần trong bạn đang cần được chăm sóc nhiều hơn. Đó không phải là dấu hiệu bạn chưa đủ tốt, mà là tín hiệu dịu dàng cho biết nên vun bồi từ đâu. Hạt mầm nào cũng mang trong mình cả một mùa hoa.' },
+    { min: 2.6, name: 'Nụ Hoa', title: 'Bạn đang ở giai đoạn Nụ Hoa',
+      desc: 'Nền tảng đã có, và bạn đang lớn lên từng ngày. Chỉ cần chăm đúng chỗ, bằng sự kiên nhẫn và dịu dàng với chính mình, nụ hoa sẽ nở.' },
+    { min: 3.8, name: 'Nở Hoa', title: 'Bạn đang ở giai đoạn Nở Hoa',
+      desc: 'Bạn đã có một nền tảng vững vàng để yêu và được yêu. Việc còn lại là giữ nhịp, tiếp tục hiện diện và để tình yêu tìm thấy bạn.' }
+  ];
+  function stageOf(v) { var s = STAGES[0]; STAGES.forEach(function (x) { if (v >= x.min) s = x; }); return s; }
+  function level(v) { return v >= 3.8 ? 'high' : v >= 2.6 ? 'mid' : 'low'; }
+  // Quy đổi thang 1–5 sang %: 1 → 0%, 5 → 100%. Ngưỡng 2,6 ≈ 40% và 3,8 = 70%.
+  function pct(v) { return Math.round((v - 1) / 4 * 100); }
+  var ZONES = { high: 'Vùng điểm tựa', mid: 'Vùng dao động', low: 'Vùng cần vun bồi' };
+  function zoneTag(v) { var l = level(v); return '<span class="zone zone-' + l + '">' + ZONES[l] + '</span>'; }
+  var AT_LEVEL = {
+    mid: 'Chưa phải điểm yếu, nhưng cũng chưa hẳn là điểm tựa. Phần này còn lên xuống tuỳ lúc: tuỳ bạn đang bình an hay bất an, tuỳ hoàn cảnh, và tuỳ người đang ở bên bạn. Chỉ cần chăm sóc đều đặn một chút mỗi ngày, nó sẽ vững dần lên.',
+    high: 'Đây là một điểm tựa của bạn. Bạn làm được điều này khá đều đặn, kể cả khi mọi thứ không dễ dàng. Hãy trân trọng nó và dựa vào nó khi vun bồi những vùng khác.'
+  };
+
+  // Chi tiết từng yếu tố: câu hỏi dẫn, nói về điều gì, dấu hiệu khi phần này còn yếu
+  var INFO = {
+    'Thấu hiểu bản thân': { q: 'Mình có hiểu rõ mình cần gì và muốn gì trong tình yêu không?',
+      about: 'Đây là khả năng nhìn rõ chính mình: gọi tên được giá trị và nhu cầu, biết điều gì khiến mình chao đảo, và hiểu quá khứ đã nhào nặn cách mình yêu ra sao. Hiểu mình là chiếc la bàn đầu tiên, trước khi tìm hiểu bất kỳ ai.',
+      signs: ['Mình khó trả lời khi được hỏi "em thật sự cần gì?"', 'Mình hay thay đổi mong muốn theo người mình đang thích.', 'Mình nhận ra mình "không còn là mình" khi mọi chuyện đã đi quá xa.'] },
+    'Nhận biết và điều hòa cảm xúc': { q: 'Mình có nhận ra và làm dịu được cảm xúc của mình khi bất an không?',
+      about: 'Đây là khả năng nhận ra cảm xúc từ sớm, phân biệt điều đã thực sự xảy ra với điều mình đang lo sợ, và làm dịu mình trước khi phản ứng. Người vững vàng vẫn buồn, vẫn lo, nhưng không để cảm xúc cầm lái thay mình.',
+      signs: ['Một tin nhắn chưa được trả lời có thể khiến mình bất an cả ngày.', 'Khi xúc động, mình hay nói hoặc làm điều khiến mình hối tiếc.', 'Mình cố kiểm soát phản ứng của người kia để thấy yên lòng.'] },
+    'Tự trắc ẩn và khả năng nâng đỡ bản thân': { q: 'Mình có dịu dàng với chính mình khi tình yêu không như ý không?',
+      about: 'Đây là khả năng ôm lấy mình khi vấp ngã: thừa nhận nỗi buồn mà không xấu hổ, hiểu rằng ai cũng có lúc sai, và cho mình thời gian để lành lại. Tự trắc ẩn không làm bạn yếu đi, mà cho bạn đủ an toàn để thử lại.',
+      signs: ['Sau mỗi lần đổ vỡ, mình trách bản thân nhiều hơn ai hết.', 'Mình thấy xấu hổ khi buồn hay khi cần được an ủi.', 'Mình ép mình phải "ổn ngay" thay vì cho phép mình được lành lại.'] },
+    'Giá trị bản thân và quyền tự lựa chọn': { q: 'Mình có thấy mình đủ giá trị, kể cả khi không được ai chọn không?',
+      about: 'Đây là cảm giác mình xứng đáng được yêu thương và tôn trọng, không phải vì được ai công nhận, mà vì mình là chính mình. Từ nền tảng ấy, bạn có quyền chọn ở lại hay rời đi, nói "có" hay nói "không".',
+      signs: ['Mình cần được người khác chọn thì mới thấy mình đủ tốt.', 'Mình khó nói "không" vì sợ người kia thất vọng.', 'Mình từng ở lại một mối quan hệ chỉ vì sợ cô đơn.'] },
+    'Đời sống riêng và định hướng phát triển': { q: 'Cuộc sống của mình có đủ đầy, kể cả khi chưa có tình yêu không?',
+      about: 'Đây là việc bạn nuôi dưỡng sức khỏe, công việc, bạn bè, niềm vui và mục đích sống của riêng mình. Khi đời sống riêng đầy đặn, tình yêu trở thành một phần làm cuộc đời phong phú hơn, chứ không phải chiếc phao duy nhất.',
+      signs: ['Chuyện tình cảm chiếm gần hết suy nghĩ và năng lượng của mình.', 'Mình ít có niềm vui hay mục tiêu riêng ngoài việc tìm bạn đời.', 'Khi khó khăn, mình thường tự gánh một mình thay vì tìm sự hỗ trợ.'] },
+    'Ý nghĩa và mục đích của tình yêu': { q: 'Mình có hiểu vì sao mình muốn có một tình yêu không?',
+      about: 'Đây là sự rõ ràng về lý do sâu xa khiến bạn muốn yêu: để cùng xây dựng, cùng lớn lên, chứ không chỉ để lấp đầy nỗi cô đơn. Khi mục đích rõ, bạn tìm một người để đồng hành, không phải một người để cứu mình.',
+      signs: ['Mình muốn có người yêu chủ yếu để hết cô đơn hoặc để gia đình yên lòng.', 'Mình mong người yêu sẽ làm mình hạnh phúc trọn vẹn.', 'Mình chưa hình dung được tình yêu sẽ đóng góp gì cho cả hai người.'] },
+    'Tầm nhìn về gắn bó và hôn nhân': { q: 'Mình có rõ ràng về cuộc sống chung mình muốn xây dựng không?',
+      about: 'Đây là bức tranh bạn mang trong lòng về gắn bó và hôn nhân: kiểu cam kết bạn hướng tới, đời sống hằng ngày bạn mong có, và sự sẵn sàng của cả hai. Tầm nhìn rõ giúp bạn nhận ra ai thật sự cùng hướng đi với mình.',
+      signs: ['Mình muốn kết hôn nhưng chưa rõ mình muốn một cuộc hôn nhân như thế nào.', 'Mình ngại hỏi người kia về định hướng tương lai.', 'Mình dễ dành thời gian cho những người không cùng đích đến.'] },
+    'Nhận diện niềm tin và mô thức tình yêu': { q: 'Mình có nhận ra những vòng lặp trong cách mình yêu không?',
+      about: 'Đây là khả năng nhìn thấy kiểu người mình hay bị thu hút và những phản ứng mình hay lặp lại, để có thể dừng lại và chọn khác đi. Nhận ra vòng lặp là bước đầu tiên để bước ra khỏi nó.',
+      signs: ['Mình hay rung động với những người giống nhau, và mọi chuyện kết thúc giống nhau.', 'Mình phản ứng theo lối cũ dù biết nó không giúp được mình.', 'Những tổn thương cũ cứ lặp lại, chỉ dưới một cái tên khác.'] },
+    'Hiểu cảm xúc, nhu cầu và tín hiệu trong tình yêu': { q: 'Mình có phân biệt được rung động và cảm giác an toàn không?',
+      about: 'Đây là khả năng đọc đúng cảm xúc, nhu cầu và tín hiệu trong một mối quan hệ: biết đâu là hồi hộp, đâu là bình yên; nhìn vào hành động thay vì chỉ nghe theo nỗi sợ; và biết nói ra điều mình cần.',
+      signs: ['Mình dễ nhầm cảm giác thấp thỏm, chờ đợi là tình yêu.', 'Mình hay kết luận dựa trên nỗi sợ hơn là hành động thật của người kia.', 'Mình mong người kia tự đoán ra điều mình cần.'] },
+    'Tiêu chuẩn và lựa chọn bạn đời có ý thức': { q: 'Mình có lựa chọn bạn đời bằng một tấm la bàn rõ ràng không?',
+      about: 'Đây là việc bạn biết rõ những giá trị cốt lõi cần có ở người bạn đời, phân biệt điều không thể thỏa hiệp với điều có thể thương lượng, và quan sát một người qua hành động nhất quán theo thời gian.',
+      signs: ['Khi đã rung động, mình dễ bỏ qua những khác biệt quan trọng.', 'Mình tin vào lời hứa nhiều hơn là hành động.', 'Mình hay yêu hình ảnh người kia "có thể trở thành" hơn là con người hiện tại của họ.'] },
+    'Học hỏi từ trải nghiệm tình yêu': { q: 'Mình có biến những trải nghiệm đã qua thành trí tuệ của riêng mình không?',
+      about: 'Đây là khả năng nhìn lại các mối quan hệ cũ như một nguồn dữ liệu quý: thấy điều mình đã biết, điều mình đã bỏ qua, phần của mình và phần của người kia, rồi điều chỉnh để lần sau khác đi.',
+      signs: ['Mình hay đổ hết lỗi cho mình, hoặc cho người kia.', 'Mình tránh nghĩ về chuyện cũ vì vẫn còn đau.', 'Mình giữ nguyên tiêu chuẩn cũ dù trải nghiệm cho thấy nó chưa phù hợp.'] },
+    'Quan điểm về tình yêu trưởng thành': { q: 'Mình hiểu thế nào về một tình yêu trưởng thành và bền vững?',
+      about: 'Đây là cái nhìn chín chắn về tình yêu: sự phù hợp được thể hiện qua giá trị và cách cùng giải quyết vấn đề; cam kết không có nghĩa là chịu đựng; và một tình yêu bền vững cần cả hai người cùng vun đắp.',
+      signs: ['Mình nghĩ yêu thật lòng là phải chịu đựng mọi thứ.', 'Mình thường là người duy nhất cố gắng giữ mối quan hệ.', 'Mình tin rằng chỉ cần yêu đủ nhiều thì mọi khác biệt sẽ tự qua.'] },
+    'Hiện diện với chính mình khi kết nối': { q: 'Mình có được là chính mình khi ở cạnh người mình quan tâm không?',
+      about: 'Đây là khả năng vẫn kết nối với cảm xúc, nhu cầu và giới hạn của mình ngay khi đang trò chuyện hay hẹn hò, thay vì mải lo gây ấn tượng. Khi bạn hiện diện, người kia mới có cơ hội gặp con người thật của bạn.',
+      signs: ['Mình hay cố thể hiện đến mức không còn tự nhiên.', 'Sau buổi hẹn, mình không rõ mình thật sự cảm thấy gì.', 'Mình quyết định chuyện tình cảm mà quên hỏi mình cần gì.'] },
+    'Tôn trọng người khác và bớt phán xét': { q: 'Mình có nhìn người khác bằng sự tò mò thay vì vội kết luận không?',
+      about: 'Đây là khả năng tìm hiểu một người qua những gì họ thực sự nói và làm, tạm gác khuôn mẫu và nỗi sợ, và tôn trọng sự khác biệt kể cả khi hai người không phù hợp.',
+      signs: ['Mình hay vội cho rằng người kia không quan tâm khi họ trả lời chậm.', 'Mình dễ xếp một người vào khuôn mẫu chỉ qua vài chi tiết.', 'Mình khó giữ thiện cảm với người không hợp với mình.'] },
+    'Dám xuất hiện và mở lòng': { q: 'Mình có cho tình yêu cơ hội để tìm thấy mình không?',
+      about: 'Đây là sự chủ động tạo cơ hội gặp gỡ theo cách hợp với nhịp sống của bạn, và dám mở lòng khi cảm thấy được tôn trọng, mà không đòi hỏi phải biết chắc kết quả ngay từ đầu.',
+      signs: ['Mình chủ yếu chờ tình yêu tự tìm đến.', 'Mình ít khi xuất hiện ở những nơi có thể gặp người mới.', 'Mình ngại bắt đầu vì sợ mất thời gian mà chẳng đi đến đâu.'] },
+    'Lắng nghe và giao tiếp chân thành': { q: 'Mình có nói ra cảm xúc và mong muốn của mình một cách dịu dàng, rõ ràng không?',
+      about: 'Đây là khả năng lắng nghe để hiểu, hỏi thay vì đoán, và bày tỏ cảm xúc, mong muốn hay điều chưa thoải mái mà không trách móc. Những lời dịu dàng mà rõ ràng là cây cầu an toàn giữa hai người.',
+      signs: ['Mình hay im lặng và chờ người kia tự hiểu.', 'Khi không vui, mình im lặng hoặc lạnh nhạt thay vì nói ra.', 'Mình ngại nói điều chưa thoải mái vì sợ làm mất lòng.'] },
+    'Sự ấm áp và khả năng đón nhận': { q: 'Mình có cho phép mình được chăm sóc và yêu thương không?',
+      about: 'Đây là sự ấm áp và khả năng đón nhận: tận hưởng một cuộc gặp mà không tự chấm điểm mình, nhận một lời khen hay sự giúp đỡ mà không thấy mắc nợ. Biết đón nhận là một phần rất đẹp của năng lượng nữ tính.',
+      signs: ['Mình thấy ngại, hoặc muốn đáp lại ngay, khi được giúp đỡ.', 'Mình hay gạt đi lời khen.', 'Trong buổi hẹn, mình bận đánh giá xem mình đã thể hiện tốt chưa.'] },
+    'Hành động rõ ràng và giữ ranh giới': { q: 'Mình có thể hiện rõ điều mình muốn và giữ được ranh giới của mình không?',
+      about: 'Đây là khả năng thể hiện sự quan tâm một cách phù hợp, nói rõ điều mình đồng ý và không đồng ý, và lùi lại hay kết thúc một cách tôn trọng khi thấy không phù hợp. Ranh giới rõ ràng giúp cả hai cùng thấy an toàn.',
+      signs: ['Mình hay nói "không sao đâu" dù lòng thấy chưa ổn.', 'Mình để mối quan hệ tiến nhanh hơn nhịp mình muốn.', 'Mình khó kết thúc một kết nối dù biết nó không phù hợp.'] },
+    'Giữ hy vọng và cùng vun đắp kết nối': { q: 'Mình có giữ được niềm tin rằng tình yêu vẫn đang chờ mình không?',
+      about: 'Đây là khả năng giữ hy vọng sau những lần không như ý, mở lòng trở lại theo nhịp của mình, nhận ra và trân trọng sự quan tâm chân thành, và để người kia cùng góp phần vun đắp thay vì phải kiểm soát mọi thứ.',
+      signs: ['Sau một lần hẹn không như ý, mình nghĩ "chắc mình không có duyên".', 'Mình khó tin vào sự quan tâm chân thành của người khác.', 'Mình quen tự làm mọi thứ và thấy khó để người khác chăm sóc mình.'] }
+  };
+
+  var REFLECT = [
+    'Phần nào trong kết quả phản ánh đúng trải nghiệm tình yêu của bạn nhất? Bạn nhớ đến tình huống cụ thể nào?',
+    'Nếu chỉ chọn một vùng để vun bồi trước, bạn muốn bắt đầu từ đâu? Vì sao vùng ấy quan trọng với bạn lúc này?',
+    'Trong 30 ngày tới, bạn muốn thử một hành động nhỏ nào để tạo ra trải nghiệm khác đi?'
+  ];
+
+  // Nội dung kế hoạch 30 ngày cho từng yếu tố.
+  // goal: mục tiêu tuần · day1: bài khởi động (ngày 1) · daily: thói quen nhỏ gắn với một thời điểm cố định
+  // action: thực hành ngoài đời + câu nói mẫu · watch: điều để quan sát · basis: cơ sở phương pháp
+  var PLAN = {
+    'Thấu hiểu bản thân': {
+      goal: 'Gọi tên được 3 giá trị và 3 nhu cầu quan trọng nhất của bạn trong tình yêu, và nhận ra một tình huống khiến bạn dễ đánh mất mình.',
+      day1: { t: 'Tấm bản đồ giá trị', steps: [
+        'Viết ra 10 từ mô tả điều bạn trân quý nhất trong một mối quan hệ (ví dụ: tôn trọng, chân thành, bình yên, cùng phát triển).',
+        'Gạch dần còn 3 từ quan trọng nhất. Với mỗi từ, viết một câu: "Với mình, … nghĩa là …"',
+        'Viết 3 nhu cầu bạn cần được đáp ứng để thấy an toàn khi yêu (ví dụ: được hỏi han khi bận, được giữ lời hứa).',
+        'Nhớ lại một lần bạn thấy mình "không còn là mình" trong tình yêu. Điều gì đã xảy ra ngay trước đó?'] },
+      daily: { when: 'Mỗi tối trước khi ngủ', do: 'viết một dòng: "Hôm nay mình đã sống đúng với giá trị … khi …" hoặc "Hôm nay mình đã bỏ qua nhu cầu … khi …"' },
+      action: { t: 'Trong một cuộc trò chuyện với bạn bè, đồng nghiệp hay người đang tìm hiểu, nói ra một điều bạn trân quý.',
+        script: 'Với mình, sự chân thành quan trọng lắm. Mình thích khi mọi người nói thẳng với nhau, kể cả chuyện khó.' },
+      watch: 'Để ý những lúc bạn gật đầu dù trong lòng muốn nói khác. Ghi lại: lúc ấy mình đang cần điều gì?',
+      basis: 'Thực hành làm rõ giá trị trong Liệu pháp Chấp nhận và Cam kết (ACT), theo Russ Harris.' },
+    'Nhận biết và điều hòa cảm xúc': {
+      goal: 'Có một cách riêng giúp bạn dịu lại trong vòng 5 phút khi bất an, và dừng lại được ít nhất một lần trước khi phản ứng vội.',
+      day1: { t: 'Bản đồ cảm xúc của mình', steps: [
+        'Nhớ lại 2–3 lần gần đây bạn thấy bất an trong tình cảm (tin nhắn chưa được trả lời, lịch hẹn bị huỷ…).',
+        'Với mỗi lần, ghi lại: chuyện gì đã xảy ra, cơ thể bạn cảm thấy gì, bạn đã nghĩ gì, bạn đã làm gì.',
+        'Đánh dấu thời điểm bạn ước mình đã dừng lại.',
+        'Chọn một cách làm dịu bạn sẽ thử: thở ra thật dài, đi bộ 10 phút, rửa mặt bằng nước mát, hoặc gọi cho một người bạn.'] },
+      daily: { when: 'Ba lần mỗi ngày: khi thức dậy, sau bữa trưa và trước khi ngủ', do: 'dừng 30 giây và gọi tên cảm xúc: "Mình đang thấy …, ở mức … trên 10."' },
+      action: { t: 'Lần tới khi bất an xuất hiện, đi qua 4 bước RAIN trước khi làm bất cứ điều gì: Nhận ra, Cho phép, Tìm hiểu nhẹ nhàng, Nâng niu.',
+        script: 'Mình đang thấy lo vì anh chưa nhắn lại. Cảm giác này được phép có mặt. Mình đang sợ điều gì? Mình sẽ chăm sóc mình trước, rồi mới quyết định có nhắn hay không.' },
+      watch: 'Để ý cơ thể báo hiệu bất an ra sao: tim đập nhanh, muốn nhắn tin ngay, hay muốn thu mình lại.',
+      basis: 'Nghiên cứu "gọi tên cảm xúc" (affect labeling) của Matthew Lieberman cho thấy việc đặt tên cho cảm xúc giúp làm dịu phản ứng; phương pháp RAIN của Tara Brach.' },
+    'Tự trắc ẩn và khả năng nâng đỡ bản thân': {
+      goal: 'Có sẵn một câu tự vỗ về của riêng bạn và dùng được nó ít nhất 3 lần khi thấy buồn hay tự trách.',
+      day1: { t: 'Lá thư từ người bạn yêu thương', steps: [
+        'Nghĩ về một chuyện tình cảm khiến bạn vẫn còn tự trách.',
+        'Hình dung một người bạn vô cùng yêu thương, thấu hiểu và không bao giờ phán xét bạn.',
+        'Viết một lá thư từ góc nhìn của người bạn ấy gửi cho bạn, về chính chuyện đó.',
+        'Đọc to lá thư và để ý cảm giác trong lòng.'] },
+      daily: { when: 'Mỗi khi bắt gặp mình đang tự trách', do: 'đặt tay lên ngực và nói ba câu: "Đây là một khoảnh khắc khó khăn. Ai cũng có lúc như thế. Mình sẽ dịu dàng với mình lúc này."' },
+      action: { t: 'Sau một ngày khó khăn, chọn một việc chăm sóc bản thân cụ thể và thực hiện nó như một lời hứa, không phải một phần thưởng.',
+        script: 'Hôm nay mình đã buồn, và mình xứng đáng được nghỉ ngơi. Tối nay mình sẽ tắm nước ấm và đi ngủ sớm.' },
+      watch: 'Để ý giọng nói bên trong khi bạn mắc lỗi hay bị từ chối. Nó đang nói với bạn bằng giọng của ai?',
+      basis: 'Ba thành phần của lòng tự trắc ẩn và bài tập "Self-Compassion Break" của Kristin Neff.' },
+    'Giá trị bản thân và quyền tự lựa chọn': {
+      goal: 'Nói "không" được với ít nhất 2 điều nhỏ không phù hợp, và có một danh sách những điều làm nên giá trị của bạn mà không phụ thuộc vào ai.',
+      day1: { t: 'Giá trị của mình đến từ đâu?', steps: [
+        'Hoàn thành câu "Mình thấy mình có giá trị khi …" 5 lần.',
+        'Đánh dấu những câu phụ thuộc vào người khác (được khen, được chọn, được nhắn tin).',
+        'Viết 5 điều đáng quý ở bạn vẫn đúng kể cả khi hôm nay không ai nhìn thấy (ví dụ: mình tử tế với người lạ, mình giữ lời).',
+        'Dán danh sách này ở nơi bạn nhìn thấy mỗi ngày.'] },
+      daily: { when: 'Mỗi tối', do: 'viết 3 điều bạn trân trọng ở chính mình trong ngày, dù nhỏ đến đâu.' },
+      action: { t: 'Nói "không" hoặc "chưa" với một lời đề nghị nhỏ không phù hợp, mà không cần giải thích quá nhiều.',
+        script: 'Cảm ơn anh đã rủ, nhưng tối nay mình muốn nghỉ ngơi. Hẹn anh cuối tuần nhé.' },
+      watch: 'Để ý những lúc bạn chờ một tin nhắn hay một lời khen để thấy mình ổn.',
+      basis: 'Nghiên cứu về "giá trị bản thân có điều kiện" của Jennifer Crocker: khi giá trị bản thân phụ thuộc vào sự công nhận từ bên ngoài, cảm xúc dễ lên xuống theo người khác.' },
+    'Đời sống riêng và định hướng phát triển': {
+      goal: 'Dành trọn ít nhất 3 khoảng thời gian cho niềm vui, sức khỏe hoặc mục tiêu riêng, và có một kế hoạch nhỏ cho tháng tới.',
+      day1: { t: 'Bánh xe cuộc sống', steps: [
+        'Vẽ một vòng tròn chia 6 phần: sức khỏe, công việc, gia đình và bạn bè, niềm vui, phát triển bản thân, tình yêu.',
+        'Chấm mức hài lòng hiện tại cho từng phần từ 1 đến 10.',
+        'Chọn một phần ngoài tình yêu mà bạn muốn tăng thêm 1–2 điểm.',
+        'Viết 2 việc cụ thể bạn sẽ làm cho phần đó trong tuần này, kèm ngày giờ.'] },
+      daily: { when: 'Mỗi ngày, vào khung giờ bạn đã chọn', do: 'dành 20 phút cho một điều nuôi dưỡng bạn: đi bộ, đọc sách, học một kỹ năng mới, gọi cho người thân.' },
+      action: { t: 'Hẹn gặp một người bạn thân lâu rồi chưa gặp, và trò chuyện về điều gì đó ngoài chuyện tình cảm.',
+        script: 'Lâu quá không gặp, cuối tuần này mình đi cà phê nhé? Mình muốn nghe dạo này cậu thế nào.' },
+      watch: 'Để ý mỗi ngày bạn dành bao nhiêu năng lượng để nghĩ về chuyện tình cảm, và bao nhiêu cho niềm vui của riêng mình.',
+      basis: 'Công cụ "Bánh xe cuộc sống" (Wheel of Life) thường dùng trong khai vấn.' },
+    'Ý nghĩa và mục đích của tình yêu': {
+      goal: 'Viết được một đoạn ngắn "Vì sao mình muốn có một tình yêu", xuất phát từ mong muốn sẻ chia chứ không chỉ từ nỗi sợ cô đơn.',
+      day1: { t: 'Hai danh sách', steps: [
+        'Cột trái: "Mình muốn có người yêu để thoát khỏi …" (cô đơn, áp lực gia đình, cảm giác thua kém…).',
+        'Cột phải: "Mình muốn có người yêu để cùng …" (xây một mái nhà, cùng lớn lên, cùng khám phá…).',
+        'Khoanh tròn 3 điều ở cột phải khiến lòng bạn ấm lên nhất.',
+        'Viết 3–5 câu về tình yêu bạn mong muốn, chỉ dựa trên cột phải.'] },
+      daily: { when: 'Mỗi sáng', do: 'viết một điều bạn muốn cùng người bạn đời tương lai xây dựng hoặc trao đi, không chỉ điều bạn muốn nhận.' },
+      action: { t: 'Chọn một nhu cầu hạnh phúc bạn đang chờ người yêu đáp ứng (được quan tâm, được vui, được an toàn) và tự đáp ứng nó một phần trong tuần này.',
+        script: 'Mình muốn được chăm sóc. Tuần này mình sẽ tự nấu một bữa thật ngon cho mình và mời một người bạn cùng ăn.' },
+      watch: 'Để ý những lúc mong muốn có người yêu trỗi dậy mạnh nhất. Đó là lúc bạn cô đơn, mệt mỏi, hay đang thật sự muốn sẻ chia?',
+      basis: 'Nghiên cứu của Shelly Gable về động lực "tiến tới" (mong điều tốt đẹp) và động lực "né tránh" (sợ điều không mong muốn) trong các mối quan hệ.' },
+    'Tầm nhìn về gắn bó và hôn nhân': {
+      goal: 'Có một bức tranh rõ ràng về đời sống chung mong muốn, với ít nhất 5 điều cụ thể.',
+      day1: { t: 'Một ngày của năm năm sau', steps: [
+        'Hình dung một ngày bình thường của năm năm nữa bên người bạn đời, từ lúc thức dậy đến khi đi ngủ.',
+        'Viết lại thật chi tiết: hai người nói chuyện gì, chia việc nhà ra sao, cuối tuần làm gì, xử lý bất đồng thế nào.',
+        'Gạch chân những điều bạn không muốn đánh đổi.',
+        'Viết 3 câu hỏi bạn cần biết ở một người để hiểu họ có cùng hướng đi (về con cái, nơi sống, tài chính, gia đình hai bên).'] },
+      daily: { when: 'Mỗi tối', do: 'thêm một nét vào bức tranh đời sống chung: một thói quen, một giá trị hoặc một khoảnh khắc bạn mong có.' },
+      action: { t: 'Trò chuyện với một cặp đôi bạn ngưỡng mộ và hỏi điều gì giúp họ bền lâu.',
+        script: 'Mình rất quý cách hai anh chị ở bên nhau. Điều gì giúp anh chị vượt qua những lúc khó khăn?' },
+      watch: 'Quan sát một cặp đôi bạn ngưỡng mộ ngoài đời thật. Điều gì ở họ khiến bạn mong muốn?',
+      basis: 'Khái niệm "Tấm bản đồ tình yêu" (Love Maps) và "ý nghĩa chung" trong nghiên cứu hôn nhân của John Gottman.' },
+    'Nhận diện niềm tin và mô thức tình yêu': {
+      goal: 'Nhận diện được kiểu người bạn hay bị thu hút và một phản ứng lặp lại của mình, kèm một câu nhắc để dừng lại.',
+      day1: { t: 'Dòng thời gian tình yêu', steps: [
+        'Liệt kê 3–4 người bạn từng yêu hoặc từng rung động mạnh.',
+        'Với mỗi người, ghi lại: điều đầu tiên thu hút bạn, cách mối quan hệ kết thúc, cảm giác bạn thường có.',
+        'Tìm những điểm giống nhau. Điều gì đang lặp lại?',
+        'Hỏi mình: kiểu người hoặc cảm giác này có quen thuộc từ tuổi thơ hay từ gia đình không?'] },
+      daily: { when: 'Mỗi khi thấy mình phản ứng theo lối cũ (đuổi theo, thu mình, chiều theo)', do: 'ghi lại một dòng: "Lại là mình của ngày trước. Lần này mình chọn …"' },
+      action: { t: 'Khi gặp một người khiến bạn rung động ngay lập tức, hãy đi chậm lại: gặp thêm 2–3 lần trước khi kết luận, và để ý xem điều thu hút có phải chỉ là cảm giác quen thuộc.',
+        script: 'Mình thấy thích nói chuyện với anh. Mình muốn tìm hiểu chậm rãi, mình gặp nhau thêm vài lần nhé.' },
+      watch: 'Khi thấy bị thu hút mạnh bởi một người, để ý điều gì ở họ khiến bạn thấy quen thuộc.',
+      basis: 'Lý thuyết gắn bó trong tình yêu người trưởng thành (Amir Levine và Rachel Heller, sách "Attached"); khái niệm mô thức lặp lại trong liệu pháp Imago của Harville Hendrix.' },
+    'Hiểu cảm xúc, nhu cầu và tín hiệu trong tình yêu': {
+      goal: 'Phân biệt được cảm giác "rung động" và cảm giác "an toàn" sau một cuộc gặp, và nói ra được một nhu cầu thay vì chờ người kia đoán.',
+      day1: { t: 'Hai cột cảm giác', steps: [
+        'Viết cột "Rung động": hồi hộp, mong chờ, bồn chồn, muốn gây ấn tượng…',
+        'Viết cột "An toàn": thoải mái, được là mình, bình yên, được tôn trọng…',
+        'Nhìn lại các mối quan hệ cũ: mỗi người mang đến cho bạn nhiều cảm giác ở cột nào hơn?',
+        'Viết 3 nhu cầu bạn thường mong người kia tự hiểu mà chưa từng nói ra.'] },
+      daily: { when: 'Sau mỗi lần trò chuyện hay nhắn tin với người đang tìm hiểu (hoặc với người thân)', do: 'viết hai dòng: "Điều thực sự đã xảy ra" và "Điều mình đang đoán".' },
+      action: { t: 'Sau mỗi buổi hẹn hay cuộc trò chuyện dài, trả lời 3 câu: Mình thấy có thêm năng lượng hay mệt đi? Người này khơi dậy phiên bản nào của mình? Mình có thấy được tôn trọng không?',
+        script: '' },
+      watch: 'Sau mỗi lần trò chuyện với một người, để ý bạn thấy nhẹ nhõm hay thấp thỏm.',
+      basis: 'Những câu hỏi tự vấn sau buổi hẹn, gợi ý từ Logan Ury (sách "How to Not Die Alone"); hiện tượng dễ nhầm sự bất an với rung động trong lý thuyết gắn bó (Levine và Heller).' },
+    'Tiêu chuẩn và lựa chọn bạn đời có ý thức': {
+      goal: 'Có bộ tiêu chuẩn chia làm 3 nhóm, và biết cách quan sát ít nhất 2 tiêu chuẩn quan trọng qua hành động.',
+      day1: { t: 'Bộ lọc ba tầng', steps: [
+        'Viết ra mọi điều bạn mong ở người bạn đời, không giới hạn.',
+        'Chia thành 3 nhóm: Không thể thỏa hiệp (tối đa 5 điều), Mong muốn, Có thể cùng nhau thương lượng.',
+        'Với mỗi điều không thể thỏa hiệp, viết: "Mình sẽ nhận ra điều này qua hành động nào?" (ví dụ: sự tôn trọng thể hiện qua cách anh ấy nói về người cũ, cách anh ấy đối xử với người phục vụ).',
+        'Kiểm tra lại: có tiêu chuẩn nào thật ra chỉ là sở thích bề ngoài không?'] },
+      daily: { when: 'Mỗi sáng', do: 'đọc lại 3–5 điều không thể thỏa hiệp, như một lời hẹn với chính mình.' },
+      action: { t: 'Với người đang tìm hiểu (hoặc khi nhớ lại người cũ), quan sát một tiêu chuẩn qua hành động trong 2–3 lần gặp, thay vì chỉ qua lời nói. Bạn có thể mở lời bằng một câu hỏi.',
+        script: 'Khi bất đồng với người thân, anh thường làm gì? Điều gì quan trọng nhất với anh trong một gia đình?' },
+      watch: 'Để ý khoảng cách giữa lời nói và hành động của người bạn đang tìm hiểu, hoặc từng tìm hiểu.',
+      basis: 'HEART Dating Filter trong chương trình Bản Đồ Tình Yêu; nghiên cứu của John Gottman cho thấy cách hai người xử lý bất đồng là một chỉ dấu quan trọng về độ bền của mối quan hệ.' },
+    'Học hỏi từ trải nghiệm tình yêu': {
+      goal: 'Viết được 3 bài học rõ ràng từ các mối quan hệ cũ, mà không đổ hết lỗi cho mình hay cho người kia.',
+      day1: { t: 'Viết để hiểu', steps: [
+        'Chọn một mối quan hệ đã qua vẫn còn khiến bạn day dứt.',
+        'Viết liền 15–20 phút về những cảm xúc và suy nghĩ sâu nhất của bạn về nó, không cần sửa câu chữ.',
+        'Đọc lại và trả lời: Mình đã biết gì từ sớm? Mình đã bỏ qua gì? Phần nào thuộc về mình, phần nào thuộc về người kia?',
+        'Viết một bài học bắt đầu bằng "Lần tới, mình sẽ …"'] },
+      daily: { when: 'Mỗi tối', do: 'viết một dòng: "Một điều mình đã học được về tình yêu là …"' },
+      action: { t: 'Kể lại câu chuyện cũ cho một người bạn tin cậy theo cách mới: tập trung vào điều bạn đã học, thay vì điều người kia đã làm sai.',
+        script: 'Nhìn lại, mình nhận ra mình đã bỏ qua … vì mình sợ … Lần tới mình muốn …' },
+      watch: 'Khi kể về người cũ, để ý bạn đang trách họ, trách mình, hay đang học được điều gì.',
+      basis: 'Phương pháp viết biểu cảm (expressive writing) của James Pennebaker; niềm tin "tình yêu là sự phát triển" (growth belief) trong nghiên cứu của Raymond Knee.' },
+    'Quan điểm về tình yêu trưởng thành': {
+      goal: 'Viết được ranh giới giữa "bao dung" và "chịu đựng" của riêng bạn, và biết cách quan sát cách một người cùng bạn giải quyết vấn đề.',
+      day1: { t: 'Bao dung hay chịu đựng?', steps: [
+        'Viết 5 điều bạn sẵn lòng bao dung trong một mối quan hệ (ví dụ: khác biệt về thói quen, những lúc bận rộn).',
+        'Viết 5 điều là chịu đựng mà bạn không chấp nhận (ví dụ: bị coi thường, bị kiểm soát, bị lạnh nhạt kéo dài).',
+        'Nhớ lại: đã có lúc nào bạn ở lại trong vùng "chịu đựng" không? Điều gì đã giữ bạn lại?',
+        'Hoàn thành câu: "Mình xứng đáng với một tình yêu mà …"'] },
+      daily: { when: 'Mỗi tối', do: 'tự hỏi: "Hôm nay, trong các mối quan hệ của mình, mình đang cố gắng một mình hay đang để người kia cùng góp phần?"' },
+      action: { t: 'Khi có một bất đồng nhỏ (với người đang tìm hiểu, bạn bè hay đồng nghiệp), quan sát xem người kia có lắng nghe, có nhận phần của mình và có tìm cách hàn gắn không.',
+        script: 'Mình nghĩ hai đứa đang hiểu khác nhau chỗ này. Mình muốn nghe anh nghĩ sao, rồi mình cùng tìm cách nhé.' },
+      watch: 'Để ý cách những người quanh bạn cùng giải quyết bất đồng: cách nào bạn muốn học, cách nào bạn không muốn lặp lại.',
+      basis: 'Nghiên cứu của John Gottman về "nỗ lực hàn gắn" (repair attempts) và bốn kiểu giao tiếp gây tổn hại: chỉ trích, khinh thường, phòng thủ, lạnh lùng.' },
+    'Hiện diện với chính mình khi kết nối': {
+      goal: 'Dừng lại được để cảm nhận chính mình ngay trong lúc trò chuyện, và nhận ra ít nhất một lần mình đang cố thể hiện.',
+      day1: { t: 'Mình thật và mình đang thể hiện', steps: [
+        'Viết 5 điều bạn thường làm để gây ấn tượng (cười nhiều hơn, giấu ý kiến, tỏ ra không cần gì…).',
+        'Viết 5 điều là con người thật của bạn khi thấy thoải mái nhất.',
+        'Chọn một điều ở danh sách thứ hai mà bạn muốn cho người khác thấy nhiều hơn.',
+        'Tập thở trong 2 phút: hít vào 4 nhịp, thở ra 6 nhịp.'] },
+      daily: { when: 'Trước mỗi cuộc trò chuyện quan trọng hoặc buổi hẹn', do: 'hít thở chậm 3 hơi (thở ra dài hơn hít vào) và hỏi mình: "Mình đang cảm thấy gì, và mình cần gì?"' },
+      action: { t: 'Trong một cuộc trò chuyện, cho phép mình nói ra một ý kiến hay sở thích thật, kể cả khi nó khác với người kia.',
+        script: 'Thật ra mình không thích phim kinh dị lắm, mình thích phim tâm lý hơn. Còn anh thì sao?' },
+      watch: 'Để ý những lúc bạn cố thể hiện để được thích thay vì được là chính mình.',
+      basis: 'Thực hành chánh niệm trong giao tiếp; thở ra chậm và dài giúp hệ thần kinh dịu lại.' },
+    'Tôn trọng người khác và bớt phán xét': {
+      goal: 'Tạm dừng được trước khi kết luận về một người, và luôn tìm ra ít nhất một cách hiểu khác.',
+      day1: { t: 'Câu chuyện mình đang tự kể', steps: [
+        'Nhớ lại một lần bạn kết luận rằng ai đó "không quan tâm" (trả lời chậm, quên lịch hẹn…).',
+        'Viết: "Câu chuyện mình đã tự kể là …"',
+        'Viết thêm 3 cách hiểu khác cũng có thể đúng.',
+        'Viết: nếu lúc ấy hỏi thẳng, mình sẽ hỏi thế nào?'] },
+      daily: { when: 'Mỗi khi thấy mình vội đánh giá một người', do: 'tạm dừng và nói thầm: "Câu chuyện mình đang tự kể là …, và mình chưa biết đủ."' },
+      action: { t: 'Thay vì đoán, hỏi thẳng một câu nhẹ nhàng khi chưa hiểu phản ứng của ai đó.',
+        script: 'Hôm qua mình thấy anh im lặng, mình đang tự hiểu là anh mệt. Có đúng vậy không anh?' },
+      watch: 'Để ý những lúc bạn kết luận nhanh về một người chỉ qua một chi tiết nhỏ.',
+      basis: 'Kỹ thuật "câu chuyện mình đang tự kể" của Brené Brown (sách "Rising Strong"); nghiên cứu về sự nhạy cảm với việc bị từ chối của Geraldine Downey.' },
+    'Dám xuất hiện và mở lòng': {
+      goal: 'Xuất hiện ở ít nhất 1 môi trường mới và bắt chuyện với ít nhất 3 người mới.',
+      day1: { t: 'Bản đồ nơi gặp gỡ', steps: [
+        'Liệt kê 10 nơi hoặc hoạt động hợp với giá trị và sở thích của bạn (lớp học, câu lạc bộ thể thao, hoạt động tình nguyện, sự kiện chuyên môn, nhóm đọc sách, ứng dụng hẹn hò nghiêm túc…).',
+        'Đánh dấu 3 nơi có nhiều khả năng gặp người độc thân phù hợp với bạn.',
+        'Đăng ký hoặc lên lịch cụ thể cho 1 nơi trong tuần này.',
+        'Nhắn cho 2 người bạn tin cậy: "Nếu cậu biết ai tử tế, độc thân và hợp với mình, giới thiệu mình nhé."'] },
+      daily: { when: 'Mỗi ngày', do: 'mỉm cười và trò chuyện ngắn với một người mới hoặc ít quen: một đồng nghiệp, một người trong lớp học, một người hàng xóm.' },
+      action: { t: 'Đến nơi đã chọn với một mục tiêu nhỏ: trò chuyện với 2 người, hỏi tên và một câu hỏi mở.',
+        script: 'Chào bạn, lần đầu mình đến đây. Bạn tham gia lâu chưa? Điều gì khiến bạn thích nơi này?' },
+      watch: 'Để ý nơi nào khiến bạn thấy thoải mái, tự nhiên và dễ bắt chuyện nhất.',
+      basis: 'Ebook "Để Người Bạn Đời Tương Lai Có Cơ Hội Tìm Thấy Bạn" trong Love Blueprint Toolkit; hiệu ứng "càng gặp càng quen" (mere exposure) của Robert Zajonc: thiện cảm thường lớn dần qua những lần gặp lặp lại.' },
+    'Lắng nghe và giao tiếp chân thành': {
+      goal: 'Nói ra được ít nhất 3 mong muốn một cách dịu dàng và rõ ràng, và nói được về một điều chưa thoải mái mà không trách móc.',
+      day1: { t: 'Công thức 4 bước', steps: [
+        'Làm quen công thức: Điều mình thấy (sự việc), Mình cảm thấy, Vì mình cần, Mình mong (một đề nghị cụ thể).',
+        'Nhớ lại một lần bạn im lặng chờ người kia tự hiểu.',
+        'Viết lại điều bạn muốn nói lúc ấy theo 4 bước trên.',
+        'Đọc to 2–3 lần cho quen miệng.'] },
+      daily: { when: 'Mỗi ngày', do: 'nói ra một mong muốn nhỏ với bất kỳ ai, bắt đầu bằng "Mình thích khi …" hoặc "Mình sẽ thấy dễ chịu hơn nếu …"' },
+      action: { t: 'Chọn một điều nhỏ khiến bạn chưa thoải mái và nói ra bằng cách mở lời nhẹ nhàng, tránh bắt đầu bằng "anh luôn …" hay "anh chẳng bao giờ …".',
+        script: 'Khi mình nhắn mà cả ngày chưa thấy anh trả lời, mình thấy hơi lo, vì mình cần cảm giác được kết nối. Lúc bận, anh nhắn mình một chữ "bận" thôi cũng được nhé.' },
+      watch: 'Để ý những lúc bạn im lặng chờ người kia tự hiểu, và cảm giác trong lòng lúc ấy.',
+      basis: 'Giao tiếp Phi bạo lực (NVC) của Marshall Rosenberg; cách "mở lời nhẹ nhàng" (soft start-up) trong nghiên cứu của John Gottman.' },
+    'Sự ấm áp và khả năng đón nhận': {
+      goal: 'Đón nhận được ít nhất 5 lời khen hoặc sự giúp đỡ chỉ bằng một lời cảm ơn, không từ chối và không vội đáp lại.',
+      day1: { t: 'Mình cho và nhận thế nào?', steps: [
+        'Nhớ lại lần gần nhất ai đó khen hoặc giúp bạn. Bạn đã phản ứng ra sao?',
+        'Viết những suy nghĩ hiện lên lúc ấy (ví dụ: "mình không xứng", "mình sẽ mắc nợ").',
+        'Viết một cách phản ứng mới bạn muốn thử.',
+        'Chọn một việc nhỏ để nhờ một người thân giúp trong tuần này.'] },
+      daily: { when: 'Mỗi khi được khen, được giúp hay được mời', do: 'chỉ cần mỉm cười và nói "Cảm ơn anh (chị), mình rất vui." Buổi tối ghi lại một khoảnh khắc bạn đã đón nhận được.' },
+      action: { t: 'Chủ động nhờ một việc nhỏ và để người kia làm theo cách của họ, không can thiệp hay làm lại.',
+        script: 'Anh chọn giúp mình quán cho tối thứ Bảy nhé, mình tin gu của anh.' },
+      watch: 'Để ý phản xạ của bạn khi được khen hay được giúp: bạn đón nhận, hay vội từ chối và muốn đáp lại ngay?',
+      basis: 'Khái niệm "lời mời kết nối" (bids for connection) của John Gottman; thực hành "tận hưởng" (savoring) trong tâm lý học tích cực của Fred Bryant.' },
+    'Hành động rõ ràng và giữ ranh giới': {
+      goal: 'Có sẵn 3 câu nói về ranh giới của riêng bạn và đã dùng được ít nhất một câu.',
+      day1: { t: 'Ranh giới của mình', steps: [
+        'Viết ranh giới của bạn ở 3 lĩnh vực: thời gian (ví dụ: không nhắn tin sau 23 giờ), sự thân mật (tiến chậm theo nhịp của mình), cách được đối xử (không bị lớn tiếng).',
+        'Với mỗi ranh giới, viết một câu nói dịu dàng mà rõ ràng.',
+        'Nhớ lại lần gần nhất bạn nói "không sao đâu" dù lòng thấy chưa ổn. Lúc ấy bạn có thể nói gì?',
+        'Tập nói to các câu ấy trước gương.'] },
+      daily: { when: 'Mỗi ngày', do: 'tập nói rõ một lựa chọn nhỏ của mình: "Mình muốn …" hoặc "Hôm nay mình chưa tiện …"' },
+      action: { t: 'Dùng 4 bước cho một tình huống thật: mô tả sự việc, nói cảm xúc, nói rõ mong muốn, nói điều tốt đẹp sẽ đến khi mong muốn được tôn trọng.',
+        script: 'Anh hay gọi cho mình lúc gần nửa đêm. Mình thấy mệt vì hôm sau phải dậy sớm. Mình mong hai đứa nói chuyện trước 22 giờ nhé. Như vậy mình sẽ vui và tỉnh táo hơn khi trò chuyện với anh.' },
+      watch: 'Để ý những lúc bạn nói "không sao đâu" trong khi lòng thấy chưa ổn.',
+      basis: 'Kỹ năng DEAR MAN trong Liệu pháp Hành vi Biện chứng (DBT) của Marsha Linehan.' },
+    'Giữ hy vọng và cùng vun đắp kết nối': {
+      goal: 'Có một cuốn nhật ký những khoảnh khắc ấm áp, và một câu nói thay thế cho suy nghĩ "chắc mình không có duyên".',
+      day1: { t: 'Viết lại câu chuyện', steps: [
+        'Viết ra những câu bạn thường tự nói sau một lần hẹn hay một mối quan hệ không như ý.',
+        'Với mỗi câu, hỏi: điều này có chắc chắn đúng không? Có bằng chứng nào cho thấy điều ngược lại không?',
+        'Viết một câu thay thế vừa thật vừa dịu dàng (ví dụ: "Lần này chưa hợp, không có nghĩa là mình sẽ không bao giờ gặp được người phù hợp.").',
+        'Viết 3 bước nhỏ bạn có thể làm trong tháng tới để tiến gần hơn đến tình yêu mong muốn.'] },
+      daily: { when: 'Mỗi tối', do: 'ghi lại một khoảnh khắc ấm áp trong ngày, cho thấy tình yêu và sự quan tâm vẫn đang có mặt quanh bạn.' },
+      action: { t: 'Khi ai đó dành cho bạn sự quan tâm chân thành, gọi tên và cảm ơn đúng điều cụ thể họ đã làm.',
+        script: 'Cảm ơn anh đã nhớ là mình thích trà gừng. Mình thấy được quan tâm lắm.' },
+      watch: 'Để ý những câu bạn tự nói với mình sau một lần hẹn không như ý, như "chắc mình không có duyên".',
+      basis: 'Lý thuyết hy vọng của C. R. Snyder (mục tiêu, con đường và động lực); kỹ thuật điều chỉnh suy nghĩ trong Liệu pháp Nhận thức Hành vi (CBT); nhật ký biết ơn của Robert Emmons.' }
+  };
+
+  // Diễn giải khi một yếu tố đang là vùng cần vun bồi
+  var MEANS = {
+    'Thấu hiểu bản thân': 'Khi chưa gọi tên được điều mình thật sự cần, bạn dễ để người khác định nghĩa tình yêu thay cho mình, rồi lặng lẽ đánh mất mình lúc nào không hay.',
+    'Nhận biết và điều hòa cảm xúc': 'Khi bất an dâng lên mà chưa có cách đón nhận nó, bạn dễ phản ứng vội, đoán ý hoặc cố giữ chặt người kia, và chính bạn là người mệt mỏi nhất.',
+    'Tự trắc ẩn và khả năng nâng đỡ bản thân': 'Khi một chuyện tình không như ý, có lẽ bạn đang trách mình nhiều hơn là ôm lấy mình. Trái tim cần được vỗ về thì mới đủ can đảm để mở ra lần nữa.',
+    'Giá trị bản thân và quyền tự lựa chọn': 'Có lẽ bạn đang tìm thấy giá trị của mình qua ánh mắt người khác. Khi ấy, bạn dễ ở lại vì sợ mất, hơn là vì thật sự hạnh phúc.',
+    'Đời sống riêng và định hướng phát triển': 'Khi tình yêu trở thành điểm tựa duy nhất, mỗi cuộc hẹn đều mang một sức nặng rất lớn. Một đời sống riêng đầy đặn giúp bạn yêu nhẹ nhàng và tự do hơn.',
+    'Ý nghĩa và mục đích của tình yêu': 'Khi chưa rõ vì sao mình muốn yêu, nỗi cô đơn dễ lựa chọn thay bạn. Hiểu được mục đích giúp bạn tìm một người để cùng xây dựng, chứ không chỉ để lấp đầy khoảng trống.',
+    'Tầm nhìn về gắn bó và hôn nhân': 'Khi bức tranh đời sống chung còn mờ, bạn khó nhận ra ai thật sự cùng hướng đi với mình, và dễ dành thời gian cho những kết nối không cùng đích đến.',
+    'Nhận diện niềm tin và mô thức tình yêu': 'Có thể bạn đang ở trong một vòng lặp quen thuộc mà chưa kịp nhận ra: cùng một kiểu người, cùng một kiểu tổn thương, chỉ dưới một cái tên khác.',
+    'Hiểu cảm xúc, nhu cầu và tín hiệu trong tình yêu': 'Khi rung động và cảm giác an toàn còn lẫn vào nhau, bạn dễ nhầm sự thấp thỏm là tình yêu, và bỏ lỡ những người mang đến bình yên.',
+    'Tiêu chuẩn và lựa chọn bạn đời có ý thức': 'Khi tiêu chuẩn chưa đủ rõ, trái tim rung động dễ xoá nhoà lý trí, và bạn có thể thỏa hiệp với những điều lẽ ra không nên chấp nhận.',
+    'Học hỏi từ trải nghiệm tình yêu': 'Mỗi mối quan hệ đã qua đều là một nguồn dữ liệu quý. Khi chưa kịp nhìn lại bằng sự bình tĩnh, bài học dễ bị bỏ lỡ và câu chuyện cũ dễ lặp lại.',
+    'Quan điểm về tình yêu trưởng thành': 'Có thể bạn đang một mình gánh phần vun đắp, hoặc chưa chắc đâu là ranh giới giữa bao dung và chịu đựng. Tình yêu trưởng thành cần cả hai người cùng góp phần.',
+    'Hiện diện với chính mình khi kết nối': 'Khi quá bận tâm để gây ấn tượng, bạn dễ quên mất mình đang cảm thấy gì, và người kia cũng khó gặp được con người thật của bạn.',
+    'Tôn trọng người khác và bớt phán xét': 'Khi vội kết luận, bạn có thể tự làm mình tổn thương vì những điều chưa xảy ra, hoặc khép cửa quá sớm với một người đáng để tìm hiểu.',
+    'Dám xuất hiện và mở lòng': 'Có thể bạn đang giữ mình an toàn đến mức ít ai có cơ hội bước vào. Người bạn đời chỉ tìm thấy bạn khi bạn cho phép mình được nhìn thấy.',
+    'Lắng nghe và giao tiếp chân thành': 'Khi mong muốn không được nói ra, người kia khó mà hiểu đúng, và bạn dễ thất vọng trong im lặng. Những lời dịu dàng mà rõ ràng là cây cầu nối hai trái tim.',
+    'Sự ấm áp và khả năng đón nhận': 'Có thể bạn quen cho đi hơn là nhận về. Biết đón nhận là cách để người đàn ông được góp phần chăm sóc bạn, và để tình yêu có chỗ lớn lên.',
+    'Hành động rõ ràng và giữ ranh giới': 'Khi chưa nói rõ điều mình đồng ý và không đồng ý, bạn dễ chiều theo rồi âm thầm tổn thương. Ranh giới rõ ràng giúp cả hai cùng thấy an toàn.',
+    'Giữ hy vọng và cùng vun đắp kết nối': 'Những lần không như ý có thể đang khiến bạn nghĩ rằng tình yêu không dành cho mình. Hy vọng sẽ được nuôi dưỡng lại từng chút một, qua những khoảnh khắc ấm áp nhỏ.'
+  };
+  Object.keys(MEANS).forEach(function (k) { PLAN[k].mean = MEANS[k]; });
+
+  var WEEKS = [
+    { name: 'Gieo hạt', q: 'Tuần này mình đã nhận ra điều gì mới về chính mình?' },
+    { name: 'Tưới tắm', q: 'Điều gì đã trở nên dễ dàng hơn một chút so với tuần trước?' },
+    { name: 'Đâm chồi', q: 'Mình đã dịu dàng với chính mình ở khoảnh khắc nào tuần này?' },
+    { name: 'Đơm hoa', q: 'Nếu mình của 30 ngày trước nhìn thấy mình hôm nay, cô ấy sẽ nói gì?' }
+  ];
+
+  var FLOWERS = {
+    'Hạt Mầm': '<ellipse cx="50" cy="78" rx="26" ry="6" fill="var(--surface-2)"/><path d="M50 76 V52" stroke="var(--accent-teal)" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M50 60 C38 56 34 46 36 40 C46 42 50 50 50 60Z" fill="var(--accent-teal)" opacity=".8"/><path d="M50 56 C60 50 66 42 64 36 C54 38 50 46 50 56Z" fill="var(--accent-teal)" opacity=".6"/>',
+    'Nụ Hoa': '<ellipse cx="50" cy="84" rx="26" ry="6" fill="var(--surface-2)"/><path d="M50 82 V46" stroke="var(--accent-teal)" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M50 66 C40 62 36 54 38 50 C46 52 50 58 50 66Z" fill="var(--accent-teal)" opacity=".7"/><path d="M50 48 C38 40 40 22 50 14 C60 22 62 40 50 48Z" fill="var(--accent)"/><path d="M50 48 C44 40 46 28 50 22 C54 28 56 40 50 48Z" fill="#E0A1A7"/>',
+    'Nở Hoa': '<ellipse cx="50" cy="88" rx="26" ry="6" fill="var(--surface-2)"/><path d="M50 86 V52" stroke="var(--accent-teal)" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M50 72 C40 68 36 60 38 56 C46 58 50 64 50 72Z" fill="var(--accent-teal)" opacity=".7"/>' +
+      [0, 60, 120, 180, 240, 300].map(function (a) { return '<ellipse cx="50" cy="22" rx="9" ry="15" fill="var(--accent)" opacity=".9" transform="rotate(' + a + ' 50 36)"/>'; }).join('') +
+      '<circle cx="50" cy="36" r="8" fill="var(--accent-gold)"/>'
+  };
+
+  // Làm phẳng thành danh sách câu hỏi có mã PBS01...
+  var QS = [], FACTORS = [];
+  // n: thứ tự hiển thị trong vòng · c: mã gốc theo bản của Phương.
+  // Câu bổ sung sau (có sẵn code, ví dụ PBS25) không làm lệch mã gốc.
+  ROUNDS.forEach(function (R, ri) {
+    var n = 0, c = 0;
+    R.factors.forEach(function (F) {
+      F.ri = ri; F.idx = FACTORS.length; F.qIdx = [];
+      FACTORS.push(F);
+      F.items.forEach(function (it) {
+        n++;
+        var q = typeof it === 'string' ? { t: it } : it;
+        if (!q.code) { c++; q.code = R.code + (c < 10 ? '0' : '') + c; }
+        q.ri = ri; q.fi = F.idx; q.rn = n;
+        F.qIdx.push(QS.length); QS.push(q);
+      });
+    });
+    R.count = n;
+  });
+
+  // ---------- Lăng kính tính nữ ----------
+  // Gom các câu thể hiện năng lượng nữ tính ở cả ba vòng (theo ghi chú của Phương + 3 câu bổ sung)
+  var FEM = ['PBS05', 'PBS12', 'PBS24', 'PBS25', 'PBS26', 'HPS08', 'HPS12', 'HPS15', 'HPS16', 'HPS19', 'HPS23', 'HPS24', 'HPS25'];
+  var FEM_TEXT = {
+    low: 'Có lẽ bạn đang quen gồng mình, lo liệu mọi thứ và ít cho phép mình được mềm mại, được nghỉ ngơi, được chăm sóc. Năng lượng nữ tính trong bạn vẫn luôn ở đó, chỉ đang chờ được đánh thức một cách dịu dàng.',
+    mid: 'Bạn đã có những khoảnh khắc được là người phụ nữ mềm mại, biết đón nhận và biết tận hưởng. Nhưng khi bận rộn hay bất an, bạn dễ quay về trạng thái gồng mình và tự gánh mọi thứ.',
+    high: 'Bạn đang sống khá hài hòa với năng lượng nữ tính của mình: mềm mại mà vững vàng, biết đón nhận mà vẫn giữ được ranh giới. Đây là vẻ đẹp khiến người khác thấy bình yên khi ở cạnh bạn.'
+  };
+  function femScore(ans) {
+    var vals = [];
+    QS.forEach(function (q, i) {
+      if (FEM.indexOf(q.code) < 0) return;
+      var v = ans[i];
+      if (v == null || v === NA) return;
+      vals.push(q.r ? 6 - v : v);
+    });
+    return vals.length >= 7 ? mean(vals) : null; // cần ít nhất 7 câu hợp lệ
+  }
+
+  // ---------- Lưu trữ ----------
+  var K_PROG = 'brd2-progress', K_RES = 'brd2-result';
+
+  // ---------- Đường dẫn (Phương dán link vào đây) ----------
+  var LINKS = {
+    coaching: 'https://coachmyphuong.youcanbook.me/',   // link đăng ký phiên khai vấn 1:1 (Google Form, Zalo, lịch hẹn...)
+    workshop: '/'   // trang workshop Bản Đồ Tình Yêu. Để '' nếu không muốn hiện dòng này
+  };
+  (function applyLinks() {
+    var c = document.getElementById('coach-link');
+    if (LINKS.coaching) c.href = LINKS.coaching;
+    else c.onclick = function (e) { e.preventDefault(); alert('Bạn nhắn Phương qua Zalo để đặt lịch phiên khai vấn 1:1 nhé 🌷'); };
+    if (LINKS.workshop) document.getElementById('workshop-link').href = LINKS.workshop;
+    else document.getElementById('workshop-line').hidden = true;
+  })();
+  function load(k) { try { return JSON.parse(localStorage.getItem(k)); } catch (e) { return null; } }
+  function save(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+  function drop(k) { try { localStorage.removeItem(k); } catch (e) {} }
+
+  var $ = function (id) { return document.getElementById(id); };
+  var answers = new Array(QS.length).fill(null);
+  var idx = 0;
+  var result = null;
+
+  function show(id) {
+    document.querySelectorAll('.screen').forEach(function (s) { s.classList.remove('active'); });
+    $(id).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function fmt(x) { return x == null ? null : x.toFixed(1).replace('.', ','); }
+
+  // ---------- Intro ----------
+  $('round-chips').innerHTML = ROUNDS.map(function (R, i) {
+    return '<div class="round-chip"><i class="dot" style="background:' + R.color + '"></i><div><b>Vòng ' + (i + 1) + ' · ' + R.name + '</b><span>' + R.q + '</span></div></div>';
+  }).join('');
+  $('scale-table').innerHTML = SCALE.map(function (s, i) { return '<tr><td>' + (i + 1) + '</td><td>' + s + '</td></tr>'; }).join('');
+
+  // ---------- Vòng & câu hỏi ----------
+  function showRound(ri) {
+    var R = ROUNDS[ri];
+    $('ri-num').textContent = ri + 1;
+    $('ri-num').style.color = R.color;
+    $('ri-eyebrow').textContent = 'Vòng ' + (ri + 1) + ' / 3 · ' + R.en + ' · ' + R.count + ' câu';
+    $('ri-title').textContent = R.name;
+    $('ri-sub').textContent = R.sub;
+    $('ri-q').textContent = '"' + R.q + '"';
+    $('ri-enc').textContent = R.enc;
+    $('ri-go').textContent = 'Bắt đầu Vòng ' + (ri + 1);
+    show('s-round');
+  }
+
+  function renderQ() {
+    var q = QS[idx], R = ROUNDS[q.ri];
+    $('q-count').textContent = 'Câu ' + q.rn + ' / ' + R.count;
+    $('q-round').textContent = 'Vòng ' + (q.ri + 1) + ' · ' + R.name;
+    $('q-round').style.background = R.color;
+    $('q-bar').style.width = ((q.rn - 1) / R.count * 100) + '%';
+    $('q-bar').style.background = R.color;
+    var done = answers.filter(function (a) { return a != null; }).length;
+    $('q-total').textContent = 'Cả hành trình: ' + done + ' / ' + QS.length + ' câu';
+    $('q-text').textContent = q.t;
+    var box = $('q-scale'); box.innerHTML = '';
+    SCALE.forEach(function (label, i) { box.appendChild(optBtn(i + 1, String(i + 1), label, '')); });
+    box.appendChild(optBtn(NA, '–', 'Chưa có đủ trải nghiệm để trả lời', ' na'));
+    $('back').style.visibility = idx === 0 ? 'hidden' : 'visible';
+    $('next').hidden = answers[idx] == null;
+  }
+  function optBtn(v, n, label, cls) {
+    var b = document.createElement('button');
+    b.className = 'opt' + cls + (answers[idx] === v ? ' sel' : '');
+    b.innerHTML = '<span class="n">' + n + '</span><span></span>';
+    b.lastChild.textContent = label;
+    b.onclick = function () { pick(v); };
+    return b;
+  }
+
+  var advancing = false;
+  function pick(v) {
+    if (advancing) return;
+    answers[idx] = v;
+    save(K_PROG, { answers: answers, idx: idx, name: $('name').value, birth: $('birth').value });
+    renderQ();
+    advancing = true;
+    setTimeout(function () { advancing = false; advance(); }, 260);
+  }
+  function advance() {
+    if (idx >= QS.length - 1) { finish(); return; }
+    var cur = QS[idx].ri;
+    idx++;
+    save(K_PROG, { answers: answers, idx: idx, name: $('name').value, birth: $('birth').value });
+    if (QS[idx].ri !== cur) showRound(QS[idx].ri); else renderQ();
+  }
+
+  // ---------- Chấm điểm ----------
+  function scoreItem(i) {
+    var v = answers[i];
+    if (v == null || v === NA) return null;
+    return QS[i].r ? 6 - v : v;
+  }
+  function mean(a) { return a.reduce(function (s, x) { return s + x; }, 0) / a.length; }
+  function compute() {
+    var factorScores = FACTORS.map(function (F) {
+      var vals = F.qIdx.map(scoreItem).filter(function (x) { return x != null; });
+      var need = F.qIdx.length === 3 ? 2 : 3;
+      return vals.length >= need ? mean(vals) : null;
+    });
+    var roundScores = ROUNDS.map(function (R, ri) {
+      var vals = FACTORS.filter(function (F) { return F.ri === ri; }).map(function (F) { return factorScores[F.idx]; }).filter(function (x) { return x != null; });
+      return vals.length ? mean(vals) : null;
+    });
+    return { factors: factorScores, rounds: roundScores };
+  }
+
+  function finish() {
+    drop(K_PROG);
+    var sc = compute();
+    result = {
+      date: new Date().toISOString(), name: $('name').value.trim(), birth: $('birth').value.trim(),
+      answers: answers.slice(), factors: sc.factors, rounds: sc.rounds,
+      labels: {}, reflect: ['', '', '']
+    };
+    save(K_RES, result);
+    renderResult();
+  }
+
+  // ---------- Kết quả ----------
+  function renderResult() {
+    var r = result;
+    var valid = r.rounds.filter(function (x) { return x != null; });
+    var overall = valid.length ? mean(valid) : null;
+    var st = stageOf(overall == null ? 0 : overall);
+    var focus = planFactors();
+    var isFocus = {}; focus.forEach(function (F) { isFocus[F.idx] = 1; });
+
+    // 1. Lời chào, giai đoạn và ba vòng
+    $('stage-icon').innerHTML = FLOWERS[st.name];
+    $('res-eyebrow').textContent = r.name ? 'Tấm bản đồ của ' + r.name : 'Tấm bản đồ của bạn';
+    $('res-info').innerHTML =
+      '<div><small>Họ và tên</small>' + esc(r.name || '—') + '</div>' +
+      '<div><small>Năm sinh</small>' + esc(r.birth || '—') + '</div>' +
+      '<div><small>Ngày hoàn thành</small>' + new Date(r.date).toLocaleDateString('vi-VN') + '</div>';
+    $('res-greet').innerHTML = '<b>' + esc(r.name || 'Bạn') + ' thân mến,</b><br>Cảm ơn bạn đã dành thời gian lắng nghe chính mình qua ' + QS.length + ' câu hỏi. Đây là tấm bản đồ của riêng bạn, được vẽ nên từ chính những câu trả lời thật lòng của bạn. Hãy đọc chậm rãi, như đang trò chuyện cùng một người bạn thân nhé.';
+    $('res-index').textContent = overall == null ? '—' : pct(overall) + '%';
+    $('res-stage').textContent = st.title;
+    $('res-stage-desc').textContent = st.desc;
+    $('res-bars').innerHTML = ROUNDS.map(function (R, ri) {
+      var v = r.rounds[ri];
+      return '<div class="bar-row"><div class="top"><b>' + R.name + '<small>' + R.en + '</small></b>' +
+        '<span>' + (v == null ? '—' : pct(v) + '%') + '</span></div>' +
+        '<div class="track"><i style="background:' + R.color + '" data-w="' + (v == null ? 0 : pct(v)) + '"></i></div>' +
+        (v == null ? '<div class="lvl">Chưa đủ dữ liệu</div>' : '<div class="lvl">' + zoneTag(v) + '</div>') + '</div>';
+    }).join('');
+    var fem = femScore(r.answers);
+    $('res-fem').innerHTML = fem == null ? '' :
+      '<div class="fem-head"><b>🌸 Lăng kính tính nữ</b><span>' + pct(fem) + '%</span></div>' +
+      '<div class="track"><i style="background:linear-gradient(90deg,#E0A1A7,#D37881)" data-w="' + pct(fem) + '"></i></div>' +
+      '<p>' + FEM_TEXT[level(fem)] + '</p>' +
+      '<p class="fem-tip"><b>Một gợi ý nhỏ:</b> mỗi ngày, cho phép mình một khoảnh khắc chỉ để tận hưởng mà không cần làm gì cả, và đón nhận một điều tốt đẹp chỉ bằng một nụ cười.</p>';
+    setTimeout(function () {
+      document.querySelectorAll('#res-bars .track i, #res-fem .track i').forEach(function (i) { i.style.width = i.dataset.w + '%'; });
+    }, 80);
+
+    // 2. Điều đẹp nhất nơi bạn
+    renderStrength(focus);
+
+    // 3. Nơi nên bắt đầu: ba điều có điểm thấp nhất, mỗi điều gọn trong ba ý
+    var allHigh = focus.length && focus.every(function (F) { return r.factors[F.idx] >= 3.8; });
+    $('grow-title').textContent = allHigh ? 'Ba điều bạn có thể vun thêm để nở rộ hơn' : 'Ba điều trái tim bạn đang cần được chăm sóc';
+    $('res-grow').innerHTML = focus.map(function (F, k) {
+      var R = ROUNDS[F.ri], s = r.factors[F.idx], low = lowItems(F, 1)[0];
+      return '<div class="grow-card" style="border-color:' + R.hex + '">' +
+        '<div class="gc-head"><span class="gc-num" style="background:' + R.hex + '">' + (k + 1) + '</span>' +
+        '<div><b>' + F.name + '</b><small>' + R.name + ' · ' + pct(s) + '%</small></div></div>' +
+        '<p class="gc-mean">' + esc(level(s) === 'high' ? AT_LEVEL.high : PLAN[F.name].mean) + '</p>' +
+        (low ? '<div class="quote" style="border-color:' + R.hex + '"><small>Bạn đã chia sẻ</small><p>"' + esc(QS[low.i].t) + '"</p><small>' + answerLabel(low.i) + '</small></div>' : '') +
+        '<div class="gc-tip"><b>Bước nhỏ đầu tiên:</b> ' + esc(F.tip) + '</div>' +
+        '</div>';
+    }).join('') || '<p class="empty">Chưa đủ dữ liệu để xác định nơi nên bắt đầu.</p>';
+
+    // 4. Kế hoạch 30 ngày
+    renderGrow();
+
+    // 5. Bản đồ chi tiết
+    $('res-date').textContent = new Date(r.date).toLocaleDateString('vi-VN');
+    drawWheel(r.factors);
+    $('legend').innerHTML = ROUNDS.map(function (R) { return '<span><i style="background:' + R.color + '"></i>' + R.name + '</span>'; }).join('');
+    var strong = strongSet(focus);
+    $('round-cards').innerHTML = ROUNDS.map(function (R, ri) {
+      var rs = r.rounds[ri];
+      var rows = FACTORS.filter(function (F) { return F.ri === ri; }).map(function (F) {
+        var s = r.factors[F.idx], I = INFO[F.name];
+        var at = s == null ? 'Bạn đã chọn "Chưa có đủ trải nghiệm" ở nhiều câu của phần này, nên chưa đủ dữ liệu để nhận định. Khi có thêm trải nghiệm, bạn có thể làm lại để thấy rõ hơn.'
+          : level(s) === 'low' ? PLAN[F.name].mean : AT_LEVEL[level(s)];
+        return '<details class="f-row" id="f-' + F.idx + '"><summary>' +
+          '<div class="top"><b><em>' + (F.idx + 1) + '.</em>' + F.name +
+            (isFocus[F.idx] ? ' <span class="prio">Nơi nên bắt đầu</span>' : '') +
+            (strong[F.idx] ? ' <span class="strong">Điều đẹp nhất</span>' : '') + '</b>' +
+          (s == null ? '<span class="nd">Chưa đủ dữ liệu</span>' : '<span>' + pct(s) + '%</span>') + '</div>' +
+          '<div class="track"><i style="width:' + (s == null ? 0 : pct(s)) + '%;background:' + R.color + '"></i></div>' +
+          (s == null ? '' : '<div style="margin-top:8px">' + zoneTag(s) + '</div>') +
+          '<span class="more">Xem chi tiết ↓</span></summary>' +
+          '<div class="f-detail"><p class="fq">"' + I.q + '"</p>' +
+          '<h4>Điều này nói về</h4><p>' + esc(I.about) + '</p>' +
+          '<h4>Với câu trả lời của bạn</h4><p>' + esc(at) + '</p>' +
+          '<h4>Dấu hiệu khi phần này còn yếu</h4><ul>' + I.signs.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>' +
+          '</div></details>';
+      }).join('');
+      return '<div class="round-block" style="border-top:4px solid ' + R.hex + '">' +
+        '<div class="rc-head"><h3>' + R.name + '<small>' + R.en + '</small></h3>' +
+        '<div class="rc-score" style="color:' + R.hex + '">' + (rs == null ? '<small>Chưa đủ dữ liệu</small>' : pct(rs) + '%') + '</div></div>' +
+        (rs == null ? '' : '<p class="rc-advice">' + R.advice[level(rs)] + '</p>') +
+        rows + '</div>';
+    }).join('');
+
+    // 6. Câu hỏi mang theo (theo vùng nên bắt đầu đầu tiên) + chuẩn bị khai vấn
+    $('res-reflect').textContent = focus.length ? ROUNDS[focus[0].ri].reflect : ROUNDS[0].reflect;
+    $('reflect').innerHTML = REFLECT.map(function (q, i) {
+      return '<div class="reflect-q"><label for="rf' + i + '">' + (i + 1) + '. ' + q + '</label>' +
+        '<textarea id="rf' + i + '" placeholder="Viết vài dòng thật lòng..."></textarea><div class="print-only" id="rfp' + i + '"></div></div>';
+    }).join('');
+    REFLECT.forEach(function (_, i) {
+      var ta = $('rf' + i);
+      ta.value = r.reflect[i] || '';
+      $('rfp' + i).textContent = ta.value;
+      ta.oninput = function () { result.reflect[i] = ta.value; $('rfp' + i).textContent = ta.value; save(K_RES, result); };
+    });
+    show('s-result');
+  }
+
+  // ---------- Câu trả lời nổi bật ----------
+  function answerLabel(i) { return 'Bạn chọn: "' + SCALE[result.answers[i] - 1] + '"'; }
+  // Hai điều có điểm cao nhất, không trùng với nơi nên bắt đầu
+  function strongList(focus) {
+    var r = result, fi = focus.map(function (F) { return F.idx; });
+    return FACTORS.filter(function (F) { return r.factors[F.idx] != null && fi.indexOf(F.idx) < 0; })
+      .sort(function (a, b) { return r.factors[b.idx] - r.factors[a.idx]; }).slice(0, 2);
+  }
+  function strongSet(focus) { var o = {}; strongList(focus).forEach(function (F) { o[F.idx] = 1; }); return o; }
+  function renderStrength(focus) {
+    var r = result, top = strongList(focus), list = [];
+    QS.forEach(function (q, i) {
+      var v = r.answers[i];
+      if (v == null || v === NA || q.r) return; // chỉ lấy câu thuận chiều để câu chữ đọc tự nhiên
+      if (v >= 4) list.push({ i: i, s: v });
+    });
+    var bright = spread(list.sort(function (a, b) { return b.s - a.s; }), 2);
+    $('res-strength').innerHTML = '<div class="eyebrow">Điều đẹp nhất nơi bạn</div>' +
+      '<h2 style="margin-top:6px">Những điều bạn đang làm rất tốt</h2>' +
+      '<p style="margin-top:8px">Trước khi nhìn vào những nơi cần chăm sóc, Phương muốn bạn thấy những điều đẹp đẽ đang có sẵn trong bạn. Mỗi khi thấy khó, hãy nhớ rằng bạn đã có những sức mạnh này.</p>' +
+      (top.length ? '<ul class="actions">' + top.map(function (F) {
+        return '<li><b>' + F.name + '</b>' + ROUNDS[F.ri].name + ' · ' + pct(r.factors[F.idx]) + '%</li>';
+      }).join('') + '</ul>' : '') +
+      (bright.length ? '<p class="gc-label" style="margin-top:14px">Bạn thấy điều này rất đúng với mình:</p>' + bright.map(function (x) {
+        var Q = QS[x.i];
+        return '<div class="quote" style="border-color:' + ROUNDS[Q.ri].hex + '"><p>"' + esc(Q.t) + '"</p></div>';
+      }).join('') : '<p class="empty">Những điều đẹp nhất nơi bạn sẽ rõ dần lên khi bạn thực hành. Việc bạn dám nhìn thật sâu vào mình hôm nay đã là một điều rất đáng trân trọng.</p>');
+  }
+  // Các câu điểm thấp nhất của một yếu tố (điểm sau đảo ≤ 3)
+  function lowItems(F, n) {
+    var out = [];
+    F.qIdx.forEach(function (i) {
+      var v = result.answers[i];
+      if (v == null || v === NA) return;
+      var s = QS[i].r ? 6 - v : v;
+      if (s <= 3) out.push({ i: i, s: s });
+    });
+    return out.sort(function (a, b) { return a.s - b.s; }).slice(0, n);
+  }
+  // Chọn tối đa n câu, ưu tiên mỗi yếu tố một câu để kết quả đa dạng
+  function spread(arr, n) {
+    var out = [], used = {};
+    arr.forEach(function (x) { if (out.length < n && !used[QS[x.i].fi]) { used[QS[x.i].fi] = 1; out.push(x); } });
+    arr.forEach(function (x) { if (out.length < n && out.indexOf(x) < 0) out.push(x); });
+    return out;
+  }
+
+  // ---------- Kế hoạch 30 ngày ----------
+  function planFactors() {
+    // Ba yếu tố có điểm thấp nhất
+    var r = result;
+    return FACTORS.filter(function (F) { return r.factors[F.idx] != null; })
+      .sort(function (a, b) { return r.factors[a.idx] - r.factors[b.idx]; }).slice(0, 3);
+  }
+  function strengthFactor() {
+    var r = result;
+    return FACTORS.filter(function (F) { return r.factors[F.idx] != null; })
+      .sort(function (a, b) { return r.factors[b.idx] - r.factors[a.idx]; })[0];
+  }
+  function lowestItem(F) {
+    var best = null;
+    F.qIdx.forEach(function (i) {
+      var v = result.answers[i];
+      if (v == null || v === NA) return;
+      var s = QS[i].r ? 6 - v : v;
+      if (!best || s < best.s) best = { i: i, s: s };
+    });
+    return best;
+  }
+  function dayDate(start, d) {
+    var x = new Date(start); x.setDate(x.getDate() + d - 1);
+    return x.getDate() + '/' + (x.getMonth() + 1);
+  }
+  function buildPlan() {
+    var r = result, fs = planFactors(), S = strengthFactor();
+    var start = r.planStart || r.date;
+    var D = function (n) { return 'Ngày ' + n + ' · ' + dayDate(start, n); };
+    var weeks = [];
+    fs.forEach(function (F, k) {
+      var li = lowestItem(F), P = PLAN[F.name], o = 7 * k, W = WEEKS[k];
+      weeks.push({
+        F: F, from: o + 1, to: o + 7, name: W.name,
+        title: 'Vun bồi: ' + F.name,
+        goal: P.goal,
+        why: li ? 'Bạn chọn "' + SCALE[r.answers[li.i] - 1] + '" cho câu: <i>"' + esc(QS[li.i].t) + '"</i>' : '',
+        basis: P.basis,
+        tasks: [
+          { when: D(o + 1) + ' · 20 phút', t: 'Khởi động: ' + P.day1.t,
+            body: '<p>Trước khi bắt đầu, chấm từ 1 đến 10: bạn thấy mình đang ở đâu với vùng này? Ghi con số vào sổ.</p><ol>' +
+              P.day1.steps.map(function (s) { return '<li>' + esc(s) + '</li>'; }).join('') + '</ol>' },
+          { when: 'Ngày ' + (o + 1) + '–' + (o + 7) + ' · 5 phút mỗi ngày', t: 'Thói quen nhỏ',
+            body: '<p><b>' + esc(P.daily.when) + '</b>, ' + esc(P.daily.do) + '</p>' },
+          { when: 'Ngày ' + (o + 3) + '–' + (o + 6) + ' · ít nhất 1 lần', t: 'Thực hành ngoài đời',
+            body: '<p>' + esc(P.action.t) + '</p>' + (P.action.script ? '<div class="script"><small>Câu nói mẫu, bạn có thể đổi theo cách nói của mình</small>"' + esc(P.action.script) + '"</div>' : '') },
+          { when: 'Suốt tuần', t: 'Quan sát', body: '<p>' + esc(P.watch) + '</p>' },
+          { when: D(o + 7) + ' · 15 phút', t: 'Nhìn lại',
+            body: '<p>Đọc lại ghi chép cả tuần. Chấm lại từ 1 đến 10 và so với ngày đầu. Rồi tự hỏi: <i>' + W.q + '</i> Viết một điều bạn muốn mang theo sang tuần sau.</p>' }
+        ]
+      });
+    });
+    var b = 7 * fs.length, W4 = WEEKS[3];
+    weeks.push({
+      F: null, from: b + 1, to: 30, name: W4.name,
+      title: 'Tích hợp và nhìn lại',
+      goal: 'Giữ lại những thói quen giúp bạn nhiều nhất, nhìn thấy mình đã thay đổi ra sao, và chuẩn bị cho chặng tiếp theo.',
+      why: 'Tuần cuối là lúc để những điều nhỏ bé bạn đã gieo lớn lên thành thói quen của riêng bạn.',
+      basis: 'Thói quen bền hơn khi được gắn với một thời điểm cố định trong ngày ("Sau khi …, mình sẽ …"), theo nghiên cứu về ý định thực thi của Peter Gollwitzer và phương pháp Tiny Habits của BJ Fogg.',
+      tasks: [
+        { when: D(b + 1) + ' · 15 phút', t: 'Chọn thói quen giữ lại',
+          body: '<p>Đọc lại sổ tay những tuần qua. Chọn 1–2 thói quen nhỏ giúp bạn nhiều nhất và viết lại thành câu: <i>"Sau khi …, mình sẽ …"</i></p>' },
+        { when: 'Ngày ' + (b + 1) + '–29 · 5 phút mỗi ngày', t: 'Duy trì',
+          body: '<p>Thực hiện 1–2 thói quen đã chọn. Nếu lỡ một ngày, cứ nhẹ nhàng tiếp tục vào ngày hôm sau.</p>' },
+        S ? { when: 'Ngày ' + (b + 3) + '–' + (b + 6), t: 'Dựa vào điểm tựa: ' + S.name,
+          body: '<p>Khi gặp một tình huống khó, hỏi mình: <i>"Với sức mạnh này, mình sẽ làm gì lúc này?"</i> Ghi lại một lần bạn đã làm được.</p>' } : null,
+        { when: D(28) + ' · 20 phút', t: 'Viết thư cho mình',
+          body: '<p>Viết một lá thư cho mình của 30 ngày trước: điều gì đã khác đi, điều gì bạn tự hào, điều gì bạn muốn tiếp tục.</p>' },
+        { when: D(29), t: 'Chia sẻ',
+          body: '<p>Chia sẻ 3 điều đã thay đổi trong nhóm Zalo học viên, hoặc gửi riêng cho Phương.</p>' },
+        { when: D(30) + ' · 20 phút', t: 'Làm lại bộ câu hỏi',
+          body: '<p>Làm lại bài đánh giá này để thấy tấm bản đồ của bạn đã thay đổi thế nào sau 30 ngày.</p>' }
+      ].filter(Boolean)
+    });
+    return { weeks: weeks, S: S, start: start };
+  }
+  function renderGrow() {
+    var r = result, plan = buildPlan();
+    r.done = r.done || {};
+    $('plan-weeks').innerHTML =
+      '<div class="prep"><b>Trước khi bắt đầu</b><ul>' +
+      '<li>Chuẩn bị một cuốn sổ nhỏ chỉ dành cho hành trình này.</li>' +
+      '<li>Đặt lời nhắc trên điện thoại cho thói quen nhỏ mỗi ngày, vào đúng thời điểm ghi trong kế hoạch.</li>' +
+      '<li>Mỗi ngày chỉ cần 5 phút. Riêng ngày đầu và ngày cuối mỗi tuần, bạn dành thêm 15–20 phút.</li>' +
+      '<li>Không cần hoàn hảo. Lỡ một ngày thì cứ tiếp tục vào ngày hôm sau, như cách bạn tưới một khu vườn.</li></ul></div>' +
+      plan.weeks.map(function (w, wi) {
+        var col = w.F ? ROUNDS[w.F.ri].hex : '#8C4A4E';
+        var why = w.F ? 'Điều số ' + (wi + 1) + ' trong "Nơi nên bắt đầu" · ' + ROUNDS[w.F.ri].name : w.why;
+        return '<details class="week" style="border-top-color:' + col + '"' + (wi === 0 ? ' open' : '') + '><summary>' +
+          '<div class="wk-head"><span class="wk-num" style="color:' + col + '">Tuần ' + (wi + 1) + ' · ' + w.name + '</span>' +
+          '<span class="wk-date">Ngày ' + w.from + '–' + w.to + ' · ' + dayDate(plan.start, w.from) + ' đến ' + dayDate(plan.start, w.to) + '</span></div>' +
+          '<h3>' + w.title + '</h3>' +
+          '<p class="why">' + why + '</p><span class="more">Mở tuần này ↓</span></summary>' +
+          '<div class="goal"><b>Sau tuần này, bạn sẽ:</b> ' + esc(w.goal) + '</div>' +
+          '<ul class="tasks">' + w.tasks.map(function (t, ti) {
+            var key = 'w' + wi + '-' + ti + '-' + (w.F ? w.F.idx : 'x');
+            return '<li><label><input type="checkbox" data-k="' + key + '"' + (r.done[key] ? ' checked' : '') + '>' +
+              '<div class="task"><small class="t-when">' + t.when + '</small><b class="t-title">' + esc(t.t) + '</b>' + t.body + '</div></label></li>';
+          }).join('') + '</ul></details>';
+      }).join('');
+    var boxes = $('plan-weeks').querySelectorAll('input[type=checkbox]');
+    var upd = function () {
+      var n = 0; boxes.forEach(function (b) { if (b.checked) n++; });
+      $('plan-progress').textContent = n ? 'Bạn đã hoàn thành ' + n + ' / ' + boxes.length + ' việc. Phương tự hào về bạn 🌷' : '';
+    };
+    boxes.forEach(function (b) {
+      b.onchange = function () { if (b.checked) r.done[b.dataset.k] = 1; else delete r.done[b.dataset.k]; save(K_RES, r); upd(); };
+    });
+    upd();
+  }
+  function planText() {
+    var plan = buildPlan();
+    var strip = function (h) { return h.replace(/<li>/g, '\n     • ').replace(/<[^>]+>/g, '').replace(/&quot;/g, '"').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>'); };
+    return 'KẾ HOẠCH 30 NGÀY\n' + plan.weeks.map(function (w, wi) {
+      return '\nTuần ' + (wi + 1) + ' · ' + w.name + ' (ngày ' + w.from + '–' + w.to + '): ' + w.title + '\nMục tiêu: ' + w.goal + '\n' +
+        w.tasks.map(function (t) { return '  - ' + t.when + ' · ' + t.t + ': ' + strip(t.body).trim(); }).join('\n');
+    }).join('\n') + '\n\n';
+  }
+
+  function drawWheel(fs) {
+    var cx = 220, cy = 220, R = 170, n = FACTORS.length, step = 2 * Math.PI / n, w = step * 0.55;
+    var P = function (a, r) { return (cx + r * Math.sin(a)).toFixed(1) + ' ' + (cy - r * Math.cos(a)).toFixed(1); };
+    var s = '';
+    for (var k = 1; k <= 5; k++) {
+      s += '<circle cx="' + cx + '" cy="' + cy + '" r="' + (R * k / 5) + '" fill="none" stroke="rgba(61,34,34,' + (k === 5 ? .16 : .08) + ')" stroke-dasharray="' + (k === 5 ? '0' : '3 4') + '"/>';
+      var lp = P(-step / 2, R * k / 5 - 6).split(' ');
+      s += '<text x="' + lp[0] + '" y="' + lp[1] + '" text-anchor="middle" font-size="9" fill="#6B4848" opacity=".7">' + ((k - 1) * 25) + '%</text>';
+    }
+    FACTORS.forEach(function (F, i) {
+      var a = i * step, v = fs[i], col = ROUNDS[F.ri].hex;
+      var r = v == null ? R : R * v / 5, nd = v == null;
+      var d = 'M' + P(a, 0) + ' Q' + P(a - w, r * 0.62) + ' ' + P(a, r) + ' Q' + P(a + w, r * 0.62) + ' ' + P(a, 0) + 'Z';
+      s += '<path class="petal" data-f="' + i + '" d="' + d + '" fill="' + (nd ? 'none' : col) + '" fill-opacity="' + (nd ? 0 : .78) + '" stroke="' + col + '" stroke-width="' + (nd ? 1.2 : 1) + '"' + (nd ? ' stroke-dasharray="4 4"' : '') + '><title>' + (i + 1) + '. ' + F.name + ': ' + (nd ? 'Chưa đủ dữ liệu' : pct(v) + '%') + '</title></path>';
+      var lt = P(a, R + 20).split(' ');
+      s += '<text x="' + lt[0] + '" y="' + lt[1] + '" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="700" fill="' + col + '">' + (i + 1) + '</text>';
+    });
+    s += '<circle cx="' + cx + '" cy="' + cy + '" r="10" fill="#C5A255"/><circle cx="' + cx + '" cy="' + cy + '" r="4" fill="#FFFBF8"/>';
+    $('wheel').innerHTML = s;
+    $('wheel').querySelectorAll('.petal').forEach(function (p) {
+      p.onclick = function () { var el = $('f-' + p.dataset.f); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' }); };
+    });
+  }
+
+  function resultText() {
+    var r = result;
+    var focus = planFactors().map(function (F) { return F.idx; });
+    var valid = r.rounds.filter(function (x) { return x != null; });
+    var out = 'BLOSSOMED RELATIONSHIP DIAGNOSIS · PHIÊN BẢN 2.0\n' +
+      '\nI. THÔNG TIN CÁ NHÂN\n' +
+      'Họ và tên: ' + (r.name || '') + '\n' +
+      'Năm sinh: ' + (r.birth || '') + '\n' +
+      'Ngày hoàn thành bài đánh giá: ' + new Date(r.date).toLocaleDateString('vi-VN') + '\n\n' +
+      (valid.length ? 'Chỉ số Nở Hoa tổng thể: ' + pct(mean(valid)) + '% · ' + stageOf(mean(valid)).title + '\n' : '') + '\n';
+    ROUNDS.forEach(function (R, ri) {
+      out += 'VÒNG ' + (ri + 1) + ' · ' + R.name + ': ' + (r.rounds[ri] == null ? 'Chưa đủ dữ liệu' : pct(r.rounds[ri]) + '% · ' + ZONES[level(r.rounds[ri])]) + '\n';
+      FACTORS.filter(function (F) { return F.ri === ri; }).forEach(function (F) {
+        var s = r.factors[F.idx];
+        out += '  ' + (F.idx + 1) + '. ' + F.name + ': ' + (s == null ? 'Chưa đủ dữ liệu' : pct(s) + '% · ' + ZONES[level(s)]) + (focus.indexOf(F.idx) >= 0 ? ' · ƯU TIÊN VUN BỒI' : '') + '\n';
+      });
+      out += '\n';
+    });
+    var fem = femScore(r.answers);
+    if (fem != null) out += 'LĂNG KÍNH TÍNH NỮ: ' + pct(fem) + '% · ' + ZONES[level(fem)] + '\n\n';
+    out += planText();
+    REFLECT.forEach(function (q, i) { out += (i + 1) + '. ' + q + '\n→ ' + (r.reflect[i] || '(chưa trả lời)') + '\n\n'; });
+    out += 'Điểm gốc từng câu, chưa đảo điểm (– = chưa có đủ trải nghiệm):\n';
+    ROUNDS.forEach(function (R, ri) {
+      var items = QS.map(function (q, i) { return { q: q, i: i }; }).filter(function (x) { return x.q.ri === ri; })
+        .sort(function (a, b) { return a.q.code < b.q.code ? -1 : 1; });
+      out += items.map(function (x) { var v = r.answers[x.i]; return x.q.code + '=' + (v === NA || v == null ? '–' : v); }).join(' ') + '\n';
+    });
+    return out;
+  }
+
+  // ---------- Bản quản trị: xem trước toàn bộ câu hỏi ----------
+  function renderAdmin() {
+    $('admin-title').textContent = 'Toàn bộ ' + QS.length + ' câu hỏi';
+    $('admin-list').innerHTML = ROUNDS.map(function (R, ri) {
+      return '<h2 style="color:' + R.hex + '">Vòng ' + (ri + 1) + ' · ' + R.name + ' — ' + R.code + '–' + R.count + '</h2><p><i>' + R.sub + '</i></p>' +
+        FACTORS.filter(function (F) { return F.ri === ri; }).map(function (F, k) {
+          return '<h3>Yếu tố ' + (k + 1) + '. ' + F.name + '</h3><ol>' + F.qIdx.map(function (i) {
+            var q = QS[i];
+            return '<li><code>' + q.code + '</code>' + esc(q.t) + (q.r ? '<span class="rev">Đ</span>' : '') +
+              (q.isNew ? '<span class="rev" style="background:var(--accent-teal)">Mới</span>' : '') +
+              (FEM.indexOf(q.code) >= 0 ? '<span class="rev" style="background:var(--accent)">Tính nữ</span>' : '') + '</li>';
+          }).join('') + '</ol>' +
+          '<p style="font-size:.85rem;margin-top:6px"><b>Cơ sở phương pháp cho kế hoạch:</b> ' + esc(PLAN[F.name].basis) + '</p>';
+        }).join('');
+    }).join('');
+    show('s-admin');
+  }
+
+  // ---------- Sự kiện ----------
+  $('start').onclick = function () {
+    var name = $('name').value.trim(), birth = +$('birth').value, now = new Date().getFullYear();
+    var err = !name ? 'Bạn điền họ và tên giúp Phương nhé.'
+      : !(birth >= 1940 && birth <= now - 12) ? 'Bạn điền năm sinh gồm 4 chữ số giúp Phương nhé, ví dụ 1994.' : '';
+    $('form-err').textContent = err; $('form-err').hidden = !err;
+    if (err) { (name ? $('birth') : $('name')).focus(); return; }
+    answers = new Array(QS.length).fill(null); idx = 0; drop(K_PROG); showRound(0);
+  };
+  $('ri-go').onclick = function () { show('s-quiz'); renderQ(); };
+  $('back').onclick = function () { if (idx > 0) { idx--; show('s-quiz'); renderQ(); } };
+  $('next').onclick = function () { if (answers[idx] != null) advance(); };
+  $('retake').onclick = function () {
+    if (!confirm('Làm lại từ đầu? Kết quả và phần ghi chép hiện tại sẽ được thay bằng lần làm mới khi bạn hoàn thành.')) return;
+    $('resume').hidden = true; $('last-res').hidden = false; show('s-intro');
+  };
+  $('print').onclick = function () { document.querySelectorAll('#s-result details').forEach(function (d) { d.open = true; }); window.print(); };
+  $('copy').onclick = function () {
+    var btn = this, txt = resultText();
+    var done = function () { btn.textContent = 'Đã sao chép ✓'; setTimeout(function () { btn.textContent = 'Sao chép kết quả gửi Phương'; }, 1800); };
+    if (navigator.clipboard) navigator.clipboard.writeText(txt).then(done, function () { prompt('Sao chép kết quả:', txt); });
+    else prompt('Sao chép kết quả:', txt);
+  };
+  document.addEventListener('keydown', function (e) {
+    if (e.target.tagName === 'TEXTAREA' || e.target.tagName === 'INPUT') return;
+    if ($('s-round').classList.contains('active') && e.key === 'Enter') { $('ri-go').click(); return; }
+    if (!$('s-quiz').classList.contains('active')) return;
+    if (e.key >= '1' && e.key <= '5') pick(+e.key);
+    else if (e.key === '0') pick(NA);
+    else if (e.key === 'ArrowLeft') $('back').click();
+    else if (e.key === 'ArrowRight') $('next').click();
+  });
+
+  if (/[?&]xem=cau-hoi/.test(location.search)) { renderAdmin(); return; }
+
+  // Làm tiếp / xem lại
+  var saved = load(K_PROG);
+  if (saved && Array.isArray(saved.answers) && saved.answers.length === QS.length && saved.answers.some(function (a) { return a != null; })) {
+    $('resume').hidden = false;
+    var at = Math.min(saved.idx || 0, QS.length - 1);
+    $('resume-at').textContent = QS[at].rn + ' của Vòng ' + (QS[at].ri + 1);
+    if (saved.name) $('name').value = saved.name;
+    if (saved.birth) $('birth').value = saved.birth;
+    $('resume-btn').onclick = function () { answers = saved.answers; idx = at; show('s-quiz'); renderQ(); };
+  }
+  var last = load(K_RES);
+  if (last && Array.isArray(last.answers) && last.answers.length === QS.length) {
+    $('last-res').hidden = false;
+    $('last-res-btn').onclick = function () {
+      result = last; result.labels = result.labels || {}; result.reflect = result.reflect || ['', '', ''];
+      renderResult();
+    };
+  }
+})();
+</script>
+</body>
+</html>

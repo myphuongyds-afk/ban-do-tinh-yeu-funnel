@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tự Đánh Giá Bản Đồ Tình Yêu</title>
+<meta name="description" content="Bài tự đánh giá 3 trụ cột của Bản Đồ Tình Yêu dành cho học viên của Coach My Phương.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Fraunces:ital,wght@0,600;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FFFBF8;
+  --surface: #FFFFFF;
+  --surface-2: #F6E4E3;
+  --text: #3D2222;
+  --text-muted: #6B4848;
+  --accent: #D37881;
+  --accent-soft: rgba(211, 120, 129, 0.12);
+  --accent-teal: #24584C;
+  --accent-gold: #C5A255;
+  --accent-deep: #8C4A4E;
+  --border: rgba(61, 34, 34, 0.1);
+  --p1: #D37881;
+  --p2: #24584C;
+  --p3: #C5A255;
+  --font-h: 'Lora', Georgia, serif;
+  --font-b: 'Inter', system-ui, sans-serif;
+  --radius: 14px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font-b); background: var(--bg); color: var(--text);
+  line-height: 1.65; -webkit-font-smoothing: antialiased; min-height: 100vh;
+}
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+h1, h2, h3 { font-family: var(--font-h); line-height: 1.3; color: var(--text); }
+h1 { font-family: 'Fraunces', var(--font-h); font-style: italic; font-weight: 600; font-size: clamp(1.9rem, 5vw, 2.8rem); }
+h2 { font-weight: 600; font-size: clamp(1.35rem, 3.4vw, 1.8rem); }
+h3 { font-weight: 600; font-size: 1.15rem; }
+p { color: var(--text-muted); }
+.wrap { max-width: 720px; margin: 0 auto; padding: 32px 16px 64px; }
+.brand { text-align: center; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-deep); font-weight: 600; margin-bottom: 24px; }
+.card { background: var(--surface); border-radius: var(--radius); padding: 36px 32px; box-shadow: 0 12px 36px rgba(61,34,34,0.08); }
+@media (max-width: 600px) { .card { padding: 26px 20px; } }
+.screen { display: none; }
+.screen.active { display: block; animation: fade .35s ease; }
+@keyframes fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+.btn-primary {
+  display: inline-block; padding: 16px 36px;
+  background: linear-gradient(180deg, #E0A1A7 0%, var(--accent) 50%, var(--accent-deep) 100%);
+  color: #fff; border-radius: 999px; font-weight: 700; font-size: 1rem; font-family: var(--font-h);
+  letter-spacing: 0.02em; box-shadow: 0 0 0 6px var(--accent-soft), 0 12px 28px var(--accent-soft);
+  transition: transform .2s;
+}
+.btn-primary:hover { transform: translateY(-2px); }
+.btn-primary:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+.btn-ghost { padding: 12px 20px; border-radius: 999px; border: 1px solid var(--border); color: var(--text-muted); font-weight: 600; font-size: .92rem; }
+.btn-ghost:hover { background: var(--accent-soft); color: var(--accent-deep); }
+
+/* Intro */
+.intro h1 { text-align: center; margin-bottom: 14px; }
+.intro .lead { text-align: center; font-size: 1.05rem; margin-bottom: 28px; }
+.pillars { display: grid; gap: 12px; margin-bottom: 28px; }
+.pillar-chip { display: flex; gap: 14px; align-items: flex-start; padding: 14px 16px; border-radius: 12px; background: var(--bg); border: 1px solid var(--border); }
+.pillar-chip .dot { flex: 0 0 12px; height: 12px; border-radius: 50%; margin-top: 7px; }
+.pillar-chip b { font-family: var(--font-h); color: var(--text); }
+.pillar-chip span { display: block; font-size: .92rem; color: var(--text-muted); }
+.note { font-size: .92rem; background: var(--accent-soft); border-radius: 12px; padding: 14px 16px; margin-bottom: 24px; color: var(--accent-deep); }
+.field { margin-bottom: 26px; }
+.field label { display: block; font-weight: 600; font-size: .92rem; margin-bottom: 6px; }
+.field input { width: 100%; padding: 13px 16px; border: 1px solid var(--border); border-radius: 12px; font: inherit; background: var(--bg); color: var(--text); }
+.field input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.center { text-align: center; }
+.resume { margin-top: 16px; font-size: .9rem; }
+.resume button { color: var(--accent-deep); text-decoration: underline; font-weight: 600; }
+
+/* Question */
+.progress-top { display: flex; justify-content: space-between; align-items: center; font-size: .85rem; color: var(--text-muted); margin-bottom: 10px; gap: 12px; }
+.pill-tag { font-weight: 600; padding: 4px 12px; border-radius: 999px; font-size: .8rem; color: #fff; white-space: nowrap; }
+.bar { height: 6px; background: var(--surface-2); border-radius: 999px; overflow: hidden; margin-bottom: 30px; }
+.bar > i { display: block; height: 100%; background: var(--accent); border-radius: 999px; transition: width .3s; }
+.q-text { font-family: var(--font-h); font-size: clamp(1.2rem, 3vw, 1.45rem); font-weight: 500; color: var(--text); margin-bottom: 26px; min-height: 3.2em; }
+.scale { display: grid; gap: 10px; }
+.opt { display: flex; align-items: center; gap: 14px; padding: 14px 16px; border-radius: 12px; border: 1px solid var(--border); background: var(--bg); text-align: left; font-size: .98rem; transition: all .15s; }
+.opt:hover { border-color: var(--accent); background: var(--accent-soft); }
+.opt.sel { border-color: var(--accent); background: var(--accent); color: #fff; }
+.opt .n { flex: 0 0 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: .85rem; background: var(--surface); border: 1px solid var(--border); color: var(--accent-deep); }
+.opt.sel .n { background: rgba(255,255,255,.25); color: #fff; border-color: transparent; }
+.q-nav { display: flex; justify-content: space-between; margin-top: 26px; }
+.kbd-hint { text-align: center; font-size: .8rem; color: var(--text-muted); margin-top: 18px; opacity: .8; }
+@media (hover: none) { .kbd-hint { display: none; } }
+
+/* Result */
+.res-head { text-align: center; margin-bottom: 28px; }
+.res-head .eyebrow { font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-deep); font-weight: 600; }
+.res-head h1 { margin: 8px 0 10px; }
+.stage-flower { width: 88px; height: 88px; margin: 0 auto 8px; display: block; }
+.overall { font-family: var(--font-h); font-size: 1.05rem; color: var(--text); }
+.overall b { font-size: 1.6rem; color: var(--accent-deep); }
+.p-row { margin-bottom: 22px; }
+.p-row .top { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 6px; }
+.p-row .top b { font-family: var(--font-h); font-size: 1.02rem; }
+.p-row .top span { font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.p-row .track { height: 12px; background: var(--surface-2); border-radius: 999px; overflow: hidden; position: relative; }
+.p-row .track i { display: block; height: 100%; border-radius: 999px; width: 0; transition: width 1s ease; }
+.p-row .prev { position: absolute; top: -3px; bottom: -3px; width: 2px; background: var(--text); opacity: .55; }
+.p-row .lvl { font-size: .88rem; margin-top: 5px; }
+.delta-up { color: var(--accent-teal); }
+.delta-down { color: var(--accent-deep); }
+.section-sep { height: 1px; background: var(--border); margin: 30px 0; }
+.focus { border-left: 4px solid var(--accent); padding: 4px 0 4px 18px; margin-bottom: 24px; }
+.focus h2 { margin-bottom: 10px; }
+.focus p { margin-bottom: 10px; color: var(--text); }
+.actions { list-style: none; display: grid; gap: 10px; margin: 14px 0 6px; }
+.actions li { padding: 12px 14px 12px 40px; background: var(--bg); border-radius: 10px; position: relative; font-size: .96rem; color: var(--text); }
+.actions li::before { content: '🌷'; position: absolute; left: 12px; top: 11px; font-size: .95rem; }
+.tool { font-size: .92rem; background: var(--accent-soft); border-radius: 10px; padding: 12px 14px; color: var(--accent-deep); margin-top: 12px; }
+.others h3 { margin-bottom: 6px; }
+.others .o { margin-bottom: 16px; }
+.reflect { background: var(--bg); border-radius: 12px; padding: 18px; margin-top: 8px; }
+.reflect p { color: var(--text); font-style: italic; font-family: var(--font-h); }
+.res-actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 30px; }
+.sign { text-align: center; margin-top: 26px; font-family: var(--font-h); font-style: italic; color: var(--accent-deep); }
+.footer { text-align: center; font-size: .8rem; color: var(--text-muted); margin-top: 24px; }
+
+@media print {
+  body { background: #fff; }
+  .card { box-shadow: none; padding: 0; }
+  .res-actions, .brand-btns, .footer { display: none !important; }
+  .p-row .track i { transition: none; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">Bản Đồ Tình Yêu · My Phương Happiness Coach</div>
+
+  <!-- INTRO -->
+  <section class="screen card intro active" id="s-intro">
+    <h1>Bạn đang ở đâu trên Tấm Bản Đồ Tình Yêu?</h1>
+    <p class="lead">21 câu hỏi nhỏ, khoảng 5 phút, để bạn nhìn rõ mình đang vững ở đâu và nên bắt đầu vun bồi từ đâu trước.</p>
+
+    <div class="pillars">
+      <div class="pillar-chip"><i class="dot" style="background:var(--p1)"></i><div><b>Trụ cột 01 · Rạng Rỡ Từ Bên Trong</b><span>Cách bạn nhìn nhận và yêu thương chính mình</span></div></div>
+      <div class="pillar-chip"><i class="dot" style="background:var(--p2)"></i><div><b>Trụ cột 02 · Sáng Rõ Khi Lựa Chọn</b><span>Trí tuệ tình yêu giúp bạn nhận ra ai phù hợp để đi đường dài</span></div></div>
+      <div class="pillar-chip"><i class="dot" style="background:var(--p3)"></i><div><b>Trụ cột 03 · Hiện Diện Và Kết Nối Từ Trái Tim</b><span>Cách bạn xuất hiện, mở lòng và nuôi dưỡng kết nối</span></div></div>
+    </div>
+
+    <p class="note">Không có câu trả lời đúng hay sai. Hãy chọn điều <b>đang thật sự đúng với bạn lúc này</b>, không phải điều bạn mong mình sẽ như vậy. Càng thật lòng, tấm bản đồ càng rõ.</p>
+
+    <div class="field">
+      <label for="name">Tên của bạn (không bắt buộc)</label>
+      <input id="name" type="text" placeholder="Ví dụ: Lan Anh" autocomplete="given-name" maxlength="40">
+    </div>
+    <div class="center">
+      <button class="btn-primary" id="start">Bắt đầu tự đánh giá</button>
+      <div class="resume" id="resume" hidden>Bạn đã làm dở lần trước. <button id="resume-btn">Làm tiếp</button></div>
+    </div>
+  </section>
+
+  <!-- QUESTION -->
+  <section class="screen card" id="s-quiz">
+    <div class="progress-top">
+      <span id="q-count">Câu 1 / 21</span>
+      <span class="pill-tag" id="q-pillar">Rạng Rỡ Từ Bên Trong</span>
+    </div>
+    <div class="bar"><i id="q-bar" style="width:0"></i></div>
+    <div class="q-text" id="q-text"></div>
+    <div class="scale" id="q-scale"></div>
+    <div class="q-nav">
+      <button class="btn-ghost" id="back">← Câu trước</button>
+      <button class="btn-ghost" id="next" hidden>Câu tiếp →</button>
+    </div>
+    <div class="kbd-hint">Mẹo: bấm phím 1–5 để chọn nhanh</div>
+  </section>
+
+  <!-- RESULT -->
+  <section class="screen card" id="s-result">
+    <div class="res-head">
+      <svg class="stage-flower" id="stage-icon" viewBox="0 0 100 100" aria-hidden="true"></svg>
+      <div class="eyebrow" id="res-eyebrow">Tấm bản đồ của bạn</div>
+      <h1 id="res-stage"></h1>
+      <p id="res-stage-desc"></p>
+      <p class="overall" style="margin-top:12px">Điểm tổng: <b id="res-overall"></b><span>/100</span> <span id="res-overall-delta"></span></p>
+    </div>
+
+    <div id="res-bars"></div>
+    <p id="res-legend" style="font-size:.82rem" hidden>Vạch đậm trên thanh là kết quả lần làm trước của bạn.</p>
+
+    <div class="section-sep"></div>
+    <div class="focus" id="res-focus"></div>
+
+    <div class="section-sep"></div>
+    <div class="others" id="res-others"></div>
+
+    <div class="reflect">
+      <h3 style="margin-bottom:8px">Một câu hỏi để bạn mang theo tuần này</h3>
+      <p id="res-reflect"></p>
+    </div>
+
+    <div class="res-actions">
+      <button class="btn-primary" id="print">Lưu kết quả (PDF)</button>
+      <button class="btn-ghost" id="copy">Sao chép kết quả</button>
+      <button class="btn-ghost" id="retake">Làm lại</button>
+    </div>
+    <p class="sign">Thương bạn trên hành trình này,<br>Phương 🌷</p>
+    <p class="footer">Hãy làm lại bài này sau workshop và sau 30 ngày thực hành để thấy mình đã nở hoa đến đâu.<br>Phiên bản 1.0</p>
+  </section>
+</div>
+
+<script>
+(function () {
+  var PILLARS = [
+    { key: 'p1', name: 'Rạng Rỡ Từ Bên Trong', color: 'var(--p1)' },
+    { key: 'p2', name: 'Sáng Rõ Khi Lựa Chọn', color: 'var(--p2)' },
+    { key: 'p3', name: 'Hiện Diện Và Kết Nối Từ Trái Tim', color: 'var(--p3)' }
+  ];
+
+  // r: true = câu đảo chiều (đồng ý nhiều = điểm thấp)
+  var QUESTIONS = [
+    { p: 0, t: 'Mình cảm thấy mình xứng đáng được yêu thương, kể cả khi mình chưa hoàn hảo.' },
+    { p: 1, t: 'Mình biết rõ những giá trị cốt lõi mà người bạn đời cần có để cùng mình đi đường dài.' },
+    { p: 2, t: 'Mình chủ động xuất hiện ở những nơi, những cộng đồng có khả năng gặp được người phù hợp.' },
+    { p: 0, t: 'Khi một người bắt đầu quan tâm đến mình, mình thường lo rằng rồi họ cũng sẽ rời đi.', r: true },
+    { p: 1, t: 'Mình phân biệt được đâu là rung động nhất thời, đâu là sự phù hợp để gắn bó lâu dài.' },
+    { p: 2, t: 'Dù bận rộn, mình vẫn dành chỗ trong cuộc sống cho việc làm quen và tìm hiểu người mới.' },
+    { p: 0, t: 'Mình hiểu những điều đáng quý ở bản thân mà không cần người khác xác nhận.' },
+    { p: 1, t: 'Khi đã rung động, mình dễ bỏ qua những điều trước đó mình tự nhủ sẽ không chấp nhận.', r: true },
+    { p: 2, t: 'Mình có thể chia sẻ cảm xúc và mong muốn thật của mình một cách nhẹ nhàng, rõ ràng.' },
+    { p: 0, t: 'Mình đã nhìn lại và thấy nhẹ lòng hơn với những tổn thương trong các mối quan hệ cũ.' },
+    { p: 1, t: 'Sau vài buổi hẹn, mình biết mình cần quan sát điều gì để quyết định có nên tìm hiểu tiếp.' },
+    { p: 2, t: 'Mình hay phân tích từng tin nhắn, từng hành động của đối phương và đoán ý nhiều hơn là hỏi thẳng.', r: true },
+    { p: 0, t: 'Mình thấy thoải mái khi được mềm mại, nữ tính là chính mình, không phải gồng lên để tỏ ra mạnh mẽ.' },
+    { p: 1, t: 'Mình đã rút ra được bài học rõ ràng từ các mối quan hệ cũ về điều mình thật sự cần.' },
+    { p: 2, t: 'Mình giữ được ranh giới và giá trị của mình trong khi vẫn cởi mở đón nhận người kia.' },
+    { p: 0, t: 'Mỗi khi chuyện tình cảm không như ý, mình thường tự hỏi "có phải do mình chưa đủ tốt".', r: true },
+    { p: 1, t: 'Mình từng ở lại khá lâu trong những mối quan hệ mập mờ vì tiếc thời gian hoặc sợ phải bắt đầu lại.', r: true },
+    { p: 2, t: 'Mình biết cách nuôi dưỡng một kết nối để nó sâu dần và cả hai cùng hướng tới cam kết.' },
+    { p: 0, t: 'Cuộc sống hiện tại của mình có niềm vui và sự đủ đầy, ngay cả khi đang độc thân.' },
+    { p: 1, t: 'Mình hiểu điều gì thật sự tạo nên một cuộc hôn nhân bền vững, khác với sự lãng mạn trên phim.' },
+    { p: 2, t: 'Mình thường chờ tình yêu tự tìm đến hơn là chủ động tạo cơ hội gặp gỡ.', r: true }
+  ];
+
+  var SCALE = [
+    'Hoàn toàn chưa đúng với mình',
+    'Hiếm khi đúng',
+    'Lúc đúng lúc không',
+    'Phần lớn là đúng',
+    'Rất đúng với mình'
+  ];
+
+  var STAGES = [
+    { min: 0, name: 'Hạt mầm', title: 'Bạn đang ở giai đoạn Hạt Mầm',
+      desc: 'Có những phần trong bạn đang cần được chăm sóc nhiều hơn. Đó không phải là dấu hiệu bạn chưa đủ tốt, mà là tín hiệu cho biết nên vun bồi từ đâu.' },
+    { min: 40, name: 'Nụ hoa', title: 'Bạn đang ở giai đoạn Nụ Hoa',
+      desc: 'Nền tảng đã có, và bạn đang lớn lên từng ngày. Chỉ cần chăm đúng chỗ, nụ hoa sẽ nở.' },
+    { min: 70, name: 'Nở hoa', title: 'Bạn đang ở giai đoạn Nở Hoa',
+      desc: 'Bạn đã có một nền tảng vững vàng để yêu và được yêu. Việc còn lại là giữ nhịp và tiếp tục hiện diện.' }
+  ];
+
+  var ADVICE = {
+    p1: {
+      low: 'Có vẻ bạn đang yêu thương người khác nhiều hơn yêu thương chính mình. Những niềm tin cũ như "mình chưa đủ tốt" có thể đang âm thầm khiến bạn ngại mở lòng, hoặc giữ bạn ở lại những nơi không xứng đáng với bạn.',
+      mid: 'Bạn đã có những khoảnh khắc thấy mình đáng quý, nhưng nỗi sợ bị bỏ rơi hay thói quen tự trách đôi lúc vẫn quay về, nhất là khi một mối quan hệ bắt đầu trở nên quan trọng.',
+      high: 'Bạn đang đứng vững từ bên trong. Bạn biết giá trị của mình và không cần một mối quan hệ để thấy mình trọn vẹn. Đây là nền móng quý giá nhất.',
+      actions: [
+        'Mỗi tối viết ra 3 điều bạn trân trọng ở chính mình trong ngày, dù nhỏ đến đâu.',
+        'Khi câu "có phải do mình chưa đủ tốt" xuất hiện, hãy dừng lại và hỏi: "Nếu bạn thân mình gặp chuyện này, mình sẽ nói gì với cô ấy?"',
+        'Chọn một mối quan hệ cũ, viết ra điều bạn đã học được về chính mình thay vì điều người kia đã làm sai.'
+      ],
+      tool: 'Công cụ đồng hành: Video Training "Tỏa Rạng Từ Bên Trong Để Kiến Tạo Mối Quan Hệ Như Ý" trong Love Blueprint Toolkit, và phần Chẩn Đoán ở Buổi 1.',
+      reflect: 'Nếu mình tin chắc rằng mình xứng đáng được yêu thương, hôm nay mình sẽ đối xử với bản thân khác đi như thế nào?'
+    },
+    p2: {
+      low: 'Có lẽ bạn đang lựa chọn nhiều bằng cảm xúc hơn là bằng một la bàn rõ ràng. Khi trái tim rung động, những tiêu chuẩn bạn từng đặt ra rất dễ bị xoá sạch, và bạn dễ ở lại quá lâu ở những nơi không cùng định hướng.',
+      mid: 'Bạn đã biết mình cần gì, nhưng tấm la bàn ấy chưa đủ rõ để giữ bạn vững khi đứng trước một người khiến mình rung động.',
+      high: 'Bạn lựa chọn bằng trí tuệ chứ không chỉ bằng rung động. Bạn biết mình cần quan sát điều gì và khi nào nên dừng lại.',
+      actions: [
+        'Viết ra 5 giá trị cốt lõi bạn cần ở người bạn đời, rồi gạch bớt còn 3 điều không thể thỏa hiệp.',
+        'Với người bạn đang tìm hiểu, đổi câu hỏi "Anh ấy có chọn mình không?" thành "Người này có thật sự phù hợp với cuộc sống mình muốn xây dựng không?"',
+        'Nhìn lại mối quan hệ gần nhất như một nguồn dữ liệu: dấu hiệu nào đã xuất hiện sớm mà mình bỏ qua?'
+      ],
+      tool: 'Công cụ đồng hành: HEART Dating Filter ở Buổi 2 và bộ 20 câu hỏi "The First 3 Dates" trong Love Blueprint Toolkit.',
+      reflect: 'Điều gì mình từng tự hứa sẽ không chấp nhận, nhưng rồi vẫn chấp nhận khi đã rung động?'
+    },
+    p3: {
+      low: 'Có thể bạn đang chờ tình yêu tự tìm đến, hoặc khi có người đến gần, bạn lại đoán ý và giữ khoảng cách thay vì chia sẻ thật lòng. Người bạn đời chỉ có cơ hội tìm thấy bạn khi bạn xuất hiện.',
+      mid: 'Bạn đã sẵn lòng mở lòng, nhưng đôi khi vẫn ngập ngừng giữa việc chủ động và giữ mình, hoặc chưa biết cách để một kết nối sâu dần thành cam kết.',
+      high: 'Bạn hiện diện, mở lòng và giao tiếp chân thật mà vẫn giữ được giá trị của mình. Bạn đang tạo ra rất nhiều cơ hội cho tình yêu.',
+      actions: [
+        'Chọn một môi trường mới phù hợp với giá trị của bạn (lớp học, câu lạc bộ, cộng đồng) và xuất hiện ở đó ít nhất 2 lần trong tháng này.',
+        'Lần tới khi bắt đầu đoán ý qua tin nhắn, hãy thử hỏi một câu thật nhẹ nhàng và trực tiếp.',
+        'Tập nói ra một mong muốn nhỏ của mình trong một cuộc trò chuyện, bằng câu bắt đầu với "Mình thích khi..."'
+      ],
+      tool: 'Công cụ đồng hành: Ebook "Để Người Bạn Đời Tương Lai Có Cơ Hội Tìm Thấy Bạn" và nhóm Zalo học viên để chia sẻ tiến trình cùng Phương.',
+      reflect: 'Tuần này, mình có thể xuất hiện ở đâu, hoặc mở lòng thêm một chút với ai?'
+    }
+  };
+
+  var STORE_PROGRESS = 'bdty-quiz-progress';
+  var STORE_HISTORY = 'bdty-quiz-history';
+
+  function load(key) { try { return JSON.parse(localStorage.getItem(key)); } catch (e) { return null; } }
+  function save(key, v) { try { localStorage.setItem(key, JSON.stringify(v)); } catch (e) {} }
+  function drop(key) { try { localStorage.removeItem(key); } catch (e) {} }
+
+  var answers = new Array(QUESTIONS.length).fill(null);
+  var idx = 0;
+  var $ = function (id) { return document.getElementById(id); };
+
+  function show(id) {
+    document.querySelectorAll('.screen').forEach(function (s) { s.classList.remove('active'); });
+    $(id).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function renderQ() {
+    var q = QUESTIONS[idx], p = PILLARS[q.p];
+    $('q-count').textContent = 'Câu ' + (idx + 1) + ' / ' + QUESTIONS.length;
+    $('q-pillar').textContent = p.name;
+    $('q-pillar').style.background = p.color;
+    $('q-bar').style.width = (idx / QUESTIONS.length * 100) + '%';
+    $('q-text').textContent = q.t;
+    var box = $('q-scale'); box.innerHTML = '';
+    SCALE.forEach(function (label, i) {
+      var b = document.createElement('button');
+      b.className = 'opt' + (answers[idx] === i + 1 ? ' sel' : '');
+      b.innerHTML = '<span class="n">' + (i + 1) + '</span><span></span>';
+      b.lastChild.textContent = label;
+      b.onclick = function () { pick(i + 1); };
+      box.appendChild(b);
+    });
+    $('back').style.visibility = idx === 0 ? 'hidden' : 'visible';
+    $('next').hidden = answers[idx] == null;
+  }
+
+  var advancing = false;
+  function pick(v) {
+    if (advancing) return;
+    answers[idx] = v;
+    save(STORE_PROGRESS, { answers: answers, idx: idx, name: $('name').value });
+    renderQ();
+    advancing = true;
+    setTimeout(function () {
+      advancing = false;
+      if (idx < QUESTIONS.length - 1) { idx++; renderQ(); }
+      else finish();
+    }, 260);
+  }
+
+  function scores() {
+    var sums = [0, 0, 0], counts = [0, 0, 0];
+    QUESTIONS.forEach(function (q, i) {
+      var v = answers[i]; if (q.r) v = 6 - v;
+      sums[q.p] += v; counts[q.p]++;
+    });
+    return sums.map(function (s, i) { return Math.round((s - counts[i]) / (counts[i] * 4) * 100); });
+  }
+
+  function stageOf(v) { var s = STAGES[0]; STAGES.forEach(function (x) { if (v >= x.min) s = x; }); return s; }
+  function level(v) { return v >= 70 ? 'high' : v >= 40 ? 'mid' : 'low'; }
+
+  var FLOWERS = {
+    'Hạt mầm': '<ellipse cx="50" cy="78" rx="26" ry="6" fill="var(--surface-2)"/><path d="M50 76 V52" stroke="var(--accent-teal)" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M50 60 C38 56 34 46 36 40 C46 42 50 50 50 60Z" fill="var(--accent-teal)" opacity=".8"/><path d="M50 56 C60 50 66 42 64 36 C54 38 50 46 50 56Z" fill="var(--accent-teal)" opacity=".6"/>',
+    'Nụ hoa': '<ellipse cx="50" cy="84" rx="26" ry="6" fill="var(--surface-2)"/><path d="M50 82 V46" stroke="var(--accent-teal)" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M50 66 C40 62 36 54 38 50 C46 52 50 58 50 66Z" fill="var(--accent-teal)" opacity=".7"/><path d="M50 48 C38 40 40 22 50 14 C60 22 62 40 50 48Z" fill="var(--accent)"/><path d="M50 48 C44 40 46 28 50 22 C54 28 56 40 50 48Z" fill="#E0A1A7"/>',
+    'Nở hoa': '<ellipse cx="50" cy="88" rx="26" ry="6" fill="var(--surface-2)"/><path d="M50 86 V52" stroke="var(--accent-teal)" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M50 72 C40 68 36 60 38 56 C46 58 50 64 50 72Z" fill="var(--accent-teal)" opacity=".7"/>' +
+      [0, 60, 120, 180, 240, 300].map(function (a) { return '<ellipse cx="50" cy="22" rx="9" ry="15" fill="var(--accent)" opacity=".9" transform="rotate(' + a + ' 50 36)"/>'; }).join('') +
+      '<circle cx="50" cy="36" r="8" fill="var(--accent-gold)"/>'
+  };
+
+  var lastText = '';
+  function finish() {
+    drop(STORE_PROGRESS);
+    var sc = scores();
+    var overall = Math.round((sc[0] + sc[1] + sc[2]) / 3);
+    var history = load(STORE_HISTORY) || [];
+    var prev = history.length ? history[history.length - 1] : null;
+    var name = $('name').value.trim();
+    history.push({ date: new Date().toISOString(), scores: sc, overall: overall, name: name });
+    save(STORE_HISTORY, history.slice(-10));
+
+    var st = stageOf(overall);
+    $('stage-icon').innerHTML = FLOWERS[st.name];
+    $('res-eyebrow').textContent = name ? 'Tấm bản đồ của ' + name : 'Tấm bản đồ của bạn';
+    $('res-stage').textContent = st.title;
+    $('res-stage-desc').textContent = st.desc;
+    $('res-overall').textContent = overall;
+    $('res-overall-delta').innerHTML = prev ? deltaHtml(overall - prev.overall) : '';
+
+    var bars = $('res-bars'); bars.innerHTML = '';
+    PILLARS.forEach(function (p, i) {
+      var row = document.createElement('div'); row.className = 'p-row';
+      var prevMark = prev ? '<i class="prev" style="left:' + prev.scores[i] + '%"></i>' : '';
+      row.innerHTML = '<div class="top"><b>' + p.name + '</b><span>' + sc[i] + '/100 ' + (prev ? deltaHtml(sc[i] - prev.scores[i]) : '') + '</span></div>' +
+        '<div class="track"><i style="background:' + p.color + '"></i>' + prevMark + '</div>' +
+        '<div class="lvl">' + stageOf(sc[i]).name + '</div>';
+      bars.appendChild(row);
+      setTimeout(function () { row.querySelector('.track i').style.width = sc[i] + '%'; }, 80);
+    });
+    $('res-legend').hidden = !prev;
+
+    // Trụ cột cần ưu tiên = điểm thấp nhất
+    var order = [0, 1, 2].sort(function (a, b) { return sc[a] - sc[b]; });
+    var fi = order[0], fp = PILLARS[fi], fa = ADVICE[fp.key];
+    var allHigh = sc[fi] >= 70;
+    $('res-focus').style.borderColor = fp.color;
+    $('res-focus').innerHTML =
+      '<h2>' + (allHigh ? 'Nơi bạn có thể vun thêm: ' : 'Nơi nên bắt đầu trước: ') + fp.name + '</h2>' +
+      '<p>' + fa[level(sc[fi])] + '</p>' +
+      '<p><b>3 bước nhỏ để bắt đầu ngay:</b></p>' +
+      '<ul class="actions">' + fa.actions.map(function (a) { return '<li>' + a + '</li>'; }).join('') + '</ul>' +
+      '<div class="tool">' + fa.tool + '</div>';
+
+    $('res-others').innerHTML = '<h3 style="margin-bottom:14px">Hai trụ cột còn lại</h3>' +
+      order.slice(1).map(function (i) {
+        var p = PILLARS[i];
+        return '<div class="o"><b style="font-family:var(--font-h);color:' + p.color + '">' + p.name + ' · ' + sc[i] + '/100</b><p>' + ADVICE[p.key][level(sc[i])] + '</p></div>';
+      }).join('');
+
+    $('res-reflect').textContent = fa.reflect;
+
+    lastText = 'Kết quả tự đánh giá Bản Đồ Tình Yêu' + (name ? ' của ' + name : '') + ' (' + new Date().toLocaleDateString('vi-VN') + ')\n' +
+      st.title + ' · Điểm tổng ' + overall + '/100\n' +
+      PILLARS.map(function (p, i) { return '- ' + p.name + ': ' + sc[i] + '/100'; }).join('\n') +
+      '\nƯu tiên: ' + fp.name;
+
+    show('s-result');
+  }
+
+  function deltaHtml(d) {
+    if (!d) return '<small>(như lần trước)</small>';
+    return '<small class="' + (d > 0 ? 'delta-up' : 'delta-down') + '">(' + (d > 0 ? '+' : '') + d + ')</small>';
+  }
+
+  // Events
+  $('start').onclick = function () { answers.fill(null); idx = 0; drop(STORE_PROGRESS); show('s-quiz'); renderQ(); };
+  $('back').onclick = function () { if (idx > 0) { idx--; renderQ(); } };
+  $('next').onclick = function () { if (answers[idx] != null && idx < QUESTIONS.length - 1) { idx++; renderQ(); } else if (answers[idx] != null) finish(); };
+  $('retake').onclick = function () { show('s-intro'); $('resume').hidden = true; };
+  $('print').onclick = function () { window.print(); };
+  $('copy').onclick = function () {
+    var btn = this;
+    var done = function () { btn.textContent = 'Đã sao chép ✓'; setTimeout(function () { btn.textContent = 'Sao chép kết quả'; }, 1800); };
+    if (navigator.clipboard) navigator.clipboard.writeText(lastText).then(done, function () { prompt('Sao chép kết quả:', lastText); });
+    else prompt('Sao chép kết quả:', lastText);
+  };
+  document.addEventListener('keydown', function (e) {
+    if (!$('s-quiz').classList.contains('active')) return;
+    if (e.key >= '1' && e.key <= '5') pick(+e.key);
+    else if (e.key === 'ArrowLeft') $('back').click();
+    else if (e.key === 'ArrowRight') $('next').click();
+  });
+
+  // Làm tiếp bài dở
+  var saved = load(STORE_PROGRESS);
+  if (saved && Array.isArray(saved.answers) && saved.answers.length === QUESTIONS.length && saved.answers.some(function (a) { return a != null; })) {
+    $('resume').hidden = false;
+    if (saved.name) $('name').value = saved.name;
+    $('resume-btn').onclick = function () {
+      answers = saved.answers; idx = Math.min(saved.answers.indexOf(null) === -1 ? QUESTIONS.length - 1 : saved.answers.indexOf(null), QUESTIONS.length - 1);
+      show('s-quiz'); renderQ();
+    };
+  }
+})();
+</script>
+</body>
+</html>
