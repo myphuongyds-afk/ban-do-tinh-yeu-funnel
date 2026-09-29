@@ -222,7 +222,12 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
 .cta-note { font-size: .88rem; text-align: center; margin-top: 18px; }
 .cta-copy { text-align: center; margin-top: 20px; padding: 14px 16px; background: var(--surface); border-radius: 12px; }
 .cta-copy p { font-size: .9rem; margin-bottom: 10px; }
-@media print { .coach-cta { display: none; } }
+@media print { .coach-cta, .workshop-card { display: none; } }
+.workshop-card { background: linear-gradient(180deg, #FFFFFF 0%, #EEF4F2 100%); border: 1px solid rgba(36,88,76,.25); }
+.workshop-card .eyebrow { color: var(--accent-teal); }
+.ws-meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 10px; margin: 16px 0 4px; }
+.ws-meta span { background: var(--surface); border: 1px solid rgba(36,88,76,.2); border-radius: 999px; padding: 8px 14px; font-size: .92rem; color: var(--text); }
+.workshop-card .cta-list li::before { color: var(--accent-teal); }
 .cta-sub { font-size: .88rem; text-align: center; margin-top: 14px; padding-top: 14px; border-top: 1px dashed var(--border); }
 .cta-sub a { color: var(--accent-deep); font-weight: 600; text-decoration: underline; }
 
@@ -445,7 +450,6 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
         <p><b>Đã đặt lịch rồi?</b> Bạn bấm nút dưới đây rồi dán gửi Phương qua Zalo, để Phương đọc trước tấm bản đồ của bạn nhé.</p>
         <button class="btn-ghost" id="copy">Sao chép kết quả gửi Phương</button>
       </div>
-      <p class="cta-sub" id="workshop-line">Bạn chưa tham gia workshop Bản Đồ Tình Yêu? <a id="workshop-link" href="/" target="_blank" rel="noopener">Xem thông tin workshop →</a></p>
     </div>
 
     <!-- 6. Câu hỏi mang theo + chuẩn bị khai vấn + lời ký -->
@@ -466,6 +470,24 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
       </div>
       <p class="sign">Món quà đẹp nhất bạn mang vào một mối quan hệ là phiên bản bình an và hạnh phúc của chính bạn.<br><br>Thương bạn trên hành trình này,<br>Phương 🌷</p>
       <p class="footer">Hãy làm lại bài này sau 30 ngày thực hành để thấy mình đã nở hoa đến đâu.<br>Blossomed Relationship Diagnosis · Phiên bản 2.0 · Đang trong giai đoạn thử nghiệm.<br>Kết quả chỉ được lưu trên thiết bị của bạn.</p>
+    </div>
+
+    <!-- 4c. Nối vào workshop -->
+    <div class="card workshop-card" id="workshop-line">
+      <div class="eyebrow">Workshop Live Online cùng Phương</div>
+      <h2 style="margin-top:6px">Bản Đồ Tình Yêu · Love Blueprint</h2>
+      <p style="margin-top:10px">Hai buổi tối để bạn đi từ <b>mơ hồ</b> đến <b>sáng rõ</b>: nhìn thấy vì sao mình rất tốt mà vẫn lận đận, và vẽ tấm bản đồ để nhận diện và chọn đúng người bạn đời. Những điều bạn vừa khám phá trong bộ câu hỏi này sẽ được Phương cùng bạn đi sâu hơn ở đó.</p>
+      <div class="ws-meta">
+        <span>📅 <b>23 &amp; 24/10/2026</b></span>
+        <span>🕗 <b>20h00</b></span>
+        <span>💻 <b>Online qua Zoom</b></span>
+      </div>
+      <ul class="cta-list">
+        <li><b>Buổi 1 · Chẩn đoán:</b> Tại sao bạn rất tốt nhưng vẫn lận đận?</li>
+        <li><b>Buổi 2 · Vẽ bản đồ:</b> Cách nhận diện và chọn đúng người bạn đời, với bộ lọc HEART</li>
+      </ul>
+      <div class="center"><a class="btn-primary" id="workshop-link" href="/" target="_blank" rel="noopener">Xem chi tiết và giữ chỗ →</a></div>
+      <p class="cta-note">Nếu bạn đã đăng ký rồi, hẹn gặp bạn lúc 20h00 ngày 23/10 nhé 🌷</p>
     </div>
   </section>
 
@@ -1108,7 +1130,9 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
     var c = document.getElementById('coach-link');
     if (LINKS.coaching) c.href = LINKS.coaching;
     else c.onclick = function (e) { e.preventDefault(); alert('Bạn nhắn Phương qua Zalo để đặt lịch phiên khai vấn 1:1 nhé 🌷'); };
-    if (LINKS.workshop) document.getElementById('workshop-link').href = LINKS.workshop;
+    // Tự ẩn thẻ workshop sau khi workshop kết thúc (hết ngày 24/10/2026)
+    var workshopOver = new Date() > new Date('2026-10-24T23:59:59+07:00');
+    if (LINKS.workshop && !workshopOver) document.getElementById('workshop-link').href = LINKS.workshop;
     else document.getElementById('workshop-line').hidden = true;
   })();
   function load(k) { try { return JSON.parse(localStorage.getItem(k)); } catch (e) { return null; } }
