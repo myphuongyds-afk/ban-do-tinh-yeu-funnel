@@ -606,7 +606,7 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
           tip: 'Nhìn lại hai, ba mối quan hệ đã qua: kiểu người nào thường thu hút bạn, và bạn thường phản ứng ra sao khi mọi thứ trở nên thiếu chắc chắn?',
           items: [
             'Mình nhận ra kiểu người hoặc kiểu tương tác mình thường bị thu hút.',
-            'Mình nhận ra những phản ứng của mình thường lặp lại khi một kết nối trở nên gần gũi hoặc thiếu chắc chắn.',
+            { t: 'Mình nhận ra kiểu gắn bó của mình khi một kết nối trở nên gần gũi hoặc thiếu chắc chắn (ví dụ: lo âu và muốn níu giữ, hay né tránh và muốn lùi xa).', edited: true },
             { t: 'Khi thấy mình lặp lại một kiểu phản ứng hay lựa chọn cũ, mình có thể dừng lại để xem điều gì đang diễn ra, trước khi đi tiếp như trước.', edited: true }
           ] },
         { name: 'Hiểu cảm xúc, nhu cầu và tín hiệu trong tình yêu',
@@ -625,7 +625,7 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
             { t: 'Mình dành thời gian quan sát xem một người có nhất quán không (chủ động liên lạc, giữ lời hứa, có mặt khi mình cần), thay vì kết luận chỉ qua lời nói hay vài buổi hẹn đầu.', edited: true },
             { t: 'Khi rất rung động với một người, mình thường bỏ qua những khác biệt quan trọng về giá trị hoặc định hướng tương lai.', r: true },
             { t: 'Mình biết mình muốn được cảm thấy như thế nào trong mối quan hệ (như bình yên, được trân trọng, được là người phụ nữ mềm mại của chính mình), chứ không chỉ biết người ấy cần có những đặc điểm gì.', edited: true },
-            { t: 'Với mỗi phẩm chất mình mong muốn (như tử tế, trách nhiệm, nghiêm túc), mình biết nó sẽ thể hiện qua những hành động cụ thể nào để có thể quan sát.', code: 'RWS28', isNew: true },
+            { t: 'Với mỗi phẩm chất mình mong muốn (như tử tế, trách nhiệm, nghiêm túc), mình biết nó sẽ thể hiện qua những hành động cụ thể nào để có thể quan sát.', code: 'RWS28', isNew: true, removed: true },
             { t: 'Mình để ý xem khi ở bên một người, mình có được là người phụ nữ mềm mại và bình an, hay luôn phải gồng lên để giữ mối quan hệ.', code: 'RWS26', isNew: true, removed: true },
             { t: 'Mình để ý cách một người đối xử với những người xung quanh, phản ứng khi mình nói "không" và nhận lỗi khi làm sai, chứ không chỉ cách họ đối xử với mình lúc đang tìm hiểu.', code: 'RWS29', isNew: true }
           ] },
@@ -642,6 +642,7 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
             { t: 'Khi cân nhắc một người, mình để ý cách hai người cùng giải quyết một bất đồng, vì điều đó nói lên nhiều về sự phù hợp lâu dài.', edited: true },
             { t: 'Mình không ở lại trong một mối quan hệ thiếu tôn trọng chỉ vì đã cam kết hay đã dành nhiều thời gian cho nó.', edited: true },
             { t: 'Khi thấy chỉ có mình đang cố gắng vun vén, mình nhận ra và nói ra điều đó, thay vì lặng lẽ gánh một mình.', edited: true },
+            { t: 'Khi cảm giác say mê ban đầu lắng xuống hoặc hai người bắt đầu có va chạm, mình hiểu đó là một giai đoạn bình thường của tình yêu, chứ không vội cho rằng hai người đã hết yêu hay không hợp.', code: 'RWS30', isNew: true },
             { t: 'Mình hiểu rằng khác biệt có thể được đối thoại, nhưng không phải khác biệt nào cũng phù hợp để tiếp tục gắn bó.', removed: true },
             { t: 'Mình hiểu rằng mềm mại và dịu dàng không có nghĩa là yếu đuối, hay phải chiều theo mọi mong muốn của người khác.', code: 'RWS27', isNew: true, removed: true }
           ] }
@@ -775,7 +776,7 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
       about: 'Đây là bức tranh bạn mang trong lòng về gắn bó và hôn nhân: kiểu cam kết bạn hướng tới, đời sống hằng ngày bạn mong có, và sự sẵn sàng của cả hai. Tầm nhìn rõ giúp bạn nhận ra ai thật sự cùng hướng đi với mình.',
       signs: ['Mình muốn kết hôn nhưng chưa rõ mình muốn một cuộc hôn nhân như thế nào.', 'Mình ngại hỏi về định hướng tương lai, hoặc chỉ hỏi khi đang lo sợ.', 'Mình dễ dành thời gian cho những người không cùng đích đến.'] },
     'Nhận diện niềm tin và mô thức tình yêu': { q: 'Mình có nhận ra những vòng lặp trong cách mình yêu không?',
-      about: 'Đây là khả năng nhìn thấy kiểu người mình hay bị thu hút và những phản ứng mình hay lặp lại, để có thể dừng lại và chọn khác đi. Nhận ra vòng lặp là bước đầu tiên để bước ra khỏi nó.',
+      about: 'Đây là khả năng nhìn thấy kiểu người mình hay bị thu hút, những phản ứng mình hay lặp lại, và kiểu gắn bó của chính mình (an toàn, lo âu hay né tránh) khi một kết nối trở nên gần gũi. Nhận ra vòng lặp là bước đầu tiên để bước ra khỏi nó.',
       signs: ['Mình hay rung động với những người giống nhau, và mọi chuyện kết thúc giống nhau.', 'Mình phản ứng theo lối cũ dù biết nó không giúp được mình.', 'Những tổn thương cũ cứ lặp lại, chỉ dưới một cái tên khác.'] },
     'Hiểu cảm xúc, nhu cầu và tín hiệu trong tình yêu': { q: 'Mình có phân biệt được rung động và cảm giác an toàn không?',
       about: 'Đây là khả năng đọc đúng cảm xúc, nhu cầu và tín hiệu trong một mối quan hệ: biết đâu là hồi hộp, đâu là bình yên; nhìn vào hành động thay vì chỉ nghe theo nỗi sợ; và biết nói ra điều mình cần.',
@@ -787,8 +788,8 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
       about: 'Đây là khả năng nhìn lại các mối quan hệ cũ như một nguồn dữ liệu quý: thấy điều mình đã biết, điều mình đã bỏ qua, phần của mình và phần của người kia, rồi điều chỉnh để lần sau khác đi.',
       signs: ['Mình hay đổ hết lỗi cho mình, hoặc cho người kia.', 'Mình tránh nghĩ về chuyện cũ vì vẫn còn đau.', 'Mình giữ nguyên tiêu chuẩn cũ dù trải nghiệm cho thấy nó chưa phù hợp.'] },
     'Quan điểm về tình yêu trưởng thành': { q: 'Mình hiểu thế nào về một tình yêu trưởng thành và bền vững?',
-      about: 'Đây là cái nhìn chín chắn về tình yêu: sự phù hợp được thể hiện qua giá trị và cách cùng giải quyết vấn đề; cam kết không có nghĩa là chịu đựng; và một tình yêu bền vững cần cả hai người cùng vun đắp.',
-      signs: ['Mình nghĩ yêu thật lòng là phải chịu đựng mọi thứ.', 'Mình thường là người duy nhất cố gắng giữ mối quan hệ.', 'Mình ở lại khá lâu trong một mối quan hệ mập mờ, chờ người kia quyết định.'] },
+      about: 'Đây là cái nhìn chín chắn về tình yêu: hiểu rằng tình yêu đi qua nhiều giai đoạn (say mê ban đầu, va chạm và điều chỉnh, rồi gắn bó sâu sắc); sự phù hợp được thể hiện qua giá trị và cách cùng giải quyết vấn đề; cam kết không có nghĩa là chịu đựng; và một tình yêu bền vững cần cả hai người cùng vun đắp.',
+      signs: ['Khi cảm giác say mê ban đầu lắng xuống, mình vội nghĩ rằng hai người đã hết yêu hay không hợp.', 'Mình thường là người duy nhất cố gắng giữ mối quan hệ.', 'Mình ở lại khá lâu trong một mối quan hệ mập mờ, chờ người kia quyết định.'] },
     'Hiện diện với chính mình khi kết nối': { q: 'Mình có được là chính mình khi ở cạnh người mình quan tâm không?',
       about: 'Đây là khả năng vẫn kết nối với cảm xúc, nhu cầu và giới hạn của mình ngay khi đang trò chuyện hay hẹn hò, thay vì mải lo gây ấn tượng. Khi bạn hiện diện, người kia mới có cơ hội gặp con người thật của bạn.',
       signs: ['Mình hay cố thể hiện đến mức không còn tự nhiên.', 'Sau buổi hẹn, mình không rõ mình thật sự cảm thấy gì.', 'Mình quyết định chuyện tình cảm mà quên hỏi mình cần gì.'] },
