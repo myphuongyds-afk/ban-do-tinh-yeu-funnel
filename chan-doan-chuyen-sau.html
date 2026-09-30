@@ -506,63 +506,72 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
   // r: true = câu đảo điểm (chỉ dùng nội bộ, không hiển thị cho khách hàng)
   var ROUNDS = [
     { code: 'PBS', name: 'Rạng Rỡ Từ Bên Trong', en: 'Personal Blossoming', color: 'var(--r1)', hex: '#D37881',
-      sub: 'Sự trưởng thành nội tâm và khả năng vững vàng với chính mình trong tình yêu',
-      q: 'Mình có đang vững vàng và chăm sóc tốt cho chính mình?',
-      enc: 'Vòng đầu tiên mời bạn quay về với chính mình: cách bạn hiểu, đối xử và nâng niu bản thân khi yêu. Hãy trả lời chậm rãi, như đang trò chuyện với một người bạn thân.',
+      sub: 'Nhân dạng, sự trưởng thành nội tâm và khả năng vững vàng với chính mình trong tình yêu',
+      q: 'Mình tin mình là ai, và mình có đang vững vàng, chăm sóc tốt cho chính mình?',
+      enc: 'Vòng đầu tiên mời bạn quay về với chính mình: bạn tin mình là ai trong tình yêu, và cách bạn hiểu, đối xử, nâng niu bản thân. Hãy trả lời chậm rãi, như đang trò chuyện với một người bạn thân.',
       advice: {
-        low: 'Có vẻ bạn đang dành rất nhiều yêu thương cho người khác, nhưng lại chưa dành đủ cho chính mình. Khi bên trong còn chông chênh, tình yêu dễ trở thành nơi ta tìm kiếm sự công nhận, và ta dễ đánh mất mình để giữ một người. Đó không phải lỗi của bạn. Đó là tín hiệu dịu dàng rằng bạn xứng đáng được chăm sóc nhiều hơn, trước hết từ chính bạn.',
-        mid: 'Bạn đã có những khoảnh khắc thấy mình vững vàng và đáng quý. Nhưng khi bất an ghé đến, hay khi một người bắt đầu trở nên quan trọng, những nỗi sợ và thói quen tự trách cũ đôi lúc vẫn quay về. Chỉ cần chăm đúng chỗ, sự vững vàng ấy sẽ lớn dần thành nền móng bình yên cho tình yêu của bạn.',
-        high: 'Bạn đang đứng vững từ bên trong. Bạn hiểu mình, biết nâng đỡ mình, và không cần một mối quan hệ để thấy mình trọn vẹn. Đây là nền móng quý giá nhất để bạn yêu và được yêu một cách bình an.'
+        low: 'Có vẻ bạn đang dành rất nhiều yêu thương cho người khác, nhưng lại chưa dành đủ cho chính mình, và có thể vẫn đang mang theo những "nhãn dán" cũ về mình trong tình yêu. Khi bên trong còn chông chênh, tình yêu dễ trở thành nơi ta tìm kiếm sự công nhận, và ta dễ đánh mất mình để giữ một người. Đó không phải lỗi của bạn. Đó là tín hiệu dịu dàng rằng bạn xứng đáng được chăm sóc nhiều hơn, trước hết từ chính bạn.',
+        mid: 'Bạn đã có những khoảnh khắc thấy mình vững vàng và đáng quý. Nhưng khi bất an ghé đến, hay khi một người bắt đầu trở nên quan trọng, những câu chuyện cũ về mình và thói quen tự trách đôi lúc vẫn quay về. Chỉ cần chăm đúng chỗ, sự vững vàng ấy sẽ lớn dần thành nền móng bình yên cho tình yêu của bạn.',
+        high: 'Bạn đang đứng vững từ bên trong. Bạn biết mình là ai, hiểu mình, biết nâng đỡ mình, và không cần một mối quan hệ để thấy mình trọn vẹn. Đây là nền móng quý giá nhất để bạn yêu và được yêu một cách bình an.'
       },
       tool: 'Công cụ đồng hành: Video Training "Tỏa Rạng Từ Bên Trong Để Kiến Tạo Mối Quan Hệ Như Ý" trong Love Blueprint Toolkit.',
       reflect: 'Nếu mình tin chắc rằng mình xứng đáng được yêu thương, hôm nay mình sẽ đối xử với bản thân khác đi như thế nào?',
+      // Mọi câu trong Vòng 1 đều có mã cố định, để việc sắp xếp lại không làm lệch mã gốc.
       factors: [
+        { name: 'Nhân dạng: cách mình tin mình là ai',
+          tip: 'Viết một câu tuyên bố nhân dạng ở thì hiện tại, bắt đầu bằng "Mình là người phụ nữ…", và đọc to mỗi sáng.',
+          items: [
+            { t: 'Mình biết rõ mình muốn trở thành người phụ nữ như thế nào, dù hiện tại mình đã có hay chưa có người yêu.', code: 'PBS05', edited: true },
+            { t: 'Mình hay định nghĩa bản thân trong tình yêu bằng những "nhãn dán" cũ, như "mình luôn yêu sai người", "mình khó mở lòng" hay "mình thường bị bỏ rơi".', r: true, code: 'PBS28', isNew: true },
+            { t: 'Khi nhận ra một niềm tin cũ về bản thân hay về tình yêu (như "mình không đủ tốt", "rồi ai cũng sẽ rời đi"), mình có thể nhìn lại và chọn một niềm tin nâng đỡ mình hơn.', code: 'PBS04', edited: true },
+            { t: 'Điều mình nói mình mong muốn trong tình yêu đang đồng nhất với điều mình tin, cách mình cảm nhận và cách mình hành động.', code: 'PBS29', isNew: true },
+            { t: 'Mỗi ngày, mình làm những việc nhỏ thể hiện đúng người phụ nữ mình đang lựa chọn trở thành, thay vì chờ có tình yêu rồi mới thay đổi.', code: 'PBS30', isNew: true },
+            { t: 'Mình chọn ở bên những người và môi trường nâng đỡ con người mình đang trở thành, thay vì những nơi khiến mình co lại hay nuôi dưỡng nỗi sợ.', code: 'PBS31', isNew: true }
+          ] },
         { name: 'Thấu hiểu bản thân',
           tip: 'Viết ra 3 giá trị và 3 nhu cầu quan trọng nhất của bạn khi bước vào tình yêu. Sau mỗi cuộc gặp, nhẹ nhàng hỏi mình: hôm nay mình có được là chính mình không?',
           items: [
-            'Mình gọi tên được những giá trị và nhu cầu quan trọng của mình khi bước vào tình yêu.',
-            'Mình nhận ra những tình huống khiến mình dễ đánh mất sự bình tĩnh hoặc đánh mất chính mình trong tình yêu.',
-            'Mình nhận thấy trải nghiệm gia đình và những tình yêu trước đây đã ảnh hưởng đến cách mình nhìn nhận bản thân ra sao.',
-            { t: 'Khi nhận ra một niềm tin cũ về bản thân hay về tình yêu (như "mình không đủ tốt", "rồi ai cũng sẽ rời đi"), mình có thể nhìn lại và chọn một niềm tin nâng đỡ mình hơn.', edited: true },
-            'Mình biết mình muốn trở thành người phụ nữ như thế nào, dù hiện tại có đang trong một tình yêu hay không.'
+            { t: 'Mình gọi tên được những giá trị và nhu cầu quan trọng của mình khi bước vào tình yêu.', code: 'PBS01' },
+            { t: 'Mình nhận ra những tình huống khiến mình dễ đánh mất sự bình tĩnh hoặc đánh mất chính mình trong tình yêu.', code: 'PBS02' },
+            { t: 'Mình nhận thấy trải nghiệm gia đình và những tình yêu trước đây đã ảnh hưởng đến cách mình nhìn nhận bản thân ra sao.', code: 'PBS03' }
           ] },
         { name: 'Nhận biết và điều hòa cảm xúc',
           tip: 'Khi bất an ghé đến, thử viết ra hai cột: "Điều đã thực sự xảy ra" và "Điều mình đang lo sợ". Cho mình ít nhất một đêm trước khi trả lời một tin nhắn quan trọng.',
           items: [
-            'Mình nhận ra cảm xúc của mình khi bắt đầu bất an, thất vọng hoặc tổn thương.',
-            { t: 'Mình có thể phân biệt điều đã thực sự xảy ra với điều mình đang lo sợ hoặc suy đoán.', removed: true },
-            { t: 'Khi bất an trong tình cảm, mình thường vội nhắn tin, hỏi han hoặc đòi được trấn an ngay, chỉ để làm dịu nỗi lo của mình.', r: true, edited: true },
-            'Mình có cách giúp bản thân bình tĩnh hơn trước khi đưa ra một quyết định quan trọng trong tình yêu.',
-            'Khi thấy bất an, mình có thể chăm sóc cảm xúc của mình và chia sẻ điều mình cần, thay vì cố kiểm soát phản ứng của người kia.'
+            { t: 'Mình nhận ra cảm xúc của mình khi bắt đầu bất an, thất vọng hoặc tổn thương.', code: 'PBS06' },
+            { t: 'Mình có thể phân biệt điều đã thực sự xảy ra với điều mình đang lo sợ hoặc suy đoán.', code: 'PBS07', removed: true },
+            { t: 'Khi bất an trong tình cảm, mình thường vội nhắn tin, hỏi han hoặc đòi được trấn an ngay, chỉ để làm dịu nỗi lo của mình.', r: true, code: 'PBS08', edited: true },
+            { t: 'Mình có cách giúp bản thân bình tĩnh hơn trước khi đưa ra một quyết định quan trọng trong tình yêu.', code: 'PBS09', removed: true },
+            { t: 'Khi thấy bất an, mình có thể chăm sóc cảm xúc của mình và chia sẻ điều mình cần, thay vì cố kiểm soát phản ứng của người kia.', code: 'PBS10' }
           ] },
         { name: 'Tự trắc ẩn và khả năng nâng đỡ bản thân',
           tip: 'Khi một cuộc tìm hiểu không như mong đợi, hãy viết cho mình vài dòng, như cách bạn viết cho người bạn thân nhất đang trải qua điều tương tự.',
           items: [
-            'Khi một cuộc tìm hiểu hoặc tình yêu không như mong đợi, mình đối xử với bản thân bằng sự tử tế.',
-            { t: 'Mình có thể thừa nhận và chia sẻ rằng mình đang buồn, sợ hoặc thất vọng, mà không xem đó là điểm yếu và không cần người kia phải trấn an hay "sửa chữa" cho mình.', edited: true },
-            'Khi mắc sai lầm trong tình yêu, mình tìm cách hiểu và sửa chữa thay vì liên tục trách móc bản thân.',
-            'Mình cho mình thời gian hồi phục sau tổn thương, thay vì ép bản thân phải ổn ngay.',
+            { t: 'Khi một cuộc tìm hiểu hoặc tình yêu không như mong đợi, mình đối xử với bản thân bằng sự tử tế.', code: 'PBS11' },
+            { t: 'Mình có thể thừa nhận và chia sẻ rằng mình đang buồn, sợ hoặc thất vọng, mà không xem đó là điểm yếu và không cần người kia phải trấn an hay "sửa chữa" cho mình.', code: 'PBS12', edited: true, removed: true },
+            { t: 'Khi mắc sai lầm trong tình yêu, mình tìm cách hiểu và sửa chữa thay vì liên tục trách móc bản thân.', code: 'PBS13', removed: true },
+            { t: 'Mình cho mình thời gian hồi phục sau tổn thương, thay vì ép bản thân phải ổn ngay.', code: 'PBS14' },
             { t: 'Mình cho phép mình nghỉ ngơi, chậm lại và tận hưởng, không cần lúc nào cũng phải cố gắng thật nhiều mới thấy mình xứng đáng.', code: 'PBS25', isNew: true }
           ] },
         { name: 'Giá trị bản thân và quyền tự lựa chọn',
           tip: 'Tuần này, tập nói "không" với một điều nhỏ không phù hợp với mình, rồi để ý rằng bạn vẫn an toàn và vẫn đáng quý sau lời từ chối ấy.',
           items: [
-            'Mình vẫn cảm nhận được giá trị của mình khi không được một người mình thích đáp lại.',
-            'Mình tin rằng mình xứng đáng được yêu thương và tôn trọng mà không cần trở nên hoàn hảo.',
-            { t: 'Mình thường cần sự lựa chọn hoặc công nhận của người khác để tin rằng mình đủ tốt.', r: true },
-            'Mình có thể từ chối điều không phù hợp với mình, dù lo rằng người kia sẽ thất vọng.',
-            { t: 'Khi tìm hiểu một người, mình tự hỏi "người này có phù hợp với cuộc sống mình muốn không?" nhiều hơn là "anh ấy có chọn mình không?".', edited: true }
+            { t: 'Mình vẫn cảm nhận được giá trị của mình khi không được một người mình thích đáp lại.', code: 'PBS15', removed: true },
+            { t: 'Mình tin rằng mình xứng đáng được yêu thương và tôn trọng mà không cần trở nên hoàn hảo.', code: 'PBS16' },
+            { t: 'Mình thường cần sự lựa chọn hoặc công nhận của người khác để tin rằng mình đủ tốt.', r: true, code: 'PBS17' },
+            { t: 'Mình có thể từ chối điều không phù hợp với mình, dù lo rằng người kia sẽ thất vọng.', code: 'PBS18' },
+            { t: 'Khi tìm hiểu một người, mình tự hỏi "người này có phù hợp với cuộc sống mình muốn không?" nhiều hơn là "anh ấy có chọn mình không?".', code: 'PBS19', edited: true }
           ] },
         { name: 'Đời sống riêng và định hướng phát triển',
           tip: 'Chọn một nguồn niềm vui hoặc ý nghĩa ngoài chuyện tình cảm (một sở thích, một người bạn, một mục tiêu) và dành cho nó một khoảng thời gian riêng mỗi tuần.',
           items: [
-            'Mình nuôi dưỡng niềm vui, các mối quan hệ và mục đích sống của mình, để tình yêu là một phần phong phú của cuộc đời chứ không phải điểm tựa duy nhất.',
-            { t: 'Mình chủ động chăm sóc sức khỏe, công việc và những mối quan hệ thân thiết với mình.', removed: true },
+            { t: 'Mình nuôi dưỡng niềm vui, các mối quan hệ và mục đích sống của mình, để tình yêu là một phần phong phú của cuộc đời chứ không phải điểm tựa duy nhất.', code: 'PBS20' },
+            { t: 'Mình chủ động chăm sóc sức khỏe, công việc và những mối quan hệ thân thiết với mình.', code: 'PBS21', removed: true },
             { t: 'Mình chăm sóc cơ thể, vẻ ngoài và cảm xúc của mình như một cách yêu thương bản thân, không phải để làm vừa lòng ai.', code: 'PBS26', isNew: true },
-            { t: 'Những phẩm chất mình mong ở người bạn đời (như chân thành, biết lắng nghe, có trách nhiệm), mình cũng đang từng ngày vun bồi ở chính mình.', edited: true },
-            { t: 'Mình có những mục tiêu và nguồn ý nghĩa trong cuộc sống ngoài chuyện tìm được bạn đời.', removed: true },
+            { t: 'Những phẩm chất mình mong ở người bạn đời (như chân thành, biết lắng nghe, có trách nhiệm), mình cũng đang từng ngày vun bồi ở chính mình.', code: 'PBS22', edited: true },
+            { t: 'Mình có những mục tiêu và nguồn ý nghĩa trong cuộc sống ngoài chuyện tìm được bạn đời.', code: 'PBS23', removed: true },
             { t: 'Mình cảm nhận được niềm vui, sự nhẹ nhàng và rạng rỡ trong đời sống hằng ngày của mình.', code: 'PBS27', isNew: true },
-            'Khi gặp khó khăn, mình có thể tìm kiếm sự hỗ trợ phù hợp thay vì buộc mình phải tự gánh mọi thứ.'
+            { t: 'Khi gặp khó khăn, mình có thể tìm kiếm sự hỗ trợ phù hợp thay vì buộc mình phải tự gánh mọi thứ.', code: 'PBS24' }
           ] }
       ] },
     { code: 'RWS', name: 'Sáng Rõ Khi Lựa Chọn', en: 'Relationship Wisdom', color: 'var(--r2)', hex: '#24584C',
@@ -738,6 +747,9 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
 
   // Chi tiết từng yếu tố: câu hỏi dẫn, nói về điều gì, dấu hiệu khi phần này còn yếu
   var INFO = {
+    'Nhân dạng: cách mình tin mình là ai': { q: 'Mình tin mình là ai trong tình yêu, và mình đang lựa chọn trở thành người phụ nữ như thế nào?',
+      about: 'Nhân dạng (Identity) là tập hợp những niềm tin, ý nghĩa, giả định, giá trị, câu chuyện và trải nghiệm định hình cách bạn nhìn nhận mình là ai. Nói một cách đơn giản, nhân dạng là câu trả lời cho câu hỏi "Mình tin mình là ai?". Trong tình yêu, nhân dạng còn là cách bạn vô thức trả lời những câu hỏi như "Mình có xứng đáng được yêu không?", "Tình yêu có an toàn không?", "Mình có thể chọn một người phù hợp không?". Những câu như "mình luôn yêu sai người", "mình 30 tuổi rồi, cơ hội ít dần" hay "đàn ông tốt rất hiếm", khi được lặp lại đủ lâu, có thể trở thành một "nhãn định danh" khiến bạn lựa chọn, phản ứng và diễn giải tình yêu theo đúng câu chuyện ấy. Tin vui là nhân dạng không phải thứ bất biến: nhân dạng được học mà thành, và điều gì đã được học đều có thể được thay đổi.',
+      signs: ['Mình hay nói về bản thân bằng những câu như "mình luôn yêu sai người", "mình khó mở lòng".', 'Mình nói mình muốn một tình yêu bình yên, nhưng vẫn thường chọn và chấp nhận những kết nối khiến mình bất an.', 'Mình chờ có người yêu rồi mới bắt đầu thay đổi, thay vì sống như người phụ nữ mình muốn trở thành ngay từ hôm nay.'] },
     'Thấu hiểu bản thân': { q: 'Mình có hiểu rõ mình cần gì và muốn gì trong tình yêu không?',
       about: 'Đây là khả năng nhìn rõ chính mình: gọi tên được giá trị và nhu cầu, biết điều gì khiến mình chao đảo, và hiểu quá khứ đã nhào nặn cách mình yêu ra sao. Hiểu mình là chiếc la bàn đầu tiên, trước khi tìm hiểu bất kỳ ai.',
       signs: ['Mình khó trả lời khi được hỏi "em thật sự cần gì?"', 'Mình hay thay đổi mong muốn theo người mình đang thích.', 'Mình nhận ra mình "không còn là mình" khi mọi chuyện đã đi quá xa.'] },
@@ -753,10 +765,10 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
     'Đời sống riêng và định hướng phát triển': { q: 'Cuộc sống của mình có đủ đầy, kể cả khi chưa có tình yêu không?',
       about: 'Đây là việc bạn nuôi dưỡng sức khỏe, công việc, bạn bè, niềm vui và mục đích sống của riêng mình. Khi đời sống riêng đầy đặn, tình yêu trở thành một phần làm cuộc đời phong phú hơn, chứ không phải chiếc phao duy nhất.',
       signs: ['Chuyện tình cảm chiếm gần hết suy nghĩ và năng lượng của mình.', 'Mình ít có niềm vui hay mục tiêu riêng ngoài việc tìm bạn đời.', 'Khi khó khăn, mình thường tự gánh một mình thay vì tìm sự hỗ trợ.'] },
-    'Ý nghĩa và mục đích của tình yêu': { q: 'Mình có hiểu vì sao mình muốn có một tình yêu không?',
+    'Ý nghĩa và mục đích của tình yêu': { q: 'Mình có hiểu rõ lý do thật sự khiến mình muốn yêu và muốn bước vào hôn nhân không?',
       about: 'Đây là sự rõ ràng về lý do sâu xa khiến bạn muốn yêu: để cùng xây dựng, cùng lớn lên, chứ không chỉ để lấp đầy nỗi cô đơn. Khi mục đích rõ, bạn tìm một người để đồng hành, không phải một người để cứu mình.',
       signs: ['Mình muốn có người yêu chủ yếu để hết cô đơn hoặc để gia đình yên lòng.', 'Mình chờ người yêu làm mình hạnh phúc và xoa dịu mọi nỗi lo cho mình.', 'Mình chưa hình dung được tình yêu sẽ đóng góp gì cho cả hai người.'] },
-    'Tầm nhìn về gắn bó và hôn nhân': { q: 'Mình có rõ ràng về cuộc sống chung mình muốn xây dựng không?',
+    'Tầm nhìn về gắn bó và hôn nhân': { q: 'Mình có hình dung rõ tình yêu và cuộc hôn nhân mình muốn cùng một người xây dựng không?',
       about: 'Đây là bức tranh bạn mang trong lòng về gắn bó và hôn nhân: kiểu cam kết bạn hướng tới, đời sống hằng ngày bạn mong có, và sự sẵn sàng của cả hai. Tầm nhìn rõ giúp bạn nhận ra ai thật sự cùng hướng đi với mình.',
       signs: ['Mình muốn kết hôn nhưng chưa rõ mình muốn một cuộc hôn nhân như thế nào.', 'Mình ngại hỏi về định hướng tương lai, hoặc chỉ hỏi khi đang lo sợ.', 'Mình dễ dành thời gian cho những người không cùng đích đến.'] },
     'Nhận diện niềm tin và mô thức tình yêu': { q: 'Mình có nhận ra những vòng lặp trong cách mình yêu không?',
@@ -807,6 +819,18 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
   // goal: mục tiêu tuần · day1: bài khởi động (ngày 1) · daily: thói quen nhỏ gắn với một thời điểm cố định
   // action: thực hành ngoài đời + câu nói mẫu · watch: điều để quan sát · basis: cơ sở phương pháp
   var PLAN = {
+    'Nhân dạng: cách mình tin mình là ai': {
+      goal: 'Có một câu tuyên bố nhân dạng của riêng bạn, và mỗi ngày làm một việc nhỏ củng cố người phụ nữ ấy.',
+      day1: { t: 'Thiết kế nhân dạng', steps: [
+        'Viết 5 câu "Mình là…" mà bạn thường dùng để định nghĩa mình trong tình yêu. Khoanh tròn những câu đang giới hạn bạn.',
+        'Với một câu giới hạn, vẽ vòng lặp của nó: nhãn dán, câu chuyện, niềm tin, cảm xúc, hành động (ví dụ: "mình dễ bị bỏ rơi" dẫn đến lo lắng, nhắn tin nhiều, rồi càng thấy bất an).',
+        'Gọi tên người phụ nữ bạn đang lựa chọn trở thành, với 3 phẩm chất và định nghĩa của riêng bạn (ví dụ: nữ tính, rạng rỡ, bình an).',
+        'Viết câu tuyên bố nhân dạng ở thì hiện tại: "Mình là người phụ nữ…". Không viết "mình muốn" hay "mình sẽ".'] },
+      daily: { when: 'Mỗi sáng', do: 'đọc to câu tuyên bố nhân dạng và tự hỏi: "Hôm nay, người phụ nữ này sẽ làm một việc nhỏ nào?"' },
+      action: { t: 'Chọn một tình huống trong tuần (một cuộc trò chuyện, một lời mời, một lúc bất an) và hỏi mình: "Người phụ nữ mình đang trở thành sẽ lựa chọn điều gì lúc này?", rồi làm theo lựa chọn ấy.',
+        script: 'Mình là người phụ nữ bình an và sáng rõ. Mình không cần vội trả lời lúc này.' },
+      watch: 'Để ý những câu "mình là…", "mình luôn…", "mình chẳng bao giờ…" mà bạn nói về bản thân, và thử thay bằng một câu phù hợp với con người bạn đang lựa chọn trở thành.',
+      basis: 'Bài học BECOMING · Dịch chuyển nhân dạng của Phương: mô hình 5 tầng Nhân dạng, Câu chuyện, Niềm tin, Cảm xúc, Hành động và 7 điều kiện để dịch chuyển nhân dạng; khái niệm thói quen dựa trên nhân dạng (identity-based habits) của James Clear.' },
     'Thấu hiểu bản thân': {
       goal: 'Gọi tên được 3 giá trị và 3 nhu cầu quan trọng nhất của bạn trong tình yêu, và nhận ra một tình huống khiến bạn dễ đánh mất mình.',
       day1: { t: 'Tấm bản đồ giá trị', steps: [
@@ -1039,6 +1063,7 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
 
   // Diễn giải khi một yếu tố đang là vùng cần vun bồi
   var MEANS = {
+    'Nhân dạng: cách mình tin mình là ai': 'Có thể bạn đang mang theo một "nhãn định danh" cũ về mình trong tình yêu. Nhân dạng ấy dẫn đến suy nghĩ, quyết định, hành động và kết quả, rồi kết quả lại tiếp tục củng cố nhân dạng, cho đến khi bạn chủ động và có ý thức ngắt vòng lặp. Tin vui là nhân dạng được học mà thành, nên cũng có thể được thay đổi, bắt đầu từ việc nhìn thấy nhãn cũ và gọi tên người phụ nữ bạn đang lựa chọn trở thành.',
     'Thấu hiểu bản thân': 'Khi chưa gọi tên được điều mình thật sự cần, bạn dễ để người khác định nghĩa tình yêu thay cho mình, rồi lặng lẽ đánh mất mình lúc nào không hay.',
     'Nhận biết và điều hòa cảm xúc': 'Khi bất an dâng lên mà chưa có cách đón nhận nó, bạn dễ phản ứng vội, đoán ý hoặc cố giữ chặt người kia, và chính bạn là người mệt mỏi nhất.',
     'Tự trắc ẩn và khả năng nâng đỡ bản thân': 'Khi một chuyện tình không như ý, có lẽ bạn đang trách mình nhiều hơn là ôm lấy mình. Trái tim cần được vỗ về thì mới đủ can đảm để mở ra lần nữa.',
@@ -1101,7 +1126,7 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
 
   // ---------- Lăng kính tính nữ ----------
   // Gom các câu thể hiện năng lượng nữ tính ở cả ba vòng (theo ghi chú của Phương + 3 câu bổ sung)
-  var FEM = ['PBS05', 'PBS12', 'PBS24', 'PBS25', 'PBS26', 'PBS27', 'RWS17', 'RWS25', 'HPS08', 'HPS12', 'HPS16', 'HPS19', 'HPS23', 'HPS24', 'HPS25'];
+  var FEM = ['PBS05', 'PBS24', 'PBS25', 'PBS26', 'PBS27', 'RWS17', 'RWS25', 'HPS08', 'HPS12', 'HPS16', 'HPS19', 'HPS23', 'HPS24', 'HPS25'];
   var FEM_TEXT = {
     low: 'Có lẽ bạn đang quen gồng mình, lo liệu mọi thứ và ít cho phép mình được mềm mại, được nghỉ ngơi, được chăm sóc. Năng lượng nữ tính trong bạn vẫn luôn ở đó, chỉ đang chờ được đánh thức một cách dịu dàng.',
     mid: 'Bạn đã có những khoảnh khắc được là người phụ nữ mềm mại, biết đón nhận và biết tận hưởng. Nhưng khi bận rộn hay bất an, bạn dễ quay về trạng thái gồng mình và tự gánh mọi thứ.',
