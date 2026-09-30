@@ -668,7 +668,7 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
         { name: 'Tôn trọng người khác và bớt phán xét',
           tip: 'Khi người kia chưa phản hồi như mong đợi, thử viết ra ba cách hiểu khác nhau trước khi kết luận rằng họ không quan tâm.',
           items: [
-            'Mình tìm hiểu một người qua những gì họ thực sự nói và làm, thay vì vội xếp họ vào một khuôn mẫu.',
+            { t: 'Khi người kia có cảm xúc hay suy nghĩ khác mình, mình thử đặt mình vào vị trí của họ để hiểu, thay vì vội phán xét hay xếp họ vào một khuôn mẫu.', edited: true },
             { t: 'Khi người khác không phản hồi như mong đợi, mình thường vội cho rằng họ không quan tâm đến mình.', r: true },
             { t: 'Mình tôn trọng con người thật của người mình đang tìm hiểu, không cố thay đổi, sửa chữa hay khuyên bảo khi anh ấy không cần.', edited: true }
           ] },
@@ -677,7 +677,7 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
           items: [
             'Mình chủ động xuất hiện ở những nơi, những cộng đồng có khả năng gặp được người phù hợp với mình (lớp học, câu lạc bộ, sự kiện, bạn bè giới thiệu, ứng dụng hẹn hò nghiêm túc…).',
             { t: 'Dù bận rộn, mình vẫn dành thời gian trong tuần cho việc gặp gỡ, làm quen và tìm hiểu người mới.', code: 'HPS26', isNew: true, removed: true },
-            { t: 'Mình thường chờ tình yêu tự tìm đến hơn là chủ động tạo cơ hội gặp gỡ.', r: true, code: 'HPS27', isNew: true },
+            { t: 'Mình thường chờ tình yêu tự tìm đến hơn là chủ động tạo cơ hội gặp gỡ.', r: true, code: 'HPS27', isNew: true, removed: true },
             'Khi cảm thấy được tôn trọng và đủ an toàn, mình cho phép mình mở lòng và đón nhận sự quan tâm của một người đàn ông.',
             { t: 'Mình có thể tận hưởng một cuộc tìm hiểu đang diễn ra mà không vội đòi hỏi sự chắc chắn, hay liên tục tìm "dấu hiệu" xem mọi chuyện sẽ đi đến đâu.', edited: true }
           ] },
@@ -685,9 +685,10 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
           tip: 'Tập nói ra một mong muốn nhỏ bằng câu bắt đầu với "Mình thích khi..." hoặc "Mình sẽ thấy dễ chịu hơn nếu...".',
           items: [
             { t: 'Trong cuộc trò chuyện, mình dành sự chú ý để hiểu điều người kia muốn chia sẻ.', removed: true },
-            { t: 'Khi người kia chia sẻ, mình lắng nghe trọn vẹn và hỏi thêm khi chưa hiểu, thay vì vội ngắt lời, góp ý hay tự suy đoán.', edited: true },
+            { t: 'Khi người kia chia sẻ, mình gác điện thoại và những lo toan sang một bên, lắng nghe cả điều họ nói lẫn cảm xúc, nhu cầu phía sau lời nói, thay vì vội ngắt lời hay góp ý.', edited: true },
             'Mình bày tỏ cảm xúc và mong muốn của mình rõ ràng, dịu dàng, thay vì mong người kia tự đoán hoặc dùng im lặng để thể hiện sự không hài lòng.',
             { t: 'Khi chưa thoải mái, mình nói về cảm xúc của mình (như "em thấy buồn", "em thấy nhớ anh") thay vì kết luận hay trách móc người kia (như "anh chẳng bao giờ…").', edited: true },
+            { t: 'Với người mình đã đủ tin tưởng, mình có thể cho họ thấy cả những nỗi sợ, góc yếu mềm hay tổn thương của mình, mà không sợ bị xem nhẹ.', code: 'HPS30', isNew: true },
             { t: 'Khi xuất hiện khác biệt hoặc hiểu lầm, mình thường im lặng kéo dài hoặc chờ người kia tự hiểu.', r: true, removed: true }
           ] },
         { name: 'Sự ấm áp và khả năng đón nhận',
@@ -798,7 +799,7 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
       about: 'Đây là sự chủ động tạo cơ hội gặp gỡ theo cách hợp với nhịp sống của bạn, và dám mở lòng khi cảm thấy được tôn trọng, mà không đòi hỏi phải biết chắc kết quả ngay từ đầu.',
       signs: ['Mình chủ yếu chờ tình yêu tự tìm đến.', 'Mình ít khi xuất hiện ở những nơi có thể gặp người mới.', 'Mình ngại bắt đầu vì sợ mất thời gian mà chẳng đi đến đâu.'] },
     'Lắng nghe và giao tiếp chân thành': { q: 'Mình có nói ra cảm xúc và mong muốn của mình một cách dịu dàng, rõ ràng không?',
-      about: 'Đây là khả năng lắng nghe để hiểu, hỏi thay vì đoán, và bày tỏ cảm xúc, mong muốn hay điều chưa thoải mái mà không trách móc. Những lời dịu dàng mà rõ ràng là cây cầu an toàn giữa hai người.',
+      about: 'Đây là khả năng hiện diện trọn vẹn và lắng nghe cả những cảm xúc, nhu cầu phía sau lời nói; bày tỏ cảm xúc, mong muốn hay điều chưa thoải mái mà không trách móc; và dám cho người mình tin tưởng thấy con người thật của mình, kể cả những góc yếu mềm. Những lời dịu dàng mà rõ ràng, cùng sự chân thật ấy, là cây cầu an toàn giữa hai người.',
       signs: ['Mình hay im lặng và chờ người kia tự hiểu.', 'Khi người kia đang chia sẻ, mình hay vội ngắt lời, góp ý hoặc giải thích phần của mình.', 'Khi không vui, mình nói "anh chẳng bao giờ…" thay vì nói ra mình đang cảm thấy gì.'] },
     'Sự ấm áp và khả năng đón nhận': { q: 'Mình có cho phép mình được chăm sóc và yêu thương không?',
       about: 'Đây là sự ấm áp và khả năng đón nhận: tận hưởng một cuộc gặp mà không tự chấm điểm mình, nhận một lời khen hay sự giúp đỡ mà không thấy mắc nợ. Biết đón nhận là một phần rất đẹp của năng lượng nữ tính.',
@@ -1128,7 +1129,7 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
 
   // ---------- Lăng kính tính nữ ----------
   // Gom các câu thể hiện năng lượng nữ tính ở cả ba vòng (theo ghi chú của Phương + 3 câu bổ sung)
-  var FEM = ['PBS05', 'PBS24', 'PBS25', 'PBS26', 'PBS27', 'RWS17', 'RWS25', 'HPS08', 'HPS12', 'HPS16', 'HPS19', 'HPS23', 'HPS24', 'HPS25'];
+  var FEM = ['PBS05', 'PBS24', 'PBS25', 'PBS26', 'PBS27', 'RWS17', 'RWS25', 'HPS08', 'HPS12', 'HPS16', 'HPS19', 'HPS23', 'HPS24', 'HPS25', 'HPS30'];
   var FEM_TEXT = {
     low: 'Có lẽ bạn đang quen gồng mình, lo liệu mọi thứ và ít cho phép mình được mềm mại, được nghỉ ngơi, được chăm sóc. Năng lượng nữ tính trong bạn vẫn luôn ở đó, chỉ đang chờ được đánh thức một cách dịu dàng.',
     mid: 'Bạn đã có những khoảnh khắc được là người phụ nữ mềm mại, biết đón nhận và biết tận hưởng. Nhưng khi bận rộn hay bất an, bạn dễ quay về trạng thái gồng mình và tự gánh mọi thứ.',
