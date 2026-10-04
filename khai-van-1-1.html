@@ -298,9 +298,19 @@ p { color: var(--text-muted); }
     return !first;
   }
 
-  // Nhúng YouCanBook.me, điền sẵn tên + email để khách khỏi gõ lại
+  // YouCanBook.me chỉ nhận SĐT dạng +84...
+  function intlPhone(s) {
+    s = String(s || '').replace(/[^0-9+]/g, '');
+    if (s.startsWith('+')) return s;
+    if (s.startsWith('84')) return '+' + s;
+    if (s.startsWith('0')) return '+84' + s.slice(1);
+    return s;
+  }
+
+  // Nhúng YouCanBook.me, điền sẵn tên + email + SĐT để khách khỏi gõ lại
   function showCalendar(data) {
-    const p = new URLSearchParams({ noframe: 'true', skipHeaderFooter: 'true', FNAME: data.hoTen, EMAIL: data.email });
+    // Q1 = Họ và tên, Q2 = SĐT (Zalo) — mã câu hỏi trong Booking form của YouCanBook.me
+    const p = new URLSearchParams({ noframe: 'true', skipHeaderFooter: 'true', EMAIL: data.email, Q1: data.hoTen, Q2: intlPhone(data.sdt) });
     const url = BOOKING_URL + '?' + p.toString();
     document.getElementById('calFrame').src = url;
     document.getElementById('bookLink').href = url;
