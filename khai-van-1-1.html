@@ -310,8 +310,9 @@ p { color: var(--text-muted); }
   // Nhúng YouCanBook.me, điền sẵn tên + email + SĐT để khách khỏi gõ lại
   function showCalendar(data) {
     // Q1 = Họ và tên, Q2 = SĐT (Zalo) — mã câu hỏi trong Booking form của YouCanBook.me
-    const p = new URLSearchParams({ noframe: 'true', skipHeaderFooter: 'true', EMAIL: data.email, Q1: data.hoTen, Q2: intlPhone(data.sdt) });
-    const url = BOOKING_URL + '?' + p.toString();
+    // Không dùng URLSearchParams: nó đổi dấu cách thành "+" và YouCanBook.me hiện nguyên dấu + trong tên
+    const p = { noframe: 'true', skipHeaderFooter: 'true', EMAIL: data.email, Q1: data.hoTen, Q2: intlPhone(data.sdt) };
+    const url = BOOKING_URL + '?' + Object.keys(p).map(k => k + '=' + encodeURIComponent(p[k])).join('&');
     document.getElementById('calFrame').src = url;
     document.getElementById('bookLink').href = url;
   }
