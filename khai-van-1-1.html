@@ -219,6 +219,22 @@ p { color: var(--text-muted); }
         <textarea id="kyVong" name="kyVong"></textarea>
       </div>
 
+      <div class="q" data-req="radio" data-name="bietDen">
+        <span class="q-label"><span class="num">11.</span>Bạn biết đến My Phương từ đâu? <span class="req">*</span></span>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="bietDen" value="Facebook cá nhân / Fanpage của Phương">Facebook cá nhân / Fanpage của Phương</label>
+          <label class="opt"><input type="radio" name="bietDen" value="Quảng cáo trên Facebook">Quảng cáo trên Facebook</label>
+          <label class="opt"><input type="radio" name="bietDen" value="TikTok">TikTok</label>
+          <label class="opt"><input type="radio" name="bietDen" value="YouTube">YouTube</label>
+          <label class="opt"><input type="radio" name="bietDen" value="Workshop Bản Đồ Tình Yêu">Workshop Bản Đồ Tình Yêu</label>
+          <label class="opt"><input type="radio" name="bietDen" value="Nhóm Zalo">Nhóm Zalo</label>
+          <label class="opt"><input type="radio" name="bietDen" value="Bạn bè, người thân giới thiệu">Bạn bè, người thân giới thiệu</label>
+          <label class="opt"><input type="radio" name="bietDen" value="Khác" data-other="bietDenKhac">Khác</label>
+        </div>
+        <input type="text" class="other-text" id="bietDenKhac" placeholder="Bạn biết đến My Phương từ đâu?">
+        <div class="err">Bạn chọn một nguồn gần nhất nhé.</div>
+      </div>
+
       <input type="text" class="hp" name="website" id="website" tabindex="-1" autocomplete="off" aria-hidden="true">
 
       <div class="submit-row">
@@ -307,6 +323,7 @@ p { color: var(--text-muted); }
       chuaKetQua: val('chuaKetQua'),
       sanSang: checked('sanSang').join(''),
       kyVong: val('kyVong'),
+      bietDen: withOther(checked('bietDen'), 'bietDenKhac'),
       nguon: location.search.slice(1)
     };
 
