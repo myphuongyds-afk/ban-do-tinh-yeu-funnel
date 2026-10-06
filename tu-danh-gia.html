@@ -123,6 +123,16 @@ p { color: var(--text-muted); }
 .reflect { background: var(--bg); border-radius: 12px; padding: 18px; margin-top: 8px; }
 .reflect p { color: var(--text); font-style: italic; font-family: var(--font-h); }
 .res-actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 30px; }
+.round-intro { text-align: center; }
+.round-intro .ri-num { font-family: 'Fraunces', var(--font-h); font-style: italic; font-size: 3rem; line-height: 1; margin-bottom: 8px; }
+.round-intro h2 { font-family: var(--font-h); font-size: clamp(1.3rem, 3.4vw, 1.7rem); margin: 6px 0 10px; color: var(--text); }
+.round-intro .ri-q { font-family: var(--font-h); font-style: italic; font-size: 1.1rem; color: var(--text); margin: 16px auto 26px; max-width: 500px; }
+.deep-cta { text-align: center; margin-top: 26px; padding: 20px 18px; border-radius: 14px; background: linear-gradient(180deg, #FFFFFF 0%, #FBEFEF 100%); border: 1px solid rgba(211,120,129,.25); }
+.deep-cta h3 { margin: 6px 0 8px; }
+.deep-cta p { color: var(--text); font-size: .95rem; margin-bottom: 14px; }
+.deep-cta a { display: inline-block; text-decoration: none; }
+.eyebrow { font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-deep); font-weight: 600; }
+@media print { .deep-cta { display: none; } }
 .sign { text-align: center; margin-top: 26px; font-family: var(--font-h); font-style: italic; color: var(--accent-deep); }
 .footer { text-align: center; font-size: .8rem; color: var(--text-muted); margin-top: 24px; }
 
@@ -140,8 +150,9 @@ p { color: var(--text-muted); }
 
   <!-- INTRO -->
   <section class="screen card intro active" id="s-intro">
-    <h1>Bạn đang ở đâu trên Tấm Bản Đồ Tình Yêu?</h1>
-    <p class="lead">21 câu hỏi nhỏ, khoảng 5 phút, để bạn nhìn rõ mình đang vững ở đâu và nên bắt đầu vun bồi từ đâu trước.</p>
+    <div class="center"><span class="eyebrow">Bài chẩn đoán tình yêu nhanh · Workshop Bản Đồ Tình Yêu</span></div>
+    <h1 style="margin-top:8px">Bạn đang ở đâu trên Tấm Bản Đồ Tình Yêu?</h1>
+    <p class="lead">24 câu hỏi nhỏ, khoảng 5 phút, để bạn nhìn rõ mình đang vững ở đâu và nên bắt đầu vun bồi từ đâu trước.</p>
 
     <div class="pillars">
       <div class="pillar-chip"><i class="dot" style="background:var(--p1)"></i><div><b>Trụ cột 01 · Rạng Rỡ Từ Bên Trong</b><span>Cách bạn nhìn nhận và yêu thương chính mình</span></div></div>
@@ -162,6 +173,16 @@ p { color: var(--text-muted); }
   </section>
 
   <!-- QUESTION -->
+  <!-- ROUND INTRO -->
+  <section class="screen card round-intro" id="s-round">
+    <div class="ri-num" id="ri-num"></div>
+    <div class="eyebrow" id="ri-eyebrow"></div>
+    <h2 id="ri-title"></h2>
+    <p id="ri-sub"></p>
+    <p class="ri-q" id="ri-q"></p>
+    <button class="btn-primary" id="ri-go">Bắt đầu</button>
+  </section>
+
   <section class="screen card" id="s-quiz">
     <div class="progress-top">
       <span id="q-count">Câu 1 / 21</span>
@@ -206,8 +227,14 @@ p { color: var(--text-muted); }
       <button class="btn-ghost" id="copy">Sao chép kết quả</button>
       <button class="btn-ghost" id="retake">Làm lại</button>
     </div>
+    <div class="deep-cta">
+      <div class="eyebrow">Muốn nhìn sâu hơn?</div>
+      <h3>Blossomed Relationship Diagnosis</h3>
+      <p>Bộ công cụ chẩn đoán chuyên sâu của Phương: <b>72 câu hỏi, 20 yếu tố</b>, tấm bản đồ chi tiết về chính bạn và <b>một kế hoạch 30 ngày</b> dành riêng cho bạn.</p>
+      <a class="btn-ghost" href="https://zalo.me/0334793060" target="_blank" rel="noopener">Nhắn Phương để nhận bộ công cụ</a>
+    </div>
     <p class="sign">Thương bạn trên hành trình này,<br>Phương 🌷</p>
-    <p class="footer">Hãy làm lại bài này sau workshop và sau 30 ngày thực hành để thấy mình đã nở hoa đến đâu.<br>Phiên bản 1.0</p>
+    <p class="footer">Hãy làm lại bài này sau workshop và sau 30 ngày thực hành để thấy mình đã nở hoa đến đâu.<br>Phiên bản 2.0 · Rút gọn từ Blossomed Relationship Diagnosis 3.0</p>
   </section>
 </div>
 
@@ -220,28 +247,36 @@ p { color: var(--text-muted); }
   ];
 
   // r: true = câu đảo chiều (đồng ý nhiều = điểm thấp)
+  // Bản rút gọn 24 câu, chia 3 vòng (mỗi trụ cột 8 câu), chọn từ Blossomed Relationship Diagnosis 3.0
+  // sao cho mỗi yếu tố trong 20 yếu tố đều có ít nhất 1 câu. Mã gốc ghi ở cuối mỗi dòng.
   var QUESTIONS = [
-    { p: 0, t: 'Mình cảm thấy mình xứng đáng được yêu thương, kể cả khi mình chưa hoàn hảo.' },
-    { p: 1, t: 'Mình biết rõ những giá trị cốt lõi mà người bạn đời cần có để cùng mình đi đường dài.' },
-    { p: 2, t: 'Mình chủ động xuất hiện ở những nơi, những cộng đồng có khả năng gặp được người phù hợp.' },
-    { p: 0, t: 'Khi một người bắt đầu quan tâm đến mình, mình thường lo rằng rồi họ cũng sẽ rời đi.', r: true },
-    { p: 1, t: 'Mình phân biệt được đâu là rung động nhất thời, đâu là sự phù hợp để gắn bó lâu dài.' },
-    { p: 2, t: 'Dù bận rộn, mình vẫn dành chỗ trong cuộc sống cho việc làm quen và tìm hiểu người mới.' },
-    { p: 0, t: 'Mình hiểu những điều đáng quý ở bản thân mà không cần người khác xác nhận.' },
-    { p: 1, t: 'Khi đã rung động, mình dễ bỏ qua những điều trước đó mình tự nhủ sẽ không chấp nhận.', r: true },
-    { p: 2, t: 'Mình có thể chia sẻ cảm xúc và mong muốn thật của mình một cách nhẹ nhàng, rõ ràng.' },
-    { p: 0, t: 'Mình đã nhìn lại và thấy nhẹ lòng hơn với những tổn thương trong các mối quan hệ cũ.' },
-    { p: 1, t: 'Sau vài buổi hẹn, mình biết mình cần quan sát điều gì để quyết định có nên tìm hiểu tiếp.' },
-    { p: 2, t: 'Mình hay phân tích từng tin nhắn, từng hành động của đối phương và đoán ý nhiều hơn là hỏi thẳng.', r: true },
-    { p: 0, t: 'Mình thấy thoải mái khi được mềm mại, nữ tính là chính mình, không phải gồng lên để tỏ ra mạnh mẽ.' },
-    { p: 1, t: 'Mình đã rút ra được bài học rõ ràng từ các mối quan hệ cũ về điều mình thật sự cần.' },
-    { p: 2, t: 'Mình giữ được ranh giới và giá trị của mình trong khi vẫn cởi mở đón nhận người kia.' },
-    { p: 0, t: 'Mỗi khi chuyện tình cảm không như ý, mình thường tự hỏi "có phải do mình chưa đủ tốt".', r: true },
-    { p: 1, t: 'Mình từng ở lại khá lâu trong những mối quan hệ mập mờ vì tiếc thời gian hoặc sợ phải bắt đầu lại.', r: true },
-    { p: 2, t: 'Mình biết cách nuôi dưỡng một kết nối để nó sâu dần và cả hai cùng hướng tới cam kết.' },
-    { p: 0, t: 'Cuộc sống hiện tại của mình có niềm vui và sự đủ đầy, ngay cả khi đang độc thân.' },
-    { p: 1, t: 'Mình hiểu điều gì thật sự tạo nên một cuộc hôn nhân bền vững, khác với sự lãng mạn trên phim.' },
-    { p: 2, t: 'Mình thường chờ tình yêu tự tìm đến hơn là chủ động tạo cơ hội gặp gỡ.', r: true }
+    // Vòng 1 · Rạng Rỡ Từ Bên Trong
+    { p: 0, t: 'Mình biết rõ mình muốn trở thành người phụ nữ như thế nào, dù hiện tại đã có hay chưa có người yêu.' }, // PBS05 · Nhân dạng
+    { p: 0, t: 'Mình gọi tên được những giá trị và nhu cầu quan trọng của mình khi bước vào tình yêu.' }, // PBS01 · Thấu hiểu bản thân
+    { p: 0, t: 'Khi thấy mình đang tin những điều như "mình không đủ tốt để được yêu" hay "rồi ai cũng sẽ rời đi", mình có thể nhìn lại và chọn tin một điều khác nâng đỡ mình hơn.' }, // PBS04 · Nhân dạng (niềm tin)
+    { p: 0, t: 'Khi bất an trong tình cảm, mình thường vội nhắn tin, hỏi han hoặc đòi được trấn an ngay, chỉ để làm dịu nỗi lo của mình.', r: true }, // PBS08 · Điều hòa cảm xúc
+    { p: 0, t: 'Khi một cuộc tìm hiểu không như mong đợi, mình nói với chính mình bằng lời dịu dàng, thay vì trách móc hay dằn vặt bản thân.' }, // PBS11 · Tự trắc ẩn
+    { p: 0, t: 'Những tổn thương cũ vẫn khiến mình dè dặt hoặc sợ bị bỏ rơi khi bắt đầu thân thiết với ai đó.', r: true }, // PBS33 · Tự trắc ẩn (chữa lành)
+    { p: 0, t: 'Mình tin rằng mình xứng đáng được yêu thương và tôn trọng mà không cần trở nên hoàn hảo.' }, // PBS16 · Giá trị bản thân
+    { p: 0, t: 'Mình nuôi dưỡng niềm vui và mục đích sống của riêng mình, để tình yêu không phải là điểm tựa duy nhất.' }, // PBS20 · Đời sống riêng
+    // Vòng 2 · Sáng Rõ Khi Lựa Chọn
+    { p: 1, t: 'Mình hiểu vì sao mình muốn có một tình yêu, không chỉ vì cô đơn, áp lực tuổi tác hay mong đợi của gia đình.' }, // RWS01 · Ý nghĩa và mục đích
+    { p: 1, t: 'Mình bước vào tình yêu với tầm nhìn dài hạn là tìm người bạn đời và hướng đến hôn nhân, chứ không hẹn hò chỉ để có người yêu hay lấp đầy nỗi cô đơn.' }, // RWS04 · Tầm nhìn gắn bó và hôn nhân
+    { p: 1, t: 'Mình nhận ra kiểu người mình hay bị thu hút và những vòng lặp mình hay lặp lại trong tình yêu.' }, // RWS07 + RWS09 · Mô thức tình yêu
+    { p: 1, t: 'Mình biết rằng cảm giác "say nắng", tim đập mạnh chưa chắc là dấu hiệu của người phù hợp; điều quan trọng hơn là mình có thấy bình yên, được tôn trọng và được là chính mình khi ở bên họ không.' }, // RWS10 · Cảm xúc, nhu cầu, tín hiệu
+    { p: 1, t: 'Mình phân biệt được điều Bắt buộc cần có, điều Mong muốn và điều Không thể chấp nhận ở người bạn đời.' }, // RWS14 · Tiêu chuẩn bạn đời từ trái tim
+    { p: 1, t: 'Mình hiểu rằng đàn ông và phụ nữ có thể có nhu cầu và tâm lý khác nhau khi hẹn hò và chọn bạn đời (như nhịp độ mở lòng, cách thể hiện sự quan tâm, điều mỗi bên cần để thấy an tâm), nên mình tìm hiểu người trước mặt thay vì đoán ý theo cách nghĩ của mình.' }, // Mới · Hiểu tâm lý, nhu cầu của nam và nữ khi hẹn hò, chọn bạn đời
+    { p: 1, t: 'Mình rút ra bài học từ những tình yêu trước mà không đổ hết trách nhiệm cho bản thân hay cho người kia.' }, // RWS19 · Học hỏi từ trải nghiệm
+    { p: 1, t: 'Khi cảm giác say mê ban đầu lắng xuống hoặc hai người bắt đầu có va chạm, mình hiểu đó là một giai đoạn bình thường của tình yêu, chứ không vội cho rằng hai người đã hết yêu hay không hợp.' }, // RWS30 · Tình yêu trưởng thành
+    // Vòng 3 · Hiện Diện Và Kết Nối Từ Trái Tim
+    { p: 2, t: 'Khi gặp gỡ hoặc trò chuyện với một người mình quan tâm, mình nhận biết được cảm xúc đang diễn ra trong mình.' }, // HPS01 · Hiện diện với chính mình
+    { p: 2, t: 'Mình chủ động xuất hiện ở những nơi, những cộng đồng có khả năng gặp được người phù hợp với mình.' }, // HPS07 · Dám xuất hiện và mở lòng
+    { p: 2, t: 'Khi người kia chậm phản hồi, mình thường vội cho rằng họ không quan tâm đến mình.', r: true }, // HPS05 · Tôn trọng và bớt phán xét
+    { p: 2, t: 'Khi chưa thoải mái, mình nói về cảm xúc của mình (như "em thấy buồn") thay vì trách móc người kia (như "anh chẳng bao giờ…").' }, // HPS13 · Lắng nghe và giao tiếp
+    { p: 2, t: 'Mình có thể đón nhận sự giúp đỡ, chăm sóc hoặc một lời khen mà không thấy mình mắc nợ hay phải đáp lại ngay.' }, // HPS16 · Ấm áp và đón nhận
+    { p: 2, t: 'Mình thấy thoải mái khi được mềm mại, dịu dàng và nữ tính, mà không cần gồng lên để tỏ ra mạnh mẽ.' }, // HPS25 · Ấm áp và đón nhận (tính nữ)
+    { p: 2, t: 'Mình nói rõ điều mình đồng ý và không đồng ý về thời gian, sự thân mật và cách được đối xử.' }, // HPS19 · Ranh giới
+    { p: 2, t: 'Sau một lần hẹn không như ý, mình vẫn tin rằng mình có thể gặp được người phù hợp.' } // HPS21 · Hy vọng và sinh khí
   ];
 
   var SCALE = [
@@ -263,13 +298,13 @@ p { color: var(--text-muted); }
 
   var ADVICE = {
     p1: {
-      low: 'Có vẻ bạn đang yêu thương người khác nhiều hơn yêu thương chính mình. Những niềm tin cũ như "mình chưa đủ tốt" có thể đang âm thầm khiến bạn ngại mở lòng, hoặc giữ bạn ở lại những nơi không xứng đáng với bạn.',
+      low: 'Có vẻ bạn đang yêu thương người khác nhiều hơn yêu thương chính mình. Những "nhãn dán" cũ như "mình chưa đủ tốt" và những tổn thương chưa lành có thể đang âm thầm khiến bạn ngại mở lòng, hoặc giữ bạn ở lại những nơi không xứng đáng với bạn.',
       mid: 'Bạn đã có những khoảnh khắc thấy mình đáng quý, nhưng nỗi sợ bị bỏ rơi hay thói quen tự trách đôi lúc vẫn quay về, nhất là khi một mối quan hệ bắt đầu trở nên quan trọng.',
-      high: 'Bạn đang đứng vững từ bên trong. Bạn biết giá trị của mình và không cần một mối quan hệ để thấy mình trọn vẹn. Đây là nền móng quý giá nhất.',
+      high: 'Bạn đang đứng vững từ bên trong. Bạn biết mình là ai, biết giá trị của mình và không cần một mối quan hệ để thấy mình trọn vẹn. Đây là nền móng quý giá nhất.',
       actions: [
-        'Mỗi tối viết ra 3 điều bạn trân trọng ở chính mình trong ngày, dù nhỏ đến đâu.',
+        'Viết một câu "Mình là người phụ nữ…" ở thì hiện tại, mô tả người phụ nữ bạn đang lựa chọn trở thành, và đọc to mỗi sáng.',
         'Khi câu "có phải do mình chưa đủ tốt" xuất hiện, hãy dừng lại và hỏi: "Nếu bạn thân mình gặp chuyện này, mình sẽ nói gì với cô ấy?"',
-        'Chọn một mối quan hệ cũ, viết ra điều bạn đã học được về chính mình thay vì điều người kia đã làm sai.'
+        'Mỗi tối viết ra 3 điều bạn trân trọng ở chính mình trong ngày, dù nhỏ đến đâu.'
       ],
       tool: 'Công cụ đồng hành: Video Training "Tỏa Rạng Từ Bên Trong Để Kiến Tạo Mối Quan Hệ Như Ý" và "Làm Mới Trái Tim Để Kiến Tạo Mối Quan Hệ Hạnh Phúc" trong Love Blueprint Toolkit, và phần Chẩn Đoán ở Buổi 1.',
       reflect: 'Nếu mình tin chắc rằng mình xứng đáng được yêu thương, hôm nay mình sẽ đối xử với bản thân khác đi như thế nào?'
@@ -279,7 +314,7 @@ p { color: var(--text-muted); }
       mid: 'Bạn đã biết mình cần gì, nhưng tấm la bàn ấy chưa đủ rõ để giữ bạn vững khi đứng trước một người khiến mình rung động.',
       high: 'Bạn lựa chọn bằng trí tuệ chứ không chỉ bằng rung động. Bạn biết mình cần quan sát điều gì và khi nào nên dừng lại.',
       actions: [
-        'Viết ra 5 giá trị cốt lõi bạn cần ở người bạn đời, rồi gạch bớt còn 3 điều không thể thỏa hiệp.',
+        'Chia tiêu chuẩn bạn đời của bạn thành ba nhóm: Bắt buộc, Mong muốn và Không thể chấp nhận.',
         'Với người bạn đang tìm hiểu, đổi câu hỏi "Anh ấy có chọn mình không?" thành "Người này có thật sự phù hợp với cuộc sống mình muốn xây dựng không?"',
         'Nhìn lại mối quan hệ gần nhất như một nguồn dữ liệu: dấu hiệu nào đã xuất hiện sớm mà mình bỏ qua?'
       ],
@@ -288,7 +323,7 @@ p { color: var(--text-muted); }
     },
     p3: {
       low: 'Có thể bạn đang chờ tình yêu tự tìm đến, hoặc khi có người đến gần, bạn lại đoán ý và giữ khoảng cách thay vì chia sẻ thật lòng. Người bạn đời chỉ có cơ hội tìm thấy bạn khi bạn xuất hiện.',
-      mid: 'Bạn đã sẵn lòng mở lòng, nhưng đôi khi vẫn ngập ngừng giữa việc chủ động và giữ mình, hoặc chưa biết cách để một kết nối sâu dần thành cam kết.',
+      mid: 'Bạn đã sẵn lòng mở lòng, nhưng đôi khi vẫn ngập ngừng giữa mở lòng và giữ mình, hoặc chưa quen để người kia chủ động quan tâm, chăm sóc mình.',
       high: 'Bạn hiện diện, mở lòng và giao tiếp chân thật mà vẫn giữ được giá trị của mình. Bạn đang tạo ra rất nhiều cơ hội cho tình yêu.',
       actions: [
         'Chọn một môi trường mới phù hợp với giá trị của bạn (lớp học, câu lạc bộ, cộng đồng) và xuất hiện ở đó ít nhất 2 lần trong tháng này.',
@@ -300,8 +335,8 @@ p { color: var(--text-muted); }
     }
   };
 
-  var STORE_PROGRESS = 'bdty-quiz-progress';
-  var STORE_HISTORY = 'bdty-quiz-history';
+  var STORE_PROGRESS = 'bdty-quiz24-progress';
+  var STORE_HISTORY = 'bdty-quiz24-history';
 
   function load(key) { try { return JSON.parse(localStorage.getItem(key)); } catch (e) { return null; } }
   function save(key, v) { try { localStorage.setItem(key, JSON.stringify(v)); } catch (e) {} }
@@ -317,12 +352,33 @@ p { color: var(--text-muted); }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  // Thông tin cho trang giới thiệu mỗi vòng
+  var ROUND_INTRO = [
+    { sub: 'Cách bạn nhìn nhận, yêu thương và chữa lành cho chính mình', q: 'Mình tin mình là ai, và mình có đang chăm sóc tốt cho chính mình?' },
+    { sub: 'Trí tuệ tình yêu giúp bạn nhận ra ai phù hợp để cùng đi đường dài', q: 'Mình có sáng rõ về tình yêu mình mong muốn và cách lựa chọn người phù hợp?' },
+    { sub: 'Cách bạn xuất hiện, mở lòng và nuôi dưỡng kết nối', q: 'Mình có thể mở lòng, kết nối và đón nhận yêu thương một cách chân thành?' }
+  ];
+  function roundCount(p) { return QUESTIONS.filter(function (q) { return q.p === p; }).length; }
+  function roundIndex(i) { var p = QUESTIONS[i].p, n = 0; for (var k = 0; k <= i; k++) if (QUESTIONS[k].p === p) n++; return n; }
+  function showRound(p) {
+    var P = PILLARS[p], I = ROUND_INTRO[p];
+    $('ri-num').textContent = p + 1;
+    $('ri-num').style.color = P.color;
+    $('ri-eyebrow').textContent = 'Vòng ' + (p + 1) + ' / 3 · ' + roundCount(p) + ' câu';
+    $('ri-title').textContent = P.name;
+    $('ri-sub').textContent = I.sub;
+    $('ri-q').textContent = '"' + I.q + '"';
+    $('ri-go').textContent = 'Bắt đầu Vòng ' + (p + 1);
+    show('s-round');
+  }
+
   function renderQ() {
     var q = QUESTIONS[idx], p = PILLARS[q.p];
-    $('q-count').textContent = 'Câu ' + (idx + 1) + ' / ' + QUESTIONS.length;
+    $('q-count').textContent = 'Vòng ' + (q.p + 1) + ' · Câu ' + roundIndex(idx) + ' / ' + roundCount(q.p);
     $('q-pillar').textContent = p.name;
     $('q-pillar').style.background = p.color;
-    $('q-bar').style.width = (idx / QUESTIONS.length * 100) + '%';
+    $('q-bar').style.width = ((roundIndex(idx) - 1) / roundCount(q.p) * 100) + '%';
+    $('q-bar').style.background = p.color;
     $('q-text').textContent = q.t;
     var box = $('q-scale'); box.innerHTML = '';
     SCALE.forEach(function (label, i) {
@@ -346,9 +402,16 @@ p { color: var(--text-muted); }
     advancing = true;
     setTimeout(function () {
       advancing = false;
-      if (idx < QUESTIONS.length - 1) { idx++; renderQ(); }
-      else finish();
+      advance();
     }, 260);
+  }
+  // Sang câu tiếp; nếu bước sang trụ cột mới thì hiện trang giới thiệu vòng
+  function advance() {
+    if (idx >= QUESTIONS.length - 1) { finish(); return; }
+    var cur = QUESTIONS[idx].p;
+    idx++;
+    save(STORE_PROGRESS, { answers: answers, idx: idx, name: $('name').value });
+    if (QUESTIONS[idx].p !== cur) showRound(QUESTIONS[idx].p); else renderQ();
   }
 
   function scores() {
@@ -436,9 +499,10 @@ p { color: var(--text-muted); }
   }
 
   // Events
-  $('start').onclick = function () { answers.fill(null); idx = 0; drop(STORE_PROGRESS); show('s-quiz'); renderQ(); };
-  $('back').onclick = function () { if (idx > 0) { idx--; renderQ(); } };
-  $('next').onclick = function () { if (answers[idx] != null && idx < QUESTIONS.length - 1) { idx++; renderQ(); } else if (answers[idx] != null) finish(); };
+  $('start').onclick = function () { answers.fill(null); idx = 0; drop(STORE_PROGRESS); showRound(0); };
+  $('ri-go').onclick = function () { show('s-quiz'); renderQ(); };
+  $('back').onclick = function () { if (idx > 0) { idx--; show('s-quiz'); renderQ(); } };
+  $('next').onclick = function () { if (answers[idx] != null) advance(); };
   $('retake').onclick = function () { show('s-intro'); $('resume').hidden = true; };
   $('print').onclick = function () { window.print(); };
   $('copy').onclick = function () {
@@ -448,6 +512,7 @@ p { color: var(--text-muted); }
     else prompt('Sao chép kết quả:', lastText);
   };
   document.addEventListener('keydown', function (e) {
+    if ($('s-round').classList.contains('active') && e.key === 'Enter') { $('ri-go').click(); return; }
     if (!$('s-quiz').classList.contains('active')) return;
     if (e.key >= '1' && e.key <= '5') pick(+e.key);
     else if (e.key === 'ArrowLeft') $('back').click();
