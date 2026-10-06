@@ -18,7 +18,22 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '963547762772869');
+// So khớp nâng cao: Pixel tự mã hoá SHA-256 trước khi gửi
+var fbMatching = {};
+try {
+  var fbOrder = JSON.parse(sessionStorage.getItem('order') || '{}');
+  var fbEmail = String(fbOrder.email || '').trim().toLowerCase();
+  if (fbEmail) fbMatching.em = fbEmail;
+  var fbPhone = String(fbOrder.phone || '').replace(/\D/g, '');
+  if (fbPhone.indexOf('0') === 0) fbPhone = '84' + fbPhone.slice(1);
+  if (fbPhone) fbMatching.ph = fbPhone;
+  var fbName = String(fbOrder.name || '').trim().toLowerCase().split(/\s+/).filter(Boolean);
+  if (fbName.length) {
+    fbMatching.fn = fbName[fbName.length - 1];
+    if (fbName.length > 1) fbMatching.ln = fbName[0];
+  }
+} catch (e) {}
+fbq('init', '963547762772869', fbMatching);
 fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none"
@@ -129,20 +144,6 @@ src="https://www.facebook.com/tr?id=963547762772869&ev=PageView&noscript=1"
     try { alreadyTracked = !!localStorage.getItem(trackedKey); } catch (e) {}
 
     if (typeof fbq === 'function' && !alreadyTracked) {
-      // So khớp nâng cao: Pixel tự mã hoá SHA-256 trước khi gửi, chỉ dùng cho sự kiện Lead/Purchase
-      const matching = {};
-      const email = String(order.email || '').trim().toLowerCase();
-      if (email) matching.em = email;
-      let phone = String(order.phone || '').replace(/\D/g, '');
-      if (phone.indexOf('0') === 0) phone = '84' + phone.slice(1);
-      if (phone) matching.ph = phone;
-      const nameParts = String(order.name || '').trim().toLowerCase().split(/\s+/).filter(Boolean);
-      if (nameParts.length) {
-        matching.fn = nameParts[nameParts.length - 1];
-        if (nameParts.length > 1) matching.ln = nameParts[0];
-      }
-      if (Object.keys(matching).length) fbq('init', '963547762772869', matching);
-
       if (isFree) {
         fbq('track', 'Lead', { content_name: 'Bản Đồ Tình Yêu - Vé Tiêu Chuẩn' });
       } else {
