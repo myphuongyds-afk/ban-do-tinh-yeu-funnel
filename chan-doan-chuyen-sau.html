@@ -237,9 +237,7 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
 .ws-strip b { color: var(--accent-teal); }
 .ws-count { display: inline-block; margin-left: 4px; padding: 1px 10px; border-radius: 999px; background: var(--accent-teal); color: #fff; font-weight: 600; font-size: .84rem; }
 .ws-count:empty { display: none; }
-.ws-bridge { border-left: 4px solid var(--accent-teal); }
-.ws-bridge .ws-count { margin: 0 0 0 6px; vertical-align: middle; }
-@media print { .ws-strip, .ws-bridge { display: none; } }
+@media print { .ws-strip, .res-nav, .map-open { display: none; } }
 .cta-sub { font-size: .88rem; text-align: center; margin-top: 14px; padding-top: 14px; border-top: 1px dashed var(--border); }
 .cta-sub a { color: var(--accent-deep); font-weight: 600; text-decoration: underline; }
 
@@ -299,6 +297,21 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
 .sunday { margin-top: 10px; font-size: .92rem; font-family: var(--font-h); font-style: italic; color: var(--accent-deep); }
 .plan-progress { margin-top: 18px; font-size: .9rem; text-align: center; color: var(--accent-deep); font-weight: 600; }
 .to-plan { display: inline-block; margin-top: 12px; color: var(--accent-deep); font-weight: 600; text-decoration: underline; font-size: .95rem; }
+.plan-card { background: linear-gradient(180deg, #FBEFEF 0%, #FFFFFF 220px); border: 1.5px solid rgba(211,120,129,.35); }
+.map-card { background: linear-gradient(180deg, #EEF4F2 0%, #FFFFFF 220px); border: 1.5px solid rgba(36,88,76,.3); }
+.map-card .eyebrow { color: var(--accent-teal); }
+.feature-head { display: flex; gap: 14px; align-items: center; }
+.feature-icon { flex: 0 0 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; font-size: 1.7rem; background: #fff; box-shadow: 0 4px 14px rgba(61,34,34,.1); }
+.feature-head h2 { margin-top: 4px; font-size: 1.55rem; }
+.feature-pills { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 12px; }
+.feature-pills span { background: #fff; border: 1px solid rgba(211,120,129,.3); border-radius: 999px; padding: 6px 12px; font-size: .85rem; font-weight: 600; color: var(--accent-deep); }
+.map-teaser { margin-top: 12px; }
+.map-open { display: inline-block; margin-top: 16px; padding: 12px 24px; border-radius: 999px; background: var(--accent-teal); color: #fff; font-weight: 600; font-size: .95rem; box-shadow: 0 8px 20px rgba(36,88,76,.2); }
+details.map-details[open] .map-open, details.map-details[open] .map-teaser { display: none; }
+.res-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 22px; }
+.res-nav a { padding: 11px 10px; border-radius: 12px; background: var(--bg); border: 1px solid var(--border); text-decoration: none; color: var(--text); font-weight: 600; font-size: .88rem; text-align: center; }
+.res-nav a.hl { background: var(--accent-soft); border-color: rgba(211,120,129,.35); color: var(--accent-deep); }
+.res-nav a#nav-map { background: rgba(36,88,76,.08); border-color: rgba(36,88,76,.3); color: var(--accent-teal); }
 
 /* Xem trước câu hỏi (bản quản trị) */
 .admin h2 { margin: 28px 0 4px; }
@@ -414,13 +427,19 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
       <p id="res-stage-desc"></p>
       <div class="bars" id="res-bars"></div>
       <div class="fem" id="res-fem"></div>
+      <nav class="res-nav">
+        <a href="#res-strength">🌸 Điều đẹp nhất nơi bạn</a>
+        <a href="#grow">🌿 Nơi nên bắt đầu</a>
+        <a href="#plan" class="hl">🌱 Kế hoạch 30 ngày</a>
+        <a href="#map" class="hl" id="nav-map">🗺️ Bản đồ chi tiết</a>
+      </nav>
     </div>
 
     <!-- 2. Điều đẹp nhất nơi bạn -->
     <div class="card" id="res-strength"></div>
 
     <!-- 3. Nơi nên bắt đầu -->
-    <div class="card">
+    <div class="card" id="grow">
       <div class="eyebrow">Nơi nên bắt đầu</div>
       <h2 style="margin-top:6px" id="grow-title">Ba điều trái tim bạn đang cần được chăm sóc</h2>
       <p style="margin-top:8px">Đây là ba nơi bạn đang thấy khó nhất lúc này, dựa trên chính những câu trả lời của bạn. Chúng không nói rằng bạn chưa đủ tốt. Chúng chỉ cho bạn biết một chút chăm sóc nên bắt đầu từ đâu.</p>
@@ -428,33 +447,29 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
       <a class="to-plan" href="#plan">Xem kế hoạch 30 ngày dành riêng cho bạn ↓</a>
     </div>
 
-    <!-- 3b. Cầu nối sang workshop, cá nhân hóa theo vòng thấp nhất -->
-    <div class="card workshop-card ws-bridge ws-only">
-      <div class="eyebrow">Bước tiếp theo · Workshop Live Online <span class="ws-count"></span></div>
-      <h2 style="margin-top:6px">Mang tấm bản đồ này đến Workshop Bản Đồ Tình Yêu</h2>
-      <p style="margin-top:10px" id="ws-bridge-text"></p>
-      <div class="ws-meta">
-        <span>📅 <b>23 &amp; 24/10/2026</b></span>
-        <span>🕗 <b>20h00</b></span>
-        <span>💻 <b>Online qua Zoom</b></span>
-      </div>
-      <div class="center" style="margin-top:14px"><a class="btn-primary" href="https://workshop.coachmyphuong.com/" target="_blank" rel="noopener">Giữ chỗ tham dự workshop →</a></div>
-      <p class="cta-note">Nếu bạn đã đăng ký rồi, hãy giữ lại kết quả này và mang theo vào workshop nhé 🌷</p>
-    </div>
-
     <!-- 4. Kế hoạch 30 ngày -->
-    <div class="card" id="plan">
-      <div class="eyebrow">Dành riêng cho bạn</div>
-      <h2 style="margin-top:6px">Kế hoạch 30 ngày nở hoa</h2>
+    <div class="card feature plan-card" id="plan">
+      <div class="feature-head">
+        <span class="feature-icon">🌱</span>
+        <div><div class="eyebrow">Dành riêng cho bạn</div><h2>Kế hoạch 30 ngày nở hoa</h2></div>
+      </div>
+      <div class="feature-pills"><span>🗓 4 tuần</span><span>⏳ 5 phút mỗi ngày</span><span>✓ Đánh dấu khi hoàn thành</span></div>
       <p class="plan-intro">Mỗi tuần, bạn chăm một điều nhỏ. Mỗi ngày chỉ cần khoảng 5 phút. Hãy bắt đầu từ Tuần 1, các tuần sau bạn mở ra khi đến lượt.</p>
       <div id="plan-weeks"></div>
       <p class="plan-progress" id="plan-progress"></p>
     </div>
 
     <!-- 5. Bản đồ chi tiết (thu gọn) -->
-    <div class="card">
+    <div class="card feature map-card" id="map">
       <details class="map-details" id="map-details">
-        <summary><span class="eyebrow">Dành cho bạn muốn đọc sâu hơn</span><h2>Xem tấm bản đồ chi tiết</h2><span class="more">Bấm để mở ↓</span></summary>
+        <summary>
+          <div class="feature-head">
+            <span class="feature-icon">🗺️</span>
+            <div><div class="eyebrow">Dành cho bạn muốn đọc sâu hơn</div><h2>Tấm bản đồ chi tiết của bạn</h2></div>
+          </div>
+          <p class="map-teaser">Blossom Wheel với 20 cánh hoa, điểm của từng yếu tố, những dấu hiệu nhận biết và gợi ý chăm sóc cho từng điều.</p>
+          <span class="map-open">Mở tấm bản đồ ↓</span>
+        </summary>
         <div class="wheel-box"><svg id="wheel" viewBox="0 0 440 440" role="img" aria-label="Blossom Wheel: điểm từng yếu tố"></svg></div>
         <div class="legend" id="legend"></div>
         <p class="disclaimer">Đây là <b>Blossom Wheel</b> của bạn. Mỗi cánh hoa là một điều nhỏ trong ba vùng. Cánh càng dài, bạn càng thấy điều đó đúng với mình. Tất cả là điều bạn tự nhận thấy vào ngày <span id="res-date"></span>, và nó sẽ thay đổi khi bạn lớn lên.</p>
@@ -1204,19 +1219,7 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
     var countText = days > 1 ? 'Còn ' + days + ' ngày' : days === 1 ? 'Ngày mai' : days === 0 ? 'Tối nay 20h00' : 'Đang diễn ra';
     document.querySelectorAll('.ws-count').forEach(function (s) { s.textContent = wsOn ? countText : ''; });
   })();
-  // Lời mời workshop viết riêng theo vòng có điểm thấp nhất
-  var WS_BRIDGE = [
-    'Buổi 1 · Chẩn đoán sẽ rất gần với bạn: Phương sẽ cùng bạn nhìn ra vì sao mình rất tốt mà vẫn lận đận, và những điều bên trong nào đang lặng lẽ giữ bạn lại.',
-    'Buổi 2 · Vẽ bản đồ chính là dành cho bạn: Phương sẽ cùng bạn vẽ tấm bản đồ tình yêu và dùng bộ lọc HEART để nhận diện và chọn đúng người bạn đời.',
-    'Trong hai buổi workshop, bạn sẽ hiểu vì sao những kết nối của mình chưa đi được xa, và cách hiện diện thật mềm mại để người phù hợp có thể nhận ra và đến gần bạn.'
-  ];
-  function renderWsBridge(rounds) {
-    var lo = -1;
-    rounds.forEach(function (v, ri) { if (v != null && (lo < 0 || v < rounds[lo])) lo = ri; });
-    $('ws-bridge-text').innerHTML = lo < 0
-      ? 'Những điều bạn vừa khám phá sẽ được Phương cùng bạn đi sâu hơn trong hai buổi tối: từ <b>mơ hồ</b> đến <b>sáng rõ</b> trên hành trình tìm người bạn đời.'
-      : 'Nơi bạn cần vun bồi nhất lúc này nằm ở <b>Vòng ' + (lo + 1) + ' · ' + ROUNDS[lo].name + '</b>. ' + WS_BRIDGE[lo];
-  }
+  document.getElementById('nav-map').addEventListener('click', function () { document.getElementById('map-details').open = true; });
   function load(k) { try { return JSON.parse(localStorage.getItem(k)); } catch (e) { return null; } }
   function save(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
   function drop(k) { try { localStorage.removeItem(k); } catch (e) {} }
@@ -1367,7 +1370,6 @@ details.prep-coach > summary b { font-family: var(--font-h); font-size: 1.05rem;
 
     // 2. Điều đẹp nhất nơi bạn
     renderStrength(focus);
-    renderWsBridge(r.rounds);
 
     // 3. Nơi nên bắt đầu: ba điều có điểm thấp nhất, mỗi điều gọn trong ba ý
     var allHigh = focus.length && focus.every(function (F) { return r.factors[F.idx] >= 3.8; });
