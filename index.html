@@ -13,7 +13,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Fraunces:ital,wght@0,600;0,700;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Fraunces:ital,wght@0,600;0,700;1,600;1,700&family=Dancing+Script:wght@600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <!-- Meta Pixel Code -->
 <script>
@@ -245,6 +245,13 @@ p { color: var(--text-muted); }
   border: 1px solid var(--accent); border-radius: 999px; background: var(--accent-soft);
   padding: 12px 26px; margin-bottom: 20px; max-width: 640px;
 }
+.eyebrow-sub { display: flex; align-items: baseline; justify-content: center; gap: 9px; margin: 2px 0 22px; font-family: var(--font-h); font-style: italic; color: var(--text-muted); }
+.eyebrow-sub::before, .eyebrow-sub::after { content: ""; align-self: center; width: 34px; height: 1px; background: linear-gradient(90deg, transparent, var(--accent)); }
+.eyebrow-sub::after { background: linear-gradient(270deg, transparent, var(--accent)); }
+.eyebrow-sub .es-small { font-size: 0.88rem; font-weight: 500; letter-spacing: 0.04em; }
+.eyebrow-sub .es-wish, .eyebrow-sub .es-do { font-family: 'Dancing Script', var(--font-h), cursive; font-style: normal; font-size: 1.65rem; font-weight: 600; line-height: 1; }
+.eyebrow-sub .es-wish { color: var(--accent-deep); opacity: 0.75; }
+.eyebrow-sub .es-do { color: var(--accent); }
 
 /* Story narrative */
 .story-narrative p {
@@ -562,7 +569,8 @@ footer p { color: inherit; }
     <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
   </div>
   <div class="container text-center">
-    <span class="eyebrow-pill">✦ Dành cho phụ nữ độc thân từ 27-35 khao khát một tình yêu đẹp và một mái ấm trọn vẹn</span>
+    <span class="eyebrow-pill" style="margin-bottom: 10px;">✦ Dành cho phụ nữ độc thân từ 27-35 mong ước một tình yêu đẹp và một cuộc hôn nhân hạnh phúc</span>
+    <p class="eyebrow-sub"><span class="es-small">From</span> <span class="es-wish">"I Wish"</span> <span class="es-small">to</span> <span class="es-do">"I Do"</span></p>
     <h1>Làm thế nào để gặp <span class="text-accent">Đúng Người</span> và tiến&nbsp;đến <span class="text-accent">Hôn Nhân Viên Mãn</span></h1>
     <p class="mt-6" style="font-size: 1.05rem; max-width: 680px; margin: 0 auto; color: var(--text);">
       Ngay cả khi bạn rất bận rộn, mất niềm tin về tình yêu hoặc từng chịu nhiều tổn thương trong quá khứ.
@@ -667,7 +675,7 @@ footer p { color: inherit; }
 
     <div class="story-narrative">
       <p class="pull-quote">Bởi vì chính Phương cũng từng trải qua gần 10 năm thanh xuân loay hoay trong những vòng lặp như thế.</p>
-      <p>Suốt những năm ấy, Phương chưa từng ngừng cố gắng. Phương đọc sách tình yêu đến khuya, nghe YouTube mỗi lúc rảnh, rồi nhìn lại mình để sửa từng chút một: dịu dàng hơn, kiên nhẫn hơn, hoàn thiện hơn. Mỗi lần ngã xuống, Phương lại tự nhủ chỉ cần mình đủ tốt, hạnh phúc sẽ chịu ở lại.</p>
+      <p>Suốt những năm ấy, Phương chưa từng ngừng cố gắng. Phương đọc sách tình yêu đến khuya, nghe YouTube mỗi lúc rảnh, rồi nhìn lại mình để sửa từng chút một: dịu dàng hơn, kiên nhẫn hơn, hoàn thiện hơn.</p>
       <p>Vậy mà hết mối tình này đến mối tình khác khép lại. Không biết bao lần Phương tự hỏi: "Mình cũng tử tế, cũng nỗ lực phát triển bản thân, tại sao hạnh phúc vẫn cứ lỡ hẹn?"</p>
       <p>Rồi đến một đêm giữa những ngày khốc liệt của đại dịch Covid 19. Căn phòng nhỏ im lặng. Phương lê đôi chân mệt nhoài đến bên chiếc cửa sổ duy nhất, ngước nhìn bầu trời đêm không trăng, không sao, mong tìm một chút tia sáng. Ánh mắt ấy chỉ khựng lại trước những ngọn đèn le lói của khu nghĩa trang gần nhà.</p>
       <p>Nước mắt cứ thế lăn dài. "Tại sao mình phải chịu đựng đau khổ này? Mình xứng đáng với một cuộc đời hạnh phúc hơn."</p>
@@ -682,7 +690,7 @@ footer p { color: inherit; }
         <span class="mistake-num">1</span>
         <div>
           <h4>Tưởng rằng biết nhiều là sẽ sáng suốt</h4>
-          <p>Nhồi nhét hàng tá kiến thức lý thuyết không giúp Phương sáng suốt hơn khi đứng trước một người đàn ông làm mình rung động. Sách vở và các lớp học cho bạn hiểu biết đúng đắn, nhưng chỉ khi những điều ấy được chuyển hóa bên trong, chúng mới trở thành ngọn đèn dẫn đường cho lựa chọn của bạn.</p>
+          <p>Bởi vì có kiến thức không đồng nghĩa với trí tuệ. Sách vở và các lớp học cho bạn hiểu biết đúng đắn, nhưng chỉ khi những điều ấy được chuyển hóa bên trong, chúng mới trở thành ngọn đèn dẫn đường cho lựa chọn của bạn.</p>
         </div>
       </div>
       <div class="mistake">
@@ -696,14 +704,14 @@ footer p { color: inherit; }
         <span class="mistake-num">3</span>
         <div>
           <h4>Đặt hạnh phúc của mình vào tay người khác</h4>
-          <p>Khi hạnh phúc phụ thuộc vào việc một người có đến hay ở lại, bạn vô tình trao đi quyền làm chủ vận mệnh của mình. Chỉ khi Phương thôi đặt hạnh phúc vào tay người khác, Phương mới bắt đầu làm chủ cuộc đời mình.</p>
+          <p>Khi hạnh phúc của bạn nằm trong tay người khác, mỗi lần họ đến hay đi, cả thế giới của bạn cũng chênh vênh theo. Chỉ khi Phương thôi đặt hạnh phúc vào tay người khác, Phương mới bắt đầu làm chủ vận mệnh của chính mình.</p>
         </div>
       </div>
       <div class="mistake">
         <span class="mistake-num">4</span>
         <div>
           <h4>Mang theo những niềm tin giới hạn về chính mình</h4>
-          <p>Có một thời, Phương tin rằng số phận mình gắn liền với khổ đau và cô đơn. Niềm tin ấy âm thầm quyết định Phương chọn ai, ở lại vì điều gì và nghĩ mình xứng đáng nhận được gì. Con người luôn hành động tương ứng với niềm tin về chính mình. Nên khi Phương đổi niềm tin ấy, cách Phương sống, cách Phương chọn và cả những điều đến với Phương cũng đổi thay.</p>
+          <p>Có một thời, Phương tin rằng số phận mình gắn liền với khổ đau và cô đơn. Niềm tin ấy âm thầm dẫn lối Phương chọn ai, ở lại vì điều gì và nghĩ mình xứng đáng nhận được gì. Khi niềm tin đổi thay, cuộc đời cũng đổi thay theo.</p>
         </div>
       </div>
       <p>Cả 4 điều ấy đều không nằm ở sách vở hay kỹ năng, mà nằm ở "hệ điều hành" bên trong: những niềm tin, tổn thương và mô thức cũ.</p>
