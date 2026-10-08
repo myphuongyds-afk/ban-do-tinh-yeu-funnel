@@ -251,6 +251,11 @@ p { color: var(--text-muted); }
   font-size: 1.08rem; margin-bottom: 20px; color: var(--text);
 }
 .story-narrative p.muted { color: var(--text-muted); }
+.story-narrative .story-lead-in { margin-top: 36px; font-weight: 500; }
+.story-narrative .mistake { display: flex; gap: 16px; align-items: flex-start; margin: 0 0 14px; padding: 18px 20px; background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: var(--radius); }
+.story-narrative .mistake-num { flex: 0 0 auto; width: 30px; height: 30px; border-radius: 50%; background: var(--accent-soft); color: var(--accent-deep); font-family: var(--font-h); font-weight: 700; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+.story-narrative .mistake h4 { font-family: var(--font-h); font-size: 1.08rem; color: var(--accent-deep); margin: 0 0 6px; }
+.story-narrative .mistake p { font-size: 0.98rem; margin: 0; color: var(--text-muted); }
 .story-narrative .pull-quote {
   font-family: var(--font-h); font-size: 1.3rem; font-style: italic;
   color: #AF646B; border-left: 3px solid var(--accent);
@@ -557,7 +562,7 @@ footer p { color: inherit; }
     <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
   </div>
   <div class="container text-center">
-    <span class="eyebrow-pill">✦ Dành cho phụ nữ độc thân từ 27-35 muốn có tình yêu nghiêm túc và tiến tới hôn nhân hạnh phúc</span>
+    <span class="eyebrow-pill">✦ Dành cho phụ nữ độc thân từ 27-35 khao khát một tình yêu đẹp và một mái ấm trọn vẹn</span>
     <h1>Làm thế nào để gặp <span class="text-accent">Đúng Người</span> và tiến&nbsp;đến <span class="text-accent">Hôn Nhân Viên Mãn</span></h1>
     <p class="mt-6" style="font-size: 1.05rem; max-width: 680px; margin: 0 auto; color: var(--text);">
       Ngay cả khi bạn rất bận rộn, mất niềm tin về tình yêu hoặc từng chịu nhiều tổn thương trong quá khứ.
@@ -662,16 +667,51 @@ footer p { color: inherit; }
 
     <div class="story-narrative">
       <p class="pull-quote">Bởi vì chính Phương cũng từng trải qua gần 10 năm thanh xuân loay hoay trong những vòng lặp như thế.</p>
-      <p>Phương cũng từng yêu sai, từng vỡ mộng và tự hỏi: "Mình cũng tử tế, cũng nỗ lực phát triển bản thân, tại sao hạnh phúc vẫn cứ lỡ hẹn?"</p>
-      <p>Phương cũng lao vào đọc sách tình yêu, nghe YouTube, cố gắng thay đổi và hoàn thiện chính mình.</p>
-      <p>Nhưng Phương nhận ra: Nhồi nhét hàng tá kiến thức lý thuyết không hề giúp mình sáng suốt hơn khi đứng trước một người đàn ông làm mình rung động.</p>
-      <p>Bởi có kiến thức không đồng nghĩa với có trí tuệ. Sách vở và các lớp học có thể cho bạn những hiểu biết đúng đắn, nhưng trí tuệ chỉ xuất hiện khi những điều ấy thực sự được chuyển hóa bên trong, trở thành ngọn đèn dẫn đường cho cách bạn nhìn nhận, lựa chọn và đưa ra những quyết định có thể thay đổi hạnh phúc và cuộc đời mình.</p>
-      <p>Nếu "hệ điều hành" bên trong vẫn vận hành bằng những niềm tin, tổn thương và mô thức cũ, bạn vẫn dễ bỏ qua điều không phù hợp, thỏa hiệp với tiêu chuẩn của mình hoặc ở lại vì sợ mất đi một mối quan hệ và vô thức đẩy người tốt ra xa bạn.</p>
-      <p>Vì vậy, điều bạn cần không chỉ là biết thêm về tình yêu, mà là chuyển hóa từ bên trong để trí tuệ thực sự dẫn đường cho cách bạn yêu và lựa chọn.</p>
+      <p>Suốt những năm ấy, Phương chưa từng ngừng cố gắng. Phương đọc sách tình yêu đến khuya, nghe YouTube mỗi lúc rảnh, rồi nhìn lại mình để sửa từng chút một: dịu dàng hơn, kiên nhẫn hơn, hoàn thiện hơn. Mỗi lần ngã xuống, Phương lại tự nhủ chỉ cần mình đủ tốt, hạnh phúc sẽ chịu ở lại.</p>
+      <p>Vậy mà hết mối tình này đến mối tình khác khép lại. Không biết bao lần Phương tự hỏi: "Mình cũng tử tế, cũng nỗ lực phát triển bản thân, tại sao hạnh phúc vẫn cứ lỡ hẹn?"</p>
+      <p>Rồi đến một đêm giữa những ngày khốc liệt của đại dịch Covid 19. Căn phòng nhỏ im lặng. Phương lê đôi chân mệt nhoài đến bên chiếc cửa sổ duy nhất, ngước nhìn bầu trời đêm không trăng, không sao, mong tìm một chút tia sáng. Ánh mắt ấy chỉ khựng lại trước những ngọn đèn le lói của khu nghĩa trang gần nhà.</p>
+      <p>Nước mắt cứ thế lăn dài. "Tại sao mình phải chịu đựng đau khổ này? Mình xứng đáng với một cuộc đời hạnh phúc hơn."</p>
+      <p>Và trong sự tĩnh lặng ấy, một tiếng nói rất nhỏ vang lên:</p>
+      <p class="pull-quote">"Mình sinh ra không phải để chịu đựng, mà để sống một cuộc đời trọn vẹn."</p>
+      <p>Kể từ đêm ấy, Phương <strong>quyết định trở thành một người hạnh phúc</strong> và biết ơn với mọi điều trong cuộc sống. Phương buông đi những điều đã níu giữ mình quá lâu: mối quan hệ nhiều năm không còn phù hợp, những công việc khiến mình xa rời bản thân.</p>
+      <p>Phương học cách chăm sóc bản thân, vun bồi nội tâm, biết ơn từng điều nhỏ bé và mở lòng kết nối với những giá trị tích cực. Và từ đó, hạnh phúc bắt đầu nảy nở trong Phương, an nhiên lan tỏa ra mọi không gian, tình yêu và sự đủ đầy chạm tới mọi điều quanh mình.</p>
+      <p>Điều kỳ diệu đến chỉ không lâu sau đó. Khi Phương ngày càng trở thành một phiên bản hạnh phúc, an nhiên và rạng rỡ nhất của mình, cũng là lúc Phương gặp được người bạn đời như ý, định mệnh của cuộc đời mình.</p>
+
+      <p class="story-lead-in">Nhìn lại gần 10 năm ấy, Phương thấy những sai lầm mà rất nhiều người trong chúng ta vẫn đang lặp lại:</p>
+      <div class="mistake">
+        <span class="mistake-num">1</span>
+        <div>
+          <h4>Tưởng rằng biết nhiều là sẽ sáng suốt</h4>
+          <p>Nhồi nhét hàng tá kiến thức lý thuyết không giúp Phương sáng suốt hơn khi đứng trước một người đàn ông làm mình rung động. Sách vở và các lớp học cho bạn hiểu biết đúng đắn, nhưng chỉ khi những điều ấy được chuyển hóa bên trong, chúng mới trở thành ngọn đèn dẫn đường cho lựa chọn của bạn.</p>
+        </div>
+      </div>
+      <div class="mistake">
+        <span class="mistake-num">2</span>
+        <div>
+          <h4>Níu giữ một mối quan hệ đã không còn phù hợp</h4>
+          <p>Vì sợ mất đi, bạn chọn ở lại và dần thỏa hiệp với chính tiêu chuẩn của mình. Phương cũng từng ở lại như thế suốt nhiều năm.</p>
+        </div>
+      </div>
+      <div class="mistake">
+        <span class="mistake-num">3</span>
+        <div>
+          <h4>Đặt hạnh phúc của mình vào tay người khác</h4>
+          <p>Khi hạnh phúc phụ thuộc vào việc một người có đến hay ở lại, bạn vô tình trao đi quyền làm chủ vận mệnh của mình. Chỉ khi Phương thôi đặt hạnh phúc vào tay người khác, Phương mới bắt đầu làm chủ cuộc đời mình.</p>
+        </div>
+      </div>
+      <div class="mistake">
+        <span class="mistake-num">4</span>
+        <div>
+          <h4>Mang theo những niềm tin giới hạn về chính mình</h4>
+          <p>Có một thời, Phương tin rằng số phận mình gắn liền với khổ đau và cô đơn. Niềm tin ấy âm thầm quyết định Phương chọn ai, ở lại vì điều gì và nghĩ mình xứng đáng nhận được gì. Con người luôn hành động tương ứng với niềm tin về chính mình. Nên khi Phương đổi niềm tin ấy, cách Phương sống, cách Phương chọn và cả những điều đến với Phương cũng đổi thay.</p>
+        </div>
+      </div>
+      <p>Cả 4 điều ấy đều không nằm ở sách vở hay kỹ năng, mà nằm ở "hệ điều hành" bên trong: những niềm tin, tổn thương và mô thức cũ.</p>
+      <p>Vì vậy, điều bạn cần không chỉ là biết thêm về tình yêu, mà là <strong>chuyển hóa từ bên trong</strong> để trí tuệ thực sự dẫn đường cho cách bạn yêu và lựa chọn.</p>
       <p>Chính trên hành trình đó, Phương càng tin rằng <strong>TÌNH YÊU</strong> và <strong>HẠNH PHÚC</strong> là năng lực có thể được học, rèn luyện và xây dựng.</p>
       <p>Vốn có hơn 6 năm làm việc trong lĩnh vực y tế, Phương có thói quen nhìn mọi thứ theo tính hệ thống để thay đổi từ gốc rễ vấn đề.</p>
       <p>Phương quyết định áp dụng tư duy logic đó vào chính đường tình duyên lận đận của mình, kết hợp với hơn 100+ giờ khai vấn tình yêu cho những người phụ nữ khác.</p>
-      <p>Và Phương đã tìm ra một "công thức", một quy luật thực sự chứ không phải dựa vào may rủi.</p>
+      <p>Và Phương đã tìm ra một <strong>"công thức"</strong>, một quy luật thực sự chứ không phải dựa vào may rủi.</p>
       <p>Nhờ áp dụng chính xác quy luật này, Phương đã tự tay phá vỡ vòng lặp tổn thương của chính mình để có một tình yêu đẹp, sâu sắc và hiện đang có một mái ấm hạnh phúc, trọn vẹn, bình yên cùng chồng và con trai nhỏ đáng yêu.</p>
       <p class="pull-quote">Phương gọi nó là Tấm Bản Đồ 3 Trụ Cột.</p>
     </div>
