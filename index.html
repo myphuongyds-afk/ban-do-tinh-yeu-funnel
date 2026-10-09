@@ -393,6 +393,14 @@ p { color: var(--text-muted); }
 .gift-card ul { list-style: none; padding: 0; margin: 0; text-align: left; }
 .gift-card li { position: relative; font-size: 0.9rem; color: var(--text); padding: 6px 0 6px 22px; border-top: 1px dashed var(--border); line-height: 1.5; }
 .gift-card li::before { content: "✦"; position: absolute; left: 2px; top: 6px; color: var(--accent); font-size: 0.8rem; }
+.toc-card { max-width: 600px; margin: 28px auto 0; background: var(--surface); border: 1px solid var(--accent); border-radius: var(--radius); padding: 28px 26px 22px; box-shadow: 0 14px 36px var(--accent-soft); position: relative; }
+.toc-card .gift-tag { background: var(--accent); color: #FFFFFF; margin-bottom: 10px; }
+.toc-card h4 { font-family: var(--font-h); font-size: 1.25rem; color: var(--accent-deep); margin: 0 0 4px; }
+.toc-sub { font-size: 0.88rem; color: var(--text-muted); margin: 0 0 14px; }
+.toc-part { display: flex; align-items: baseline; gap: 10px; margin: 16px 0 4px; padding-bottom: 4px; border-bottom: 1px solid var(--border); font-family: var(--font-b); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-deep); }
+.toc-part span { font-family: var(--font-h); font-size: 0.98rem; font-weight: 600; letter-spacing: 0; text-transform: none; color: var(--text); }
+.toc-row { display: flex; gap: 12px; padding: 5px 0; font-size: 0.9rem; line-height: 1.5; color: var(--text); }
+.toc-row b { flex: 0 0 24px; font-family: var(--font-h); font-weight: 700; color: var(--accent); }
 .gift-cta { text-align: center; margin-top: 30px; }
 .gift-cta p { font-size: 0.92rem; color: var(--text-muted); margin: 12px 0 0; }
 @media (max-width: 720px) { .gift-grid { grid-template-columns: 1fr; } .gift-visual { height: 236px; } }
@@ -989,6 +997,29 @@ footer p { color: inherit; }
             <li>Kế hoạch 30 ngày xuất hiện</li>
           </ul>
         </div>
+      </div>
+      <div class="toc-card">
+        <span class="gift-tag">Chỉ có trong Vé VIP</span>
+        <h4>Mục lục Ebook</h4>
+        <p class="toc-sub">12 chương, 4 phần và một phần thực hành cho bản đồ của riêng bạn.</p>
+        <div class="toc-part">Mở đầu <span>Người ấy cũng đang đi những nơi bạn đi</span></div>
+        <div class="toc-part">Phần 1 <span>Vẽ tấm bản đồ</span></div>
+        <div class="toc-row"><b>01</b>Không có nơi hoàn hảo, chỉ có nơi xác suất cao hơn</div>
+        <div class="toc-row"><b>02</b>Soi lại bản đồ hiện tại: bạn đang xuất hiện ở đâu?</div>
+        <div class="toc-row"><b>03</b>Hình dung người bạn muốn gặp, bằng giá trị chứ không bằng danh sách</div>
+        <div class="toc-row"><b>04</b>Chấm điểm một địa điểm bằng quy tắc 3C</div>
+        <div class="toc-part">Phần 2 <span>Bản đồ các môi trường</span></div>
+        <div class="toc-row"><b>05</b>Chọn môi trường hợp với con người, phong cách sống và giá trị của bạn</div>
+        <div class="toc-row"><b>06</b>Mười môi trường đáng thử và cách tận dụng từng nơi</div>
+        <div class="toc-row"><b>07</b>Bốn cánh cửa: bạn bè, tương cận, những kết nối đã có, online</div>
+        <div class="toc-part">Phần 3 <span>Hiện diện</span></div>
+        <div class="toc-row"><b>08</b>Hình ảnh của bạn: vẻ ngoài, hồ sơ hẹn hò, bio, ranh giới và trang cá nhân</div>
+        <div class="toc-row"><b>09</b>Hiện diện thong thả để người ấy dễ nhận ra bạn</div>
+        <div class="toc-part">Phần 4 <span>Khi gặp thật</span></div>
+        <div class="toc-row"><b>10</b>Khi có người bước tới: nhẹ nhàng, an toàn, sáng rõ</div>
+        <div class="toc-part">Thực hành <span>Bản đồ của riêng bạn</span></div>
+        <div class="toc-row"><b>11</b>Khi tấm bản đồ chưa dẫn đến đâu</div>
+        <div class="toc-row"><b>12</b>Kế hoạch 30 ngày xuất hiện và nhật ký bản đồ</div>
       </div>
       <div class="gift-cta">
         <a href="#offer" class="btn-primary">Nhận Cả Hai Cùng Vé VIP →</a>
