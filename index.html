@@ -387,20 +387,13 @@ p { color: var(--text-muted); }
 .gift-visual { position: relative; height: 250px; margin: 4px auto 20px; display: flex; align-items: center; justify-content: center; }
 .gift-visual img { display: block; width: 168px; height: auto; border-radius: 4px; box-shadow: 0 16px 30px rgba(61, 34, 34, 0.22), 0 2px 6px rgba(61, 34, 34, 0.12); }
 .gift-visual .gift-front { position: relative; z-index: 2; transform: rotate(-3deg); }
+.gift-visual .gift-toc { position: relative; z-index: 1; width: 150px; margin-right: -56px; transform: rotate(-5deg); }
 .gift-visual .gift-back { position: absolute; z-index: 1; left: 50%; top: 14px; margin-left: 6px; transform: rotate(6deg); width: 150px; opacity: 0.96; }
 .gift-card h4 { font-family: var(--font-h); font-size: 1.15rem; color: var(--accent-deep); margin: 0 0 8px; }
 .gift-card > p { font-size: 0.95rem; color: var(--text-muted); margin: 0 0 14px; }
 .gift-card ul { list-style: none; padding: 0; margin: 0; text-align: left; }
 .gift-card li { position: relative; font-size: 0.9rem; color: var(--text); padding: 6px 0 6px 22px; border-top: 1px dashed var(--border); line-height: 1.5; }
 .gift-card li::before { content: "✦"; position: absolute; left: 2px; top: 6px; color: var(--accent); font-size: 0.8rem; }
-.toc-card { max-width: 600px; margin: 28px auto 0; background: var(--surface); border: 1px solid var(--accent); border-radius: var(--radius); padding: 28px 26px 22px; box-shadow: 0 14px 36px var(--accent-soft); position: relative; }
-.toc-card .gift-tag { background: var(--accent); color: #FFFFFF; margin-bottom: 10px; }
-.toc-card h4 { font-family: var(--font-h); font-size: 1.25rem; color: var(--accent-deep); margin: 0 0 4px; }
-.toc-sub { font-size: 0.88rem; color: var(--text-muted); margin: 0 0 14px; }
-.toc-part { display: flex; align-items: baseline; gap: 10px; margin: 16px 0 4px; padding-bottom: 4px; border-bottom: 1px solid var(--border); font-family: var(--font-b); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-deep); }
-.toc-part span { font-family: var(--font-h); font-size: 0.98rem; font-weight: 600; letter-spacing: 0; text-transform: none; color: var(--text); }
-.toc-row { display: flex; gap: 12px; padding: 5px 0; font-size: 0.9rem; line-height: 1.5; color: var(--text); }
-.toc-row b { flex: 0 0 24px; font-family: var(--font-h); font-weight: 700; color: var(--accent); }
 .gift-cta { text-align: center; margin-top: 30px; }
 .gift-cta p { font-size: 0.92rem; color: var(--text-muted); margin: 12px 0 0; }
 @media (max-width: 720px) { .gift-grid { grid-template-columns: 1fr; } .gift-visual { height: 236px; } }
@@ -986,6 +979,7 @@ footer p { color: inherit; }
         <div class="gift-card gift-card--vip">
           <span class="gift-tag">Chỉ có trong Vé VIP</span>
           <div class="gift-visual">
+            <img class="gift-toc" src="img/ebook-toc.png" alt="Trang mục lục Ebook" loading="lazy">
             <img class="gift-front" src="img/ebook-cover.png" alt="Bìa Ebook Để Người Bạn Đời Tương Lai Có Cơ Hội Tìm Thấy Bạn" loading="lazy" style="transform: rotate(2deg);">
           </div>
           <h4>Ebook: Để Người Bạn Đời Tương Lai Có Cơ Hội Tìm Thấy Bạn</h4>
@@ -997,29 +991,6 @@ footer p { color: inherit; }
             <li>Kế hoạch 30 ngày xuất hiện</li>
           </ul>
         </div>
-      </div>
-      <div class="toc-card">
-        <span class="gift-tag">Chỉ có trong Vé VIP</span>
-        <h4>Mục lục Ebook</h4>
-        <p class="toc-sub">12 chương, 4 phần và một phần thực hành cho bản đồ của riêng bạn.</p>
-        <div class="toc-part">Mở đầu <span>Người ấy cũng đang đi những nơi bạn đi</span></div>
-        <div class="toc-part">Phần 1 <span>Vẽ tấm bản đồ</span></div>
-        <div class="toc-row"><b>01</b>Không có nơi hoàn hảo, chỉ có nơi xác suất cao hơn</div>
-        <div class="toc-row"><b>02</b>Soi lại bản đồ hiện tại: bạn đang xuất hiện ở đâu?</div>
-        <div class="toc-row"><b>03</b>Hình dung người bạn muốn gặp, bằng giá trị chứ không bằng danh sách</div>
-        <div class="toc-row"><b>04</b>Chấm điểm một địa điểm bằng quy tắc 3C</div>
-        <div class="toc-part">Phần 2 <span>Bản đồ các môi trường</span></div>
-        <div class="toc-row"><b>05</b>Chọn môi trường hợp với con người, phong cách sống và giá trị của bạn</div>
-        <div class="toc-row"><b>06</b>Mười môi trường đáng thử và cách tận dụng từng nơi</div>
-        <div class="toc-row"><b>07</b>Bốn cánh cửa: bạn bè, tương cận, những kết nối đã có, online</div>
-        <div class="toc-part">Phần 3 <span>Hiện diện</span></div>
-        <div class="toc-row"><b>08</b>Hình ảnh của bạn: vẻ ngoài, hồ sơ hẹn hò, bio, ranh giới và trang cá nhân</div>
-        <div class="toc-row"><b>09</b>Hiện diện thong thả để người ấy dễ nhận ra bạn</div>
-        <div class="toc-part">Phần 4 <span>Khi gặp thật</span></div>
-        <div class="toc-row"><b>10</b>Khi có người bước tới: nhẹ nhàng, an toàn, sáng rõ</div>
-        <div class="toc-part">Thực hành <span>Bản đồ của riêng bạn</span></div>
-        <div class="toc-row"><b>11</b>Khi tấm bản đồ chưa dẫn đến đâu</div>
-        <div class="toc-row"><b>12</b>Kế hoạch 30 ngày xuất hiện và nhật ký bản đồ</div>
       </div>
       <div class="gift-cta">
         <a href="#offer" class="btn-primary">Nhận Cả Hai Cùng Vé VIP →</a>
