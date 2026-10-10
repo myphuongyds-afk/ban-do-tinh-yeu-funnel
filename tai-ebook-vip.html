@@ -8,65 +8,80 @@
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Fraunces:ital,wght@0,600;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#FFFBF8;--surface:#FFFFFF;--surface-2:#F6E4E3;--text:#3D2222;--muted:#6B4848;--accent:#9d3b5c;--border:rgba(61,34,34,.12);--h:'Lora',Georgia,serif;--b:'Inter',system-ui,sans-serif}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--b);background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased;min-height:100vh}
-.wrap{max-width:680px;margin:0 auto;padding:36px 16px 64px}
-.brand{text-align:center;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:20px}
-h1{font-family:var(--h);font-weight:600;font-size:clamp(1.7rem,5vw,2.3rem);line-height:1.25;text-align:center;margin-bottom:10px}
-.lead{text-align:center;color:var(--muted);max-width:52ch;margin:0 auto 30px}
-.book{display:grid;grid-template-columns:120px 1fr;gap:20px;align-items:center;background:var(--surface);border-radius:14px;padding:20px;box-shadow:0 12px 36px rgba(61,34,34,.08);margin-bottom:18px}
-.cover{aspect-ratio:3/4;border-radius:6px 10px 10px 6px;color:#fff;padding:12px 10px;display:flex;flex-direction:column;justify-content:flex-end;font-family:var(--h);font-size:.78rem;line-height:1.3;box-shadow:inset 4px 0 0 rgba(0,0,0,.18)}
-.c1{background:linear-gradient(160deg,#a8466a,#6c2240)}
-.c2{background:linear-gradient(160deg,#a05f73,#6e3a4b)}
-.cover small{display:block;font-family:var(--b);font-size:.55rem;letter-spacing:.08em;opacity:.8;margin-top:6px}
-.tag{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:600}
-.book h2{font-family:var(--h);font-weight:600;font-size:1.2rem;line-height:1.3;margin:2px 0 6px}
-.book p{color:var(--muted);font-size:.93rem}
-.btn{display:inline-block;margin-top:12px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;font-size:.95rem;padding:10px 22px;border-radius:999px}
-.btn:focus-visible{outline:3px solid var(--text);outline-offset:3px}
-.cta{text-align:center;margin-top:32px;padding:22px 18px;background:var(--surface-2);border-radius:14px}
-.cta h2{font-family:var(--h);font-size:1.15rem;margin-bottom:6px}
-.cta p{color:var(--muted);font-size:.95rem}
-.cta .btn{background:var(--text)}
-.slogan{text-align:center;margin-top:28px;font-family:var(--h);font-style:italic;color:var(--accent)}
-@media(max-width:520px){.book{grid-template-columns:90px 1fr;gap:14px;padding:16px}}
+:root {
+  --bg: #FFFBF8;
+  --surface: #FFFFFF;
+  --surface-2: #F6E4E3;
+  --text: #3D2222;
+  --text-muted: #6B4848;
+  --accent: #D37881;
+  --accent-soft: rgba(211, 120, 129, 0.12);
+  --accent-deep: #8C4A4E;
+  --border: rgba(61, 34, 34, 0.12);
+  --font-h: 'Lora', Georgia, serif;
+  --font-b: 'Inter', system-ui, sans-serif;
+  --radius: 14px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-b); background: var(--bg); color: var(--text); line-height: 1.65; -webkit-font-smoothing: antialiased; min-height: 100vh; display: flex; flex-direction: column; }
+h1, h2 { font-family: var(--font-h); line-height: 1.3; color: var(--text); }
+h1 { font-family: 'Fraunces', var(--font-h); font-style: italic; font-weight: 600; font-size: clamp(1.8rem, 5vw, 2.5rem); text-align: center; margin-bottom: 10px; }
+h2 { font-weight: 600; font-size: clamp(1.15rem, 3vw, 1.4rem); }
+p { color: var(--text-muted); }
+main { flex: 1; }
+.wrap { max-width: 680px; margin: 0 auto; padding: 32px 16px 56px; }
+.brand { text-align: center; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-deep); font-weight: 600; margin-bottom: 24px; }
+.lead { text-align: center; max-width: 52ch; margin: 0 auto 30px; }
+.book { display: grid; grid-template-columns: 132px 1fr; gap: 22px; align-items: center; background: var(--surface); border-radius: var(--radius); padding: 22px; box-shadow: 0 12px 36px rgba(61,34,34,.08); margin-bottom: 18px; }
+.book img { width: 100%; height: auto; display: block; border-radius: 6px 10px 10px 6px; box-shadow: 0 8px 20px rgba(61,34,34,.18); }
+.tag { font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-deep); font-weight: 600; }
+.book h2 { margin: 2px 0 6px; }
+.book p { font-size: .95rem; }
+.btn-primary { display: inline-block; margin-top: 14px; padding: 12px 28px; background: linear-gradient(180deg, #E0A1A7 0%, var(--accent) 50%, var(--accent-deep) 100%); color: #fff; border-radius: 999px; font-weight: 700; font-size: .98rem; font-family: var(--font-h); letter-spacing: .02em; box-shadow: 0 0 0 5px var(--accent-soft), 0 10px 24px var(--accent-soft); transition: transform .2s; text-decoration: none; }
+.btn-primary:hover { transform: translateY(-2px); }
+.btn-primary:focus-visible { outline: 3px solid var(--text); outline-offset: 4px; }
+.cta { text-align: center; margin-top: 32px; padding: 26px 20px; background: var(--surface-2); border-radius: var(--radius); }
+.cta h2 { margin-bottom: 6px; }
+.slogan { text-align: center; margin-top: 26px; font-family: var(--font-h); font-style: italic; color: var(--accent-deep); }
+footer { padding: 24px 16px; background: var(--accent); text-align: center; color: #fff; font-size: .875rem; font-weight: 600; }
+footer p { color: inherit; }
+@media (max-width: 520px) { .book { grid-template-columns: 96px 1fr; gap: 14px; padding: 16px; } }
 </style>
 </head>
 <body>
-<main class="wrap">
+<main>
+<div class="wrap">
   <div class="brand">My Phương · Happiness Coach</div>
   <h1>Quà tặng dành riêng cho Vé VIP</h1>
   <p class="lead">Cảm ơn bạn đã đồng hành cùng Vé VIP. Hai cuốn ebook Phương viết để đồng hành cùng bạn trên hành trình từ mong ước đến lời “em đồng ý”. Bấm nút để tải về, đọc trên điện thoại hoặc in ra.</p>
-
   <article class="book">
-    <div class="cover c1" aria-hidden="true">Kiến Tạo May Mắn Trong Tình Yêu<small>MY PHƯƠNG</small></div>
+    <img src="/img/cover-ebook-1.jpg" alt="Bìa ebook Kiến Tạo May Mắn Trong Tình Yêu" loading="lazy">
     <div>
       <div class="tag">Ebook 1</div>
       <h2>Kiến Tạo May Mắn Trong Tình Yêu</h2>
       <p>Từ mong ước đến lời “em đồng ý”. May mắn = Cơ hội × Sự sẵn sàng, ba trụ cột và hành trình của Phương.</p>
-      <a class="btn" href="/ebook/kien-tao-may-man-trong-tinh-yeu.pdf" download>Tải ebook 1 (PDF)</a>
+      <a class="btn-primary" href="/ebook/kien-tao-may-man-trong-tinh-yeu.pdf" download>Tải ebook 1 (PDF)</a>
     </div>
   </article>
-
   <article class="book">
-    <div class="cover c2" aria-hidden="true">Để Người Bạn Đời Tương Lai Có Cơ Hội Tìm Thấy Bạn<small>MY PHƯƠNG</small></div>
+    <img src="/img/cover-ebook-2.jpg" alt="Bìa ebook Để Người Bạn Đời Tương Lai Có Cơ Hội Tìm Thấy Bạn" loading="lazy">
     <div>
       <div class="tag">Ebook 2</div>
       <h2>Để Người Bạn Đời Tương Lai Có Cơ Hội Tìm Thấy Bạn</h2>
       <p>Bản đồ giúp bạn xuất hiện ở những nơi có xác suất gặp gỡ người phù hợp cao hơn, và hiện diện thật đẹp ở đó.</p>
-      <a class="btn" href="/ebook/de-nguoi-ban-doi-tuong-lai-tim-thay-ban.pdf" download>Tải ebook 2 (PDF)</a>
+      <a class="btn-primary" href="/ebook/de-nguoi-ban-doi-tuong-lai-tim-thay-ban.pdf" download>Tải ebook 2 (PDF)</a>
     </div>
   </article>
-
   <section class="cta">
     <h2>Muốn có một lộ trình riêng cho bạn?</h2>
     <p>Đặt một phiên khai vấn chiến lược 1:1 miễn phí cùng đội ngũ My Phương.</p>
-    <a class="btn" href="/khai-van-1-1">Đặt cuộc gọi miễn phí</a>
+    <a class="btn-primary" href="/khai-van-1-1">Đặt cuộc gọi miễn phí →</a>
   </section>
   <p class="slogan">From I wish to I do</p>
+</div>
 </main>
+<footer><p>© 2026 My Phương - Happiness Coach. All rights reserved.</p></footer>
 </body>
 </html>
