@@ -397,6 +397,12 @@ p { color: var(--text-muted); }
 .gift-card ul { list-style: none; padding: 0; margin: 0; text-align: left; }
 .gift-card li { position: relative; font-size: 0.9rem; color: var(--text); padding: 6px 0 6px 22px; border-top: 1px dashed var(--border); line-height: 1.5; }
 .gift-card li::before { content: "✦"; position: absolute; left: 2px; top: 6px; color: var(--accent); font-size: 0.8rem; }
+.gift-card--wide { grid-column: 1 / -1; display: grid; grid-template-columns: 300px 1fr; column-gap: 24px; align-items: center; text-align: left; padding: 26px 28px; }
+.gift-card--wide .gift-tag { grid-column: 2; justify-self: start; }
+.gift-card--wide .gift-visual { grid-column: 1; grid-row: 1 / span 4; margin: 0; }
+.gift-card--wide h4, .gift-card--wide > p, .gift-card--wide ul { grid-column: 2; }
+@media (max-width: 720px) { .gift-card--wide { display: block; text-align: center; padding: 28px 22px 26px; } .gift-card--wide .gift-visual { margin: 4px auto 20px; } }
+.gift-card--lucky { border: 1.5px dashed var(--accent); }
 .gift-cta { text-align: center; margin-top: 30px; }
 .gift-cta p { font-size: 0.92rem; color: var(--text-muted); margin: 12px 0 0; }
 @media (max-width: 720px) { .gift-grid { grid-template-columns: 1fr; } .gift-visual { height: 236px; } }
@@ -969,7 +975,7 @@ footer p { color: inherit; }
         <h3>Những Gì Bạn Cầm Trên Tay Sau Workshop</h3>
       </div>
       <div class="gift-grid">
-        <div class="gift-card">
+        <div class="gift-card gift-card--wide">
           <span class="gift-tag">Có trong cả 2 vé</span>
           <div class="gift-visual">
             <img class="gift-back" src="img/workbook-inside.png" alt="Một trang bên trong Love Blueprint Workbook" loading="lazy">
@@ -988,7 +994,7 @@ footer p { color: inherit; }
           <span class="gift-tag">Chỉ có trong Vé VIP</span>
           <div class="gift-visual">
             <img class="gift-toc" src="img/ebook-toc.png" alt="Trang mục lục Ebook" loading="lazy">
-            <img class="gift-front" src="img/ebook-cover.png" alt="Bìa Ebook Để Người Bạn Đời Tương Lai Có Cơ Hội Tìm Thấy Bạn" loading="lazy" style="transform: rotate(2deg);">
+            <img class="gift-front" src="img/cover-ebook-2.jpg" alt="Bìa Ebook Để Người Bạn Đời Tương Lai Có Cơ Hội Tìm Thấy Bạn" loading="lazy" style="transform: rotate(2deg);">
           </div>
           <h4>Ebook: Để Người Bạn Đời Tương Lai Có Cơ Hội Tìm Thấy Bạn</h4>
           <p>Tấm bản đồ giúp bạn xuất hiện ở những nơi có xác suất gặp gỡ người phù hợp cao hơn.</p>
@@ -1000,12 +1006,34 @@ footer p { color: inherit; }
             <li><strong>Thực hành:</strong> kế hoạch 30 ngày để tấm bản đồ thành hành động.</li>
           </ul>
         </div>
+        <div class="gift-card gift-card--lucky">
+          <span class="gift-tag">✦ Quà may mắn · Có cơ hội nhận</span>
+          <div class="gift-visual">
+            <img class="gift-toc" src="img/ebook1-toc.png" alt="Trang mục lục Ebook Kiến Tạo May Mắn Trong Tình Yêu" loading="lazy">
+            <img class="gift-front" src="img/cover-ebook-1.jpg" alt="Bìa Ebook Kiến Tạo May Mắn Trong Tình Yêu" loading="lazy" style="transform: rotate(2deg);">
+          </div>
+          <h4>Ebook: Kiến Tạo May Mắn Trong Tình Yêu</h4>
+          <p>Những bí quyết may mắn Phương ứng dụng trong hành trình từ mong ước đến lời "em đồng ý".</p>
+          <ul>
+            <li><strong>Gỡ bỏ niềm tin giới hạn:</strong> nhìn lại 5 niềm tin về may mắn đang cản bước bạn.</li>
+            <li><strong>Cơ hội:</strong> mở những cánh cửa gặp gỡ và nói "Yes" thay vì để nỗi sợ đóng lại.</li>
+            <li><strong>Sự sẵn sàng:</strong> 3 trụ cột để bạn rạng rỡ, sáng rõ và hiện diện từ trái tim.</li>
+            <li><strong>Vun bồi may mắn:</strong> lòng biết ơn, gieo hạt và giữ hy vọng khi hoa chưa nở.</li>
+            <li><strong>Thực hành:</strong> workbook 7 ngày kiến tạo may mắn và cam kết 30 ngày.</li>
+          </ul>
+        </div>
       </div>
       <div class="gift-cta">
-        <a href="#offer" class="btn-primary">Nhận Cả Hai Cùng Vé VIP →</a>
+        <a href="#offer" class="btn-primary">Nhận Trọn Bộ Quà Tặng Cùng Vé VIP →</a>
         <p>Vé VIP 99.000đ gồm cả Workbook, Ebook, Video Training và The First 3 Dates.</p>
       </div>
     </div>
+    <div class="text-center mt-12">
+      <span class="eyebrow">Quà may mắn dành cho bạn</span>
+    </div>
+    <ul class="benefit-list mt-4">
+      <li><strong>Ebook Kiến Tạo May Mắn Trong Tình Yêu:</strong> Một món quà Phương dành riêng cho những bạn có mặt trong workshop, và bạn có cơ hội nhận. Những bí quyết may mắn Phương ứng dụng trong hành trình từ mong ước đến lời "em đồng ý".</li>
+    </ul>
     <div class="text-center mt-12">
       <span class="eyebrow">Đồng hành sau Workshop</span>
     </div>
