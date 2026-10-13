@@ -248,7 +248,11 @@ p { color: var(--text-muted); }
   border: 1px solid var(--accent); border-radius: 999px; background: var(--accent-soft);
   padding: 12px 26px; margin-bottom: 20px; max-width: 640px;
 }
-.hero-date { font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); font-weight: 600; margin: -8px 0 18px; }
+.hero-date { font-size: 0.9rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-deep); font-weight: 800; margin: -8px 0 18px; }
+.hero-date { display: flex; align-items: center; justify-content: center; gap: 8px; }
+.live-dot { flex: 0 0 auto; width: 10px; height: 10px; border-radius: 50%; background: #E53935; box-shadow: 0 0 0 0 rgba(229, 57, 53, 0.55); animation: live-pulse 1.8s infinite; }
+@keyframes live-pulse { 0% { box-shadow: 0 0 0 0 rgba(229, 57, 53, 0.55); } 70% { box-shadow: 0 0 0 8px rgba(229, 57, 53, 0); } 100% { box-shadow: 0 0 0 0 rgba(229, 57, 53, 0); } }
+@media (prefers-reduced-motion: reduce) { .live-dot { animation: none; } }
 .pillar-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 22px auto 0; max-width: 560px; }
 .pillar-chip { display: inline-block; padding: 9px 18px; border-radius: 999px; background: var(--accent-deep); color: #FFFFFF; font-family: var(--font-h); font-weight: 600; font-size: 0.9rem; line-height: 1.3; }
 .hero-lead { font-size: 1.05rem; max-width: 680px; margin: 24px auto 0; color: var(--text); }
@@ -264,7 +268,7 @@ p { color: var(--text-muted); }
   .eyebrow-sub { margin: 0 0 14px; gap: 7px; }
   .eyebrow-sub::before, .eyebrow-sub::after { width: 22px; }
   .eyebrow-sub .es-wish, .eyebrow-sub .es-do { font-size: 1.45rem; }
-  .hero-date { font-size: 0.7rem; letter-spacing: 0.05em; margin: -4px 0 16px; }
+  .hero-date { font-size: 0.76rem; letter-spacing: 0.03em; margin: -4px 0 16px; }
   .pillar-chips { gap: 6px; margin-top: 18px; }
   .pillar-chip { padding: 7px 12px; font-size: 0.78rem; }
   .hero-lead { font-size: 1rem; margin-top: 20px; }
@@ -616,7 +620,7 @@ footer p { color: inherit; }
   <div class="container text-center">
     <span class="eyebrow-pill" style="margin-bottom: 10px;">✦ Dành cho phụ nữ độc thân từ 27-35 mong ước một tình yêu đẹp, được yêu thương, được trân trọng và đi đến hôn nhân hạnh phúc</span>
     <p class="eyebrow-sub"><span class="es-small">From</span> <span class="es-wish">"I Wish"</span> <span class="es-small">to</span> <span class="es-do">"I Do"</span></p>
-    <p class="hero-date">Workshop Zoom · 20h00, 23 & 24/10/2026</p>
+    <p class="hero-date"><span class="live-dot" aria-hidden="true"></span>Workshop Zoom · 20h00, 23 & 24/10/2026</p>
     <h1>Làm thế nào để gặp <span class="text-accent">Đúng Người</span> và tiến&nbsp;đến <span class="text-accent">Hôn Nhân Viên Mãn</span></h1>
     <div class="pillar-chips">
       <span class="pillar-chip">Rạng rỡ từ bên trong</span>
