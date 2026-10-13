@@ -248,6 +248,10 @@ p { color: var(--text-muted); }
   border: 1px solid var(--accent); border-radius: 999px; background: var(--accent-soft);
   padding: 12px 26px; margin-bottom: 20px; max-width: 640px;
 }
+.hero-date { font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); font-weight: 600; margin: -8px 0 18px; }
+.pillar-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 22px auto 0; max-width: 560px; }
+.pillar-chip { display: inline-block; padding: 9px 18px; border-radius: 999px; background: var(--accent-deep); color: #FFFFFF; font-family: var(--font-h); font-weight: 600; font-size: 0.9rem; line-height: 1.3; }
+.hero-lead { font-size: 1.05rem; max-width: 680px; margin: 24px auto 0; color: var(--text); }
 .eyebrow-sub { display: flex; align-items: baseline; justify-content: center; gap: 9px; margin: 2px 0 22px; font-family: var(--font-h); font-style: italic; color: var(--text-muted); }
 .eyebrow-sub::before, .eyebrow-sub::after { content: ""; align-self: center; width: 34px; height: 1px; background: linear-gradient(90deg, transparent, var(--accent)); }
 .eyebrow-sub::after { background: linear-gradient(270deg, transparent, var(--accent)); }
@@ -599,12 +603,16 @@ footer p { color: inherit; }
     <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
   </div>
   <div class="container text-center">
-    <span class="eyebrow-pill" style="margin-bottom: 10px;">✦ Dành cho phụ nữ độc thân từ 27-35 mong ước một tình yêu đẹp và một cuộc hôn nhân hạnh phúc</span>
+    <span class="eyebrow-pill" style="margin-bottom: 10px;">✦ Dành cho phụ nữ độc thân từ 27-35 mong ước một tình yêu đẹp, được yêu thương, được trân trọng và đi đến hôn nhân hạnh phúc</span>
     <p class="eyebrow-sub"><span class="es-small">From</span> <span class="es-wish">"I Wish"</span> <span class="es-small">to</span> <span class="es-do">"I Do"</span></p>
+    <p class="hero-date">Workshop Online qua Zoom · 20h00, 23 & 24/10/2026</p>
     <h1>Làm thế nào để gặp <span class="text-accent">Đúng Người</span> và tiến&nbsp;đến <span class="text-accent">Hôn Nhân Viên Mãn</span></h1>
-    <p class="mt-6" style="font-size: 1.05rem; max-width: 680px; margin: 0 auto; color: var(--text);">
-      Ngay cả khi bạn rất bận rộn, mất niềm tin về tình yêu hoặc từng chịu nhiều tổn thương trong quá khứ.
-    </p>
+    <div class="pillar-chips">
+      <span class="pillar-chip">Rạng rỡ từ bên trong</span>
+      <span class="pillar-chip">Sáng rõ khi lựa chọn</span>
+      <span class="pillar-chip">Hiện diện từ trái tim</span>
+    </div>
+    <p class="hero-lead">Ngay cả khi bạn nghĩ mình không đủ xinh đẹp, mất niềm tin về tình yêu hoặc chịu nhiều tổn thương trong quá khứ.</p>
     <p class="mt-4 text-muted" style="max-width: 640px; margin-left: auto; margin-right: auto;">
       Trong 2 buổi đào tạo trực tuyến, bạn sẽ hoàn thiện "Tấm Bản Đồ Tình Yêu" 3 bước: nhìn rõ mình đang ở đâu, sáng rõ khi lựa chọn bạn đời phù hợp và biết mình cần làm gì để tiến gần hơn đến một mối quan hệ cam kết, hôn nhân hạnh phúc.
     </p>
@@ -613,11 +621,6 @@ footer p { color: inherit; }
     </div>
     <div class="video-embed-model" style="margin-top: 24px;">
       <iframe src="https://www.youtube.com/embed/1QQ1-D8L3xI" title="My Phương giới thiệu Bản Đồ Tình Yêu" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-    <div class="hero-info">
-      <div class="hero-info-card"><span class="icon">🕗</span>20h00</div>
-      <div class="hero-info-card"><span class="icon">📅</span>23 & 24 tháng 10, 2026</div>
-      <div class="hero-info-card"><span class="icon">💻</span>Học trực tuyến qua Zoom</div>
     </div>
     <div class="mt-8">
       <span class="cta-microcopy">Vé Miễn Phí Có Hạn · Giữ Chỗ Ngay Hôm Nay</span>
