@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tài liệu đào tạo | My Phương</title>
+<meta name="description" content="Bài giảng và ebook trong chương trình đào tạo của My Phương, Happiness Coach.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Fraunces:ital,wght@0,600;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FFFBF8;
+  --surface: #FFFFFF;
+  --surface-2: #F6E4E3;
+  --text: #3D2222;
+  --text-muted: #6B4848;
+  --accent: #D37881;
+  --accent-soft: rgba(211, 120, 129, 0.12);
+  --accent-deep: #8C4A4E;
+  --border: rgba(61, 34, 34, 0.12);
+  --font-h: 'Lora', Georgia, serif;
+  --font-b: 'Inter', system-ui, sans-serif;
+  --radius: 14px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-b); background: var(--bg); color: var(--text); line-height: 1.65; -webkit-font-smoothing: antialiased; min-height: 100vh; display: flex; flex-direction: column; }
+h1, h2 { font-family: var(--font-h); line-height: 1.3; color: var(--text); }
+h1 { font-family: 'Fraunces', var(--font-h); font-style: italic; font-weight: 600; font-size: clamp(1.8rem, 5vw, 2.5rem); text-align: center; margin-bottom: 10px; }
+h2 { font-weight: 600; font-size: clamp(1.15rem, 3vw, 1.4rem); }
+p { color: var(--text-muted); }
+main { flex: 1; }
+.wrap { max-width: 680px; margin: 0 auto; padding: 32px 16px 56px; }
+.brand { text-align: center; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-deep); font-weight: 600; margin-bottom: 24px; }
+.lead { text-align: center; max-width: 52ch; margin: 0 auto 30px; }
+.book { display: grid; grid-template-columns: 132px 1fr; gap: 22px; align-items: center; background: var(--surface); border-radius: var(--radius); padding: 22px; box-shadow: 0 12px 36px rgba(61,34,34,.08); margin-bottom: 18px; }
+.book img { width: 100%; height: auto; display: block; border-radius: 6px 10px 10px 6px; box-shadow: 0 8px 20px rgba(61,34,34,.18); }
+.tag { font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-deep); font-weight: 600; }
+.book h2 { margin: 2px 0 6px; }
+.book p { font-size: .95rem; }
+.btn-primary { display: inline-block; margin-top: 14px; padding: 12px 28px; background: linear-gradient(180deg, #E0A1A7 0%, var(--accent) 50%, var(--accent-deep) 100%); color: #fff; border-radius: 999px; font-weight: 700; font-size: .98rem; font-family: var(--font-h); letter-spacing: .02em; box-shadow: 0 0 0 5px var(--accent-soft), 0 10px 24px var(--accent-soft); transition: transform .2s; text-decoration: none; }
+.btn-primary:hover { transform: translateY(-2px); }
+.btn-primary:focus-visible { outline: 3px solid var(--text); outline-offset: 4px; }
+.cta { text-align: center; margin-top: 32px; padding: 26px 20px; background: var(--surface-2); border-radius: var(--radius); }
+.cta h2 { margin-bottom: 6px; }
+.slogan { text-align: center; margin-top: 26px; font-family: var(--font-h); font-style: italic; color: var(--accent-deep); }
+footer { padding: 24px 16px; background: var(--accent); text-align: center; color: #fff; font-size: .875rem; font-weight: 600; }
+footer p { color: inherit; }
+@media (max-width: 520px) { .book { grid-template-columns: 96px 1fr; gap: 14px; padding: 16px; } }
+</style>
+</head>
+<body>
+<main>
+<div class="wrap">
+  <div class="brand">My Phương · Happiness Coach</div>
+  <h1>Tài liệu đào tạo</h1>
+  <p class="lead">Tài liệu bài giảng và ebook của Phương. Bấm nút để mở hoặc tải file PDF, đọc được trên điện thoại và máy tính.</p>
+  <article class="book" style="grid-template-columns:1fr">
+    <div>
+      <div class="tag">Bài giảng · Chương trình BECOMING</div>
+      <h2>Thiết kế khía cạnh cảm xúc</h2>
+      <p>8 sự thật về cảm xúc, công thức BEST, công cụ HEAR và RAIN, kèm các bảng thực hành, phụ lục Thông điệp cảm xúc và Bánh xe cảm xúc. 22 trang.</p>
+      <a class="btn-primary" href="/bai-giang/thiet-ke-khia-canh-cam-xuc.pdf" target="_blank" rel="noopener">Mở bài giảng (PDF)</a>
+    </div>
+  </article>
+  <article class="book" style="grid-template-columns:1fr">
+    <div>
+      <div class="tag">Ebook</div>
+      <h2>Tiêu Chuẩn Bạn Đời Từ Trái Tim</h2>
+      <p>Vì sao cần tiêu chuẩn từ trái tim, và cách đặt tiêu chuẩn bạn đời theo mô hình HEART với ba tầng: điều cần có, điều nên có và điều không thể chấp nhận.</p>
+      <a class="btn-primary" href="/bai-giang/tieu-chuan-ban-doi-tu-trai-tim.pdf" target="_blank" rel="noopener">Mở ebook (PDF)</a>
+    </div>
+  </article>
+  <p class="slogan">From I wish to I do</p>
+</div>
+</main>
+<footer><p>© 2026 My Phương - Happiness Coach. All rights reserved.</p></footer>
+</body>
+</html>
