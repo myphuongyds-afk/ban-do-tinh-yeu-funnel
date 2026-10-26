@@ -156,7 +156,7 @@ p { color: var(--text-muted); }
   <section class="screen card intro active" id="s-intro">
     <div class="center"><span class="eyebrow">Bài đo dành cho học viên · Workshop Bản Đồ Tình Yêu</span></div>
     <h1 style="margin-top:8px">Bạn đang ở đâu trên Tấm Bản Đồ Tình Yêu?</h1>
-    <p class="lead">12 câu hỏi, khoảng 3 phút, đo lại những điều cốt lõi bạn đã cùng Phương khám phá trong workshop: bạn đang vững ở đâu, và nơi nào cần vun bồi tiếp.</p>
+    <p class="lead">24 câu hỏi, khoảng 5 phút, đo lại những điều cốt lõi bạn đã cùng Phương khám phá trong workshop: bạn đang vững ở đâu, và nơi nào cần vun bồi tiếp.</p>
 
     <div class="pillars">
       <div class="pillar-chip"><i class="dot" style="background:var(--p1)"></i><div><b>Trụ cột 01 · Rạng Rỡ Từ Bên Trong</b><span>Cách bạn nhìn nhận và yêu thương chính mình</span></div></div>
@@ -239,7 +239,7 @@ p { color: var(--text-muted); }
     </div>
     <p class="sign">Thương bạn trên hành trình này,<br>Phương 🌷</p>
     <p class="fanpage"><a href="https://www.facebook.com/profile.php?id=61584226362566" target="_blank" rel="noopener">💗 Theo dõi fanpage của Phương trên Facebook</a><span>Để nhận thêm những bài viết, câu chuyện và lời nhắc dịu dàng trên hành trình tình yêu</span></p>
-    <p class="footer">Bấm <b>Sao chép kết quả</b> và gửi cho Phương qua Zalo để Phương cùng bạn theo dõi hành trình nhé.<br>Hãy làm lại bài này sau 30 ngày thực hành để thấy mình đã nở hoa đến đâu.<br>Bài đo học viên · 12 câu · Rút gọn từ Blossomed Relationship Diagnosis 3.0</p>
+    <p class="footer">Bấm <b>Sao chép kết quả</b> và gửi cho Phương qua Zalo để Phương cùng bạn theo dõi hành trình nhé.<br>Hãy làm lại bài này sau 30 ngày thực hành để thấy mình đã nở hoa đến đâu.<br>Bài đo học viên · 24 câu · Rút gọn từ Blossomed Relationship Diagnosis 3.0</p>
   </section>
 </div>
 
@@ -252,23 +252,35 @@ p { color: var(--text-muted); }
   ];
 
   // r: true = câu đảo chiều (đồng ý nhiều = điểm thấp)
-  // Bài đo lường cho học viên: 12 câu cốt lõi (mỗi trụ cột 4 câu), bám sát nội dung workshop Bản Đồ Tình Yêu.
+  // Bài đo lường cho học viên: 24 câu (mỗi trụ cột 8 câu), cùng bộ câu với bài test nhanh.
   var QUESTIONS = [
     // Vòng 1 · Rạng Rỡ Từ Bên Trong
-    { p: 0, t: 'Khi thấy mình đang tin những điều như "mình không đủ tốt để được yêu" hay "rồi ai cũng sẽ rời đi", mình có thể nhìn lại và chọn tin một điều khác nâng đỡ mình hơn.' }, // PBS04 · Niềm tin
-    { p: 0, t: 'Những tổn thương cũ vẫn khiến mình dè dặt hoặc sợ bị bỏ rơi khi bắt đầu thân thiết với ai đó.', r: true }, // PBS33 · Chữa lành
+    { p: 0, t: 'Mình biết rõ mình muốn trở thành người phụ nữ như thế nào, dù hiện tại đã có hay chưa có người yêu.' }, // PBS05 · Nhân dạng
+    { p: 0, t: 'Mình gọi tên được những giá trị và nhu cầu quan trọng của mình khi bước vào tình yêu.' }, // PBS01 · Thấu hiểu bản thân
+    { p: 0, t: 'Khi thấy mình đang tin những điều như "mình không đủ tốt để được yêu" hay "rồi ai cũng sẽ rời đi", mình có thể nhìn lại và chọn tin một điều khác nâng đỡ mình hơn.' }, // PBS04 · Nhân dạng (niềm tin)
     { p: 0, t: 'Khi bất an trong tình cảm, mình thường vội nhắn tin, hỏi han hoặc đòi được trấn an ngay, chỉ để làm dịu nỗi lo của mình.', r: true }, // PBS08 · Điều hòa cảm xúc
+    { p: 0, t: 'Khi một cuộc tìm hiểu không như mong đợi, mình nói với chính mình bằng lời dịu dàng, thay vì trách móc hay dằn vặt bản thân.' }, // PBS11 · Tự trắc ẩn
+    { p: 0, t: 'Những tổn thương cũ vẫn khiến mình dè dặt hoặc sợ bị bỏ rơi khi bắt đầu thân thiết với ai đó.', r: true }, // PBS33 · Tự trắc ẩn (chữa lành)
     { p: 0, t: 'Mình tin rằng mình xứng đáng được yêu thương và tôn trọng mà không cần trở nên hoàn hảo.' }, // PBS16 · Giá trị bản thân
+    { p: 0, t: 'Mình nuôi dưỡng niềm vui và mục đích sống của riêng mình, để tình yêu không phải là điểm tựa duy nhất.' }, // PBS20 · Đời sống riêng
     // Vòng 2 · Sáng Rõ Khi Lựa Chọn
-    { p: 1, t: 'Mình nhận ra kiểu người mình hay bị thu hút và những vòng lặp mình hay lặp lại trong tình yêu.' }, // RWS07 + RWS09 · Mô thức
-    { p: 1, t: 'Mình biết rằng cảm giác "say nắng", tim đập mạnh chưa chắc là dấu hiệu của người phù hợp; điều quan trọng hơn là mình có thấy bình yên, được tôn trọng và được là chính mình khi ở bên họ không.' }, // RWS10
-    { p: 1, t: 'Mình phân biệt được điều Bắt buộc cần có, điều Mong muốn và điều Không thể chấp nhận ở người bạn đời.' }, // RWS14 · HEART
-    { p: 1, t: 'Mình hiểu rằng đàn ông và phụ nữ có thể có nhu cầu và tâm lý khác nhau khi hẹn hò và chọn bạn đời (như nhịp độ mở lòng, cách thể hiện sự quan tâm, điều mỗi bên cần để thấy an tâm), nên mình tìm hiểu người trước mặt thay vì đoán ý theo cách nghĩ của mình.' }, // RWS31
+    { p: 1, t: 'Mình hiểu vì sao mình muốn có một tình yêu, không chỉ vì cô đơn, áp lực tuổi tác hay mong đợi của gia đình.' }, // RWS01 · Ý nghĩa và mục đích
+    { p: 1, t: 'Mình bước vào tình yêu với tầm nhìn dài hạn là tìm người bạn đời và hướng đến hôn nhân, chứ không hẹn hò chỉ để có người yêu hay lấp đầy nỗi cô đơn.' }, // RWS04 · Tầm nhìn gắn bó và hôn nhân
+    { p: 1, t: 'Mình nhận ra kiểu người mình hay bị thu hút và những vòng lặp mình hay lặp lại trong tình yêu.' }, // RWS07 + RWS09 · Mô thức tình yêu
+    { p: 1, t: 'Mình biết rằng cảm giác "say nắng", tim đập mạnh chưa chắc là dấu hiệu của người phù hợp; điều quan trọng hơn là mình có thấy bình yên, được tôn trọng và được là chính mình khi ở bên họ không.' }, // RWS10 · Cảm xúc, nhu cầu, tín hiệu
+    { p: 1, t: 'Mình phân biệt được điều Bắt buộc cần có, điều Mong muốn và điều Không thể chấp nhận ở người bạn đời.' }, // RWS14 · Tiêu chuẩn bạn đời từ trái tim
+    { p: 1, t: 'Mình hiểu rằng đàn ông và phụ nữ có thể có nhu cầu và tâm lý khác nhau khi hẹn hò và chọn bạn đời (như nhịp độ mở lòng, cách thể hiện sự quan tâm, điều mỗi bên cần để thấy an tâm), nên mình tìm hiểu người trước mặt thay vì đoán ý theo cách nghĩ của mình.' }, // Mới · Hiểu tâm lý, nhu cầu của nam và nữ khi hẹn hò, chọn bạn đời
+    { p: 1, t: 'Mình rút ra bài học từ những tình yêu trước mà không đổ hết trách nhiệm cho bản thân hay cho người kia.' }, // RWS19 · Học hỏi từ trải nghiệm
+    { p: 1, t: 'Khi cảm giác say mê ban đầu lắng xuống hoặc hai người bắt đầu có va chạm, mình hiểu đó là một giai đoạn bình thường của tình yêu, chứ không vội cho rằng hai người đã hết yêu hay không hợp.' }, // RWS30 · Tình yêu trưởng thành
     // Vòng 3 · Hiện Diện Và Kết Nối Từ Trái Tim
-    { p: 2, t: 'Mình chủ động xuất hiện ở những nơi, những cộng đồng có khả năng gặp được người phù hợp với mình.' }, // HPS07
-    { p: 2, t: 'Mình có thể đón nhận sự giúp đỡ, chăm sóc hoặc một lời khen mà không thấy mình mắc nợ hay phải đáp lại ngay.' }, // HPS16
-    { p: 2, t: 'Mình thấy thoải mái khi được mềm mại, dịu dàng và nữ tính, mà không cần gồng lên để tỏ ra mạnh mẽ.' }, // HPS25
-    { p: 2, t: 'Mình nói rõ điều mình đồng ý và không đồng ý về thời gian, sự thân mật và cách được đối xử.' } // HPS19
+    { p: 2, t: 'Khi gặp gỡ hoặc trò chuyện với một người mình quan tâm, mình nhận biết được cảm xúc đang diễn ra trong mình.' }, // HPS01 · Hiện diện với chính mình
+    { p: 2, t: 'Mình chủ động xuất hiện ở những nơi, những cộng đồng có khả năng gặp được người phù hợp với mình.' }, // HPS07 · Dám xuất hiện và mở lòng
+    { p: 2, t: 'Khi người kia chậm phản hồi, mình thường vội cho rằng họ không quan tâm đến mình.', r: true }, // HPS05 · Tôn trọng và bớt phán xét
+    { p: 2, t: 'Khi chưa thoải mái, mình nói về cảm xúc của mình (như "em thấy buồn") thay vì trách móc người kia (như "anh chẳng bao giờ…").' }, // HPS13 · Lắng nghe và giao tiếp
+    { p: 2, t: 'Mình có thể đón nhận sự giúp đỡ, chăm sóc hoặc một lời khen mà không thấy mình mắc nợ hay phải đáp lại ngay.' }, // HPS16 · Ấm áp và đón nhận
+    { p: 2, t: 'Mình thấy thoải mái khi được mềm mại, dịu dàng và nữ tính, mà không cần gồng lên để tỏ ra mạnh mẽ.' }, // HPS25 · Ấm áp và đón nhận (tính nữ)
+    { p: 2, t: 'Mình nói rõ điều mình đồng ý và không đồng ý về thời gian, sự thân mật và cách được đối xử.' }, // HPS19 · Ranh giới
+    { p: 2, t: 'Sau một lần hẹn không như ý, mình vẫn tin rằng mình có thể gặp được người phù hợp.' } // HPS21 · Hy vọng và sinh khí
   ];
 
   var SCALE = [
@@ -327,8 +339,8 @@ p { color: var(--text-muted); }
     }
   };
 
-  var STORE_PROGRESS = 'bdty-do12-progress';
-  var STORE_HISTORY = 'bdty-do12-history';
+  var STORE_PROGRESS = 'bdty-do24-progress';
+  var STORE_HISTORY = 'bdty-do24-history';
 
   function load(key) { try { return JSON.parse(localStorage.getItem(key)); } catch (e) { return null; } }
   function save(key, v) { try { localStorage.setItem(key, JSON.stringify(v)); } catch (e) {} }
