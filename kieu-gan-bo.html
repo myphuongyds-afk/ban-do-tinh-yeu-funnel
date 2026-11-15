@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test nhanh: Kiểu gắn bó của bạn</title>
+<meta name="description" content="Bài tự soi chiếu 12 câu giúp bạn hiểu cách mình gần gũi và gắn bó trong tình yêu. Của Coach My Phương.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Fraunces:ital,wght@0,600;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FFFBF8;--surface:#fff;--text:#3D2222;--muted:#6B4848;--accent:#D37881;--soft:rgba(211,120,129,.12);--deep:#8C4A4E;--border:rgba(61,34,34,.1);--h:'Lora',Georgia,serif;--b:'Inter',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--b);background:var(--bg);color:var(--text);line-height:1.65;min-height:100vh;-webkit-font-smoothing:antialiased}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+h1,h2,h3{font-family:var(--h);line-height:1.3}
+h1{font-family:'Fraunces',var(--h);font-style:italic;font-weight:600;font-size:clamp(1.8rem,5vw,2.6rem);text-align:center;margin-bottom:14px}
+h2{font-size:clamp(1.25rem,3.4vw,1.6rem)}
+p{color:var(--muted)}
+.wrap{max-width:680px;margin:0 auto;padding:28px 16px 56px}
+.brand{text-align:center;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--deep);font-weight:600;margin-bottom:20px}
+.card{background:var(--surface);border-radius:14px;padding:34px 30px;box-shadow:0 12px 36px rgba(61,34,34,.08)}
+@media(max-width:600px){.card{padding:24px 18px}}
+.screen{display:none}.screen.active{display:block;animation:f .35s ease}
+@keyframes f{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.btn{display:inline-block;padding:15px 34px;background:linear-gradient(180deg,#E0A1A7,var(--accent) 50%,var(--deep));color:#fff;border-radius:999px;font-weight:700;font-family:var(--h);box-shadow:0 0 0 6px var(--soft);transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.ghost{padding:11px 20px;border-radius:999px;border:1px solid var(--border);color:var(--muted);font-weight:600;font-size:.92rem}
+.ghost:hover{background:var(--soft);color:var(--deep)}
+.center{text-align:center}
+.lead{text-align:center;font-size:1.03rem;margin-bottom:22px}
+.note{font-size:.85rem;background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:12px 14px;margin:18px 0}
+.prog{height:6px;background:var(--soft);border-radius:9px;overflow:hidden;margin-bottom:8px}
+.prog i{display:block;height:100%;width:0;background:var(--accent);transition:width .3s}
+.cnt{font-size:.82rem;color:var(--muted);margin-bottom:18px}
+.q{font-family:var(--h);font-size:1.2rem;color:var(--text);margin-bottom:20px;min-height:3.6em}
+.opts{display:grid;gap:10px}
+.opt{display:flex;gap:12px;align-items:center;text-align:left;padding:13px 16px;border-radius:12px;border:1px solid var(--border);background:var(--bg);font-size:.97rem}
+.opt b{flex:0 0 28px;height:28px;border-radius:50%;background:var(--soft);color:var(--deep);display:grid;place-items:center;font-size:.85rem}
+.opt:hover{border-color:var(--accent);background:var(--soft)}
+.opt.sel{border-color:var(--accent);background:var(--soft)}
+.nav{display:flex;justify-content:space-between;margin-top:20px}
+.badge{display:inline-block;background:var(--soft);color:var(--deep);border-radius:999px;padding:4px 14px;font-size:.8rem;font-weight:600;margin-bottom:10px}
+.bars{margin:20px 0}
+.bar{margin-bottom:12px}
+.bar .t{display:flex;justify-content:space-between;font-size:.9rem;margin-bottom:4px;color:var(--text)}
+.bar .t span:last-child{color:var(--muted)}
+.bar .tr{height:10px;background:var(--soft);border-radius:9px;overflow:hidden}
+.bar .tr i{display:block;height:100%;background:var(--accent);border-radius:9px}
+.bar.top .tr i{background:var(--deep)}
+.res h2{margin-bottom:8px}
+.res h3{margin:18px 0 6px;font-size:1.05rem}
+.res ul{padding-left:20px;color:var(--muted)}
+.res li{margin-bottom:4px}
+.acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px;justify-content:center}
+.foot{text-align:center;font-size:.8rem;color:var(--muted);margin-top:22px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="brand">My Phương · Happiness Coach</div>
+<div class="card">
+
+<div class="screen active" id="s-intro">
+<h1>Kiểu gắn bó của bạn</h1>
+<p class="lead">12 câu, khoảng 3 phút, để hiểu hơn cách bạn gần gũi và gắn bó trong tình yêu.</p>
+<p>Hãy trả lời theo cách bạn <b>thường cảm thấy</b> trong các mối quan hệ tình cảm, không phải theo cách bạn muốn mình trả lời. Không có đáp án đúng hay sai.</p>
+<div class="note">Đây là bài tự soi chiếu đơn giản, không phải trắc nghiệm chuẩn hóa hay chẩn đoán tâm lý. Kiểu gắn bó cho thấy cách ta cư xử trong mối quan hệ, không quyết định ta có được yêu hay không, và có thể thay đổi theo thời gian.</div>
+<div class="center"><button class="btn" id="start">Bắt đầu</button></div>
+</div>
+
+<div class="screen" id="s-q">
+<div class="prog"><i id="pbar"></i></div>
+<div class="cnt" id="cnt"></div>
+<div class="q" id="qtext"></div>
+<div class="opts" id="opts"></div>
+<div class="nav"><button class="ghost" id="back">← Quay lại</button><span></span></div>
+</div>
+
+<div class="screen res" id="s-res">
+<div class="center"><span class="badge" id="rbadge">Kết quả của bạn</span></div>
+<h2 class="center" id="rtitle"></h2>
+<p class="center" id="rsub"></p>
+<div class="bars" id="bars"></div>
+<div id="rbody"></div>
+<div class="note">Kết quả chỉ để hiểu mình, không phải một nhãn dán cố định. Nhiều người pha trộn hai kiểu hoặc thay đổi theo từng mối quan hệ, và điều đó rất bình thường. Nếu những nỗi sợ hay vết thương cũ còn nặng, hãy cân nhắc có một chuyên gia trị liệu đồng hành.</div>
+<div class="acts"><button class="ghost" id="again">Làm lại</button></div>
+<div class="foot">Bài tập thuộc tài liệu Bước 1 · Lưu hành nội bộ · coachmyphuong.com</div>
+</div>
+
+</div>
+</div>
+<script>
+var Q=[
+["Tôi thấy dễ gần gũi người khác và thoải mái khi dựa vào họ.","A"],
+["Tôi hay lo người ấy không thật sự yêu mình hoặc sẽ không ở lại.","B"],
+["Tôi muốn thân thiết nhưng khó tin tưởng hoàn toàn vào người khác.","C"],
+["Tôi thoải mái khi không có mối quan hệ gần gũi về cảm xúc.","D"],
+["Tôi ít lo bị bỏ rơi; khi người thương cần không gian, tôi vẫn thấy yên.","A"],
+["Tôi muốn hòa quyện thật sâu, và đôi khi thấy người kia lùi lại.","B"],
+["Tôi sợ nếu mình mở lòng và gần quá, mình sẽ bị tổn thương.","C"],
+["Với tôi, độc lập và tự lo được cho mình rất quan trọng; tôi không thích dựa vào ai.","D"],
+["Tôi nói được điều mình cần một cách thẳng thắn mà không quá sợ.","A"],
+["Khi người ấy chậm trả lời, tôi dễ nghĩ đến điều xấu nhất.","B"],
+["Khi mối quan hệ gần hơn, tôi thấy bồn chồn và muốn lùi lại.","C"],
+["Tôi thường tự xử lý cảm xúc một mình, ít chia sẻ.","D"]];
+var L=["Hầu như không đúng","Ít đúng","Đúng một phần","Khá đúng","Rất đúng"];
+var NAME={A:"A · An toàn",B:"B · Lo âu",C:"C · Né tránh",D:"D · Né tránh cực đoan"};
+var INFO={
+A:{t:"Bạn thiên về kiểu An toàn",s:"Thoải mái khi gần gũi và khi dựa vào nhau.",
+ d:"Bạn thấy tương đối dễ gần gũi, ít lo bị bỏ rơi hay bị ai đó “quá gần”. Đây là nền tảng thuận lợi để xây một mối quan hệ cam kết.",
+ l:["Giữ thói quen nói rõ điều mình cần bằng sự dịu dàng.","Chọn người đồng hành cũng biết lắng nghe và nhất quán.","Với người thân thiên về lo âu hoặc né tránh, kiên nhẫn là món quà lớn."]},
+B:{t:"Bạn thiên về kiểu Lo âu",s:"Khao khát gần gũi sâu và dễ lo mình sẽ bị bỏ lại.",
+ d:"Bạn muốn một sự gắn kết sâu, và đôi khi nỗi lo “người ấy có thật sự yêu mình không” lên tiếng khá lớn. Đó là phần sợ hãi muốn giữ bạn an toàn, không phải lỗi của bạn.",
+ l:["Nghe phần đang sợ trong bạn như một đứa trẻ cần được an ủi; thở chậm và để nó nói.","Gọi tên: “đây là nỗi sợ bị bỏ rơi”, rồi đối chiếu với điều thực sự đang diễn ra.","Chọn người ổn định, đáng tin; sự nhất quán của họ giúp bạn dần yên tâm."]},
+C:{t:"Bạn thiên về kiểu Né tránh",s:"Muốn gần nhưng khó tin hoàn toàn và sợ bị tổn thương.",
+ d:"Bạn vẫn mong có sự thân thiết, nhưng việc dựa vào ai đó khiến bạn dè chừng vì sợ đau. Khi mối quan hệ gần hơn, bạn dễ muốn lùi một bước.",
+ l:["Để ý khoảnh khắc mình muốn rút lui và gọi tên nó, không tự trách.","Dùng bước điều chỉnh để tiến thêm một chút về phía thân mật dù còn ngần ngại.","Mở lòng từng bước nhỏ với người đáng tin; sự an toàn lớn lên từ trải nghiệm lặp lại."]},
+D:{t:"Bạn thiên về kiểu Né tránh cực đoan",s:"Coi trọng độc lập, ít muốn dựa vào ai về cảm xúc.",
+ d:"Bạn thoải mái khi tự lo cho mình và ít chia sẻ cảm xúc. Điều này giúp bạn vững vàng, nhưng đôi khi cũng giữ bạn xa những kết nối sâu mà ai cũng cần ở mức độ nào đó.",
+ l:["Thử chia sẻ một điều nhỏ với người bạn tin, rồi để ý cảm giác của mình.","Nhớ rằng kết nối và độc lập không loại trừ nhau.","Tập nhận một sự giúp đỡ nhỏ mỗi tuần, như một cách luyện sự an toàn khi gần gũi."]}};
+var ans,idx;
+function $(i){return document.getElementById(i)}
+function show(id){document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('active')});$(id).classList.add('active');window.scrollTo(0,0)}
+function render(){
+ $('cnt').textContent='Câu '+(idx+1)+' / '+Q.length;
+ $('pbar').style.width=(idx/Q.length*100)+'%';
+ $('qtext').textContent=Q[idx][0];
+ $('back').style.visibility=idx?'visible':'hidden';
+ var h='';for(var i=0;i<5;i++)h+='<button class="opt'+(ans[idx]===i+1?' sel':'')+'" data-v="'+(i+1)+'"><b>'+(i+1)+'</b>'+L[i]+'</button>';
+ $('opts').innerHTML=h;
+}
+$('opts').addEventListener('click',function(e){
+ var b=e.target.closest('.opt');if(!b)return;
+ ans[idx]=+b.getAttribute('data-v');
+ if(idx<Q.length-1){idx++;setTimeout(render,180)}else{setTimeout(result,180)}
+ b.classList.add('sel');
+});
+$('back').onclick=function(){if(idx>0){idx--;render()}};
+$('start').onclick=function(){ans=[];idx=0;show('s-q');render()};
+$('again').onclick=function(){show('s-intro')};
+function result(){
+ var sc={A:0,B:0,C:0,D:0};
+ Q.forEach(function(q,i){sc[q[1]]+=ans[i]||0});
+ var keys=['A','B','C','D'].sort(function(a,b){return sc[b]-sc[a]});
+ var top=keys[0],second=keys[1],mixed=(sc[top]-sc[second])<=1;
+ var I=INFO[top];
+ $('rtitle').textContent=mixed?'Bạn pha trộn '+NAME[top].split(' · ')[1]+' và '+NAME[second].split(' · ')[1]:I.t;
+ $('rsub').textContent=mixed?'Điểm của hai kiểu này gần nhau, rất nhiều người cũng như vậy.':I.s;
+ var bars='';keys.forEach(function(k,i){bars+='<div class="bar'+(i===0||(mixed&&i===1)?' top':'')+'"><div class="t"><span>'+NAME[k]+'</span><span>'+sc[k]+' / 15</span></div><div class="tr"><i style="width:'+(sc[k]/15*100)+'%"></i></div></div>'});
+ $('bars').innerHTML=bars;
+ function blk(k){var x=INFO[k];return '<h3>'+NAME[k]+'</h3><p>'+x.d+'</p><h3 style="font-size:.95rem">Gợi ý nhỏ cho bạn</h3><ul>'+x.l.map(function(s){return '<li>'+s+'</li>'}).join('')+'</ul>'}
+ $('rbody').innerHTML=mixed?blk(top)+blk(second):blk(top);
+ show('s-res');
+}
+</script>
+</body>
+</html>
