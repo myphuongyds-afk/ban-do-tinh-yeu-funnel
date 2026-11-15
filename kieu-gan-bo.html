@@ -55,6 +55,10 @@ p{color:var(--muted)}
 .res li{margin-bottom:4px}
 .acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px;justify-content:center}
 .foot{text-align:center;font-size:.8rem;color:var(--muted);margin-top:22px}
+.pick{display:block;width:100%;text-align:left;padding:16px 18px;border-radius:12px;border:1px solid var(--border);background:var(--bg);font-size:.97rem;margin-bottom:12px;color:var(--text)}
+.pick b{display:inline-block;margin-right:8px;color:var(--deep);font-family:var(--h)}
+.pick:hover,.pick.sel{border-color:var(--accent);background:var(--soft)}
+.src{font-size:.78rem;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -64,96 +68,61 @@ p{color:var(--muted)}
 
 <div class="screen active" id="s-intro">
 <h1>Kiểu gắn bó của bạn</h1>
-<p class="lead">12 câu, khoảng 3 phút, để hiểu hơn cách bạn gần gũi và gắn bó trong tình yêu.</p>
-<p>Hãy trả lời theo cách bạn <b>thường cảm thấy</b> trong các mối quan hệ tình cảm, không phải theo cách bạn muốn mình trả lời. Không có đáp án đúng hay sai.</p>
-<div class="note">Đây là bài tự soi chiếu đơn giản, không phải trắc nghiệm chuẩn hóa hay chẩn đoán tâm lý. Kiểu gắn bó cho thấy cách ta cư xử trong mối quan hệ, không quyết định ta có được yêu hay không, và có thể thay đổi theo thời gian.</div>
+<p class="lead">Một lựa chọn đơn giản, dựa trên cách tiếp cận trong sách LOVE BOOK, để hiểu hơn cách bạn gần gũi và gắn bó trong tình yêu.</p>
+<p>Bạn sẽ đọc bốn mô tả và chọn mô tả phù hợp với mình nhất. Bạn có thể là sự pha trộn của hai kiểu, thậm chí cả bốn, nhưng hãy chọn <b>một</b> mô tả mà bạn thấy gần với mình nhất.</p>
+<div class="note">Đây là cách chọn mô tả để hiểu mình, không phải chẩn đoán tâm lý. Kiểu gắn bó cho thấy cách bạn thường nhìn nhận và hành động trong các mối quan hệ cảm xúc gắn bó; không quyết định bạn có được yêu hay không, và có thể thay đổi.</div>
 <div class="center"><button class="btn" id="start">Bắt đầu</button></div>
 </div>
 
 <div class="screen" id="s-q">
-<div class="prog"><i id="pbar"></i></div>
-<div class="cnt" id="cnt"></div>
-<div class="q" id="qtext"></div>
-<div class="opts" id="opts"></div>
+<h2 style="margin-bottom:6px">Mô tả nào gần với bạn nhất?</h2>
+<p class="cnt">Chọn một.</p>
+<div id="picks"></div>
 <div class="nav"><button class="ghost" id="back">← Quay lại</button><span></span></div>
 </div>
 
 <div class="screen res" id="s-res">
-<div class="center"><span class="badge" id="rbadge">Kết quả của bạn</span></div>
+<div class="center"><span class="badge">Kết quả bạn chọn</span></div>
 <h2 class="center" id="rtitle"></h2>
 <p class="center" id="rsub"></p>
-<div class="bars" id="bars"></div>
 <div id="rbody"></div>
-<div class="note">Kết quả chỉ để hiểu mình, không phải một nhãn dán cố định. Nhiều người pha trộn hai kiểu hoặc thay đổi theo từng mối quan hệ, và điều đó rất bình thường. Nếu những nỗi sợ hay vết thương cũ còn nặng, hãy cân nhắc có một chuyên gia trị liệu đồng hành.</div>
+<h3>Có thể thay đổi kiểu gắn bó</h3>
+<p>Kiểu gắn bó ở tuổi trưởng thành một phần do bẩm sinh, nhưng chủ yếu đến từ trải nghiệm được chăm sóc thuở nhỏ (khoảng hai phần ba người có kiểu gắn bó giống cách người chăm sóc chính đã nuôi dưỡng mình). Nó có thể thay đổi: con đường được kiểm chứng nhiều nhất là ở bên một người đã có kiểu gắn bó an toàn, và bạn cũng có thể chủ động thực hành <b>Lắng nghe – Nhận biết – Điều chỉnh hướng – Lặp lại</b>, luôn với sự dịu dàng và tử tế với bản thân.</p>
+<div class="note">Kiểu gắn bó không dự đoán việc bạn có ở trong các mối quan hệ hay không, mà cho thấy bạn làm gì khi đang ở trong đó. Nếu những nỗi sợ còn nặng, hãy cân nhắc có một chuyên gia trị liệu đồng hành.</div>
 <div class="acts"><button class="ghost" id="again">Làm lại</button></div>
-<div class="foot">Bài tập thuộc tài liệu Bước 1 · Lưu hành nội bộ · coachmyphuong.com</div>
+<div class="foot">Nội dung theo LOVE BOOK (bản v5), Bước 1 · Tài liệu lưu hành nội bộ · coachmyphuong.com</div>
 </div>
 
 </div>
 </div>
 <script>
-var Q=[
-["Tôi thấy dễ gần gũi người khác và thoải mái khi dựa vào họ.","A"],
-["Tôi hay lo người ấy không thật sự yêu mình hoặc sẽ không ở lại.","B"],
-["Tôi muốn thân thiết nhưng khó tin tưởng hoàn toàn vào người khác.","C"],
-["Tôi thoải mái khi không có mối quan hệ gần gũi về cảm xúc.","D"],
-["Tôi ít lo bị bỏ rơi; khi người thương cần không gian, tôi vẫn thấy yên.","A"],
-["Tôi muốn gắn bó thật trọn vẹn với người mình yêu, và đôi khi thấy người kia lùi lại.","B"],
-["Tôi sợ nếu mình mở lòng và gần quá, mình sẽ bị tổn thương.","C"],
-["Với tôi, độc lập và tự lo được cho mình rất quan trọng; tôi không thích dựa vào ai.","D"],
-["Tôi nói được điều mình cần một cách thẳng thắn mà không quá sợ.","A"],
-["Khi người ấy chậm trả lời, tôi dễ nghĩ đến điều xấu nhất.","B"],
-["Khi mối quan hệ gần hơn, tôi thấy bồn chồn và muốn lùi lại.","C"],
-["Tôi thường tự xử lý cảm xúc một mình, ít chia sẻ.","D"]];
-var L=["Hầu như không đúng","Ít đúng","Đúng một phần","Khá đúng","Rất đúng"];
-var NAME={A:"A · An toàn",B:"B · Lo âu",C:"C · Né tránh",D:"D · Né tránh cực đoan"};
-var INFO={
-A:{t:"Bạn thiên về kiểu An toàn",s:"Thoải mái khi gần gũi và khi dựa vào nhau.",
- d:"Bạn thấy tương đối dễ gần gũi, ít lo bị bỏ rơi hay bị ai đó “quá gần”. Đây là nền tảng thuận lợi để xây một mối quan hệ cam kết.",
- l:["Giữ thói quen nói rõ điều mình cần bằng sự dịu dàng.","Chọn người đồng hành cũng biết lắng nghe và nhất quán.","Với người thân thiên về lo âu hoặc né tránh, kiên nhẫn là món quà lớn."]},
-B:{t:"Bạn thiên về kiểu Lo âu",s:"Khao khát gần gũi sâu và dễ lo mình sẽ bị bỏ lại.",
- d:"Bạn muốn một sự gắn kết sâu, và đôi khi nỗi lo “người ấy có thật sự yêu mình không” lên tiếng khá lớn. Đó là phần sợ hãi muốn giữ bạn an toàn, không phải lỗi của bạn.",
- l:["Nghe phần đang sợ trong bạn như một đứa trẻ cần được an ủi; thở chậm và để nó nói.","Gọi tên: “đây là nỗi sợ bị bỏ rơi”, rồi đối chiếu với điều thực sự đang diễn ra.","Chọn người ổn định, đáng tin; sự nhất quán của họ giúp bạn dần yên tâm."]},
-C:{t:"Bạn thiên về kiểu Né tránh",s:"Muốn gần nhưng khó tin hoàn toàn và sợ bị tổn thương.",
- d:"Bạn vẫn mong có sự thân thiết, nhưng việc dựa vào ai đó khiến bạn dè chừng vì sợ đau. Khi mối quan hệ gần hơn, bạn dễ muốn lùi một bước.",
- l:["Để ý khoảnh khắc mình muốn rút lui và gọi tên nó, không tự trách.","Dùng bước điều chỉnh để tiến thêm một chút về phía thân mật dù còn ngần ngại.","Mở lòng từng bước nhỏ với người đáng tin; sự an toàn lớn lên từ trải nghiệm lặp lại."]},
-D:{t:"Bạn thiên về kiểu Né tránh cực đoan",s:"Coi trọng độc lập, ít muốn dựa vào ai về cảm xúc.",
- d:"Bạn thoải mái khi tự lo cho mình và ít chia sẻ cảm xúc. Điều này giúp bạn vững vàng, nhưng đôi khi cũng giữ bạn xa những kết nối sâu mà ai cũng cần ở mức độ nào đó.",
- l:["Thử chia sẻ một điều nhỏ với người bạn tin, rồi để ý cảm giác của mình.","Nhớ rằng kết nối và độc lập không loại trừ nhau.","Tập nhận một sự giúp đỡ nhỏ mỗi tuần, như một cách luyện sự an toàn khi gần gũi."]}};
-var ans,idx;
+var D={
+A:{n:"A · An toàn",en:"Secure",d:"Tôi thấy tương đối dễ gần gũi người khác và thoải mái khi dựa vào họ cũng như để họ dựa vào mình. Tôi không thường lo bị bỏ rơi hay lo ai đó đến quá gần mình.",
+ t:"Bạn chọn kiểu An toàn",s:"Thoải mái khi dựa vào nhau và để người khác dựa vào mình.",
+ b:["Bạn thường cảm thấy thoải mái khi dựa vào người khác và để họ dựa vào mình; bạn thấy mình về cơ bản đáng yêu.","Bạn giỏi những việc như làm quen dần dần, tin tưởng bạn đời, chấp nhận sự gần gũi họ trao, giữ vấn đề ở đúng tỷ lệ, và đáp lại theo cách bạn đời (và mối quan hệ) cần.","Một số người kiểu không an toàn có thể thấy bạn nhàm, chỉ vì bạn không mang đến kịch tính mà họ quen nhầm là đam mê.","Khoảng 60–70% người trưởng thành và trẻ em là kiểu An toàn."],
+ g:["Nếu bạn là kiểu An toàn, hãy vui và tận hưởng: bạn đã sẵn sàng đi tiếp sang bước sau.","Theo nghiên cứu mà sách nhắc đến, bạn nên tìm người có vẻ cùng kiểu An toàn, hoặc người kiểu Lo âu."]},
+B:{n:"B · Lo âu",en:"Anxious",d:"Tôi thấy người khác ngần ngại không muốn gần gũi như tôi mong. Tôi thường lo người yêu không thật sự yêu mình hoặc sẽ không muốn ở lại với mình. Tôi muốn gắn bó trọn vẹn với một người khác, và mong muốn này đôi khi khiến người ta sợ mà rời đi.",
+ t:"Bạn chọn kiểu Lo âu",s:"Tin người khác đáng yêu, nhưng ngần ngại về giá trị của chính mình.",
+ b:["Bạn thấy chắc chắn về việc người khác đáng yêu nhưng ngần ngại về chính mình.","Nhiều người kiểu này lo đến mức “nhảy trước khi nhìn”, bước vào điều tác giả gọi là mini-marriage: gần gũi hơn nhiều, về cảm xúc lẫn thể chất, so với mức độ hiểu nhau thật sự.","Sự vội vàng đến từ khao khát gần gũi mãnh liệt, nhưng sự thân mật thật sự cần thời gian để hình thành; và vội vàng lại có nguy cơ dẫn đến chính sự từ chối mà người kiểu này sợ.","Khoảng một phần năm trẻ em và người trưởng thành là kiểu Lo âu."],
+ g:["Hãy tìm hiểu mọi điều có thể về người bạn đời kiểu An toàn và họ trông ra sao, rồi tìm một người như vậy: họ có mong muốn gắn bó ổn định, cởi mở giúp bạn thấy an toàn và được yêu.","Đừng nản vì không thấy “hóa học” ngay lập tức, hay vì thấy người An toàn có vẻ nhàm. Người kiểu Lo âu hay nhầm sự kích thích sinh lý của lo lắng với tình yêu, và kịch tính của nỗi đau với đam mê.","Đừng vội dừng. Hãy cho mọi việc một chút thời gian để xem sự quan tâm của người ấy có tăng dần đều không, và họ có dần dần (chứ không phải ngay lập tức) bộc lộ thêm về mình không."]},
+C:{n:"C · Né tránh – Sợ hãi",en:"Avoidant/Fearful",d:"Tôi không thoải mái khi gần gũi người khác. Tôi muốn có những mối quan hệ gần gũi về cảm xúc, nhưng thấy khó tin tưởng hoàn toàn hay dựa vào người khác. Tôi lo mình sẽ bị tổn thương nếu để mình quá gần người khác.",
+ t:"Bạn chọn kiểu Né tránh – Sợ hãi",s:"Muốn gần gũi, nhưng sợ bị tổn thương nếu để mình quá gần.",
+ b:["Đây có thể là một con đường cảm xúc gập ghềnh vì cảm giác đẩy – kéo: bạn bị kéo về phía gắn kết, nhưng lại sợ bị người khác dựa vào đến mức cảm thấy bị đẩy vào những hành động tự bảo vệ.","Ví dụ: tạo khoảng cách ngay cả khi mọi việc đang tốt, hoặc phá hoại mối quan hệ bằng cách liên tục tìm lỗi nhỏ ở người kia, và điều này có thể làm chệch hướng sự gần gũi mà bạn khao khát.","Những câu người đọc từng viết: “Tôi thấy như trần trụi khi để ai đó thật sự biết mình.” “Phản ứng đầu tiên của tôi khi được ôm là đẩy ra.”"],
+ g:["Ví dụ trong sách (Ted): khi nghe lời rủ đi dạo như “cả đời bên nhau”, anh bắt đầu bằng việc lắng nghe phần nhỏ trong mình, gọi tên cảm xúc không phán xét (“mình đang sợ cô ấy cần mình”), rồi điều chỉnh hướng: “Mình ở đây vì mình muốn”, và lặp lại mỗi khi thấy quá tải, bị bó chặt hay sợ hãi."]},
+D:{n:"D · Né tránh – Gạt bỏ",en:"Avoidant/Dismissive",d:"Tôi thoải mái khi không có những mối quan hệ gần gũi về cảm xúc. Với tôi, cảm thấy độc lập và tự lập rất quan trọng, và tôi không thích dựa vào người khác hay để người khác dựa vào mình.",
+ t:"Bạn chọn kiểu Né tránh – Gạt bỏ",s:"Coi trọng độc lập và tự lập; không thích dựa vào ai.",
+ b:["Sách nói người kiểu C và D nghe như sẽ tránh hẳn các mối quan hệ, nhưng điều đó không đúng: tiến hóa đã loại bỏ khuynh hướng thật sự muốn ở một mình, và ai cũng cần kết nối, ít nhất đủ để tiếp tục bước vào và ra khỏi các mối quan hệ.","Một phép ví von: bạn là một nguyên tử có hạt nhân và đám mây electron. Người An toàn và người Lo âu muốn bạn đời ở trong hạt nhân; người Né tránh thích bạn đời ở trong đám mây, hiện diện nhưng ở khoảng cách thấy thoải mái chứ không bị đe dọa.","Một người đọc kiểu này viết cho tác giả rằng cảm xúc của họ dành cho người kia thường thoáng qua nên họ không muốn người kia gắn bó quá, và họ rất thoải mái với kiểu gắn bó của mình vì nó giúp các cuộc chuyển tiếp dễ dàng hơn."],
+ g:["Ví dụ trong sách (Lucy): khi thấy khó chịu vì sự quan tâm đều đặn của người kia, cô lắng nghe phần ấy của mình, gọi tên cảm xúc (“mình thấy ngộp”), rồi điều chỉnh hướng: “Anh ấy chưa nói hay làm gì để kiểm soát mình; mình có thể xem anh ấy cư xử thế nào thay vì đoán trước”, và lặp lại mỗi khi muốn rời đi hoặc sợ mất độc lập."]}};
+var pick=null;
 function $(i){return document.getElementById(i)}
-function show(id){document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('active')});$(id).classList.add('active');window.scrollTo(0,0)}
-function render(){
- $('cnt').textContent='Câu '+(idx+1)+' / '+Q.length;
- $('pbar').style.width=(idx/Q.length*100)+'%';
- $('qtext').textContent=Q[idx][0];
- $('back').style.visibility=idx?'visible':'hidden';
- var h='';for(var i=0;i<5;i++)h+='<button class="opt'+(ans[idx]===i+1?' sel':'')+'" data-v="'+(i+1)+'"><b>'+(i+1)+'</b>'+L[i]+'</button>';
- $('opts').innerHTML=h;
-}
-$('opts').addEventListener('click',function(e){
- var b=e.target.closest('.opt');if(!b)return;
- ans[idx]=+b.getAttribute('data-v');
- if(idx<Q.length-1){idx++;setTimeout(render,180)}else{setTimeout(result,180)}
- b.classList.add('sel');
-});
-$('back').onclick=function(){if(idx>0){idx--;render()}};
-$('start').onclick=function(){ans=[];idx=0;show('s-q');render()};
-$('again').onclick=function(){show('s-intro')};
-function result(){
- var sc={A:0,B:0,C:0,D:0};
- Q.forEach(function(q,i){sc[q[1]]+=ans[i]||0});
- var keys=['A','B','C','D'].sort(function(a,b){return sc[b]-sc[a]});
- var top=keys[0],second=keys[1],mixed=(sc[top]-sc[second])<=1;
- var I=INFO[top];
- $('rtitle').textContent=mixed?'Bạn pha trộn '+NAME[top].split(' · ')[1]+' và '+NAME[second].split(' · ')[1]:I.t;
- $('rsub').textContent=mixed?'Điểm của hai kiểu này gần nhau, rất nhiều người cũng như vậy.':I.s;
- var bars='';keys.forEach(function(k,i){bars+='<div class="bar'+(i===0||(mixed&&i===1)?' top':'')+'"><div class="t"><span>'+NAME[k]+'</span><span>'+sc[k]+' / 15</span></div><div class="tr"><i style="width:'+(sc[k]/15*100)+'%"></i></div></div>'});
- $('bars').innerHTML=bars;
- function blk(k){var x=INFO[k];return '<h3>'+NAME[k]+'</h3><p>'+x.d+'</p><h3 style="font-size:.95rem">Gợi ý nhỏ cho bạn</h3><ul>'+x.l.map(function(s){return '<li>'+s+'</li>'}).join('')+'</ul>'}
- $('rbody').innerHTML=mixed?blk(top)+blk(second):blk(top);
- show('s-res');
-}
+function show(id){document.querySelectorAll(".screen").forEach(function(s){s.classList.remove("active")});$(id).classList.add("active");window.scrollTo(0,0)}
+function list(items){return "<ul>"+items.map(function(x){return "<li>"+x+"</li>"}).join("")+"</ul>"}
+$("start").onclick=function(){var h="";["A","B","C","D"].forEach(function(k){h+="<button class=\"pick\" data-k=\""+k+"\"><b>"+k+":</b>"+D[k].d+"</button>"});$("picks").innerHTML=h;show("s-q")};
+$("picks").addEventListener("click",function(e){var b=e.target.closest(".pick");if(!b)return;var k=b.getAttribute("data-k");b.classList.add("sel");setTimeout(function(){result(k)},200)});
+$("back").onclick=function(){show("s-intro")};
+$("again").onclick=function(){show("s-intro")};
+function result(k){var x=D[k];$("rtitle").textContent=x.t;$("rsub").textContent=x.s+" ("+x.en+")";
+ $("rbody").innerHTML="<h3>Mô tả bạn đã chọn</h3><p>"+x.d+"</p><h3>Điều sách nói về kiểu này</h3>"+list(x.b)+"<h3>Gợi ý của sách</h3>"+list(x.g);show("s-res")}
 </script>
 </body>
 </html>
