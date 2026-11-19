@@ -170,6 +170,8 @@ p { color: var(--text-muted); }
 .story-narrative .transform-box { margin: 30px 0; padding: 26px 28px 8px; background: var(--accent-soft); border-radius: var(--radius); border-left: 4px solid var(--accent); }
 .story-narrative .transform-box p { color: var(--text); font-weight: 500; }
 .story-narrative .transform-box p:last-child { font-family: var(--font-h); font-style: italic; font-weight: 600; color: var(--accent-deep); }
+.box-photo { margin: 0 0 22px; max-width: 100%; }
+.box-photo img { display: block; width: 100%; height: auto; border-radius: var(--radius); box-shadow: 0 12px 30px rgba(61, 34, 34, 0.18); }
 .milestone-row { display: flex; justify-content: center; align-items: flex-start; gap: 6px; flex-wrap: wrap; margin: 36px 0; }
 .milestone { text-align: center; width: 118px; }
 .milestone-circle { width: 68px; height: 68px; border-radius: 50%; background: var(--accent-soft); border: 2px solid var(--accent); display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; font-family: var(--font-h); font-weight: 700; color: var(--accent-deep); font-size: 0.85rem; line-height: 1.2; padding: 4px; }
@@ -466,12 +468,14 @@ p { color: var(--text-muted); }
   border-radius: 50%; font-family: var(--font-h); font-weight: 800; font-size: 1.35rem;
   margin-bottom: 20px; flex-shrink: 0;
 }
+.session-band { margin: -36px -36px 26px; padding: 14px 20px; background: var(--accent-deep); color: #fff; border-radius: var(--radius) var(--radius) 0 0; text-align: center; font-family: var(--font-h); font-weight: 600; font-size: 0.92rem; letter-spacing: 0.14em; text-transform: uppercase; }
+@media (max-width: 600px) { .session-band { margin: -28px -22px 22px; font-size: 0.82rem; letter-spacing: 0.1em; } }
 .session-head { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; flex-wrap: wrap; }
 .session-head .session-num { margin-bottom: 0; }
 .session-date { color: var(--accent-deep); font-weight: 600; font-family: var(--font-h); margin-bottom: 16px; font-size: 0.95rem; }
 .session ul { list-style: none; padding: 0; }
 .session ul li { padding: 9px 0 9px 26px; position: relative; color: var(--text); font-size: 0.96rem; }
-.session ul li::before { content: "→"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+.session ul li::before { content: "✦"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
 .session ul li strong { color: var(--accent-deep); }
 
 /* Before/after panel */
@@ -522,7 +526,13 @@ p { color: var(--text-muted); }
 .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; align-items: stretch; }
 .price-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 36px 30px; display: flex; flex-direction: column; }
 .price-card.vip { background: linear-gradient(160deg, var(--surface) 0%, var(--accent-soft) 100%); border: 3px solid var(--accent); position: relative; box-shadow: 0 24px 60px rgba(211,120,129,0.4); margin-top: 14px; }
-.price-card.vip .tag { font-size: 0.88rem; padding: 8px 20px; box-shadow: 0 6px 16px rgba(211,120,129,0.4); }
+.price-card.vip .tag { font-size: 0.88rem; padding: 8px 20px; box-shadow: 0 6px 16px rgba(211,120,129,0.4); left: 50%; right: auto; transform: translateX(-50%); white-space: nowrap; background: var(--accent-deep); }
+.price-card.vip { background: linear-gradient(160deg, var(--surface) 0%, rgba(211,120,129,0.22) 100%); padding-top: 44px; }
+.price-card.vip .price { font-size: 2.8rem; }
+.price-card.vip .vip-why { text-align: center; font-size: 0.95rem; color: var(--accent-deep); font-weight: 600; margin: -8px 0 18px; line-height: 1.5; }
+.price-card.vip .btn-primary { padding-top: 16px; padding-bottom: 16px; font-size: 1.05rem; }
+@media (min-width: 800px) { .pricing-grid { grid-template-columns: 1.2fr 1fr; } .price-card:not(.vip) { margin-top: 14px; } }
+@media (max-width: 420px) { .price-card.vip .tag { font-size: 0.8rem; padding: 7px 14px; } }
 .price-card.vip h3 { color: var(--accent); }
 .price-card .tag { position: absolute; top: -14px; right: 28px; background: var(--accent); color: #fff; padding: 6px 16px; border-radius: 999px; font-size: 0.8rem; font-weight: 700; font-family: var(--font-h); }
 .price-card h3 { text-align: center; }
@@ -771,7 +781,7 @@ footer p { color: inherit; }
       <p>Phương bắt đầu bằng việc giúp bạn nhìn rõ chính mình bằng <strong>một hệ thống toàn diện</strong>.</p>
       <p style="color: var(--text); font-weight: 500;">Ví dụ:</p>
       <div class="piece-list">
-        <div class="piece"><b>Chỉ học dating</b><span>Biết cách gặp gỡ nhưng chưa chắc biết chọn đúng người.</span></div>
+        <div class="piece"><b>Chỉ học dating</b><span>Biết cách gặp gỡ nhưng thiếu nội lực thì khó có được hạnh phúc bền vững.</span></div>
         <div class="piece"><b>Chỉ chữa lành</b><span>Bên trong bình an hơn nhưng nếu không bước ra kết nối thì vẫn chưa gặp được người bạn đời.</span></div>
         <div class="piece"><b>Chỉ xây dựng tiêu chuẩn</b><span>Biết mình muốn gì nhưng khi có cảm xúc vẫn dễ thỏa hiệp.</span></div>
         <div class="piece"><b>Chỉ phát triển bản thân</b><span>Trở thành phiên bản tốt hơn nhưng chưa biết cách đưa phiên bản ấy vào đời sống hẹn hò.</span></div>
@@ -834,7 +844,8 @@ footer p { color: inherit; }
       <p>Phương học cách chăm sóc bản thân, vun bồi nội tâm, biết ơn từng điều nhỏ bé và mở lòng kết nối với những giá trị tích cực. Và từ đó, hạnh phúc bắt đầu nảy nở trong Phương, an nhiên lan tỏa ra mọi không gian, tình yêu và sự đủ đầy chạm tới mọi điều quanh mình.</p>
       <p>Không chỉ trong các mối quan hệ, Phương còn buông đi những gánh nặng trong tâm trí, những gồng gánh luôn nỗ lực, luôn cố gắng.</p>
       <div class="transform-box">
-      <p>Khi trở về đúng dòng chảy của cô bé dịu dàng, cả bên ngoài lẫn bên trong, với sự mềm mại, thả lỏng và năng lượng đón nhận, Phương tập trung vào bản thân, vun bồi nội tâm đủ đầy. Và cuộc đời mở ra một chương mới, hạnh phúc và bừng nở.</p>
+      <figure class="box-photo"><img src="https://drive.google.com/thumbnail?id=1X4bsHOw6a2HgD6zgueKsSEl6BNwiIyUg&sz=w900" alt="My Phương cùng mọi người giữa đồng cỏ, thư thái và rạng rỡ" loading="lazy"></figure>
+      <p>Khi trở về đúng dòng chảy của cô gái dịu dàng, cả bên ngoài lẫn bên trong, với sự mềm mại, thả lỏng và năng lượng đón nhận, Phương tập trung vào bản thân, vun bồi nội tâm đủ đầy. Và cuộc đời mở ra một chương mới, hạnh phúc và bừng nở.</p>
       <p>Điều kỳ diệu đến chỉ không lâu sau đó. Khi Phương ngày càng trở thành một phiên bản hạnh phúc, an nhiên và rạng rỡ nhất của mình, cũng là lúc Phương bắt đầu thu hút những mối quan hệ tích cực vào cuộc sống, và đặc biệt là gặp được người bạn đời như ý, định mệnh của cuộc đời mình. Thời gian nhanh đến nỗi ai cũng ngạc nhiên và nhìn thấy sự thay đổi trong Phương.</p>
       <p>Sau này, khi học chuyên sâu hơn, Phương mới hiểu mình đã vô tình làm đúng: những gì đến với mình đều phản chiếu đúng những gì mình đang là, với năng lượng, tâm thế và niềm tin của mình.</p>
       </div>
@@ -959,10 +970,11 @@ footer p { color: inherit; }
     </div>
     <div class="grid-2 mt-16">
       <div class="session">
+        <div class="session-band">Thứ Sáu · 20h00 · 11/12/2026</div>
         <div class="session-head">
           <span class="badge" style="background: var(--accent); color: #FFFFFF; border-color: var(--accent);">Buổi 1: Diagnose Your Love Journey</span>
         </div>
-        <h3>Chẩn Đoán: Tại Sao Bạn Rất Tốt Nhưng Vẫn Lận Đận?</h3>
+        <h3>Chẩn Đoán: Tại Sao Bạn Rất Tốt Nhưng Tình Yêu Vẫn Lỡ Hẹn</h3>
         <p class="session-date">Thay vì tự dằn vặt "mình sai ở đâu", buổi này giúp bạn tìm ra gốc rễ vấn đề chỉ sau vài mươi phút.</p>
         <ul>
           <li><strong>Có cái nhìn toàn cảnh vấn đề:</strong> Bạn sẽ có một "bản đồ" gồm ba yếu tố nền tảng của một mối quan hệ hạnh phúc, bền vững; để không còn nhìn chuyện tình cảm một cách rời rạc mà bắt đầu hiểu mình đang vững ở đâu, đang thiếu ở đâu.</li>
@@ -971,15 +983,16 @@ footer p { color: inherit; }
         </ul>
       </div>
       <div class="session">
+        <div class="session-band">Thứ Bảy · 20h00 · 12/12/2026</div>
         <div class="session-head">
           <span class="badge" style="background: var(--accent); color: #FFFFFF; border-color: var(--accent);">Buổi 2: Design Your Love Blueprint</span>
         </div>
-        <h3>Vẽ Bản Đồ: Cách Nhận Diện Và Chọn Đúng Người Bạn Đời</h3>
-        <p class="session-date">Không lý thuyết suông. Buổi này cung cấp cho bạn những công cụ thực tế để áp dụng ngay vào hành trình hẹn hò.</p>
+        <h3>Nâng Tầm Bản Thể Để Thu Hút Và Kiến Tạo Mối Quan Hệ Như Ý</h3>
+        <p class="session-date">Buổi này giúp bạn hiểu chìa khóa bí mật để tạo ra sự thay đổi bền vững và có một lộ trình cụ thể để đón nhận tình yêu mình xứng đáng.</p>
         <ul>
-          <li><strong>HEART Dating Filter (Bộ lọc hẹn hò từ trái tim):</strong> Bạn sẽ xây dựng một hệ tiêu chuẩn thực tế dựa trên giá trị cốt lõi và điều thực sự quan trọng với mình (không viễn vông) để ngay từ những buổi hẹn đầu tiên, bạn có thể nhận diện sớm mức độ phù hợp và tránh đầu tư quá nhiều cảm xúc vào những kết nối không cùng định hướng.</li>
-          <li><strong>Sáng rõ hơn khi lựa chọn:</strong> Bạn sẽ biết điều gì cần quan sát, điều gì cần thêm thời gian kiểm chứng và chuyển câu hỏi từ "Anh ấy có chọn mình không?" sang "Người này có thực sự phù hợp để cùng mình xây dựng cuộc sống mình mong muốn không?"</li>
-          <li><strong>Kế hoạch ba bước bắt đầu ngay:</strong> Bạn sẽ chốt lại đúng ba ưu tiên cần bắt đầu sau workshop để từng bước tiến gần hơn đến một mối quan hệ cam kết và hôn nhân hạnh phúc mà bạn thực sự khao khát.</li>
+          <li><strong>Xây dựng sức hút từ bên trong:</strong> Thấu hiểu rào cản nội tại đang ngăn bạn có được hạnh phúc và tình yêu mà bạn khao khát, để sự rạng rỡ và sức hút tỏa ra tự nhiên từ chính con người bạn, không cần gồng mình hay cố trở thành một ai khác để được yêu.</li>
+          <li><strong>Trở thành "phiên bản rạng rỡ nhất" của chính mình:</strong> Bạn sẽ thấy rõ phiên bản mình muốn trở thành và những bước nhỏ để mỗi ngày đến gần hơn, sẵn sàng đón nhận tình yêu mà bạn xứng đáng có được.</li>
+          <li><strong>Cam kết hành động và lộ trình sau workshop:</strong> Bạn sẽ chốt lại đúng ba ưu tiên cần bắt đầu cùng một lộ trình chuyển hóa rõ ràng, để từng bước tiến gần hơn đến một mối quan hệ cam kết và hôn nhân hạnh phúc mà bạn thực sự khao khát.</li>
         </ul>
       </div>
     </div>
@@ -1029,121 +1042,8 @@ footer p { color: inherit; }
   </div>
 </section>
 
-<!-- ===================== QUYỀN LỢI THAM DỰ ===================== -->
-<section class="section" id="benefits">
-  <svg class="deco-branch deco-branch--left" viewBox="0 0 100 140"><use href="#deco-branch-shape"/></svg>
-  <svg class="deco-branch deco-branch--right" viewBox="0 0 100 140"><use href="#deco-branch-shape"/></svg>
-  <div class="container-narrow">
-    <div class="text-center">
-      <span class="eyebrow">Quyền lợi tham dự</span>
-      <h2>Khi Tham Dự Workshop, Bạn Sẽ <span class="text-accent">Nhận Được</span></h2>
-    </div>
-    <ul class="benefit-list mt-16">
-      <li><strong>02 buổi Workshop Live Online qua Zoom:</strong> Trực tiếp cùng Phương nhìn rõ hành trình tình yêu hiện tại, xác định điểm nghẽn và từng bước thiết kế Bản Đồ Tình Yêu của riêng bạn.</li>
-      <li><strong>Love Blueprint Workbook:</strong> Workbook thực hành xuyên suốt 2 buổi, giúp bạn ghi lại kết quả chẩn đoán, bức tranh tình yêu mong muốn và những ưu tiên cần bắt đầu sau workshop.</li>
-      <li><strong>Video Recording trọn đời:</strong> Xem lại toàn bộ 2 buổi học bất cứ khi nào bạn cần ôn lại, chiêm nghiệm sâu hơn hoặc tiếp tục hoàn thiện Bản Đồ Tình Yêu của mình.</li>
-    </ul>
-    <div class="highlight-box mt-8" style="text-align: center;">
-      <p style="font-weight: 700; color: var(--accent-deep); text-align: center;">🎁 Quà Tặng Đặc Biệt: Love Blueprint Toolkit</p>
-      <p style="text-align: center;">Bộ công cụ giúp bạn tiếp tục đưa Bản Đồ Tình Yêu vào đời sống thật sau workshop.</p>
-    </div>
-    <ul class="benefit-list mt-8">
-      <li><strong>Video Training, Tỏa Rạng Từ Bên Trong Để Kiến Tạo Mối Quan Hệ Như Ý:</strong> Vun bồi nền tảng bên trong để trở thành người phụ nữ phù hợp với tình yêu mình mong muốn.</li>
-      <li><strong>Video Training, Làm Mới Trái Tim Để Kiến Tạo Mối Quan Hệ Hạnh Phúc:</strong> Làm mới chính mình để bạn sẵn sàng đón nhận một tình yêu mới trọn vẹn hơn.</li>
-      <li><strong>The First 3 Dates:</strong> 20 câu hỏi tự vấn giúp bạn nhận diện mức độ phù hợp sau ba buổi hẹn đầu tiên. Một công cụ giúp bạn quan sát sáng rõ hơn thay vì chỉ dựa vào rung động ban đầu.</li>
-      <li><strong>Ebook Để Người Bạn Đời Tương Lai Có Cơ Hội Tìm Thấy Bạn:</strong> Bản đồ giúp bạn chủ động xuất hiện tại những môi trường có xác suất gặp gỡ người phù hợp cao hơn.</li>
-    </ul>
-    <div class="gift-showcase">
-      <div class="text-center">
-        <span class="eyebrow">Xem trước quà tặng</span>
-        <h3>Những Gì Bạn Cầm Trên Tay Sau Workshop</h3>
-      </div>
-      <div class="gift-grid">
-        <div class="gift-card gift-card--wide">
-          <span class="gift-tag">Có trong cả 2 vé</span>
-          <div class="gift-visual">
-            <img class="gift-back" src="img/workbook-inside.png" alt="Một trang bên trong Love Blueprint Workbook" loading="lazy">
-            <img class="gift-front" src="img/workbook-cover.png" alt="Bìa Love Blueprint Workbook" loading="lazy">
-          </div>
-          <h4>Love Blueprint Workbook</h4>
-          <p>Cuốn sổ để bạn ngồi xuống, lắng nghe chính mình và viết ra những điều thật nhất.</p>
-          <ul>
-            <li>Nhìn rõ điều đang giữ bạn lại, thay vì tự trách mình</li>
-            <li>Đổi niềm tin cũ thành niềm tin mới ngay trên trang giấy</li>
-            <li>Biết rõ người bạn muốn gặp và điều bạn thực sự cần</li>
-            <li>Rời workshop với kế hoạch 7 ngày đầu tiên, không dừng ở "hiểu"</li>
-          </ul>
-        </div>
-        <div class="gift-card gift-card--vip">
-          <span class="gift-tag">Chỉ có trong Vé VIP</span>
-          <div class="gift-visual">
-            <img class="gift-toc" src="img/ebook-toc.png" alt="Trang mục lục Ebook" loading="lazy">
-            <img class="gift-front" src="img/cover-ebook-2.jpg" alt="Bìa Ebook Để Người Bạn Đời Tương Lai Có Cơ Hội Tìm Thấy Bạn" loading="lazy" style="transform: rotate(2deg);">
-          </div>
-          <h4>Ebook: Để Người Bạn Đời Tương Lai Có Cơ Hội Tìm Thấy Bạn</h4>
-          <p>Tấm bản đồ giúp bạn xuất hiện ở những nơi có xác suất gặp gỡ người phù hợp cao hơn.</p>
-          <ul>
-            <li><strong>Vẽ tấm bản đồ:</strong> soi lại nơi bạn đang xuất hiện và nơi nào đáng để bước tới.</li>
-            <li><strong>Bản đồ các môi trường:</strong> chọn vài môi trường hợp với con người và phong cách sống của bạn.</li>
-            <li><strong>Hiện diện:</strong> để người ấy dễ nhận ra bạn, thong thả và đúng với chính mình.</li>
-            <li><strong>Khi gặp thật:</strong> đón nhận nhẹ nhàng, an toàn và sáng rõ khi có người bước tới.</li>
-            <li><strong>Thực hành:</strong> kế hoạch 30 ngày để tấm bản đồ thành hành động.</li>
-          </ul>
-        </div>
-        <div class="gift-card gift-card--vip">
-          <span class="gift-tag">Chỉ có trong Vé VIP</span>
-          <div class="gift-visual">
-            <img class="gift-back" src="img/first3dates-inside.png" alt="Một trang bên trong bộ câu hỏi The First 3 Dates" loading="lazy">
-            <img class="gift-front" src="img/cover-first3dates.jpg" alt="Bìa bộ câu hỏi The First 3 Dates" loading="lazy">
-          </div>
-          <h4>The First 3 Dates</h4>
-          <p>20 câu hỏi tự vấn giúp bạn nhận diện mức độ phù hợp sau ba buổi hẹn đầu tiên, sáng rõ hơn thay vì chỉ dựa vào rung động ban đầu.</p>
-          <ul>
-            <li><strong>Buổi hẹn thứ nhất:</strong> lắng nghe cảm giác của chính mình khi ở bên người ấy.</li>
-            <li><strong>Buổi hẹn thứ hai:</strong> quan sát giá trị và hành động của họ, xem lời nói có khớp với việc làm.</li>
-            <li><strong>Buổi hẹn thứ ba:</strong> nhìn lại cả hai người để biết có nên cùng bước tiếp.</li>
-            <li><strong>Bừng nở từ bên trong:</strong> nhìn lại câu trả lời của mình để lần sau bạn sáng rõ hơn.</li>
-          </ul>
-        </div>
-        <div class="gift-card gift-card--wide gift-card--lucky">
-          <span class="gift-tag">✦ Quà may mắn · Tặng khi tham dự trực tiếp</span>
-          <div class="gift-visual">
-            <img class="gift-toc" src="img/ebook1-toc.png" alt="Trang mục lục Ebook Kiến Tạo May Mắn Trong Tình Yêu" loading="lazy">
-            <img class="gift-front" src="img/cover-ebook-1.jpg" alt="Bìa Ebook Kiến Tạo May Mắn Trong Tình Yêu" loading="lazy" style="transform: rotate(2deg);">
-          </div>
-          <h4>Ebook: Kiến Tạo May Mắn Trong Tình Yêu</h4>
-          <p>Những bí quyết may mắn Phương ứng dụng trong hành trình từ mong ước đến lời "em đồng ý".</p>
-          <ul>
-            <li><strong>Gỡ bỏ niềm tin giới hạn:</strong> nhìn lại 5 niềm tin về may mắn đang cản bước bạn.</li>
-            <li><strong>Cơ hội:</strong> mở những cánh cửa gặp gỡ và nói "Yes" thay vì để nỗi sợ đóng lại.</li>
-            <li><strong>Sự sẵn sàng:</strong> 3 trụ cột để bạn rạng rỡ, sáng rõ và hiện diện từ trái tim.</li>
-            <li><strong>Vun bồi may mắn:</strong> lòng biết ơn, gieo hạt và giữ hy vọng khi hoa chưa nở.</li>
-            <li><strong>Thực hành:</strong> workbook 7 ngày kiến tạo may mắn và cam kết 30 ngày.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="gift-cta">
-        <a href="#offer" class="btn-primary">Nhận Trọn Bộ Quà Tặng Cùng Vé VIP →</a>
-        <p>Vé VIP 99.000đ gồm cả Workbook, Ebook, Video Training và bộ câu hỏi The First 3 Dates.</p>
-      </div>
-    </div>
-    <div class="text-center mt-12">
-      <span class="eyebrow">Quà may mắn dành cho bạn</span>
-    </div>
-    <ul class="benefit-list mt-4">
-      <li><strong>Ebook Kiến Tạo May Mắn Trong Tình Yêu:</strong> Món quà may mắn Phương dành tặng những bạn tham dự trực tiếp workshop. Những bí quyết may mắn Phương ứng dụng trong hành trình từ mong ước đến lời "em đồng ý".</li>
-    </ul>
-    <div class="text-center mt-12">
-      <span class="eyebrow">Đồng hành sau Workshop</span>
-    </div>
-    <ul class="benefit-list mt-4">
-      <li><strong>Nhóm Zalo riêng dành cho học viên:</strong> Không dừng lại sau hai buổi học, bạn tiếp tục có không gian để đặt câu hỏi, chia sẻ tiến trình và nhận hỗ trợ từ Phương trong quá trình đưa những điều đã học vào đời sống thực tế.</li>
-    </ul>
-  </div>
-</section>
-
 <!-- ===================== BEFORE / AFTER ===================== -->
-<section class="section section-alt" id="before-after">
+<section class="section" id="before-after">
   <svg class="deco-branch deco-branch--right" viewBox="0 0 100 140"><use href="#deco-branch-shape"/></svg>
   <div class="container-narrow">
     <div class="text-center">
@@ -1188,14 +1088,14 @@ footer p { color: inherit; }
           <p>Bạn nhìn thấy bức tranh tổng thể qua 3 yếu tố nền tảng, biết mình đang ở đâu, điều gì đang cản trở mình và đâu là những ưu tiên cần bắt đầu thay đổi.</p>
         </div>
         <div class="ba-card">
-          <div class="ba-card-top"><span class="ba-icon"><svg viewBox="0 0 24 24"><path d="M4 5h16l-6 7v6l-4 2v-8z"/></svg></span><span class="ba-num">02</span></div>
-          <h3>Sáng rõ hơn khi lựa chọn</h3>
-          <p>Bạn biết mình cần quan sát điều gì và chuyển câu hỏi từ "Anh ấy có chọn mình không?" sang "Người này có thực sự phù hợp với mình và cuộc sống mình muốn xây dựng không?"</p>
+          <div class="ba-card-top"><span class="ba-icon"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><span class="ba-num">02</span></div>
+          <h3>Hiểu rào cản bên trong</h3>
+          <p>Bạn nhận ra những niềm tin cũ đang giữ mình trong vòng lặp quen thuộc, và hiểu rằng thay đổi bền vững bắt đầu từ chính mình, không phải từ việc gồng mình làm hài lòng ai.</p>
         </div>
         <div class="ba-card">
           <div class="ba-card-top"><span class="ba-icon"><svg viewBox="0 0 24 24"><circle cx="6" cy="18" r="2"/><circle cx="18" cy="6" r="2"/><path d="M8 18h6a3 3 0 0 0 0-6h-4a3 3 0 0 1 0-6h6"/></svg></span><span class="ba-num">03</span></div>
-          <h3>Biết sàng lọc sớm hơn</h3>
-          <p>Bạn có một "bộ lọc" rõ ràng để nhận diện ai đáng để tiếp tục tìm hiểu, ai không phù hợp và khi nào mình nên dừng lại thay vì tiếp tục đầu tư cảm xúc một cách mơ hồ.</p>
+          <h3>Sức hút tự nhiên và đón nhận tình yêu xứng đáng</h3>
+          <p>Bạn có một lộ trình cụ thể để trở thành phiên bản rạng rỡ nhất của mình, để sức hút tỏa ra tự nhiên và bạn sẵn sàng đón nhận tình yêu xứng đáng với mình, thay vì cố gắng đi tìm hay níu giữ.</p>
         </div>
       </div>
     </div>
@@ -1203,7 +1103,7 @@ footer p { color: inherit; }
 </section>
 
 <!-- ===================== WORKSHOP NÀY CÓ DÀNH CHO BẠN ===================== -->
-<section class="section" id="audience-fit">
+<section class="section section-alt" id="audience-fit">
   <div class="deco-daisy-cluster">
     <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
     <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
@@ -1243,7 +1143,7 @@ footer p { color: inherit; }
 </section>
 
 <!-- ===================== FEEDBACK HỌC VIÊN ===================== -->
-<section class="section section-alt" id="feedback">
+<section class="section" id="feedback">
   <div class="deco-daisy-cluster">
     <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
     <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
@@ -1273,6 +1173,87 @@ footer p { color: inherit; }
   </div>
 </section>
 
+<!-- ===================== QUYỀN LỢI THAM DỰ ===================== -->
+<section class="section section-alt" id="benefits">
+  <svg class="deco-branch deco-branch--left" viewBox="0 0 100 140"><use href="#deco-branch-shape"/></svg>
+  <svg class="deco-branch deco-branch--right" viewBox="0 0 100 140"><use href="#deco-branch-shape"/></svg>
+  <div class="container-narrow">
+    <div class="text-center">
+      <span class="eyebrow">Quà tặng đi kèm Workshop</span>
+      <h2>Những Gì Bạn <span class="text-accent">Cầm Trên Tay</span> Sau Workshop</h2>
+    </div>
+    <div class="gift-showcase" style="margin-top: 36px;">
+      <div class="gift-grid">
+        <div class="gift-card gift-card--wide">
+          <span class="gift-tag">Chỉ có trong Vé VIP</span>
+          <div class="gift-visual">
+            <img class="gift-back" src="img/workbook-inside.png" alt="Một trang bên trong Love Blueprint Workbook" loading="lazy">
+            <img class="gift-front" src="img/workbook-cover.png" alt="Bìa Love Blueprint Workbook" loading="lazy">
+          </div>
+          <h4>Love Blueprint Workbook</h4>
+          <p>Cuốn sổ để bạn ngồi xuống, lắng nghe chính mình và viết ra những điều thật nhất.</p>
+          <ul>
+            <li>Nhìn rõ điều đang giữ bạn lại, thay vì tự trách mình</li>
+            <li>Đổi niềm tin cũ thành niềm tin mới ngay trên trang giấy</li>
+            <li>Biết rõ người bạn muốn gặp và điều bạn thực sự cần</li>
+            <li>Rời workshop với kế hoạch 7 ngày đầu tiên, không dừng ở "hiểu"</li>
+          </ul>
+        </div>
+        <div class="gift-card gift-card--vip">
+          <span class="gift-tag">Chỉ có trong Vé VIP</span>
+          <div class="gift-visual">
+            <img class="gift-toc" src="img/ebook-toc.png" alt="Trang mục lục Ebook" loading="lazy">
+            <img class="gift-front" src="img/cover-ebook-2.jpg" alt="Bìa Ebook Để Người Bạn Đời Tương Lai Có Cơ Hội Tìm Thấy Bạn" loading="lazy" style="transform: rotate(2deg);">
+          </div>
+          <h4>Ebook: Để Người Bạn Đời Tương Lai Có Cơ Hội Tìm Thấy Bạn</h4>
+          <p>Tấm bản đồ giúp bạn xuất hiện ở những nơi có xác suất gặp gỡ người phù hợp cao hơn.</p>
+          <ul>
+            <li><strong>Vẽ tấm bản đồ:</strong> soi lại nơi bạn đang xuất hiện và nơi nào đáng để bước tới.</li>
+            <li><strong>Bản đồ các môi trường:</strong> chọn vài môi trường hợp với con người và phong cách sống của bạn.</li>
+            <li><strong>Hiện diện:</strong> để người ấy dễ nhận ra bạn, thong thả và đúng với chính mình.</li>
+            <li><strong>Khi gặp thật:</strong> đón nhận nhẹ nhàng, an toàn và sáng rõ khi có người bước tới.</li>
+            <li><strong>Thực hành:</strong> kế hoạch 30 ngày để tấm bản đồ thành hành động.</li>
+          </ul>
+        </div>
+        <div class="gift-card gift-card--vip">
+          <span class="gift-tag">Chỉ có trong Vé VIP</span>
+          <div class="gift-visual">
+            <img class="gift-front" src="img/cover-ebook-toarang.jpg" alt="Bìa Ebook Tỏa Rạng Từ Bên Trong Để Kiến Tạo Mối Quan Hệ Như Ý" loading="lazy" style="transform: rotate(2deg);">
+          </div>
+          <h4>Ebook: Tỏa Rạng Từ Bên Trong Để Kiến Tạo Mối Quan Hệ Như Ý</h4>
+          <p>Chiếc chìa khóa bền vững để nâng tầm bản thể: tình yêu bạn khao khát bắt đầu từ việc trở thành "đúng người" trước khi đi tìm "đúng người".</p>
+          <ul>
+            <li><strong>Nhân dạng, gốc rễ của mọi thay đổi:</strong> hiểu vì sao chỉ đổi hành vi thì dễ quay về vòng lặp cũ.</li>
+            <li><strong>Mô hình BLOSS, 5 bước:</strong> làm rõ, buông bỏ, sở hữu, bước nhỏ ý nghĩa và tỏa sáng.</li>
+            <li><strong>Bài tập thực hành:</strong> chân dung người phụ nữ bạn đang trở thành và lá thư từ phiên bản tương lai.</li>
+            <li><strong>Nhật ký bừng nở:</strong> ghi nhận từng bước tiến mỗi tuần để niềm tin mới ngày càng vững.</li>
+          </ul>
+        </div>
+        <div class="gift-card gift-card--wide gift-card--lucky">
+          <span class="gift-tag">✦ Quà may mắn · Tặng khi tham dự trực tiếp</span>
+          <div class="gift-visual">
+            <img class="gift-toc" src="img/ebook1-toc.png" alt="Trang mục lục Ebook Kiến Tạo May Mắn Trong Tình Yêu" loading="lazy">
+            <img class="gift-front" src="img/cover-ebook-1.jpg" alt="Bìa Ebook Kiến Tạo May Mắn Trong Tình Yêu" loading="lazy" style="transform: rotate(2deg);">
+          </div>
+          <h4>Ebook: Kiến Tạo May Mắn Trong Tình Yêu</h4>
+          <p>Những bí quyết may mắn Phương ứng dụng trong hành trình từ mong ước đến lời "em đồng ý".</p>
+          <ul>
+            <li><strong>Gỡ bỏ niềm tin giới hạn:</strong> nhìn lại 5 niềm tin về may mắn đang cản bước bạn.</li>
+            <li><strong>Cơ hội:</strong> mở những cánh cửa gặp gỡ và nói "Yes" thay vì để nỗi sợ đóng lại.</li>
+            <li><strong>Sự sẵn sàng:</strong> 3 trụ cột để bạn rạng rỡ, sáng rõ và hiện diện từ trái tim.</li>
+            <li><strong>Vun bồi may mắn:</strong> lòng biết ơn, gieo hạt và giữ hy vọng khi hoa chưa nở.</li>
+            <li><strong>Thực hành:</strong> workbook 7 ngày kiến tạo may mắn và cam kết 30 ngày.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="gift-cta">
+        <a href="#offer" class="btn-primary">Nhận Trọn Bộ Quà Tặng Cùng Vé VIP →</a>
+        <p>Vé VIP 99.000đ gồm cả Workbook, 3 Ebook và Video Training.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===================== PRICING / OFFER ===================== -->
 <section class="section" id="offer">
   <svg class="deco-flower deco-flower--tl" viewBox="0 0 100 100"><use href="#deco-flower-shape"/></svg>
@@ -1283,42 +1264,81 @@ footer p { color: inherit; }
     <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
   </div>
   <div class="container-narrow">
+    <div class="value-stack">
+      <div class="text-center">
+        <span class="eyebrow">Quyền lợi Vé VIP</span>
+        <h2>Khi Đăng Ký <span class="text-accent">Vé VIP</span>, Bạn Nhận Được</h2>
+        <div class="section-ornament" aria-hidden="true"><span>✦</span></div>
+      </div>
+      <div class="vs-list">
+        <div class="vs-item vs-item--main">
+          <div class="vs-info"><div class="vs-title">2 buổi workshop trực tiếp qua Zoom</div><div class="vs-desc">Có phần thực hành và hỏi đáp trực tiếp cùng Phương sau mỗi buổi.</div></div>
+          <div class="vs-price">Giá trị: <s>1.200.000đ</s></div>
+        </div>
+        <div class="vs-item">
+          <div class="vs-info"><div class="vs-title">Video xem lại trọn đời 2 buổi học</div><div class="vs-desc">Xem lại bất cứ khi nào bạn cần ôn lại và chiêm nghiệm sâu hơn.</div></div>
+          <div class="vs-price">Giá trị: <s>500.000đ</s></div>
+        </div>
+        <div class="vs-item">
+          <div class="vs-info"><div class="vs-title">Love Blueprint Workbook</div><div class="vs-desc">Cuốn sổ thực hành xuyên suốt 2 buổi, để bạn viết ra điều thật nhất.</div></div>
+          <div class="vs-price">Giá trị: <s>300.000đ</s></div>
+        </div>
+        <div class="vs-item">
+          <div class="vs-info"><div class="vs-title">Video Training: Làm Sao Để Nhận Diện Và Chọn Đúng Bạn Đời</div><div class="vs-desc">Cách nhận diện và chọn đúng người bạn đời, để bạn sáng rõ hơn khi lựa chọn.</div></div>
+          <div class="vs-price">Giá trị: <s>600.000đ</s></div>
+        </div>
+        <div class="vs-item">
+          <div class="vs-info"><div class="vs-title">Ebook: Tỏa Rạng Từ Bên Trong Để Kiến Tạo Mối Quan Hệ Như Ý</div><div class="vs-desc">Chiếc chìa khóa bền vững để nâng tầm bản thể và thu hút mối quan hệ như ý.</div></div>
+          <div class="vs-price">Giá trị: <s>200.000đ</s></div>
+        </div>
+        <div class="vs-item">
+          <div class="vs-info"><div class="vs-title">Ebook: Để Người Bạn Đời Tương Lai Có Cơ Hội Tìm Thấy Bạn</div><div class="vs-desc">Tấm bản đồ giúp bạn xuất hiện ở những nơi có xác suất gặp gỡ người phù hợp cao hơn.</div></div>
+          <div class="vs-price">Giá trị: <s>200.000đ</s></div>
+        </div>
+        <div class="vs-item">
+          <div class="vs-info"><div class="vs-title">Ebook Kiến Tạo May Mắn Trong Tình Yêu <span class="vs-tag">Quà may mắn</span></div><div class="vs-desc">Món quà Phương dành tặng những bạn tham dự trực tiếp workshop.</div></div>
+          <div class="vs-price">Giá trị: <s>200.000đ</s></div>
+        </div>
+        <div class="vs-item">
+          <div class="vs-info"><div class="vs-title">Nhóm Zalo riêng dành cho học viên</div><div class="vs-desc">Nơi tiếp tục đặt câu hỏi, chia sẻ tiến trình và nhận hỗ trợ từ Phương.</div></div>
+          <div class="vs-price">Giá trị: <s>300.000đ</s></div>
+        </div>
+      </div>
+      <div class="vs-total">
+        <div class="vs-total-old">Tổng giá trị: <s>3.500.000đ</s></div>
+        <div class="vs-total-mid">Bạn tham gia hôm nay với</div>
+        <div class="vs-total-price">99.000đ</div>
+        <a href="#offer-cards" class="btn-primary vs-btn">Giữ Chỗ Vé VIP Ngay →</a>
+      </div>
+      <p class="vs-note">✦ Cam kết hoàn tiền 100% nếu sau Buổi 1 bạn thấy chưa phù hợp, không hỏi thêm một lời nào.</p>
+    </div>
+
     <div class="text-center">
       <span class="eyebrow">Giữ chỗ ngay hôm nay</span>
       <h2>Bạn Có <span class="text-accent">2 Lựa Chọn</span> Để Giữ Chỗ Cho Mình Ngay Bây Giờ</h2>
     </div>
 
     <div class="pricing-grid mt-16" id="offer-cards">
+      <div class="price-card vip">
+        <span class="tag">✦ Phương khuyên bạn chọn vé này</span>
+        <h3>Vé VIP</h3>
+        <div class="price">99.000đ</div>
+        <p class="vip-why">Để bạn không chỉ nghe một lần rồi quên, mà có đủ video, bộ công cụ và quà tặng để thực hành lâu dài.</p>
+        <ul>
+          <li><strong>Trọn bộ 8 quyền lợi Vé VIP ở trên</strong>, gồm cả Workbook, video xem lại trọn đời, Video Training và 3 Ebook</li>
+          <li>Cam kết hoàn tiền 100% sau Buổi 1</li>
+        </ul>
+        <a href="dang-ky.html" class="btn-primary">Đăng Ký Vé VIP →</a>
+      </div>
       <div class="price-card">
         <h3>Vé Tiêu Chuẩn</h3>
         <div class="price">0 ĐỒNG</div>
         <ul>
           <li>Tham dự 2 buổi Workshop Live Online qua Zoom</li>
-          <li>Workbook cơ bản để thực hành trực tiếp</li>
           <li>Nhóm Zalo riêng dành cho học viên</li>
-          <li class="no">Video Recording xem lại trọn đời 2 buổi học</li>
-          <li class="no">Video Training: Tỏa Rạng Từ Bên Trong Để Kiến Tạo Mối Quan Hệ Như Ý</li>
-          <li class="no">Video Training: Làm Mới Trái Tim Để Kiến Tạo Mối Quan Hệ Hạnh Phúc</li>
-          <li class="no">The First 3 Dates: 20 câu hỏi tự vấn giúp bạn nhận diện mức độ phù hợp sau ba buổi hẹn đầu tiên</li>
-          <li class="no">Ebook: Xuất hiện đúng nơi có xác suất gặp bạn đời tương lai cao nhất</li>
+          <li class="no">Không gồm Workbook, video xem lại, Video Training và Ebook</li>
         </ul>
         <button type="button" class="btn-secondary" onclick="openFreeModal()">Đăng Ký Vé Tiêu Chuẩn</button>
-      </div>
-      <div class="price-card vip">
-        <span class="tag">Được chọn nhiều nhất</span>
-        <h3>Vé VIP</h3>
-        <div class="price">99.000đ</div>
-        <ul>
-          <li>Tham dự 2 buổi Workshop Live Online qua Zoom</li>
-          <li>Workbook cơ bản để thực hành trực tiếp</li>
-          <li>Nhóm Zalo riêng dành cho học viên</li>
-          <li>Video Recording xem lại trọn đời 2 buổi học</li>
-          <li>Video Training: Tỏa Rạng Từ Bên Trong Để Kiến Tạo Mối Quan Hệ Như Ý</li>
-          <li>Video Training: Làm Mới Trái Tim Để Kiến Tạo Mối Quan Hệ Hạnh Phúc</li>
-          <li>The First 3 Dates: 20 câu hỏi tự vấn giúp bạn nhận diện mức độ phù hợp sau ba buổi hẹn đầu tiên</li>
-          <li>Ebook: Xuất hiện đúng nơi có xác suất gặp bạn đời tương lai cao nhất</li>
-        </ul>
-        <a href="dang-ky.html" class="btn-primary">Đăng Ký Vé VIP →</a>
       </div>
     </div>
 
