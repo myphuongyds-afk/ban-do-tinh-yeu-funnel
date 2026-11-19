@@ -314,6 +314,11 @@ p { color: var(--text-muted); }
 }
 .gap-close { margin: 0 0 8px; padding: 22px 24px; background: var(--accent-soft); border-radius: var(--radius); border-left: 4px solid var(--accent); }
 .story-narrative .gap-close p { margin: 0; font-family: var(--font-h); font-size: 1.12rem; line-height: 1.6; color: var(--text); }
+.story-narrative .gap-insight { margin: 26px 0 8px; padding: 18px 22px; text-align: center; font-family: var(--font-h); font-style: italic; font-size: 1.12rem; line-height: 1.65; color: var(--accent-deep); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.story-narrative .gap-insight p { margin: 0; }
+.story-narrative .gap-insight .gi-more { margin-top: 14px; font-family: var(--font-b); font-style: normal; font-size: 1rem; line-height: 1.7; color: var(--text); }
+.story-narrative .gap-insight .gi-more strong { color: var(--accent-deep); }
+.story-narrative .gap-insight strong { color: var(--accent); font-weight: 700; }
 .story-narrative .gap-close strong { color: var(--accent-deep); }
 .piece-list { margin: 8px 0 26px; border-top: 1px solid var(--border); }
 .piece { display: flex; gap: 14px; align-items: baseline; padding: 12px 4px; border-bottom: 1px dashed var(--border); }
@@ -727,7 +732,7 @@ footer p { color: inherit; }
       <p>Bạn nhận ra mình đã đi một chặng đường rất dài, đã từng mở lòng, từng ôm hy vọng, và từng dốc cạn lòng để vun vén cho những yêu thương. Nhưng đổi lại, sau tất cả những cố gắng ấy, thứ bạn nhận về lại là sự loay hoay trong một vòng lặp cũ. Vẫn gặp những người không phù hợp, vẫn nếm trải những tổn thương quen thuộc, chỉ là dưới một cái tên khác mà thôi.</p>
       <p>Bạn nhìn quanh và thấy nhiều người yêu một cách thật tự nhiên, còn mình thì dường như phải cố gắng rất nhiều.</p>
       <p>Dần dần, bạn mất niềm tin rằng một tình yêu đẹp và một cuộc hôn nhân hạnh phúc sẽ có cơ hội dành cho mình. Nó dường như quá khó.</p>
-      <p>Bạn tự hỏi:<br>"Mình sai ở đâu?"<br>"Có phải mình không đủ thu hút?"<br>"Vì sao mình chưa thể có một buổi hẹn đầu tiên ngoài đời?"</p>
+      <p>Bạn tự hỏi:<br>"Mình sai ở đâu?"<br>"Có phải mình không đủ thu hút?"</p>
       <div class="highlight-box">
         <p>Là phụ nữ, tất cả chúng ta đều mơ ước mình được yêu thương, tìm thấy chỗ dựa, được thấu hiểu, được trân trọng và gắn bó lâu dài với một người đàn ông mà chúng ta tôn trọng và tin tưởng.</p>
         <p>Một người bạn đời có thể cùng bạn đi qua những mùa nắng gió của cuộc sống bằng sự chân thành, tử tế và thấu hiểu.</p>
@@ -772,23 +777,11 @@ footer p { color: inherit; }
     <span class="eyebrow">Sự thật cần được nói ra</span>
     <h2>Biết Nhiều Hơn Về Tình Yêu... <span class="text-accent">Không Có Nghĩa Là Sẽ Hạnh Phúc Hơn</span></h2>
     <div class="mt-8">
-      <p>Có thể bạn đã thử rất nhiều cách: chữa lành, yêu bản thân, học cách hẹn hò, đọc sách về tình yêu, học cách giao tiếp với đàn ông... nhưng tại sao chuyện tình cảm vẫn chưa thực sự thay đổi?</p>
-      <p>Bởi vì bạn đang giải quyết <strong>từng mảnh</strong> của bài toán tình yêu, trong khi hành trình tìm bạn đời cần nhiều năng lực kết nối với nhau.</p>
-      <p>Bạn đã đọc sách, xem video, nghe lời khuyên, học cách yêu bản thân, chữa lành, thậm chí cố gắng hẹn hò nhiều hơn.</p>
-      <p>Nhưng bạn vẫn có thể cảm thấy: "Mình không biết chính xác vấn đề của mình nằm ở đâu."</p>
-      <p>Và khi không biết gốc rễ nằm ở đâu, chúng ta rất dễ thay đổi dàn trải: thử rất nhiều thứ nhưng không biết điều gì thực sự cần được ưu tiên.</p>
-      <p>Vì vậy, cách Phương làm không bắt đầu bằng những mẹo hẹn hò hay những kiến thức tình yêu rời rạc.</p>
-      <p>Phương bắt đầu bằng việc giúp bạn nhìn rõ chính mình bằng <strong>một hệ thống toàn diện</strong>.</p>
-      <p style="color: var(--text); font-weight: 500;">Ví dụ:</p>
-      <div class="piece-list">
-        <div class="piece"><b>Chỉ học dating</b><span>Biết cách gặp gỡ nhưng thiếu nội lực thì khó có được hạnh phúc bền vững.</span></div>
-        <div class="piece"><b>Chỉ chữa lành</b><span>Bên trong bình an hơn nhưng nếu không bước ra kết nối thì vẫn chưa gặp được người bạn đời.</span></div>
-        <div class="piece"><b>Chỉ xây dựng tiêu chuẩn</b><span>Biết mình muốn gì nhưng khi có cảm xúc vẫn dễ thỏa hiệp.</span></div>
-        <div class="piece"><b>Chỉ phát triển bản thân</b><span>Trở thành phiên bản tốt hơn nhưng chưa biết cách đưa phiên bản ấy vào đời sống hẹn hò.</span></div>
-        <div class="piece"><b>Chỉ dựa vào cảm xúc</b><span>Có thể rất rung động nhưng rung động không đồng nghĩa với phù hợp để kết hôn.</span></div>
-      </div>
-      <p>Tình yêu không phải một bài toán chỉ cần giải quyết bằng "chữa lành" hay "hẹn hò". Bạn cần phát triển đồng thời cả con người mình, trí tuệ tình yêu và năng lực kết nối.</p>
-      <p><strong>Bạn đang giải quyết từng mảnh, thay vì nhìn tình yêu như một hệ thống toàn diện.</strong></p>
+      <p>Có thể bạn đã thử rất nhiều cách: đọc sách về tình yêu, xem video, nghe lời khuyên, học yêu bản thân, chữa lành, học cách hẹn hò và cách giao tiếp với đàn ông... nhưng tại sao chuyện tình cảm vẫn chưa thực sự thay đổi?</p>
+      <p>Bởi vì bạn đang giải quyết <strong>từng mảnh</strong> của bài toán tình yêu, trong khi hành trình tìm bạn đời cần nhiều năng lực cùng kết nối với nhau.</p>
+      <p>Vì thế, bạn vẫn có thể cảm thấy: "Mình không biết chính xác vấn đề của mình nằm ở đâu."</p>
+      <p>Và khi chưa thấy gốc rễ, chúng ta rất dễ thay đổi dàn trải: thử rất nhiều thứ mà không biết điều gì thực sự cần được ưu tiên.</p>
+      <p>Cách Phương làm không bắt đầu bằng những mẹo hẹn hò hay kiến thức tình yêu rời rạc. Phương bắt đầu bằng việc giúp bạn nhìn rõ chính mình qua <strong>một hệ thống toàn diện</strong>, bởi tình yêu không thể chỉ giải quyết bằng "chữa lành" hay "hẹn hò".</p>
       <div class="gap-head">
         <span class="eyebrow">Vấn đề thực sự</span>
         <h3>Vấn đề thực sự nằm <span class="text-accent">ở đâu?</span></h3>
@@ -797,9 +790,14 @@ footer p { color: inherit; }
         <p class="gap-item">Chúng ta bước vào tình yêu bằng cảm xúc và bản năng, nhưng lại <strong>thiếu một tấm bản đồ</strong> để hiểu mình, biết mình cần gì, chọn ai và xây dựng tình yêu như thế nào.</p>
         <p class="gap-item">Chúng ta có thể học rất nhiều, biết rất nhiều, phát triển rất nhiều ở những lĩnh vực khác…<br>Nhưng lại <strong>chưa biết cách biến những điều mình biết thành trí tuệ tình yêu</strong> để đưa ra những lựa chọn sáng suốt.</p>
         <p class="gap-item">Chúng ta khao khát một người bạn đời phù hợp, nhưng đôi khi <strong>chưa sẵn sàng trở thành hiện thân của tình yêu và hạnh phúc</strong> mà mình mong muốn.</p>
-        <p class="gap-item">Và khi cơ hội đến, chúng ta lại <strong>chưa đủ can đảm để hiện diện và cho phép mình được nhìn thấy</strong>, chưa biết cách tạo ra những kết nối đủ sâu sắc để một mối quan hệ có thể phát triển và tiến tới hôn nhân.</p>
+        <p class="gap-item">Và khi cơ hội đến, chúng ta lại <strong>chưa đủ can đảm để hiện diện và cho phép mình được nhìn thấy</strong>, chưa tạo được những kết nối đủ sâu để một mối quan hệ phát triển và tiến tới hôn nhân.</p>
       </div>
-      <p class="gap-lead">Vì vậy, để kiến tạo một tình yêu hạnh phúc, chúng ta cần phát triển <strong>3 năng lực</strong></p>
+      <div class="gap-insight">
+        <p>Có một <strong>"câu chuyện tình yêu"</strong> đang chạy ngầm bên trong bạn. Nó quyết định bạn rung động với ai, chấp nhận điều gì và tin mình xứng đáng được yêu đến đâu, nhiều hơn bất kỳ kỹ thuật nào.</p>
+        <p class="gi-more">Khi câu chuyện đó còn kể về sự thiếu hụt ("mình chưa đủ tốt", "tình yêu quá khó với mình"), mọi cố gắng bên ngoài đều chỉ là giải quyết phần ngọn. Thử thêm, học thêm, gặp gỡ thêm, tất cả đều chưa chạm được vào gốc rễ.</p>
+        <p class="gi-more"><strong>Đây là điều ít ai nói thẳng:</strong> câu chuyện tình yêu bên trong bạn đang ở ngưỡng nào, tình yêu bạn cho phép mình đón nhận sẽ dừng lại ở ngưỡng đó.</p>
+      </div>
+      <p class="gap-lead">Để kiến tạo một tình yêu hạnh phúc, chúng ta cần phát triển <strong>3 năng lực</strong></p>
       <div class="cap-grid">
         <div class="cap-card">
           <span class="cap-num">01</span>
@@ -1316,11 +1314,11 @@ footer p { color: inherit; }
     <div class="text-center">
       <span class="eyebrow">Giữ chỗ ngay hôm nay</span>
       <h2>Bạn Có <span class="text-accent">2 Lựa Chọn</span> Để Giữ Chỗ Cho Mình Ngay Bây Giờ</h2>
+      <p class="mt-4 text-muted">Đăng ký trước 11/12 để nhận trọn bộ quà tặng và cùng Phương bước vào buổi học đầu tiên.</p>
     </div>
 
     <div class="pricing-grid mt-16" id="offer-cards">
       <div class="price-card vip">
-        <span class="tag">✦ Phương khuyên bạn chọn vé này</span>
         <h3>Vé VIP</h3>
         <div class="price">99.000đ</div>
         <p class="vip-why">Để bạn không chỉ nghe một lần rồi quên, mà có đủ video, bộ công cụ và quà tặng để thực hành lâu dài.</p>
