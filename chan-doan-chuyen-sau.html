@@ -340,7 +340,7 @@ details.map-details[open] .map-open, details.map-details[open] .map-teaser { dis
 
   <!-- INTRO -->
   <section class="screen card intro active" id="s-intro">
-    <a class="ws-strip ws-only" href="https://workshop.coachmyphuong.com/" target="_blank" rel="noopener">🌷 Bộ công cụ đồng hành cùng Workshop <b>Bản Đồ Tình Yêu</b> · 23 &amp; 24/10 · 20h00 <span class="ws-count"></span></a>
+    <a class="ws-strip ws-only" href="https://workshop.coachmyphuong.com/" target="_blank" rel="noopener">🌷 Bộ công cụ đồng hành cùng Workshop <b>Bản Đồ Tình Yêu</b> · 11 &amp; 12/12 · 20h00 <span class="ws-count"></span></a>
     <div class="center"><span class="eyebrow">Bộ công cụ chẩn đoán chuyên sâu · Phiên bản 3.0</span></div>
     <h1>Blossomed Relationship Diagnosis</h1>
     <p class="subtitle">Tấm bản đồ giúp bạn định vị được bản thân trên hành trình kiến tạo tình yêu và tổ ấm hạnh phúc</p>
@@ -525,7 +525,7 @@ details.map-details[open] .map-open, details.map-details[open] .map-teaser { dis
       <h2 style="margin-top:6px">Bản Đồ Tình Yêu · Love Blueprint</h2>
       <p style="margin-top:10px">Hai buổi tối để bạn đi từ <b>mơ hồ</b> đến <b>sáng rõ</b>: nhìn thấy vì sao mình rất tốt mà vẫn lận đận, và vẽ tấm bản đồ để nhận diện và chọn đúng người bạn đời. Những điều bạn vừa khám phá trong bộ câu hỏi này sẽ được Phương cùng bạn đi sâu hơn ở đó.</p>
       <div class="ws-meta">
-        <span>📅 <b>23 &amp; 24/10/2026</b></span>
+        <span>📅 <b>11 &amp; 12/12/2026</b></span>
         <span>🕗 <b>20h00</b></span>
         <span>💻 <b>Online qua Zoom</b></span>
       </div>
@@ -534,7 +534,7 @@ details.map-details[open] .map-open, details.map-details[open] .map-teaser { dis
         <li><b>Buổi 2 · Vẽ bản đồ:</b> Cách nhận diện và chọn đúng người bạn đời, với bộ lọc HEART</li>
       </ul>
       <div class="center"><a class="btn-primary" id="workshop-link" href="/" target="_blank" rel="noopener">Xem chi tiết và giữ chỗ →</a></div>
-      <p class="cta-note">Nếu bạn đã đăng ký rồi, hãy mang kết quả này theo vào workshop. Hẹn gặp bạn lúc 20h00 ngày 23/10 nhé 🌷</p>
+      <p class="cta-note">Nếu bạn đã đăng ký rồi, hãy mang kết quả này theo vào workshop. Hẹn gặp bạn lúc 20h00 ngày 11/12 nhé 🌷</p>
     </div>
   </section>
 
@@ -1207,8 +1207,8 @@ details.map-details[open] .map-open, details.map-details[open] .map-teaser { dis
     var c = document.getElementById('coach-link');
     if (LINKS.coaching) c.href = LINKS.coaching;
     else c.onclick = function (e) { e.preventDefault(); alert('Bạn nhắn Phương qua Zalo để đặt lịch phiên khai vấn 1:1 nhé 🌷'); };
-    // Tự ẩn thẻ workshop sau khi workshop kết thúc (hết ngày 24/10/2026)
-    var workshopOver = new Date() > new Date('2026-10-24T23:59:59+07:00');
+    // Tự ẩn thẻ workshop sau khi workshop kết thúc (hết ngày 12/12/2026)
+    var workshopOver = new Date() > new Date('2026-12-12T23:59:59+07:00');
     if (LINKS.workshop && !workshopOver) document.getElementById('workshop-link').href = LINKS.workshop;
     else document.getElementById('workshop-line').hidden = true;
     var wsOn = LINKS.workshop && !workshopOver;
@@ -1217,9 +1217,9 @@ details.map-details[open] .map-open, details.map-details[open] .map-teaser { dis
       if (wsOn && el.tagName === 'A') el.href = LINKS.workshop;
       if (wsOn) el.querySelectorAll('a.btn-primary').forEach(function (a) { a.href = LINKS.workshop; });
     });
-    // Đếm ngược đến buổi 1 (20h00 ngày 23/10/2026, giờ Việt Nam)
+    // Đếm ngược đến buổi 1 (20h00 ngày 11/12/2026, giờ Việt Nam)
     var vnNow = new Date(Date.now() + 7 * 3600e3), vnToday = Date.UTC(vnNow.getUTCFullYear(), vnNow.getUTCMonth(), vnNow.getUTCDate());
-    var days = Math.round((Date.UTC(2026, 9, 23) - vnToday) / 864e5);
+    var days = Math.round((Date.UTC(2026, 11, 11) - vnToday) / 864e5);
     var countText = days > 1 ? 'Còn ' + days + ' ngày' : days === 1 ? 'Ngày mai' : days === 0 ? 'Tối nay 20h00' : 'Đang diễn ra';
     document.querySelectorAll('.ws-count').forEach(function (s) { s.textContent = wsOn ? countText : ''; });
   })();
