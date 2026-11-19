@@ -616,6 +616,13 @@ body.modal-open { overflow: hidden; }
 .faq-item .answer { padding: 0 24px 24px; color: var(--text-muted); white-space: pre-line; }
 
 /* Final CTA */
+.quote-band { background: linear-gradient(180deg, var(--bg) 0%, var(--accent-soft) 100%); padding: 56px 0; position: relative; overflow: hidden; }
+.quote-band .container-narrow { position: relative; z-index: 1; }
+.big-quote { margin: 4px auto 0; max-width: 640px; }
+.big-quote p { font-family: var(--font-h); font-style: italic; font-weight: 600; font-size: clamp(1.2rem, 3.4vw, 1.65rem); line-height: 1.55; color: var(--text); text-wrap: balance; }
+.big-quote p::before { content: '\201C'; display: block; font-family: Georgia, serif; font-style: normal; font-size: 2.4rem; line-height: 0.8; color: var(--accent); margin-bottom: 4px; }
+.big-quote em { font-style: italic; color: var(--accent); }
+.big-quote .bq-sign { display: block; font-style: normal; margin-top: 16px; font-family: 'Dancing Script', var(--font-h), cursive; font-size: 1.5rem; font-weight: 600; color: var(--accent-deep); }
 .final-cta { background: linear-gradient(180deg, var(--surface) 0%, var(--accent-soft) 100%); border-top: 1px solid var(--border); }
 .final-cta::before { content: ''; position: absolute; inset: 0; background-image: var(--bg-photo, none); background-size: cover; background-position: center; opacity: 0.35; z-index: 0; }
 .final-cta > .container-narrow { position: relative; z-index: 1; }
@@ -704,7 +711,7 @@ footer p { color: inherit; }
     </div>
     <p class="hero-lead">Ngay cả khi bạn nghĩ mình không đủ xinh đẹp, mất niềm tin về tình yêu hoặc chịu nhiều tổn thương trong quá khứ.</p>
     <p class="mt-4 text-muted" style="max-width: 640px; margin-left: auto; margin-right: auto;">
-      <strong style="color: var(--accent-deep);">Một hệ thống đi từ bên trong ra ngoài:</strong><br>từ bản thể rạng rỡ và vững vàng, đến những lựa chọn sáng rõ, đến những kết nối sâu sắc dẫn tới một mối quan hệ cam kết bền vững.
+      <strong style="color: var(--accent-deep);">Một hệ thống đi từ bên trong ra ngoài:</strong><br>từ bản thể rạng rỡ và vững vàng, đến những lựa chọn sáng rõ và những kết nối sâu sắc dẫn tới một mối quan hệ hạnh phúc, ý nghĩa.
     </p>
     <div class="stage-banner mt-8" style="max-width: 700px; margin-left: auto; margin-right: auto;">
       <img src="https://drive.google.com/thumbnail?id=1V-X11Ov4P8o2KyXyqS0DG-gjWvrtnb3d&sz=w1200" alt="My Phương chia sẻ trên sân khấu">
@@ -1286,7 +1293,7 @@ footer p { color: inherit; }
           <div class="vs-price">Giá trị: <s>200.000đ</s></div>
         </div>
         <div class="vs-item">
-          <div class="vs-info"><div class="vs-title">Nhóm Zalo riêng dành cho học viên</div><div class="vs-desc">Nơi tiếp tục đặt câu hỏi, chia sẻ tiến trình và nhận hỗ trợ từ Phương.</div></div>
+          <div class="vs-info"><div class="vs-title">Nhóm Zalo VIP dành cho học viên</div><div class="vs-desc">Nơi tiếp tục đặt câu hỏi, chia sẻ tiến trình và nhận hỗ trợ từ Phương.</div></div>
           <div class="vs-price">Giá trị: <s>300.000đ</s></div>
         </div>
       </div>
@@ -1312,6 +1319,7 @@ footer p { color: inherit; }
         <p class="vip-why">Để bạn không chỉ nghe một lần rồi quên, mà có đủ video, bộ công cụ và quà tặng để thực hành lâu dài.</p>
         <ul>
           <li><strong>Trọn bộ 8 quyền lợi Vé VIP ở trên</strong>, gồm cả Workbook, video xem lại trọn đời, Video Training và 3 Ebook</li>
+          <li>Nhóm Zalo VIP dành cho học viên</li>
           <li>Cam kết hoàn tiền 100% sau Buổi 1</li>
         </ul>
         <a href="dang-ky.html" class="btn-primary">Đăng Ký Vé VIP →</a>
@@ -1384,6 +1392,19 @@ Bạn sẽ mang về một bản đồ và hệ quy chiếu để tiếp tục s
   </div>
 </section>
 
+<!-- ===================== QUOTE ===================== -->
+<section class="section quote-band" id="quote">
+  <svg class="deco-flower deco-flower--tl" viewBox="0 0 100 100"><use href="#deco-flower-shape"/></svg>
+  <svg class="deco-flower deco-flower--br" viewBox="0 0 100 100"><use href="#deco-flower-shape"/></svg>
+  <div class="container-narrow text-center">
+    <div class="section-ornament" aria-hidden="true"><span>✦</span></div>
+    <blockquote class="big-quote">
+      <p>Vì bạn xứng đáng được <em>rạng rỡ là chính mình</em>, <em>bên người bạn yêu thương</em> và <em>sống cuộc đời đẹp nhất</em>.</p>
+      <cite class="bq-sign">La Vie En Rose</cite>
+    </blockquote>
+  </div>
+</section>
+
 <!-- ===================== FINAL CTA ===================== -->
 <section class="section final-cta" id="final-cta" style="--bg-photo: url('https://drive.google.com/thumbnail?id=1GihzlaKdIpbvEM_kYbXCpeUEyWwZmfaY&sz=w1200');">
   <svg class="deco-flower deco-flower--bl" viewBox="0 0 100 100"><use href="#deco-flower-shape"/></svg>
@@ -1403,7 +1424,6 @@ Bạn sẽ mang về một bản đồ và hệ quy chiếu để tiếp tục s
       <p>Bạn không cần phải hoàn hảo. Bạn cũng không cần phải chờ đến khi mình "sẵn sàng".</p>
       <p>Bạn chỉ cần cho mình <strong class="text-accent">2 buổi tối</strong> để bắt đầu nhìn mọi thứ rõ hơn.</p>
       <p>Bạn sẽ bước ra với một trái tim nhẹ nhõm, niềm tin dịu dàng mà vững vàng vào chính mình và <strong class="text-accent">một Tấm Bản Đồ rõ ràng</strong> để từng bước tiến gần hơn đến người bạn đời phù hợp cùng cuộc hôn nhân hạnh phúc mà bạn vẫn luôn mong ước.</p>
-      <p style="font-family: var(--font-h); font-style: italic; font-weight: 600; color: var(--accent-deep); font-size: 1.08rem;">Vì bạn xứng đáng được rạng rỡ là chính mình, bên người bạn yêu thương và sống cuộc đời đẹp nhất. Lavie En Rose</p>
       <p class="letter-signature">By My Phương, Happiness Coach</p>
     </div>
     <div class="section-ornament"><svg viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg></div>
