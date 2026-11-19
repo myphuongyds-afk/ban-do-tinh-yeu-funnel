@@ -242,6 +242,12 @@ p { color: var(--text-muted); }
 
 .pause-prompt { display: flex; align-items: center; justify-content: center; gap: 10px; text-align: center; margin: 40px auto 28px; max-width: 520px; padding: 18px 28px; border: 1px dashed var(--accent); border-radius: 999px; background: var(--accent-soft); font-family: var(--font-h); font-style: italic; font-weight: 600; color: var(--accent-deep); font-size: 1.05rem; }
 .pause-prompt .leaf { font-style: normal; flex-shrink: 0; font-size: 1.2rem; }
+.imagine-photo { position: relative; margin: 40px auto 36px; max-width: 340px; }
+.imagine-photo::before { content: ""; position: absolute; inset: -12px -12px -12px -12px; border: 1px dashed var(--accent); border-radius: 190px 190px 30px 30px; pointer-events: none; }
+.imagine-frame { position: relative; overflow: hidden; border-radius: 170px 170px 20px 20px; background: var(--surface); box-shadow: 0 18px 40px rgba(61, 34, 34, 0.18); }
+.imagine-frame img { display: block; width: 100%; height: auto; }
+.imagine-frame figcaption { padding: 16px 20px 20px; text-align: center; font-family: var(--font-h); font-style: italic; font-weight: 600; font-size: 1rem; line-height: 1.55; color: var(--accent-deep); background: var(--accent-soft); }
+.imagine-frame figcaption .leaf { display: block; font-style: normal; font-size: 1.25rem; margin-bottom: 4px; }
 .eyebrow-pill {
   display: inline-block; font-family: var(--font-h); font-size: 0.92rem; font-weight: 700;
   color: var(--accent-deep); letter-spacing: 0.01em; line-height: 1.5;
@@ -284,6 +290,34 @@ p { color: var(--text-muted); }
 .story-narrative .mistake-num { flex: 0 0 auto; width: 30px; height: 30px; border-radius: 50%; background: var(--accent-soft); color: var(--accent-deep); font-family: var(--font-h); font-weight: 700; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
 .story-narrative .mistake h4 { font-family: var(--font-h); font-size: 1.08rem; color: var(--accent-deep); margin: 0 0 6px; }
 .story-narrative .mistake p { font-size: 0.98rem; margin: 0; color: var(--text-muted); }
+.gap-head { text-align: center; margin: 44px 0 26px; }
+.gap-head h3 { font-family: var(--font-h); font-weight: 700; font-size: clamp(1.5rem, 4.4vw, 1.95rem); line-height: 1.3; color: var(--text); margin-top: 6px; }
+.gap-list { position: relative; margin: 6px 0 30px 8px; padding-left: 26px; border-left: 2px dashed var(--accent); }
+.story-narrative .gap-item { position: relative; margin-bottom: 22px; }
+.story-narrative .gap-item::before { content: ""; position: absolute; left: -35px; top: 0.55em; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 5px var(--accent-soft); }
+.story-narrative .gap-item strong { color: var(--accent-deep); }
+.story-narrative .gap-lead { text-wrap: balance; text-align: center; font-family: var(--font-h); font-weight: 600; font-size: 1.15rem; color: var(--text); margin: 8px 0 22px; }
+.story-narrative .gap-lead::after { content: "↓"; display: block; color: var(--accent); font-size: 1.4rem; line-height: 1; margin-top: 6px; }
+.cap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 0 0 30px; }
+.cap-card { background: var(--surface); border: 1px solid var(--border); border-top: 3px solid var(--accent); border-radius: var(--radius); padding: 18px 16px 18px; text-align: center; box-shadow: 0 10px 26px rgba(61, 34, 34, 0.06); }
+.cap-num { display: block; font-family: var(--font-h); font-weight: 700; font-size: 2rem; line-height: 1; color: var(--accent); margin-bottom: 8px; }
+.cap-card h4 { font-family: var(--font-h); font-size: 1rem; line-height: 1.35; color: var(--accent-deep); margin: 0 0 8px; }
+.story-narrative .cap-card p { font-size: 0.9rem; line-height: 1.55; color: var(--text-muted); margin: 0; }
+@media (max-width: 640px) {
+  .cap-grid { grid-template-columns: 1fr; }
+  .cap-card { display: grid; grid-template-columns: 46px 1fr; column-gap: 12px; align-items: start; text-align: left; padding: 16px 18px; }
+  .cap-num { grid-row: 1 / span 2; margin: 2px 0 0; font-size: 1.7rem; }
+  .cap-card h4 { margin-bottom: 6px; }
+  .story-narrative .gap-lead { font-size: 1.05rem; }
+}
+.gap-close { margin: 0 0 8px; padding: 22px 24px; background: var(--accent-soft); border-radius: var(--radius); border-left: 4px solid var(--accent); }
+.story-narrative .gap-close p { margin: 0; font-family: var(--font-h); font-size: 1.12rem; line-height: 1.6; color: var(--text); }
+.story-narrative .gap-close strong { color: var(--accent-deep); }
+.piece-list { margin: 8px 0 26px; border-top: 1px solid var(--border); }
+.piece { display: flex; gap: 14px; align-items: baseline; padding: 12px 4px; border-bottom: 1px dashed var(--border); }
+.piece b { flex: 0 0 168px; font-family: var(--font-h); font-weight: 700; font-size: 1rem; color: var(--accent-deep); }
+.piece span { font-size: 0.98rem; color: var(--text); line-height: 1.55; }
+@media (max-width: 560px) { .piece { flex-direction: column; gap: 3px; } .piece b { flex: none; } }
 .story-narrative .pull-quote {
   font-family: var(--font-h); font-size: 1.3rem; font-style: italic;
   color: #AF646B; border-left: 3px solid var(--accent);
@@ -509,6 +543,25 @@ p { color: var(--text-muted); }
 }
 .btn-secondary:hover { background: var(--accent-soft); }
 
+/* Value stack (Vé VIP) */
+.value-stack { margin-bottom: 72px; }
+.value-stack .section-ornament { margin: 14px 0 0; color: var(--accent); }
+.vs-list { margin-top: 30px; display: grid; gap: 10px; }
+.vs-item { display: grid; grid-template-columns: 1fr auto; gap: 8px 18px; align-items: start; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; }
+.vs-item--main { border-left: 4px solid var(--accent); background: var(--accent-soft); }
+.vs-title { font-family: var(--font-h); font-weight: 700; font-size: 1.02rem; line-height: 1.4; color: var(--text); margin-bottom: 3px; }
+.vs-desc { font-size: 0.9rem; line-height: 1.55; color: var(--text-muted); }
+.vs-price { font-size: 0.88rem; color: var(--text-muted); white-space: nowrap; padding-top: 3px; }
+.vs-price s { color: var(--text-muted); }
+.vs-tag { display: inline-block; vertical-align: middle; margin-left: 6px; padding: 3px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent-deep); font-family: var(--font-b); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; border: 1px dashed var(--accent); }
+.vs-total { margin-top: 14px; text-align: center; background: var(--accent-deep); color: #FFFFFF; border-radius: var(--radius); padding: 30px 22px 28px; box-shadow: 0 16px 38px rgba(61, 34, 34, 0.2); }
+.vs-total-old { font-size: 0.95rem; opacity: 0.85; }
+.vs-total-old s { opacity: 0.9; }
+.vs-total-mid { font-size: 0.95rem; margin-top: 8px; opacity: 0.95; }
+.vs-total-price { font-family: var(--font-h); font-weight: 700; font-size: clamp(2.4rem, 9vw, 3.4rem); line-height: 1.1; margin: 4px 0 18px; }
+.vs-total .vs-btn { background: #FFFFFF; color: var(--accent-deep); box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.18); padding: 14px 32px; }
+.vs-note { text-align: center; font-size: 0.9rem; color: var(--text-muted); margin-top: 14px; }
+@media (max-width: 560px) { .vs-item { grid-template-columns: 1fr; padding: 14px 16px; } .vs-price { padding-top: 0; } }
 .guarantee-box {
   background: var(--surface); border: 1px dashed var(--accent); border-radius: var(--radius);
   padding: 32px; margin-top: 40px; text-align: center;
@@ -671,7 +724,12 @@ footer p { color: inherit; }
         <p>Và sâu hơn, điều bạn mong muốn không chỉ là có người yêu. Bạn muốn hiểu mình, hiểu tình yêu, để sau này có một gia đình bình yên.</p>
         <p>Và Phương biết bạn đã cố gắng bằng tất cả những gì bạn có để có được tình yêu mà bạn hằng mơ ước.</p>
       </div>
-      <p class="pause-prompt"><span class="leaf">🍃</span>Hãy hít một hơi thật sâu và tưởng tượng bức tranh tình yêu của bạn sẽ có thể tuyệt vời như thế nào...</p>
+      <figure class="imagine-photo">
+        <div class="imagine-frame">
+          <img src="https://drive.google.com/thumbnail?id=1LioFTCoNRzQd1bHMApd7wwigGCRInIWy&sz=w900" alt="My Phương tựa lưng vào gốc cây, nhắm mắt thư thái, tay ôm cuốn sách" loading="lazy">
+          <figcaption><span class="leaf">🍃</span>Hãy hít một hơi thật sâu và tưởng tượng bức tranh tình yêu của bạn sẽ có thể tuyệt vời như thế nào...</figcaption>
+        </div>
+      </figure>
       <div class="highlight-box">
         <p>Bạn có một người bạn đời tử tế, thấu hiểu và luôn đồng hành cùng bạn qua mọi thăng trầm của cuộc sống.</p>
         <p>Bạn trở về một tổ ấm bình yên sau những giờ làm việc mệt mỏi, nơi "bão" dừng sau cánh cửa, cùng nhau nấu một bữa cơm ấm nóng và chia sẻ những câu chuyện dung dị.</p>
@@ -685,8 +743,8 @@ footer p { color: inherit; }
       <p style="color: var(--text); font-weight: 500;">Nhưng hãy dừng lại một chút.</p>
       <p class="pull-quote">"Việc bạn chưa gặp được đúng người... không phải vì bạn chưa đủ tốt. Và cũng không phải vì bạn 'chưa biết cách hẹn hò'. Vấn đề nằm ở chỗ khác."</p>
       <p>Trong vài phút tới đây, Phương sẽ tiết lộ cho bạn lý do tại sao những lời khuyên phổ biến như "chỉ cần tập trung phát triển bản thân thì người tuyệt vời sẽ tự đến" lại chính là thứ đang kìm hãm bạn.</p>
-      <p>Đồng thời, Phương sẽ chỉ cho bạn một hệ thống 3 bước đã giúp rất nhiều phụ nữ tuổi 30 gỡ bỏ sự phòng thủ, nhìn thấu những rào cản ngầm đang ngăn bạn chạm tới tình yêu bình yên và thu hút đúng người bạn đời tử tế.</p>
-      <p>Nhưng trước khi đi vào chi tiết, chúng ta cần làm rõ một sự thật đau lòng...</p>
+      <p>Đồng thời, Phương sẽ chỉ cho bạn một hệ thống 3 bước đã giúp rất nhiều phụ nữ bước vào tuổi 30 gỡ bỏ những niềm tin giới hạn, nhìn thấu những rào cản ngầm đang ngăn bạn chạm tới tình yêu bình yên và khơi mở dòng chảy tình yêu để thu hút đúng người bạn đời tử tế.</p>
+      <p>Nhưng trước khi đi vào chi tiết, chúng ta cần làm rõ một sự thật mà ít người nói với bạn...</p>
     </div>
   </div>
   <div class="deco-daisy-cluster deco-daisy-cluster--br">
@@ -704,14 +762,54 @@ footer p { color: inherit; }
     <span class="eyebrow">Sự thật cần được nói ra</span>
     <h2>Biết Nhiều Hơn Về Tình Yêu... <span class="text-accent">Không Có Nghĩa Là Sẽ Hạnh Phúc Hơn</span></h2>
     <div class="mt-8">
-      <p>Có thể bạn đã thử rất nhiều cách:</p>
-      <p>Bạn đọc sách tâm lý, tìm hiểu về các dấu hiệu độc hại (red flags), các kiểu gắn bó trong tình yêu.</p>
-      <p>Bạn tham gia các khóa học chữa lành, cố gắng trở thành phiên bản hoàn thiện nhất.</p>
-      <p>Bạn viết ra một tờ giấy rõ ràng 10 tiêu chuẩn về người chồng tương lai.</p>
-      <p>Tất cả những điều đó rất tốt. Nhưng... nó vẫn không mang lại kết quả.</p>
-      <p style="color: var(--text); font-weight: 500;">Tại sao?</p>
-      <p>Bởi vì khi trái tim rung động, mọi lý trí và những tiêu chuẩn bạn từng viết ra rất dễ bị xóa sạch. Bạn vẫn có thể dễ dàng thỏa hiệp với những thứ lẽ ra không bao giờ nên chấp nhận.</p>
-      <p>Bạn thấy đấy, hiểu về tình yêu là một chuyện. Nhưng để có một cuộc hôn nhân hạnh phúc, gặp được nhau thôi là chưa đủ.</p>
+      <p>Có thể bạn đã thử rất nhiều cách: chữa lành, yêu bản thân, học cách hẹn hò, đọc sách về tình yêu, học cách giao tiếp với đàn ông... nhưng tại sao chuyện tình cảm vẫn chưa thực sự thay đổi?</p>
+      <p>Bởi vì bạn đang giải quyết <strong>từng mảnh</strong> của bài toán tình yêu, trong khi hành trình tìm bạn đời cần nhiều năng lực kết nối với nhau.</p>
+      <p>Bạn đã đọc sách, xem video, nghe lời khuyên, học cách yêu bản thân, chữa lành, thậm chí cố gắng hẹn hò nhiều hơn.</p>
+      <p>Nhưng bạn vẫn có thể cảm thấy: "Mình không biết chính xác vấn đề của mình nằm ở đâu."</p>
+      <p>Và khi không biết gốc rễ nằm ở đâu, chúng ta rất dễ thay đổi dàn trải: thử rất nhiều thứ nhưng không biết điều gì thực sự cần được ưu tiên.</p>
+      <p>Vì vậy, cách Phương làm không bắt đầu bằng những mẹo hẹn hò hay những kiến thức tình yêu rời rạc.</p>
+      <p>Phương bắt đầu bằng việc giúp bạn nhìn rõ chính mình bằng <strong>một hệ thống toàn diện</strong>.</p>
+      <p style="color: var(--text); font-weight: 500;">Ví dụ:</p>
+      <div class="piece-list">
+        <div class="piece"><b>Chỉ học dating</b><span>Biết cách gặp gỡ nhưng chưa chắc biết chọn đúng người.</span></div>
+        <div class="piece"><b>Chỉ chữa lành</b><span>Bên trong bình an hơn nhưng nếu không bước ra kết nối thì vẫn chưa gặp được người bạn đời.</span></div>
+        <div class="piece"><b>Chỉ xây dựng tiêu chuẩn</b><span>Biết mình muốn gì nhưng khi có cảm xúc vẫn dễ thỏa hiệp.</span></div>
+        <div class="piece"><b>Chỉ phát triển bản thân</b><span>Trở thành phiên bản tốt hơn nhưng chưa biết cách đưa phiên bản ấy vào đời sống hẹn hò.</span></div>
+        <div class="piece"><b>Chỉ dựa vào cảm xúc</b><span>Có thể rất rung động nhưng rung động không đồng nghĩa với phù hợp để kết hôn.</span></div>
+      </div>
+      <p>Tình yêu không phải một bài toán chỉ cần giải quyết bằng "chữa lành" hay "hẹn hò". Bạn cần phát triển đồng thời cả con người mình, trí tuệ tình yêu và năng lực kết nối.</p>
+      <p><strong>Bạn đang giải quyết từng mảnh, thay vì nhìn tình yêu như một hệ thống toàn diện.</strong></p>
+      <div class="gap-head">
+        <span class="eyebrow">Vấn đề thực sự</span>
+        <h3>Vấn đề thực sự nằm <span class="text-accent">ở đâu?</span></h3>
+      </div>
+      <div class="gap-list">
+        <p class="gap-item">Chúng ta bước vào tình yêu bằng cảm xúc và bản năng, nhưng lại <strong>thiếu một tấm bản đồ</strong> để hiểu mình, biết mình cần gì, chọn ai và xây dựng tình yêu như thế nào.</p>
+        <p class="gap-item">Chúng ta có thể học rất nhiều, biết rất nhiều, phát triển rất nhiều ở những lĩnh vực khác…<br>Nhưng lại <strong>chưa biết cách biến những điều mình biết thành trí tuệ tình yêu</strong> để đưa ra những lựa chọn sáng suốt.</p>
+        <p class="gap-item">Chúng ta khao khát một người bạn đời phù hợp, nhưng đôi khi <strong>chưa sẵn sàng trở thành hiện thân của tình yêu và hạnh phúc</strong> mà mình mong muốn.</p>
+        <p class="gap-item">Và khi cơ hội đến, chúng ta lại <strong>chưa đủ can đảm để hiện diện và cho phép mình được nhìn thấy</strong>, chưa biết cách tạo ra những kết nối đủ sâu sắc để một mối quan hệ có thể phát triển và tiến tới hôn nhân.</p>
+      </div>
+      <p class="gap-lead">Vì vậy, để kiến tạo một tình yêu hạnh phúc, chúng ta cần phát triển <strong>3 năng lực</strong></p>
+      <div class="cap-grid">
+        <div class="cap-card">
+          <span class="cap-num">01</span>
+          <h4>Trở Thành Người Phụ Nữ Sẵn Sàng Cho Tình Yêu</h4>
+          <p>Nội lực vững vàng, bản thể mềm mại, rạng rỡ, là hiện thân của tình yêu và hạnh phúc mình khao khát.</p>
+        </div>
+        <div class="cap-card">
+          <span class="cap-num">02</span>
+          <h4>Phát Triển Trí Tuệ Tình Yêu</h4>
+          <p>Hiểu mình, hiểu tình yêu, biết mình cần gì và đưa ra những lựa chọn sáng suốt.</p>
+        </div>
+        <div class="cap-card">
+          <span class="cap-num">03</span>
+          <h4>Thu Hút Đúng Người Và Tự Tin Trong Kết Nối</h4>
+          <p>Can đảm xuất hiện, mở lòng, hiện diện nữ tính, thu hút và biết cách phát triển một mối quan hệ hướng đến cam kết.</p>
+        </div>
+      </div>
+      <div class="gap-close">
+        <p>Đó là khoảng trống mà Phương muốn giúp bạn lấp đầy: <strong>không chỉ trở thành người sẵn sàng cho tình yêu mà còn biết lựa chọn và biết cách xây dựng tình yêu mình mong muốn.</strong></p>
+      </div>
     </div>
 
     <div class="founder-photo-wrap mt-16">
@@ -724,9 +822,10 @@ footer p { color: inherit; }
     </div>
 
     <div class="story-narrative">
-      <p class="pull-quote">Bởi vì chính Phương cũng từng trải qua gần 10 năm thanh xuân loay hoay trong những vòng lặp như thế.</p>
+      <p class="pull-quote">Phương hiểu điều đó, vì chính Phương cũng từng trải qua gần 10 năm thanh xuân loay hoay trong những vòng lặp như thế.</p>
+      <p>Cũng giống như bất kỳ cô gái nào khác, Phương cũng khao khát một mái ấm giản dị, một cuộc sống an yên và hạnh phúc trọn vẹn. Nhưng bao lần Phương tự hỏi: "Mình cũng đủ tốt, cũng đã nỗ lực hoàn thiện bản thân, vì sao hạnh phúc vẫn luôn lỡ hẹn?"</p>
       <p>Suốt những năm tháng ấy, Phương chưa từng ngừng cố gắng. Phương đọc sách tình yêu đến khuya, nghe YouTube mỗi lúc rảnh, rồi nhìn lại mình để sửa từng chút một: dịu dàng hơn, kiên nhẫn hơn, hoàn thiện hơn.</p>
-      <p>Vậy mà hết mối tình này đến mối tình khác khép lại. Không biết bao lần Phương tự hỏi: "Mình cũng tử tế, cũng nỗ lực phát triển bản thân, tại sao hạnh phúc vẫn cứ lỡ hẹn?"</p>
+      <p>Vậy mà hết mối tình này đến mối tình khác khép lại.</p>
       <p>Rồi đến một đêm giữa những ngày khốc liệt của đại dịch Covid 19. Căn phòng nhỏ im lặng. Phương lê đôi chân mệt nhoài đến bên chiếc cửa sổ duy nhất, ngước nhìn bầu trời đêm không trăng, không sao, mong tìm một chút tia sáng. Ánh mắt ấy chỉ khựng lại trước những ngọn đèn le lói của khu nghĩa trang gần nhà.</p>
       <p>Nước mắt cứ thế lăn dài. "Tại sao mình phải chịu đựng đau khổ này? Mình xứng đáng với một cuộc đời hạnh phúc hơn."</p>
       <p>Và trong sự tĩnh lặng ấy, một tiếng nói rất nhỏ vang lên:</p>
@@ -735,41 +834,11 @@ footer p { color: inherit; }
       <p>Phương học cách chăm sóc bản thân, vun bồi nội tâm, biết ơn từng điều nhỏ bé và mở lòng kết nối với những giá trị tích cực. Và từ đó, hạnh phúc bắt đầu nảy nở trong Phương, an nhiên lan tỏa ra mọi không gian, tình yêu và sự đủ đầy chạm tới mọi điều quanh mình.</p>
       <p>Không chỉ trong các mối quan hệ, Phương còn buông đi những gánh nặng trong tâm trí, những gồng gánh luôn nỗ lực, luôn cố gắng.</p>
       <div class="transform-box">
-      <p>Khi trở về đúng dòng chảy của cô bé dịu dàng, cả bên ngoài lẫn bên trong, với sự mềm mại, thả lỏng và năng lượng đón nhận, hay còn gọi là tính nữ, Phương tập trung vào bản thân, vun bồi nội tâm đủ đầy. Và cuộc đời mở ra một chương mới, hạnh phúc và bừng nở.</p>
+      <p>Khi trở về đúng dòng chảy của cô bé dịu dàng, cả bên ngoài lẫn bên trong, với sự mềm mại, thả lỏng và năng lượng đón nhận, Phương tập trung vào bản thân, vun bồi nội tâm đủ đầy. Và cuộc đời mở ra một chương mới, hạnh phúc và bừng nở.</p>
       <p>Điều kỳ diệu đến chỉ không lâu sau đó. Khi Phương ngày càng trở thành một phiên bản hạnh phúc, an nhiên và rạng rỡ nhất của mình, cũng là lúc Phương bắt đầu thu hút những mối quan hệ tích cực vào cuộc sống, và đặc biệt là gặp được người bạn đời như ý, định mệnh của cuộc đời mình. Thời gian nhanh đến nỗi ai cũng ngạc nhiên và nhìn thấy sự thay đổi trong Phương.</p>
       <p>Sau này, khi học chuyên sâu hơn, Phương mới hiểu mình đã vô tình làm đúng: những gì đến với mình đều phản chiếu đúng những gì mình đang là, với năng lượng, tâm thế và niềm tin của mình.</p>
       </div>
 
-      <p class="story-lead-in">Nhìn lại gần 10 năm ấy, Phương thấy những sai lầm mà rất nhiều người trong chúng ta vẫn đang lặp lại:</p>
-      <div class="mistake">
-        <span class="mistake-num">1</span>
-        <div>
-          <h4>Tưởng rằng biết nhiều là sẽ sáng suốt</h4>
-          <p>Bởi vì có kiến thức không đồng nghĩa với trí tuệ. Sách vở và các lớp học cho bạn hiểu biết đúng đắn, nhưng chỉ khi những điều ấy được chuyển hóa bên trong, chúng mới trở thành ngọn đèn dẫn đường cho lựa chọn của bạn.</p>
-        </div>
-      </div>
-      <div class="mistake">
-        <span class="mistake-num">2</span>
-        <div>
-          <h4>Níu giữ một mối quan hệ đã không còn phù hợp</h4>
-          <p>Vì sợ mất đi, bạn chọn ở lại và dần thỏa hiệp với chính tiêu chuẩn của mình. Phương cũng từng ở lại như thế suốt nhiều năm.</p>
-        </div>
-      </div>
-      <div class="mistake">
-        <span class="mistake-num">3</span>
-        <div>
-          <h4>Đặt hạnh phúc của mình vào tay người khác</h4>
-          <p>Khi hạnh phúc của bạn nằm trong tay người khác, mỗi lần họ đến hay đi, cả thế giới của bạn cũng chênh vênh theo. Chỉ khi Phương thôi đặt hạnh phúc vào tay người khác, Phương mới bắt đầu làm chủ vận mệnh của chính mình.</p>
-        </div>
-      </div>
-      <div class="mistake">
-        <span class="mistake-num">4</span>
-        <div>
-          <h4>Mang theo những niềm tin giới hạn về chính mình</h4>
-          <p>Có một thời, Phương tin rằng số phận mình gắn liền với khổ đau và cô đơn. Niềm tin ấy âm thầm dẫn lối Phương chọn ai, ở lại vì điều gì và nghĩ mình xứng đáng nhận được gì. Khi niềm tin đổi thay, cuộc đời cũng đổi thay theo.</p>
-        </div>
-      </div>
-      <p>Cả 4 điều ấy đều không nằm ở sách vở hay kỹ năng, mà nằm ở "hệ điều hành" bên trong: những niềm tin, tổn thương và mô thức cũ.</p>
       <p>Vì vậy, điều bạn cần không chỉ là biết thêm về tình yêu, mà là <strong>chuyển hóa từ bên trong</strong> để trí tuệ thực sự dẫn đường cho cách bạn yêu và lựa chọn.</p>
       <p>Chính trên hành trình đó, Phương càng tin rằng <strong>TÌNH YÊU</strong> và <strong>HẠNH PHÚC</strong> là năng lực có thể được học, rèn luyện và xây dựng.</p>
       <p>Vốn có hơn 6 năm làm việc trong lĩnh vực y tế, Phương có thói quen nhìn mọi thứ theo tính hệ thống để thay đổi từ gốc rễ vấn đề.</p>
@@ -796,11 +865,6 @@ footer p { color: inherit; }
       <div class="video-embed-small">
         <iframe src="https://www.youtube.com/embed/rn-ZzoUKVf4" title="Câu chuyện tình yêu của Phương" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
-    </div>
-
-    <div class="story-narrative mt-8">
-      <p>Sự thật là, một mối quan hệ hạnh phúc, mãn nguyện không được tạo nên từ những mảnh ghép rời rạc như "chỉ cần chữa lành là đủ", "chỉ cần biết cách nói chuyện" hay "chỉ cần có kiến thức tình yêu".</p>
-      <p>Nó đòi hỏi <strong>sự đồng bộ sâu sắc từ bên trong ra bên ngoài</strong>, và đây là 3 trụ cột sẽ giúp bạn chấm dứt chuỗi ngày loay hoay mãi mãi:</p>
     </div>
   </div>
   <div class="wave-divider">
@@ -1224,7 +1288,7 @@ footer p { color: inherit; }
       <h2>Bạn Có <span class="text-accent">2 Lựa Chọn</span> Để Giữ Chỗ Cho Mình Ngay Bây Giờ</h2>
     </div>
 
-    <div class="pricing-grid mt-16">
+    <div class="pricing-grid mt-16" id="offer-cards">
       <div class="price-card">
         <h3>Vé Tiêu Chuẩn</h3>
         <div class="price">0 ĐỒNG</div>
