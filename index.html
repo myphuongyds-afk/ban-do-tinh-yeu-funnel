@@ -314,11 +314,13 @@ p { color: var(--text-muted); }
 }
 .gap-close { margin: 0 0 8px; padding: 22px 24px; background: var(--accent-soft); border-radius: var(--radius); border-left: 4px solid var(--accent); }
 .story-narrative .gap-close p { margin: 0; font-family: var(--font-h); font-size: 1.12rem; line-height: 1.6; color: var(--text); }
-.story-narrative .gap-insight { margin: 26px 0 8px; padding: 18px 22px; text-align: center; font-family: var(--font-h); font-style: italic; font-size: 1.12rem; line-height: 1.65; color: var(--accent-deep); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.story-narrative .gap-insight { margin: 34px 0 30px; padding: 30px 26px 26px; background: var(--surface); border: 1.5px solid var(--accent); border-radius: var(--radius); box-shadow: 0 16px 40px var(--accent-soft); text-align: center; }
 .story-narrative .gap-insight p { margin: 0; }
-.story-narrative .gap-insight .gi-more { margin-top: 14px; font-family: var(--font-b); font-style: normal; font-size: 1rem; line-height: 1.7; color: var(--text); }
-.story-narrative .gap-insight .gi-more strong { color: var(--accent-deep); }
-.story-narrative .gap-insight strong { color: var(--accent); font-weight: 700; }
+.story-narrative .gap-insight p:first-child { font-family: var(--font-h); font-style: italic; font-weight: 600; font-size: clamp(1.2rem, 3.4vw, 1.4rem); line-height: 1.55; color: var(--accent-deep); }
+.story-narrative .gap-insight p:first-child strong { color: var(--accent); font-weight: 700; }
+.story-narrative .gap-insight .gi-more { margin-top: 16px; font-family: var(--font-b); font-style: normal; font-size: 1rem; line-height: 1.7; color: var(--text); }
+.story-narrative .gap-insight .gi-more:last-child { margin-top: 22px; padding: 16px 20px; background: var(--accent-deep); color: #FFFFFF; border-radius: 12px; font-weight: 500; }
+.story-narrative .gap-insight .gi-more:last-child strong { color: #FFFFFF; font-weight: 700; display: block; margin-bottom: 4px; letter-spacing: 0.02em; }
 .story-narrative .gap-close strong { color: var(--accent-deep); }
 .piece-list { margin: 8px 0 26px; border-top: 1px solid var(--border); }
 .piece { display: flex; gap: 14px; align-items: baseline; padding: 12px 4px; border-bottom: 1px dashed var(--border); }
@@ -466,17 +468,22 @@ p { color: var(--text-muted); }
 .gift-cta p { font-size: 0.92rem; color: var(--text-muted); margin: 12px 0 0; }
 @media (max-width: 720px) { .gift-grid { grid-template-columns: 1fr; } .gift-visual { height: 236px; } }
 /* Session cards */
-.session { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 36px; }
+.session { background: var(--surface); border: 1px solid var(--border); border-top: 4px solid var(--accent); border-radius: var(--radius); padding: 32px 34px 34px; }
+#curriculum .grid-2 { grid-template-rows: auto auto auto auto 1fr; }
+#curriculum .session { display: grid; grid-row: span 5; grid-template-rows: subgrid; row-gap: 0; align-content: start; }
+#curriculum .session-head { justify-content: center; margin-bottom: 18px; }
+#curriculum .session h3 { text-align: center; margin: 0 0 12px; text-wrap: balance; }
+#curriculum .session-q { text-align: center; margin: 0 0 12px; }
+#curriculum .session-date { text-align: center; margin: 0 0 14px; padding-bottom: 16px; border-bottom: 1px dashed var(--border); }
 .session-num {
   display: inline-flex; align-items: center; justify-content: center;
   width: 52px; height: 52px; background: var(--accent); color: #FFFFFF;
   border-radius: 50%; font-family: var(--font-h); font-weight: 800; font-size: 1.35rem;
   margin-bottom: 20px; flex-shrink: 0;
 }
-.session-band { margin: -36px -36px 26px; padding: 14px 20px; background: var(--accent-deep); color: #fff; border-radius: var(--radius) var(--radius) 0 0; text-align: center; font-family: var(--font-h); font-weight: 600; font-size: 0.92rem; letter-spacing: 0.14em; text-transform: uppercase; }
-@media (max-width: 600px) { .session-band { margin: -28px -22px 22px; font-size: 0.82rem; letter-spacing: 0.1em; } }
 .session-head { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; flex-wrap: wrap; }
 .session-head .session-num { margin-bottom: 0; }
+.session-q { font-family: var(--font-h); font-style: italic; font-weight: 600; color: var(--accent); font-size: 1rem; line-height: 1.5; margin: 4px 0 14px; }
 .session-date { color: var(--accent-deep); font-weight: 600; font-family: var(--font-h); margin-bottom: 16px; font-size: 0.95rem; }
 .session ul { list-style: none; padding: 0; }
 .session ul li { padding: 9px 0 9px 26px; position: relative; color: var(--text); font-size: 0.96rem; }
@@ -781,43 +788,18 @@ footer p { color: inherit; }
       <p>Bởi vì bạn đang giải quyết <strong>từng mảnh</strong> của bài toán tình yêu, trong khi hành trình tìm bạn đời cần nhiều năng lực cùng kết nối với nhau.</p>
       <p>Vì thế, bạn vẫn có thể cảm thấy: "Mình không biết chính xác vấn đề của mình nằm ở đâu."</p>
       <p>Và khi chưa thấy gốc rễ, chúng ta rất dễ thay đổi dàn trải: thử rất nhiều thứ mà không biết điều gì thực sự cần được ưu tiên.</p>
-      <p>Cách Phương làm không bắt đầu bằng những mẹo hẹn hò hay kiến thức tình yêu rời rạc. Phương bắt đầu bằng việc giúp bạn nhìn rõ chính mình qua <strong>một hệ thống toàn diện</strong>, bởi tình yêu không thể chỉ giải quyết bằng "chữa lành" hay "hẹn hò".</p>
-      <div class="gap-head">
-        <span class="eyebrow">Vấn đề thực sự</span>
-        <h3>Vấn đề thực sự nằm <span class="text-accent">ở đâu?</span></h3>
-      </div>
+      <p>Khi nhìn sâu hơn, thường có những khoảng trống như thế này:</p>
       <div class="gap-list">
         <p class="gap-item">Chúng ta bước vào tình yêu bằng cảm xúc và bản năng, nhưng lại <strong>thiếu một tấm bản đồ</strong> để hiểu mình, biết mình cần gì, chọn ai và xây dựng tình yêu như thế nào.</p>
-        <p class="gap-item">Chúng ta có thể học rất nhiều, biết rất nhiều, phát triển rất nhiều ở những lĩnh vực khác…<br>Nhưng lại <strong>chưa biết cách biến những điều mình biết thành trí tuệ tình yêu</strong> để đưa ra những lựa chọn sáng suốt.</p>
+        <p class="gap-item">Chúng ta có thể học rất nhiều, phát triển rất nhiều ở những lĩnh vực khác…<br>Nhưng lại <strong>chưa biết cách biến những điều mình biết thành trí tuệ tình yêu</strong> để đưa ra những lựa chọn sáng suốt.</p>
+        <p class="gap-item">Chúng ta mong muốn một cuộc sống hạnh phúc, nhưng sâu bên trong lại <strong>chưa tin mình có thể có được điều đó</strong>.</p>
         <p class="gap-item">Chúng ta khao khát một người bạn đời phù hợp, nhưng đôi khi <strong>chưa sẵn sàng trở thành hiện thân của tình yêu và hạnh phúc</strong> mà mình mong muốn.</p>
         <p class="gap-item">Và khi cơ hội đến, chúng ta lại <strong>chưa đủ can đảm để hiện diện và cho phép mình được nhìn thấy</strong>, chưa tạo được những kết nối đủ sâu để một mối quan hệ phát triển và tiến tới hôn nhân.</p>
       </div>
-      <div class="gap-insight">
-        <p>Có một <strong>"câu chuyện tình yêu"</strong> đang chạy ngầm bên trong bạn. Nó quyết định bạn rung động với ai, chấp nhận điều gì và tin mình xứng đáng được yêu đến đâu, nhiều hơn bất kỳ kỹ thuật nào.</p>
-        <p class="gi-more">Khi câu chuyện đó còn kể về sự thiếu hụt ("mình chưa đủ tốt", "tình yêu quá khó với mình"), mọi cố gắng bên ngoài đều chỉ là giải quyết phần ngọn. Thử thêm, học thêm, gặp gỡ thêm, tất cả đều chưa chạm được vào gốc rễ.</p>
-        <p class="gi-more"><strong>Đây là điều ít ai nói thẳng:</strong> câu chuyện tình yêu bên trong bạn đang ở ngưỡng nào, tình yêu bạn cho phép mình đón nhận sẽ dừng lại ở ngưỡng đó.</p>
-      </div>
-      <p class="gap-lead">Để kiến tạo một tình yêu hạnh phúc, chúng ta cần phát triển <strong>3 năng lực</strong></p>
-      <div class="cap-grid">
-        <div class="cap-card">
-          <span class="cap-num">01</span>
-          <h4>Trở Thành Người Phụ Nữ Sẵn Sàng Cho Tình Yêu</h4>
-          <p>Nội lực vững vàng, bản thể mềm mại, rạng rỡ, là hiện thân của tình yêu và hạnh phúc mình khao khát.</p>
-        </div>
-        <div class="cap-card">
-          <span class="cap-num">02</span>
-          <h4>Phát Triển Trí Tuệ Tình Yêu</h4>
-          <p>Hiểu mình, hiểu tình yêu, biết mình cần gì và đưa ra những lựa chọn sáng suốt.</p>
-        </div>
-        <div class="cap-card">
-          <span class="cap-num">03</span>
-          <h4>Thu Hút Đúng Người Và Tự Tin Trong Kết Nối</h4>
-          <p>Can đảm xuất hiện, mở lòng, hiện diện nữ tính, thu hút và biết cách phát triển một mối quan hệ hướng đến cam kết.</p>
-        </div>
-      </div>
       <div class="gap-close">
-        <p>Đó là khoảng trống mà Phương muốn giúp bạn lấp đầy: <strong>không chỉ trở thành người sẵn sàng cho tình yêu mà còn biết lựa chọn và biết cách xây dựng tình yêu mình mong muốn.</strong></p>
+        <p>Đó là khoảng trống mà Phương muốn đồng hành cùng bạn lấp đầy: <strong>không chỉ trở thành người sẵn sàng cho tình yêu, mà còn biết lựa chọn và biết cách xây dựng tình yêu mình mong muốn.</strong></p>
       </div>
+      <p>Cách Phương làm không bắt đầu bằng những mẹo hẹn hò hay kiến thức tình yêu rời rạc. Phương bắt đầu bằng việc giúp bạn nhìn rõ chính mình qua <strong>một hệ thống toàn diện</strong>, bởi tình yêu không thể chỉ giải quyết bằng "chữa lành" hay "hẹn hò".</p>
     </div>
 
     <div class="founder-photo-wrap mt-16">
@@ -848,6 +830,11 @@ footer p { color: inherit; }
       <p>Sau này, khi học chuyên sâu hơn, Phương mới hiểu mình đã vô tình làm đúng: những gì đến với mình đều phản chiếu đúng những gì mình đang là, với năng lượng, tâm thế và niềm tin của mình.</p>
       </div>
 
+      <div class="gap-insight">
+        <p>Có một <strong>"câu chuyện tình yêu"</strong> đang chạy ngầm bên trong bạn. Nó quyết định bạn rung động với ai, chấp nhận điều gì và tin mình xứng đáng được yêu đến đâu, nhiều hơn bất kỳ kỹ thuật nào.</p>
+        <p class="gi-more">Khi câu chuyện đó còn kể về sự thiếu hụt ("mình chưa đủ tốt", "tình yêu quá khó với mình"), mọi cố gắng bên ngoài đều chỉ là giải quyết phần ngọn. Thử thêm, học thêm, gặp gỡ thêm, tất cả đều chưa chạm được vào gốc rễ.</p>
+        <p class="gi-more"><strong>Đây là điều ít ai nói thẳng:</strong> câu chuyện tình yêu bên trong bạn đang ở ngưỡng nào, tình yêu bạn cho phép mình đón nhận sẽ dừng lại ở ngưỡng đó.</p>
+      </div>
       <p>Vì vậy, điều bạn cần không chỉ là biết thêm về tình yêu, mà là <strong>chuyển hóa từ bên trong</strong> để trí tuệ thực sự dẫn đường cho cách bạn yêu và lựa chọn.</p>
       <p>Chính trên hành trình đó, Phương càng tin rằng <strong>TÌNH YÊU</strong> và <strong>HẠNH PHÚC</strong> là năng lực có thể được học, rèn luyện và xây dựng.</p>
       <p>Vốn có hơn 6 năm làm việc trong lĩnh vực y tế, Phương có thói quen nhìn mọi thứ theo tính hệ thống để thay đổi từ gốc rễ vấn đề.</p>
@@ -968,12 +955,12 @@ footer p { color: inherit; }
     </div>
     <div class="grid-2 mt-16">
       <div class="session">
-        <div class="session-band">Thứ Sáu · 20h00 · 11/12/2026</div>
         <div class="session-head">
           <span class="badge" style="background: var(--accent); color: #FFFFFF; border-color: var(--accent);">Buổi 1: Diagnose Your Love Journey</span>
         </div>
         <h3>Chẩn Đoán: Tại Sao Bạn Rất Tốt Nhưng Tình Yêu Vẫn Lỡ Hẹn</h3>
-        <p class="session-date">Thay vì tự dằn vặt "mình sai ở đâu", buổi này giúp bạn tìm ra gốc rễ vấn đề chỉ sau vài mươi phút.</p>
+        <p class="session-q">"Bạn đang vững ở đâu, và còn thiếu điều gì trên hành trình đến một mối quan hệ hạnh phúc, bền vững?"</p>
+        <p class="session-date">Buổi 1 giúp bạn biết được 3 yếu tố nền tảng cho một mối quan hệ bền vững, nhìn ra gốc rễ điều đang cản trở mình và biết nên bắt đầu thay đổi từ đâu, thay vì tự dằn vặt "mình sai ở đâu".</p>
         <ul>
           <li><strong>Có cái nhìn toàn cảnh vấn đề:</strong> Bạn sẽ có một "bản đồ" gồm ba yếu tố nền tảng của một mối quan hệ hạnh phúc, bền vững; để không còn nhìn chuyện tình cảm một cách rời rạc mà bắt đầu hiểu mình đang vững ở đâu, đang thiếu ở đâu.</li>
           <li><strong>Hiểu rõ điều đang cản trở mình:</strong> Thông qua bài test "Chẩn đoán tình yêu" nhanh, bạn sẽ xác định vị trí hiện tại và nhận diện những điểm khiến mình còn loay hoay trong việc lựa chọn, kết nối hoặc xây dựng một mối quan hệ, đồng thời hiểu rõ hơn nguyên nhân phía sau.</li>
@@ -981,13 +968,14 @@ footer p { color: inherit; }
         </ul>
       </div>
       <div class="session">
-        <div class="session-band">Thứ Bảy · 20h00 · 12/12/2026</div>
         <div class="session-head">
-          <span class="badge" style="background: var(--accent); color: #FFFFFF; border-color: var(--accent);">Buổi 2: Design Your Love Blueprint</span>
+          <span class="badge" style="background: var(--accent); color: #FFFFFF; border-color: var(--accent);">Buổi 2: Identity Shifting</span>
         </div>
         <h3>Nâng Tầm Bản Thể Để Thu Hút Và Kiến Tạo Mối Quan Hệ Như Ý</h3>
-        <p class="session-date">Buổi này giúp bạn hiểu chìa khóa bí mật để tạo ra sự thay đổi bền vững và có một lộ trình cụ thể để đón nhận tình yêu mình xứng đáng.</p>
+        <p class="session-q">"Vì sao bạn đã cố gắng thay đổi rất nhiều mà tình yêu vẫn lặp lại một kịch bản quen thuộc?"</p>
+        <p class="session-date">Buổi 2 giúp bạn hiểu chìa khóa bí mật để tạo ra sự thay đổi bền vững và có một lộ trình cụ thể để đón nhận tình yêu mình xứng đáng.</p>
         <ul>
+          <li><strong>Hiểu "nhân dạng",</strong> điều bạn tin về chính mình, đang âm thầm điều khiển cách bạn yêu, chọn và đón nhận tình yêu.</li>
           <li><strong>Xây dựng sức hút từ bên trong:</strong> Thấu hiểu rào cản nội tại đang ngăn bạn có được hạnh phúc và tình yêu mà bạn khao khát, để sự rạng rỡ và sức hút tỏa ra tự nhiên từ chính con người bạn, không cần gồng mình hay cố trở thành một ai khác để được yêu.</li>
           <li><strong>Trở thành "phiên bản rạng rỡ nhất" của chính mình:</strong> Bạn sẽ thấy rõ phiên bản mình muốn trở thành và những bước nhỏ để mỗi ngày đến gần hơn, sẵn sàng đón nhận tình yêu mà bạn xứng đáng có được.</li>
           <li><strong>Cam kết hành động và lộ trình sau workshop:</strong> Bạn sẽ chốt lại đúng ba ưu tiên cần bắt đầu cùng một lộ trình chuyển hóa rõ ràng, để từng bước tiến gần hơn đến một mối quan hệ cam kết và hôn nhân hạnh phúc mà bạn thực sự khao khát.</li>
