@@ -402,6 +402,20 @@ p { color: var(--text-muted); }
 .feedback-grid--tall { margin-top: 24px; }
 .feedback-card--tall { aspect-ratio: 4 / 5; }
 .feedback-card--tall img { object-fit: cover; }
+.fb-quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 36px; }
+.fb-quote { margin: 0; padding: 26px 22px 20px; background: linear-gradient(160deg, var(--surface) 0%, var(--accent-soft) 100%); border: 1px solid var(--border); border-radius: 18px; box-shadow: 0 12px 30px var(--accent-soft); text-align: center; position: relative; }
+.fb-quote::before { content: '\201C'; display: block; font-family: Georgia, serif; font-size: 2.6rem; line-height: 0.7; color: var(--accent); margin-bottom: 8px; }
+.fb-quote blockquote { margin: 0; text-wrap: balance; font-family: var(--font-h); font-style: italic; font-weight: 600; font-size: 1.12rem; line-height: 1.5; color: var(--accent-deep); }
+.fb-quote figcaption { margin-top: 12px; font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); font-weight: 600; }
+.fb-note { margin-top: 34px; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); font-weight: 600; display: flex; align-items: center; gap: 14px; justify-content: center; }
+.fb-note::before, .fb-note::after { content: ''; height: 1px; width: 56px; background: var(--border); }
+.feedback-wall { columns: 2; column-gap: 22px; margin-top: 22px; }
+.feedback-wall .feedback-card { display: block; break-inside: avoid; margin: 0 0 22px; padding: 10px; background: var(--surface); border: 1px solid var(--border); border-radius: 22px; box-shadow: 0 14px 34px var(--accent-soft); aspect-ratio: auto; transition: transform .25s ease, box-shadow .25s ease; }
+.feedback-wall .feedback-card:hover { transform: translateY(-3px); box-shadow: 0 20px 42px rgba(211, 120, 129, 0.28); }
+.feedback-wall .feedback-card img { width: 100%; height: auto; object-fit: contain; border-radius: 14px; background: var(--bg); display: block; }
+.feedback-wall .feedback-card--tall img { aspect-ratio: 4 / 5; object-fit: cover; }
+@media (max-width: 800px) { .fb-quotes { grid-template-columns: 1fr; } }
+@media (max-width: 600px) { .feedback-wall { columns: 1; } .feedback-wall .feedback-card { margin-bottom: 18px; } }
 
 /* Pillar cards */
 .pillar {
@@ -1170,39 +1184,23 @@ footer p { color: inherit; }
     <span class="eyebrow">Học viên nói gì</span>
     <h2>Những Chia Sẻ Từ <span class="text-accent">Học Viên</span> Trong Các Workshop Trước</h2>
     <p class="mt-4 text-muted">Phản hồi thực tế, tin nhắn thật từ học viên chưa qua chỉnh sửa.</p>
-    <div class="feedback-grid">
-      <div class="feedback-card">
-        <img src="https://drive.google.com/thumbnail?id=1HAgosWETM3s2dQ5KBQC1cEThlgdb2ZRO&sz=w800" alt="Feedback workshop từ học viên">
-      </div>
-      <div class="feedback-card">
-        <img src="https://drive.google.com/thumbnail?id=1ylzND-DsT3N1RSDlHFmbVwBMK-Kv13Hp&sz=w800" alt="Feedback workshop từ học viên">
-      </div>
-      <div class="feedback-card">
-        <img src="https://drive.google.com/thumbnail?id=1t4qujGzIptFgeMZEPN_Xan2QVxPkM510&sz=w800" alt="Tin nhắn feedback thật từ học viên">
-      </div>
-      <div class="feedback-card">
-        <img src="https://drive.google.com/thumbnail?id=11VK2KaXSgmLJwdvApq3MU2cHjUI9re3D&sz=w800" alt="Tin nhắn feedback thật từ học viên">
-      </div>
-      <div class="feedback-card">
-        <img src="https://drive.google.com/thumbnail?id=1coFvkMMjRgr8-qANfVBFnlXVgtk9qbxA&sz=w800" alt="Tin nhắn feedback thật từ học viên">
-      </div>
-      <div class="feedback-card">
-        <img src="https://drive.google.com/thumbnail?id=1_47gYiBucAWp5G0kLtMyosTZbcqlP6yd&sz=w1000" alt="Cảm nhận của học viên trong khung chat sau workshop" loading="lazy">
-      </div>
+    <div class="fb-quotes">
+      <figure class="fb-quote"><blockquote>Rất thực tế và hữu ích ạ.</blockquote><figcaption>Học viên sau workshop</figcaption></figure>
+      <figure class="fb-quote"><blockquote>Hay quá chị Phương ơi, rất dễ hiểu ạ.</blockquote><figcaption>Học viên sau workshop</figcaption></figure>
+      <figure class="fb-quote"><blockquote>Cô giáo tận tình và tận tâm quá ạ.</blockquote><figcaption>Học viên sau workshop</figcaption></figure>
     </div>
-    <div class="feedback-grid feedback-grid--tall">
-      <div class="feedback-card feedback-card--tall">
-        <img src="https://drive.google.com/thumbnail?id=1OS7niguM2EjOgZYRHPgaDh9g0EwUr7RM&sz=w800" alt="Học viên nhắn: rất hữu ích, rất cụ thể và chi tiết rõ ràng, rất dễ hiểu" style="object-position: 50% 57%;" loading="lazy">
-      </div>
-      <div class="feedback-card feedback-card--tall">
-        <img src="https://drive.google.com/thumbnail?id=12kbkAkltRdwc_9vVwJsqykGyfoE2rMf5&sz=w800" alt="Học viên cảm ơn những chia sẻ sâu sắc và thực tế sau workshop" style="object-position: 50% 49%;" loading="lazy">
-      </div>
-      <div class="feedback-card feedback-card--tall">
-        <img src="https://drive.google.com/thumbnail?id=1qMFaFkBXEoACFamC3m-DV80Gtedbw6gz&sz=w800" alt="Học viên cảm ơn cô giáo tận tình và tận tâm sau workshop" style="object-position: 50% 59%;" loading="lazy">
-      </div>
-      <div class="feedback-card feedback-card--tall">
-        <img src="https://drive.google.com/thumbnail?id=1URa9aCdeB-C8ePzGq3C3CLfkIGLEgkWq&sz=w800" alt="Học viên nhắn: bài hay quá, nhiều góc nhìn mới" style="object-position: 50% 40%;" loading="lazy">
-      </div>
+    <p class="fb-note">Tin nhắn thật trong khung chat sau các buổi workshop</p>
+    <div class="feedback-wall">
+      <div class="feedback-card"><img src="https://drive.google.com/thumbnail?id=1HAgosWETM3s2dQ5KBQC1cEThlgdb2ZRO&sz=w800" alt="Feedback workshop từ học viên" loading="lazy"></div>
+      <div class="feedback-card"><img src="https://drive.google.com/thumbnail?id=1ylzND-DsT3N1RSDlHFmbVwBMK-Kv13Hp&sz=w800" alt="Feedback workshop từ học viên" loading="lazy"></div>
+      <div class="feedback-card feedback-card--tall"><img src="https://drive.google.com/thumbnail?id=1OS7niguM2EjOgZYRHPgaDh9g0EwUr7RM&sz=w800" alt="Học viên nhắn: rất hữu ích, rất cụ thể và chi tiết rõ ràng, rất dễ hiểu" style="object-position: 50% 57%;" loading="lazy"></div>
+      <div class="feedback-card"><img src="https://drive.google.com/thumbnail?id=1t4qujGzIptFgeMZEPN_Xan2QVxPkM510&sz=w800" alt="Tin nhắn feedback thật từ học viên" loading="lazy"></div>
+      <div class="feedback-card feedback-card--tall"><img src="https://drive.google.com/thumbnail?id=12kbkAkltRdwc_9vVwJsqykGyfoE2rMf5&sz=w800" alt="Học viên cảm ơn những chia sẻ sâu sắc và thực tế sau workshop" style="object-position: 50% 49%;" loading="lazy"></div>
+      <div class="feedback-card"><img src="https://drive.google.com/thumbnail?id=11VK2KaXSgmLJwdvApq3MU2cHjUI9re3D&sz=w800" alt="Tin nhắn feedback thật từ học viên" loading="lazy"></div>
+      <div class="feedback-card"><img src="https://drive.google.com/thumbnail?id=1coFvkMMjRgr8-qANfVBFnlXVgtk9qbxA&sz=w800" alt="Tin nhắn feedback thật từ học viên" loading="lazy"></div>
+      <div class="feedback-card feedback-card--tall"><img src="https://drive.google.com/thumbnail?id=1qMFaFkBXEoACFamC3m-DV80Gtedbw6gz&sz=w800" alt="Học viên cảm ơn cô giáo tận tình và tận tâm sau workshop" style="object-position: 50% 59%;" loading="lazy"></div>
+      <div class="feedback-card feedback-card--tall"><img src="https://drive.google.com/thumbnail?id=1URa9aCdeB-C8ePzGq3C3CLfkIGLEgkWq&sz=w800" alt="Học viên nhắn: bài hay quá, nhiều góc nhìn mới" style="object-position: 50% 40%;" loading="lazy"></div>
+      <div class="feedback-card"><img src="https://drive.google.com/thumbnail?id=1_47gYiBucAWp5G0kLtMyosTZbcqlP6yd&sz=w1000" alt="Cảm nhận của học viên trong khung chat sau workshop" loading="lazy"></div>
     </div>
   </div>
 </section>
