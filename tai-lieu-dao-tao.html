@@ -48,12 +48,14 @@ main { flex: 1; }
 footer { padding: 24px 16px; background: var(--accent); text-align: center; color: #fff; font-size: .875rem; font-weight: 600; }
 footer p { color: inherit; }
 @media (max-width: 520px) { .book { grid-template-columns: 96px 1fr; gap: 14px; padding: 16px; } }
+.tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 auto 26px}.tabs a{padding:9px 18px;border-radius:999px;border:1px solid rgba(61,34,34,.14);color:var(--accent-deep);text-decoration:none;font-weight:600;font-size:.88rem;background:#fff}.tabs a.on{background:var(--accent);color:#fff;border-color:var(--accent)}
 </style>
 </head>
 <body>
 <main>
 <div class="wrap">
   <div class="brand">My Phương · Happiness Coach</div>
+  <nav class="tabs" aria-label="Chuyên mục"><a href="/tai-lieu-dao-tao" class="on" aria-current="page">Tài liệu đào tạo</a><a href="/cau-chuyen-chuyen-hoa">Testimonials · Câu chuyện chuyển hóa</a></nav>
   <h1>Tài liệu đào tạo</h1>
   <p class="lead">Tài liệu bài giảng và ebook của Phương. Bấm nút để mở hoặc tải file PDF, đọc được trên điện thoại và máy tính.</p>
   <article class="book" style="grid-template-columns:1fr">
@@ -101,7 +103,7 @@ footer p { color: inherit; }
       <div class="tag">Soul Letter · Becoming</div>
       <h2>Câu chuyện chuyển hóa · Blossom Stories</h2>
       <p>Ba câu chuyện chuyển hóa của những cô gái đã bừng nở sau hành trình BECOMING, kể bằng chính lời của các bạn.</p>
-      <a class="btn-primary" href="/bai-giang/blossom-stories-cau-chuyen-chuyen-hoa.pdf" target="_blank" rel="noopener">Đọc các câu chuyện (PDF)</a>
+      <a class="btn-primary" href="/cau-chuyen-chuyen-hoa">Đọc trên web</a> <a class="btn-primary" style="background:#fff;color:var(--accent-deep);border:1px solid var(--border);box-shadow:none" href="/bai-giang/blossom-stories-cau-chuyen-chuyen-hoa.pdf" target="_blank" rel="noopener">Tải PDF</a>
     </div>
   </article>
   <article class="book" style="grid-template-columns:1fr">
