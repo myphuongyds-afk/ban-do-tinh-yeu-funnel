@@ -402,20 +402,24 @@ p { color: var(--text-muted); }
 .feedback-grid--tall { margin-top: 24px; }
 .feedback-card--tall { aspect-ratio: 4 / 5; }
 .feedback-card--tall img { object-fit: cover; }
-.fb-quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 36px; }
-.fb-quote { margin: 0; padding: 26px 22px 20px; background: linear-gradient(160deg, var(--surface) 0%, var(--accent-soft) 100%); border: 1px solid var(--border); border-radius: 18px; box-shadow: 0 12px 30px var(--accent-soft); text-align: center; position: relative; }
+.fb-quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 28px; }
+.fb-quote { margin: 0; padding: 18px 20px 16px; background: linear-gradient(160deg, var(--surface) 0%, var(--accent-soft) 100%); border: 1px solid var(--border); border-radius: 18px; box-shadow: 0 12px 30px var(--accent-soft); text-align: center; position: relative; }
 .fb-quote::before { content: '\201C'; display: block; font-family: Georgia, serif; font-size: 2.6rem; line-height: 0.7; color: var(--accent); margin-bottom: 8px; }
 .fb-quote blockquote { margin: 0; text-wrap: balance; font-family: var(--font-h); font-style: italic; font-weight: 600; font-size: 1.12rem; line-height: 1.5; color: var(--accent-deep); }
 .fb-quote figcaption { margin-top: 12px; font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); font-weight: 600; }
-.fb-note { margin-top: 34px; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); font-weight: 600; display: flex; align-items: center; gap: 14px; justify-content: center; }
+.fb-note { margin-top: 26px; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); font-weight: 600; display: flex; align-items: center; gap: 14px; justify-content: center; }
 .fb-note::before, .fb-note::after { content: ''; height: 1px; width: 56px; background: var(--border); }
-.feedback-wall { columns: 2; column-gap: 22px; margin-top: 22px; }
-.feedback-wall .feedback-card { display: block; break-inside: avoid; margin: 0 0 22px; padding: 10px; background: var(--surface); border: 1px solid var(--border); border-radius: 22px; box-shadow: 0 14px 34px var(--accent-soft); aspect-ratio: auto; transition: transform .25s ease, box-shadow .25s ease; }
-.feedback-wall .feedback-card:hover { transform: translateY(-3px); box-shadow: 0 20px 42px rgba(211, 120, 129, 0.28); }
-.feedback-wall .feedback-card img { width: 100%; height: auto; object-fit: contain; border-radius: 14px; background: var(--bg); display: block; }
-.feedback-wall .feedback-card--tall img { aspect-ratio: 4 / 5; object-fit: cover; }
-@media (max-width: 800px) { .fb-quotes { grid-template-columns: 1fr; } }
-@media (max-width: 600px) { .feedback-wall { columns: 1; } .feedback-wall .feedback-card { margin-bottom: 18px; } }
+.fb-carousel { position: relative; margin: 20px -4px 0; }
+.feedback-wall { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x proximity; padding: 8px 4px 18px; -webkit-overflow-scrolling: touch; scrollbar-width: thin; scrollbar-color: var(--accent) transparent; outline: none; }
+.feedback-wall::-webkit-scrollbar { height: 6px; }
+.feedback-wall::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 999px; }
+.feedback-wall .feedback-card { flex: 0 0 auto; scroll-snap-align: start; padding: 8px; background: var(--surface); border: 1px solid var(--border); border-radius: 20px; box-shadow: 0 12px 28px var(--accent-soft); aspect-ratio: auto; display: block; }
+.feedback-wall .feedback-card img { display: block; height: 430px; width: auto; max-width: 520px; object-fit: contain; border-radius: 13px; background: var(--bg); }
+.feedback-wall .feedback-card--tall img { width: 344px; aspect-ratio: auto; object-fit: cover; }
+.fb-nav { position: absolute; top: 50%; transform: translateY(-60%); z-index: 3; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--border); background: rgba(255,255,255,0.96); color: var(--accent-deep); font-size: 1.7rem; line-height: 1; padding: 0 0 4px; cursor: pointer; box-shadow: 0 8px 20px rgba(61,34,34,0.2); }
+.fb-nav:hover { background: var(--accent-soft); }
+.fb-nav--prev { left: -6px; } .fb-nav--next { right: -6px; }
+@media (max-width: 700px) { .feedback-wall .feedback-card img { height: 380px; max-width: 300px; } .feedback-wall .feedback-card--tall img { width: 300px; } .fb-nav { display: none; } .fb-carousel { margin: 16px -16px 0; } .feedback-wall { padding-left: 16px; padding-right: 16px; scroll-padding-left: 16px; } }
 
 /* Pillar cards */
 .pillar {
@@ -1190,7 +1194,10 @@ footer p { color: inherit; }
       <figure class="fb-quote"><blockquote>Cô giáo tận tình và tận tâm quá ạ.</blockquote><figcaption>Học viên sau workshop</figcaption></figure>
     </div>
     <p class="fb-note">Tin nhắn thật trong khung chat sau các buổi workshop</p>
-    <div class="feedback-wall">
+    <div class="fb-carousel">
+      <button type="button" class="fb-nav fb-nav--prev" data-dir="prev" aria-label="Xem phản hồi trước">&#8249;</button>
+      <button type="button" class="fb-nav fb-nav--next" data-dir="next" aria-label="Xem phản hồi tiếp theo">&#8250;</button>
+    <div class="feedback-wall" tabindex="0" aria-label="Các tin nhắn feedback của học viên, vuốt sang để xem thêm">
       <div class="feedback-card"><img src="https://drive.google.com/thumbnail?id=1HAgosWETM3s2dQ5KBQC1cEThlgdb2ZRO&sz=w800" alt="Feedback workshop từ học viên" loading="lazy"></div>
       <div class="feedback-card"><img src="https://drive.google.com/thumbnail?id=1ylzND-DsT3N1RSDlHFmbVwBMK-Kv13Hp&sz=w800" alt="Feedback workshop từ học viên" loading="lazy"></div>
       <div class="feedback-card feedback-card--tall"><img src="https://drive.google.com/thumbnail?id=1OS7niguM2EjOgZYRHPgaDh9g0EwUr7RM&sz=w800" alt="Học viên nhắn: rất hữu ích, rất cụ thể và chi tiết rõ ràng, rất dễ hiểu" style="object-position: 50% 57%;" loading="lazy"></div>
@@ -1201,6 +1208,7 @@ footer p { color: inherit; }
       <div class="feedback-card feedback-card--tall"><img src="https://drive.google.com/thumbnail?id=1qMFaFkBXEoACFamC3m-DV80Gtedbw6gz&sz=w800" alt="Học viên cảm ơn cô giáo tận tình và tận tâm sau workshop" style="object-position: 50% 59%;" loading="lazy"></div>
       <div class="feedback-card feedback-card--tall"><img src="https://drive.google.com/thumbnail?id=1URa9aCdeB-C8ePzGq3C3CLfkIGLEgkWq&sz=w800" alt="Học viên nhắn: bài hay quá, nhiều góc nhìn mới" style="object-position: 50% 40%;" loading="lazy"></div>
       <div class="feedback-card"><img src="https://drive.google.com/thumbnail?id=1_47gYiBucAWp5G0kLtMyosTZbcqlP6yd&sz=w1000" alt="Cảm nhận của học viên trong khung chat sau workshop" loading="lazy"></div>
+    </div>
     </div>
   </div>
 </section>
@@ -1577,6 +1585,18 @@ Bạn sẽ mang về một bản đồ và hệ quy chiếu để tiếp tục s
       btn.textContent = 'Giữ Chỗ Miễn Phí →';
     }
   });
+</script>
+<script>
+  (function () {
+    var wall = document.querySelector('.feedback-wall');
+    if (!wall) return;
+    document.querySelectorAll('.fb-nav').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var step = Math.min(wall.clientWidth * 0.85, 720);
+        wall.scrollBy({ left: (btn.getAttribute('data-dir') === 'next' ? 1 : -1) * step, behavior: 'smooth' });
+      });
+    });
+  })();
 </script>
 
 </body>
