@@ -399,6 +399,9 @@ p { color: var(--text-muted); }
 @media (max-width: 600px) { .feedback-grid { grid-template-columns: 1fr; } }
 .feedback-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: 0 12px 32px var(--accent-soft); aspect-ratio: 4 / 3; display: flex; align-items: center; justify-content: center; }
 .feedback-card img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.feedback-grid--tall { margin-top: 24px; }
+.feedback-card--tall { aspect-ratio: 4 / 5; }
+.feedback-card--tall img { object-fit: cover; }
 
 /* Pillar cards */
 .pillar {
@@ -1182,6 +1185,23 @@ footer p { color: inherit; }
       </div>
       <div class="feedback-card">
         <img src="https://drive.google.com/thumbnail?id=1coFvkMMjRgr8-qANfVBFnlXVgtk9qbxA&sz=w800" alt="Tin nhắn feedback thật từ học viên">
+      </div>
+      <div class="feedback-card">
+        <img src="https://drive.google.com/thumbnail?id=1_47gYiBucAWp5G0kLtMyosTZbcqlP6yd&sz=w1000" alt="Cảm nhận của học viên trong khung chat sau workshop" loading="lazy">
+      </div>
+    </div>
+    <div class="feedback-grid feedback-grid--tall">
+      <div class="feedback-card feedback-card--tall">
+        <img src="https://drive.google.com/thumbnail?id=1OS7niguM2EjOgZYRHPgaDh9g0EwUr7RM&sz=w800" alt="Học viên nhắn: rất hữu ích, rất cụ thể và chi tiết rõ ràng, rất dễ hiểu" style="object-position: 50% 57%;" loading="lazy">
+      </div>
+      <div class="feedback-card feedback-card--tall">
+        <img src="https://drive.google.com/thumbnail?id=12kbkAkltRdwc_9vVwJsqykGyfoE2rMf5&sz=w800" alt="Học viên cảm ơn những chia sẻ sâu sắc và thực tế sau workshop" style="object-position: 50% 49%;" loading="lazy">
+      </div>
+      <div class="feedback-card feedback-card--tall">
+        <img src="https://drive.google.com/thumbnail?id=1qMFaFkBXEoACFamC3m-DV80Gtedbw6gz&sz=w800" alt="Học viên cảm ơn cô giáo tận tình và tận tâm sau workshop" style="object-position: 50% 59%;" loading="lazy">
+      </div>
+      <div class="feedback-card feedback-card--tall">
+        <img src="https://drive.google.com/thumbnail?id=1URa9aCdeB-C8ePzGq3C3CLfkIGLEgkWq&sz=w800" alt="Học viên nhắn: bài hay quá, nhiều góc nhìn mới" style="object-position: 50% 40%;" loading="lazy">
       </div>
     </div>
   </div>
