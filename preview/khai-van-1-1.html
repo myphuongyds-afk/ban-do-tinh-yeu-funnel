@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đăng Ký Khai Vấn Chiến Lược 1:1 Miễn Phí</title>
+<meta name="description" content="Đăng ký Phiên Khai vấn chiến lược 1:1 miễn phí cùng đội ngũ My Phương.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Be+Vietnam+Pro:wght@300;400;500;600&family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+<style>
+/* Bố cục theo trang mẫu: các phần trải rộng, xen kẽ nền tối / nền kem, thẻ trắng bo góc.
+   Tông màu My Phương: tím mận đậm + hồng phấn (thay cho xanh rêu + vàng đồng của mẫu). */
+:root {
+  --dark: #3A1E2A;
+  --dark-2: #2A1520;
+  --on-dark: #FBF1EE;
+  --on-dark-muted: rgba(251, 241, 238, 0.72);
+  --blush: #F0B9C4;          /* chữ nhấn trên nền tối */
+  --light: #FBF5F2;          /* nền kem */
+  --card: #FFFFFF;
+  --text: #3A1E2A;
+  --text-muted: #6E5458;
+  --accent: #C65D7B;         /* chữ nhấn trên nền sáng */
+  --accent-soft: #FFF3F2;
+  --line: #F0DEDF;
+  --font-h: 'Playfair Display', Georgia, serif;
+  --font-b: 'Be Vietnam Pro', system-ui, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-b); font-weight: 300; background: var(--light); color: var(--text); line-height: 1.75; -webkit-font-smoothing: antialiased; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+h1, h2 { font-family: var(--font-h); font-weight: 400; line-height: 1.3; letter-spacing: -0.01em; }
+p { color: var(--text-muted); }
+b, strong { font-weight: 500; }
+.hl { color: var(--accent); }
+.dark .hl { color: var(--blush); }
+
+.sec { padding: 80px 16px; }
+@media (max-width: 600px) { .sec { padding: 56px 16px; } }
+.container { max-width: 760px; margin: 0 auto; }
+.dark { background: radial-gradient(ellipse at top, #4A2635 0%, var(--dark) 45%, var(--dark-2) 100%); color: var(--on-dark); }
+.dark h1, .dark h2 { color: var(--on-dark); }
+.dark p { color: var(--on-dark-muted); }
+.center { text-align: center; }
+
+.eyebrow { font-size: .72rem; letter-spacing: .24em; text-transform: uppercase; font-weight: 500; color: var(--accent); }
+.dark .eyebrow { color: var(--blush); }
+.meta { font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; font-weight: 400; color: var(--text-muted); }
+.dark .meta { color: var(--on-dark-muted); }
+.rule { width: 48px; height: 1px; background: var(--accent); opacity: .5; margin: 0 auto 22px; }
+.sig { font-family: 'Dancing Script', cursive; font-size: 2rem; line-height: 1; color: var(--accent); }
+.dark .sig { color: var(--blush); }
+
+/* Nút: chuyển sắc hồng phấn, bo góc, có mũi tên (giống nút vàng của mẫu) */
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 10px; padding: 17px 34px;
+  background: linear-gradient(135deg, #F7D6DC 0%, #E59AAD 100%); color: var(--dark);
+  border-radius: 14px; font-family: var(--font-b); font-weight: 500; font-size: .82rem;
+  letter-spacing: .16em; text-transform: uppercase; text-decoration: none;
+  box-shadow: 0 10px 30px rgba(229, 154, 173, .28); transition: transform .2s, box-shadow .2s;
+}
+.btn-primary::after { content: '→'; font-size: 1rem; letter-spacing: 0; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(229, 154, 173, .38); }
+.btn-primary:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+.light .btn-primary { background: linear-gradient(135deg, #D97A93 0%, #B5506E 100%); color: #FFF8F6; box-shadow: 0 10px 28px rgba(198, 93, 123, .25); }
+
+/* Phần mở đầu */
+.hero { text-align: center; }
+.hero .brand { font-size: .7rem; letter-spacing: .3em; text-transform: uppercase; color: var(--on-dark-muted); margin-bottom: 40px; }
+.hero .eyebrow { max-width: 620px; margin: 0 auto 22px; line-height: 1.8; }
+.hero h1 { font-size: clamp(1.75rem, 4.8vw, 2.6rem); margin: 0 auto 18px; max-width: 720px; }
+.hero h1 .hl { font-style: italic; }
+.hero .sub { font-size: .9rem; font-style: italic; max-width: 520px; margin: 0 auto 34px; }
+.hero .lead { font-size: 1rem; max-width: 600px; margin: 0 auto 36px; }
+.hero .meta { margin-top: 22px; }
+
+/* Tiêu đề mỗi phần */
+.sec-head { text-align: center; margin-bottom: 40px; }
+.sec-head .eyebrow { margin-bottom: 12px; }
+.sec-head h2 { font-size: clamp(1.5rem, 4vw, 2.1rem); color: var(--text); }
+.sec-head p { max-width: 560px; margin: 14px auto 0; }
+
+/* Thẻ trắng bo góc */
+.card-w { background: var(--card); border: 1px solid var(--line); border-radius: 16px; box-shadow: 0 12px 34px rgba(58, 30, 42, .06); }
+.steps { display: grid; gap: 16px; list-style: none; }
+.step-card { display: flex; gap: 22px; padding: 26px 28px; }
+.step-card .n { font-family: var(--font-h); font-size: 1.5rem; color: var(--accent); line-height: 1.2; flex: 0 0 auto; }
+.step-card b { display: block; font-family: var(--font-h); font-weight: 400; font-size: 1.2rem; color: var(--text); margin-bottom: 6px; }
+.step-card p { font-size: .94rem; }
+@media (max-width: 600px) { .step-card { padding: 22px 20px; gap: 16px; } }
+.after-cta { text-align: center; margin-top: 40px; }
+
+/* Form */
+.form-card { padding: 44px 40px; }
+@media (max-width: 600px) { .form-card { padding: 30px 20px; } }
+#dang-ky { scroll-margin-top: 20px; }
+.q { margin-bottom: 30px; }
+.q-label { display: block; font-family: var(--font-h); font-weight: 400; font-size: 1.12rem; color: var(--text); margin-bottom: 4px; }
+.q-label .num { color: var(--accent); margin-right: 6px; }
+.q-label .req { color: var(--accent); }
+.q-hint { font-size: .85rem; margin-bottom: 10px; }
+.q input[type=text], .q input[type=tel], .q input[type=email], .q textarea {
+  width: 100%; padding: 13px 16px; border: 1px solid var(--line); border-radius: 10px;
+  font: inherit; font-weight: 400; background: var(--light); color: var(--text); margin-top: 8px;
+}
+.q textarea { min-height: 110px; resize: vertical; }
+.q input:focus, .q textarea:focus { outline: none; border-color: var(--accent); background: #fff; box-shadow: 0 0 0 3px rgba(198, 93, 123, .12); }
+.opts { display: grid; gap: 8px; margin-top: 10px; }
+.opt { display: flex; align-items: flex-start; gap: 12px; padding: 12px 16px; border-radius: 10px; border: 1px solid var(--line); background: var(--light); cursor: pointer; transition: border-color .15s, background .15s; font-size: .95rem; font-weight: 400; }
+.opt:hover { border-color: var(--accent); }
+.opt input { accent-color: var(--accent); width: 16px; height: 16px; margin-top: 5px; flex: 0 0 16px; }
+.opt:has(input:checked) { border-color: var(--accent); background: var(--accent-soft); }
+.other-text { display: none; }
+.other-text.show { display: block; }
+.err { display: none; color: #B0303B; font-size: .85rem; margin-top: 6px; }
+.q.invalid .err { display: block; }
+.q.invalid input[type=text], .q.invalid input[type=tel], .q.invalid input[type=email], .q.invalid textarea, .q.invalid .opt { border-color: #D9868E; }
+.hp { position: absolute; left: -9999px; }
+.submit-row { text-align: center; margin-top: 12px; }
+.form-msg { margin-top: 14px; font-size: .9rem; color: #B0303B; min-height: 1.4em; }
+
+/* Trang cảm ơn */
+#thanks { display: none; text-align: center; }
+#thanks .eyebrow { margin-bottom: 14px; }
+#thanks h1 { font-size: clamp(1.6rem, 4.4vw, 2.2rem); color: var(--text); margin-bottom: 16px; }
+#thanks p { margin-bottom: 14px; }
+#thanks .step { font-family: var(--font-h); font-size: 1.3rem; color: var(--text); margin: 30px 0 8px; }
+#thanks .small { font-size: .88rem; }
+#thanks .small a { color: var(--accent); font-weight: 500; }
+.cal { margin: 6px -12px 16px; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); background: #fff; }
+.cal iframe { display: block; width: 100%; height: 900px; border: 0; }
+@media (max-width: 600px) { .cal { margin-left: -6px; margin-right: -6px; } .cal iframe { height: 1050px; } }
+
+/* Chân trang */
+.foot { padding: 48px 16px; text-align: center; }
+.foot .meta { margin-top: 14px; }
+</style>
+</head>
+<body>
+<!-- Phần 1: Mở đầu (nền tối) -->
+<section class="sec dark hero pre-submit">
+  <div class="container">
+    <div class="brand">My Phương · Happiness Coach</div>
+    <div class="eyebrow">Dành cho phụ nữ độc thân từ 25+ mong ước một tình yêu đẹp, một mối quan hệ cam kết và hôn nhân hạnh phúc</div>
+    <h1>Nhìn rõ điều đang giữ bạn lại trong tình yêu, và tìm ra lộ trình phù hợp để đi từ <span class="hl">mong ước</span> đến <span class="hl">hôn nhân hạnh phúc</span></h1>
+    <p class="sub">Dù sau cuộc gọi bạn có đồng hành tiếp cùng Phương hay không, bạn vẫn sẽ ra về với sự rõ ràng và nhẹ nhõm hơn về chính mình.</p>
+    <p class="lead">Trong một buổi trò chuyện riêng qua Zoom, đội ngũ My Phương lắng nghe câu chuyện của bạn, cùng bạn soi chiếu những mô thức cảm xúc và niềm tin đang ảnh hưởng đến tình yêu, rồi gợi ý bước đi tiếp theo dành riêng cho bạn.</p>
+    <a href="#dang-ky" class="btn-primary">Đặt cuộc gọi miễn phí</a>
+    <div class="meta">30–45 phút · Zoom 1:1 · Miễn phí</div>
+  </div>
+</section>
+
+<!-- Quy trình (nền kem, thẻ trắng) -->
+<section class="sec light pre-submit">
+  <div class="container">
+    <div class="sec-head">
+      <div class="eyebrow">Hành trình của bạn</div>
+      <h2>Quy trình <span class="hl">đăng ký phiên khai vấn</span></h2>
+    </div>
+    <ol class="steps">
+      <li class="card-w step-card">
+        <span class="n">01</span>
+        <div>
+          <b>Đăng ký &amp; giữ lịch hẹn</b>
+          <p>Bạn điền form đăng ký, chọn khung giờ phù hợp để giữ lịch. Sau đó, bạn sẽ nhận được email xác nhận, trợ lý sẽ xác nhận lịch hẹn qua Zalo cùng hướng dẫn chuẩn bị cho phiên khai vấn.</p>
+        </div>
+      </li>
+      <li class="card-w step-card">
+        <span class="n">02</span>
+        <div>
+          <b>Buổi khai vấn chiến lược 1:1</b>
+          <p>Trong 30–45 phút qua Zoom 1:1, bạn sẽ được lắng nghe, phản chiếu và soi chiếu những mô thức cảm xúc, niềm tin, tổn thương hoặc rào cản đang ảnh hưởng đến tình yêu và hạnh phúc của mình, và được tư vấn lộ trình đồng hành phù hợp với bạn.</p>
+        </div>
+      </li>
+      <li class="card-w step-card">
+        <span class="n">03</span>
+        <div>
+          <b>Blossom Clarity Note</b>
+          <p>Sau phiên khai vấn, bạn sẽ nhận được bản tổng kết cá nhân hóa gồm những insight quan trọng, mô thức nổi bật, điều trái tim bạn đang khao khát và định hướng chuyển hóa phù hợp cho giai đoạn tiếp theo.</p>
+        </div>
+      </li>
+    </ol>
+    <div class="after-cta"><a href="#dang-ky" class="btn-primary">Đặt cuộc gọi miễn phí</a></div>
+  </div>
+</section>
+
+<!-- Form đăng ký (nền kem, thẻ trắng) -->
+<section class="sec light" id="form-sec" style="padding-top: 0;">
+  <div class="container">
+    <div class="sec-head pre-submit">
+      <div class="eyebrow">Bước 1</div>
+      <h2>Đăng ký <span class="hl">cuộc gọi của bạn</span></h2>
+      <p>Bạn trả lời thật lòng là đủ, không có câu trả lời đúng hay sai. Đội ngũ My Phương sẽ đọc kỹ trước khi gọi để cuộc trò chuyện thật sự dành cho bạn. Chỉ mất khoảng 5 phút.</p>
+    </div>
+    <div class="card-w form-card">
+    <form id="f" novalidate>
+      <div id="dang-ky"></div>
+      <div class="q" data-req="text" data-name="hoTen">
+        <label class="q-label" for="hoTen"><span class="num">1.</span>Họ và tên <span class="req">*</span></label>
+        <input type="text" id="hoTen" name="hoTen" autocomplete="name">
+        <div class="err">Bạn cho mình biết tên nhé.</div>
+      </div>
+
+      <div class="q" data-req="phone" data-name="sdt">
+        <label class="q-label" for="sdt"><span class="num">2.</span>Số điện thoại / Zalo <span class="req">*</span></label>
+        <input type="tel" id="sdt" name="sdt" autocomplete="tel" inputmode="tel">
+        <div class="err">Số điện thoại chưa đúng, bạn kiểm tra lại giúp mình nhé.</div>
+      </div>
+
+      <div class="q" data-req="email" data-name="email">
+        <label class="q-label" for="email"><span class="num">3.</span>Địa chỉ email <span class="req">*</span></label>
+        <input type="email" id="email" name="email" autocomplete="email" inputmode="email">
+        <div class="err">Email chưa đúng, bạn kiểm tra lại giúp mình nhé.</div>
+      </div>
+
+      <div class="q" data-req="radio" data-name="trangThai">
+        <span class="q-label"><span class="num">4.</span>Hiện tại chuyện tình cảm của bạn đang ở đâu? <span class="req">*</span></span>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="trangThai" value="Độc thân, chưa hẹn hò">Độc thân, chưa hẹn hò</label>
+          <label class="opt"><input type="radio" name="trangThai" value="Đang bắt đầu gặp gỡ, hẹn hò">Đang bắt đầu gặp gỡ, hẹn hò</label>
+          <label class="opt"><input type="radio" name="trangThai" value="Đang tìm hiểu một người">Đang tìm hiểu một người</label>
+          <label class="opt"><input type="radio" name="trangThai" value="Đang trong một mối quan hệ nhưng còn nhiều băn khoăn">Đang trong một mối quan hệ nhưng còn nhiều băn khoăn</label>
+          <label class="opt"><input type="radio" name="trangThai" value="Vừa kết thúc một mối quan hệ">Vừa kết thúc một mối quan hệ</label>
+          <label class="opt"><input type="radio" name="trangThai" value="Khác" data-other="trangThaiKhac">Khác</label>
+        </div>
+        <input type="text" class="other-text" id="trangThaiKhac" placeholder="Bạn chia sẻ thêm nhé...">
+        <div class="err">Bạn chọn một trạng thái gần nhất nhé.</div>
+      </div>
+
+      <div class="q" data-req="text" data-name="macKet">
+        <label class="q-label" for="macKet"><span class="num">5.</span>Điều gì khiến bạn cảm thấy mắc kẹt nhất lúc này? <span class="req">*</span></label>
+        <textarea id="macKet" name="macKet"></textarea>
+        <div class="err">Bạn chia sẻ đôi dòng giúp mình nhé.</div>
+      </div>
+
+      <div class="q" data-req="text" data-name="mongMuon">
+        <label class="q-label" for="mongMuon"><span class="num">6.</span>Trong 6–12 tháng tới, bạn mong điều gì thay đổi nhất trong chuyện tình cảm? <span class="req">*</span></label>
+        <textarea id="mongMuon" name="mongMuon"></textarea>
+        <div class="err">Bạn chia sẻ đôi dòng giúp mình nhé.</div>
+      </div>
+
+      <div class="q" data-name="daThu">
+        <span class="q-label"><span class="num">7.</span>Bạn đã thử những cách nào để thay đổi chuyện này?</span>
+        <p class="q-hint">Chọn tất cả những gì bạn đã thử.</p>
+        <div class="opts">
+          <label class="opt"><input type="checkbox" name="daThu" value="Đọc sách, xem video, nghe podcast">Đọc sách, xem video, nghe podcast</label>
+          <label class="opt"><input type="checkbox" name="daThu" value="Tham gia khóa học, workshop">Tham gia khóa học, workshop</label>
+          <label class="opt"><input type="checkbox" name="daThu" value="Dùng ứng dụng hẹn hò">Dùng ứng dụng hẹn hò</label>
+          <label class="opt"><input type="checkbox" name="daThu" value="Nhờ bạn bè, người thân giới thiệu">Nhờ bạn bè, người thân giới thiệu</label>
+          <label class="opt"><input type="checkbox" name="daThu" value="Làm việc với coach / chuyên gia tâm lý">Làm việc với coach / chuyên gia tâm lý</label>
+          <label class="opt"><input type="checkbox" name="daThu" value="Tự chiêm nghiệm, viết nhật ký">Tự chiêm nghiệm, viết nhật ký</label>
+          <label class="opt"><input type="checkbox" name="daThu" value="Chưa thử cách nào">Chưa thử cách nào</label>
+          <label class="opt"><input type="checkbox" name="daThu" value="Khác" data-other="daThuKhac">Khác</label>
+        </div>
+        <input type="text" class="other-text" id="daThuKhac" placeholder="Bạn đã thử điều gì khác?">
+      </div>
+
+      <div class="q" data-name="chuaKetQua">
+        <label class="q-label" for="chuaKetQua"><span class="num">8.</span>Theo bạn, điều gì khiến mình vẫn chưa có kết quả như mong muốn?</label>
+        <textarea id="chuaKetQua" name="chuaKetQua"></textarea>
+      </div>
+
+      <div class="q" data-req="radio" data-name="sanSang">
+        <span class="q-label"><span class="num">9.</span>Nếu có một hành trình đồng hành phù hợp, bạn đang ở trạng thái nào? <span class="req">*</span></span>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="sanSang" value="Sẵn sàng cân nhắc đầu tư nếu thấy phù hợp">Mình sẵn sàng cân nhắc đầu tư nếu thấy phù hợp</label>
+          <label class="opt"><input type="radio" name="sanSang" value="Cần hiểu rõ lộ trình và mức đầu tư">Mình cần hiểu rõ lộ trình và mức đầu tư</label>
+          <label class="opt"><input type="radio" name="sanSang" value="Muốn trao đổi thêm trước khi quyết định">Mình muốn trao đổi thêm trước khi quyết định</label>
+          <label class="opt"><input type="radio" name="sanSang" value="Chủ yếu muốn nhận thêm định hướng">Hiện tại mình chủ yếu muốn nhận thêm định hướng</label>
+        </div>
+        <div class="err">Bạn chọn một lựa chọn gần nhất nhé.</div>
+      </div>
+
+      <div class="q" data-name="kyVong">
+        <label class="q-label" for="kyVong"><span class="num">10.</span>Bạn mong nhận được điều gì sau cuộc gọi 1:1?</label>
+        <textarea id="kyVong" name="kyVong"></textarea>
+      </div>
+
+      <div class="q" data-req="radio" data-name="bietDen">
+        <span class="q-label"><span class="num">11.</span>Bạn biết đến My Phương từ đâu? <span class="req">*</span></span>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="bietDen" value="Facebook cá nhân / Fanpage của Phương">Facebook cá nhân / Fanpage của Phương</label>
+          <label class="opt"><input type="radio" name="bietDen" value="Quảng cáo trên Facebook">Quảng cáo trên Facebook</label>
+          <label class="opt"><input type="radio" name="bietDen" value="TikTok">TikTok</label>
+          <label class="opt"><input type="radio" name="bietDen" value="YouTube">YouTube</label>
+          <label class="opt"><input type="radio" name="bietDen" value="Workshop Bản Đồ Tình Yêu">Workshop Bản Đồ Tình Yêu</label>
+          <label class="opt"><input type="radio" name="bietDen" value="Nhóm Zalo">Nhóm Zalo</label>
+          <label class="opt"><input type="radio" name="bietDen" value="Bạn bè, người thân giới thiệu">Bạn bè, người thân giới thiệu</label>
+          <label class="opt"><input type="radio" name="bietDen" value="Khác" data-other="bietDenKhac">Khác</label>
+        </div>
+        <input type="text" class="other-text" id="bietDenKhac" placeholder="Bạn biết đến My Phương từ đâu?">
+        <div class="err">Bạn chọn một nguồn gần nhất nhé.</div>
+      </div>
+
+      <input type="text" class="hp" name="website" id="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <div class="submit-row">
+        <button type="submit" class="btn-primary" id="btn">Gửi đăng ký</button>
+        <div class="form-msg" id="msg"></div>
+      </div>
+    </form>
+
+    <div id="thanks">
+      <div class="eyebrow">Đăng ký thành công</div>
+      <h1>Cảm ơn bạn đã chia sẻ</h1>
+      <p>Đội ngũ My Phương đã nhận được câu trả lời của bạn và sẽ đọc thật kỹ.</p>
+      <div class="rule"></div>
+      <div class="step">Bước cuối: chọn giờ gọi phù hợp với bạn</div>
+      <p class="small">Bạn chọn một khung giờ trống trong lịch bên dưới để giữ lịch. Sau đó bạn sẽ nhận email xác nhận, và trợ lý sẽ nhắn Zalo xác nhận lịch hẹn cùng hướng dẫn chuẩn bị.</p>
+      <div class="cal"><iframe id="calFrame" title="Lịch đặt phiên khai vấn" loading="lazy"></iframe></div>
+      <p class="small">Lịch không hiện? <a id="bookLink" href="#" target="_blank" rel="noopener">Mở lịch đặt hẹn trong trang mới</a>.<br>Nếu chưa tìm được giờ phù hợp, đội ngũ sẽ nhắn bạn qua <b>Zalo</b> để hẹn giờ.</p>
+    </div>
+    </div>
+  </div>
+</section>
+
+<footer class="dark foot">
+  <div class="sig">My Phương</div>
+  <div class="meta">Happiness Coach · Đồng hành cùng bạn trên hành trình yêu thương</div>
+</footer>
+
+<script>
+  // Dán Web app URL sau khi deploy Apps Script (xem khai-van-1-1.gs)
+  const GAS_URL = 'https://script.google.com/macros/s/AKfycbzSMVG8wknfzU8AbPL4oMVAQl8-2Vn_1wGO2Pca0e2vwjLnd_44iZBz6012gs7I4Ynp/exec';
+  // Lịch đặt hẹn hiển thị ngay trên trang cảm ơn sau khi gửi form
+  const BOOKING_URL = 'https://coachmyphuong.youcanbook.me/';
+
+  // Nút ở phần mở đầu: cuộn xuống câu hỏi đầu tiên của form
+  document.querySelectorAll('a[href="#dang-ky"]').forEach(a => a.addEventListener('click', e => {
+    e.preventDefault();
+    document.getElementById('dang-ky').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }));
+
+  const form = document.getElementById('f');
+  const btn = document.getElementById('btn');
+  const msg = document.getElementById('msg');
+
+  // Hiện ô "Khác" khi được chọn
+  form.addEventListener('change', e => {
+    const q = e.target.closest('.q');
+    if (q) q.classList.remove('invalid');
+    q && q.querySelectorAll('[data-other]').forEach(inp => {
+      document.getElementById(inp.dataset.other).classList.toggle('show', inp.checked);
+    });
+  });
+  form.addEventListener('input', e => { const q = e.target.closest('.q'); if (q) q.classList.remove('invalid'); });
+
+  function val(name) { const el = form.elements[name]; return el ? (el.value || '').trim() : ''; }
+  function checked(name) { return [...form.querySelectorAll(`input[name="${name}"]:checked`)].map(i => i.value); }
+  function withOther(list, otherId) {
+    const other = document.getElementById(otherId).value.trim();
+    return list.map(v => v === 'Khác' && other ? 'Khác: ' + other : v).join('; ');
+  }
+
+  function validate() {
+    let first = null;
+    form.querySelectorAll('.q[data-req]').forEach(q => {
+      const name = q.dataset.name, type = q.dataset.req;
+      let ok;
+      if (type === 'radio') ok = checked(name).length > 0;
+      else if (type === 'email') ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val(name));
+      else if (type === 'phone') ok = /^\+?[0-9]{9,12}$/.test(val(name).replace(/[\s.\-()]/g, ''));
+      else ok = val(name).length > 0;
+      q.classList.toggle('invalid', !ok);
+      if (!ok && !first) first = q;
+    });
+    if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return !first;
+  }
+
+  // YouCanBook.me chỉ nhận SĐT dạng +84...
+  function intlPhone(s) {
+    s = String(s || '').replace(/[^0-9+]/g, '');
+    if (s.startsWith('+')) return s;
+    if (s.startsWith('84')) return '+' + s;
+    if (s.startsWith('0')) return '+84' + s.slice(1);
+    return s;
+  }
+
+  // Nhúng YouCanBook.me, điền sẵn tên + email + SĐT để khách khỏi gõ lại
+  function showCalendar(data) {
+    // Q1 = Họ và tên, Q2 = SĐT (Zalo) — mã câu hỏi trong Booking form của YouCanBook.me
+    // Không dùng URLSearchParams: nó đổi dấu cách thành "+" và YouCanBook.me hiện nguyên dấu + trong tên
+    const p = { noframe: 'true', skipHeaderFooter: 'true', EMAIL: data.email, Q1: data.hoTen, Q2: intlPhone(data.sdt) };
+    const url = BOOKING_URL + '?' + Object.keys(p).map(k => k + '=' + encodeURIComponent(p[k])).join('&');
+    document.getElementById('calFrame').src = url;
+    document.getElementById('bookLink').href = url;
+  }
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    msg.textContent = '';
+    if (!validate()) return;
+    if (val('website')) return; // bot
+
+    const data = {
+      hoTen: val('hoTen'),
+      sdt: val('sdt'),
+      email: val('email'),
+      trangThai: withOther(checked('trangThai'), 'trangThaiKhac'),
+      macKet: val('macKet'),
+      mongMuon: val('mongMuon'),
+      daThu: withOther(checked('daThu'), 'daThuKhac'),
+      chuaKetQua: val('chuaKetQua'),
+      sanSang: checked('sanSang').join(''),
+      kyVong: val('kyVong'),
+      bietDen: withOther(checked('bietDen'), 'bietDenKhac'),
+      nguon: location.search.slice(1)
+    };
+
+    btn.disabled = true; btn.textContent = 'Đang gửi...';
+    try {
+      if (!GAS_URL) throw new Error('missing GAS_URL');
+      // text/plain + no-cors: tránh preflight CORS của Apps Script
+      await fetch(GAS_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(data) });
+      form.style.display = 'none';
+      document.querySelectorAll('.pre-submit').forEach(el => el.style.display = 'none');
+      document.getElementById('form-sec').style.paddingTop = '';
+      showCalendar(data);
+      document.getElementById('thanks').style.display = 'block';
+      window.scrollTo({ top: 0 });
+    } catch (err) {
+      msg.textContent = 'Chưa gửi được, bạn thử lại giúp mình nhé. Nếu vẫn lỗi, bạn nhắn Zalo cho đội ngũ My Phương.';
+      btn.disabled = false; btn.textContent = 'Gửi đăng ký';
+    }
+  });
+</script>
+</body>
+</html>
