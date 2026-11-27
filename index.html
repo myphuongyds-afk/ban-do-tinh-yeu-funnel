@@ -419,12 +419,12 @@ p { color: var(--text-muted); }
 .feedback-wall .feedback-card--wide img { object-fit: contain; }
 .feedback-wall .feedback-card--live { position: relative; }
 .feedback-wall .feedback-card--live::after { content: attr(data-label); position: absolute; left: 18px; top: 18px; padding: 5px 12px; border-radius: 999px; background: rgba(255, 255, 255, 0.94); color: var(--accent-deep); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; box-shadow: 0 4px 12px rgba(61, 34, 34, 0.18); pointer-events: none; }
-.feedback-wall:not(.is-open) .feedback-card:nth-child(n+7) { display: none; }
+.feedback-wall:not(.is-open) .feedback-card:nth-child(n+10) { display: none; }
 .fb-more { margin-top: 22px; text-align: center; }
 .fb-more[hidden] { display: none; }
 .fb-lightbox { position: fixed; inset: 0; z-index: 300; background: rgba(40, 20, 24, 0.86); display: flex; align-items: center; justify-content: center; padding: 20px; cursor: zoom-out; }
 .fb-lightbox img { max-width: min(100%, 560px); max-height: 100%; border-radius: 14px; background: #fff; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
-@media (max-width: 900px) { .feedback-wall { grid-template-columns: repeat(2, 1fr); gap: 14px; } }
+@media (max-width: 900px) { .feedback-wall { grid-template-columns: repeat(2, 1fr); gap: 14px; } .feedback-wall:not(.is-open) .feedback-card:nth-child(n+9) { display: none; } }
 @media (max-width: 560px) { .feedback-wall { grid-template-columns: 1fr; } .feedback-wall:not(.is-open) .feedback-card:nth-child(n+4) { display: none; } }
 
 /* Pillar cards */
@@ -1210,13 +1210,12 @@ footer p { color: inherit; }
     <p class="fb-note">Tin nhắn thật trong khung chat sau các buổi workshop</p>
     <div class="feedback-wall" id="fbWall">
       <div class="feedback-card"><img src="https://drive.google.com/thumbnail?id=1OS7niguM2EjOgZYRHPgaDh9g0EwUr7RM&sz=w800" alt="Học viên nhắn: rất hữu ích, rất cụ thể và chi tiết rõ ràng, rất dễ hiểu" style="object-position: 50% 57%;" loading="lazy"></div>
-      <div class="feedback-card feedback-card--wide feedback-card--live" data-label="Trong buổi workshop"><img src="https://drive.google.com/thumbnail?id=1_47gYiBucAWp5G0kLtMyosTZbcqlP6yd&sz=w1000" alt="My Phương trong buổi workshop cùng các tin nhắn cảm ơn của học viên" loading="lazy"></div>
+      <div class="feedback-card"><img src="https://drive.google.com/thumbnail?id=1HAgosWETM3s2dQ5KBQC1cEThlgdb2ZRO&sz=w800" alt="Feedback workshop từ học viên" style="object-position: 50% 0%;" loading="lazy"></div>
       <div class="feedback-card"><img src="https://drive.google.com/thumbnail?id=1qMFaFkBXEoACFamC3m-DV80Gtedbw6gz&sz=w800" alt="Học viên cảm ơn cô giáo tận tình và tận tâm sau workshop" style="object-position: 50% 59%;" loading="lazy"></div>
-      <div class="feedback-card feedback-card--live" data-label="Trong buổi workshop"><img src="https://drive.google.com/thumbnail?id=1pld9vghPJOO5gh5gxtl4IUcYJHY5Bsez&sz=w800" alt="My Phương đang chia sẻ trong buổi workshop online" style="object-position: 50% 55%;" loading="lazy"></div>
+      <div class="feedback-card"><img src="https://drive.google.com/thumbnail?id=1ylzND-DsT3N1RSDlHFmbVwBMK-Kv13Hp&sz=w800" alt="Feedback workshop từ học viên" loading="lazy"></div>
       <div class="feedback-card"><img src="https://drive.google.com/thumbnail?id=12kbkAkltRdwc_9vVwJsqykGyfoE2rMf5&sz=w800" alt="Học viên cảm ơn những chia sẻ sâu sắc và thực tế sau workshop" style="object-position: 50% 49%;" loading="lazy"></div>
       <div class="feedback-card"><img src="https://drive.google.com/thumbnail?id=1URa9aCdeB-C8ePzGq3C3CLfkIGLEgkWq&sz=w800" alt="Học viên nhắn: bài hay quá, nhiều góc nhìn mới" style="object-position: 50% 40%;" loading="lazy"></div>
-      <div class="feedback-card"><img src="https://drive.google.com/thumbnail?id=1HAgosWETM3s2dQ5KBQC1cEThlgdb2ZRO&sz=w800" alt="Feedback workshop từ học viên" style="object-position: 50% 0%;" loading="lazy"></div>
-      <div class="feedback-card"><img src="https://drive.google.com/thumbnail?id=1ylzND-DsT3N1RSDlHFmbVwBMK-Kv13Hp&sz=w800" alt="Feedback workshop từ học viên" loading="lazy"></div>
+      <div class="feedback-card feedback-card--wide feedback-card--live" data-label="Trong buổi workshop"><img src="https://drive.google.com/thumbnail?id=1_47gYiBucAWp5G0kLtMyosTZbcqlP6yd&sz=w1000" alt="My Phương trong buổi workshop cùng các tin nhắn cảm ơn của học viên" loading="lazy"></div>
       <div class="feedback-card"><img src="https://drive.google.com/thumbnail?id=1t4qujGzIptFgeMZEPN_Xan2QVxPkM510&sz=w800" alt="Tin nhắn feedback thật từ học viên" loading="lazy"></div>
       <div class="feedback-card"><img src="https://drive.google.com/thumbnail?id=11VK2KaXSgmLJwdvApq3MU2cHjUI9re3D&sz=w800" alt="Tin nhắn feedback thật từ học viên" loading="lazy"></div>
       <div class="feedback-card"><img src="https://drive.google.com/thumbnail?id=1coFvkMMjRgr8-qANfVBFnlXVgtk9qbxA&sz=w800" alt="Tin nhắn feedback thật từ học viên" loading="lazy"></div>
