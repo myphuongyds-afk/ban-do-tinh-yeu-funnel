@@ -417,6 +417,8 @@ p { color: var(--text-muted); }
 .feedback-wall .feedback-card:hover { transform: translateY(-3px); box-shadow: 0 18px 38px rgba(211, 120, 129, 0.28); }
 .feedback-wall .feedback-card img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 13px; background: var(--bg); cursor: zoom-in; }
 .feedback-wall .feedback-card--wide img { object-fit: contain; }
+.feedback-wall .feedback-card--live { position: relative; }
+.feedback-wall .feedback-card--live::after { content: attr(data-label); position: absolute; left: 18px; top: 18px; padding: 5px 12px; border-radius: 999px; background: rgba(255, 255, 255, 0.94); color: var(--accent-deep); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; box-shadow: 0 4px 12px rgba(61, 34, 34, 0.18); pointer-events: none; }
 .feedback-wall:not(.is-open) .feedback-card:nth-child(n+7) { display: none; }
 .fb-more { margin-top: 22px; text-align: center; }
 .fb-more[hidden] { display: none; }
@@ -955,7 +957,7 @@ footer p { color: inherit; }
         <h3 class="mt-6">Rạng Rỡ Từ Bên Trong</h3>
         <p class="pillar-quote">"Không cần gồng mình"</p>
         <p class="pillar-lead">Bạn là ai và cách bạn nhìn nhận chính mình sẽ ảnh hưởng sâu sắc đến người bạn thu hút và lựa chọn làm bạn đời.</p>
-        <p>Chúng ta sẽ cùng nhận diện những niềm tin ẩn sâu và tổn thương cũ đang khiến bạn ngần ngại mở lòng, đôi khi vô thức tạo khoảng cách với cả những người thật lòng muốn đến bên bạn. Bạn sẽ học cách vững vàng từ bên trong, thấu hiểu giá trị bản thân để không còn yêu trong nỗi sợ bị bỏ rơi. Vun bồi bản thể và trở thành hiện thân của sự mềm mại, nữ tính và rạng rỡ nhất trong chính mình, sẵn sàng đón nhận và xây dựng một tình yêu lành mạnh, đủ đầy và xứng đáng.</p>
+        <p>Chúng ta sẽ cùng nhận diện những rào cản ngầm đang khiến bạn chưa khai mở được dòng chảy tình yêu bên trong, đôi khi vô thức tạo khoảng cách với cả những người thật lòng muốn đến bên bạn. Bạn sẽ học cách vững vàng từ bên trong, thấu hiểu giá trị bản thân để không còn yêu trong nỗi sợ bị bỏ rơi. Vun bồi bản thể và trở thành hiện thân của sự mềm mại, nữ tính và rạng rỡ nhất trong chính mình, sẵn sàng đón nhận và xây dựng một tình yêu lành mạnh, đủ đầy và xứng đáng.</p>
       </div>
       <div class="pillar">
         <svg class="pillar-deco" viewBox="0 0 100 140"><use href="#deco-branch-shape"/></svg>
@@ -1108,8 +1110,8 @@ footer p { color: inherit; }
         </div>
         <div class="ba-card">
           <div class="ba-card-top"><span class="ba-icon"><svg viewBox="0 0 24 24"><path d="M4 8h16M4 12h10M4 16h13"/></svg></span><span class="ba-num">02</span></div>
-          <h3>Hay đoán mò</h3>
-          <p>Dễ bị cuốn vào việc phân tích từng tin nhắn, từng hành động và tự hỏi: "Anh ấy có thật lòng với mình không?"</p>
+          <h3>Không rõ vì sao tình duyên chưa như ý</h3>
+          <p>Càng nghĩ càng rối: tự hỏi "mình sai ở đâu?", lật lại từng chuyện đã qua mà vẫn chưa tìm ra lý do thật sự.</p>
         </div>
         <div class="ba-card">
           <div class="ba-card-top"><span class="ba-icon"><svg viewBox="0 0 24 24"><path d="M7 4h10M7 20h10M8 4v3.5L12 12l-4 4.5V20M16 4v3.5L12 12l4 4.5V20"/></svg></span><span class="ba-num">03</span></div>
@@ -1209,15 +1211,18 @@ footer p { color: inherit; }
     <p class="fb-note">Tin nhắn thật trong khung chat sau các buổi workshop</p>
     <div class="feedback-wall" id="fbWall">
       <div class="feedback-card"><img src="https://drive.google.com/thumbnail?id=1OS7niguM2EjOgZYRHPgaDh9g0EwUr7RM&sz=w800" alt="Học viên nhắn: rất hữu ích, rất cụ thể và chi tiết rõ ràng, rất dễ hiểu" style="object-position: 50% 57%;" loading="lazy"></div>
-      <div class="feedback-card"><img src="https://drive.google.com/thumbnail?id=1HAgosWETM3s2dQ5KBQC1cEThlgdb2ZRO&sz=w800" alt="Feedback workshop từ học viên" style="object-position: 50% 0%;" loading="lazy"></div>
+      <div class="feedback-card feedback-card--wide feedback-card--live" data-label="Trong buổi workshop"><img src="https://drive.google.com/thumbnail?id=1_47gYiBucAWp5G0kLtMyosTZbcqlP6yd&sz=w1000" alt="My Phương trong buổi workshop cùng các tin nhắn cảm ơn của học viên" loading="lazy"></div>
       <div class="feedback-card"><img src="https://drive.google.com/thumbnail?id=1qMFaFkBXEoACFamC3m-DV80Gtedbw6gz&sz=w800" alt="Học viên cảm ơn cô giáo tận tình và tận tâm sau workshop" style="object-position: 50% 59%;" loading="lazy"></div>
-      <div class="feedback-card"><img src="https://drive.google.com/thumbnail?id=1ylzND-DsT3N1RSDlHFmbVwBMK-Kv13Hp&sz=w800" alt="Feedback workshop từ học viên" loading="lazy"></div>
+      <div class="feedback-card feedback-card--live" data-label="Trong buổi workshop"><img src="https://drive.google.com/thumbnail?id=1kxiJBd4G8MKev_aycM-TxUtcPTcagCyt&sz=w800" alt="My Phương đang chia sẻ trong buổi workshop online" style="object-position: 50% 30%;" loading="lazy"></div>
       <div class="feedback-card"><img src="https://drive.google.com/thumbnail?id=12kbkAkltRdwc_9vVwJsqykGyfoE2rMf5&sz=w800" alt="Học viên cảm ơn những chia sẻ sâu sắc và thực tế sau workshop" style="object-position: 50% 49%;" loading="lazy"></div>
       <div class="feedback-card"><img src="https://drive.google.com/thumbnail?id=1URa9aCdeB-C8ePzGq3C3CLfkIGLEgkWq&sz=w800" alt="Học viên nhắn: bài hay quá, nhiều góc nhìn mới" style="object-position: 50% 40%;" loading="lazy"></div>
+      <div class="feedback-card"><img src="https://drive.google.com/thumbnail?id=1HAgosWETM3s2dQ5KBQC1cEThlgdb2ZRO&sz=w800" alt="Feedback workshop từ học viên" style="object-position: 50% 0%;" loading="lazy"></div>
+      <div class="feedback-card"><img src="https://drive.google.com/thumbnail?id=1ylzND-DsT3N1RSDlHFmbVwBMK-Kv13Hp&sz=w800" alt="Feedback workshop từ học viên" loading="lazy"></div>
+      <div class="feedback-card feedback-card--live" data-label="Trong buổi workshop"><img src="https://drive.google.com/thumbnail?id=1pld9vghPJOO5gh5gxtl4IUcYJHY5Bsez&sz=w800" alt="My Phương hướng dẫn học viên trong buổi workshop online" style="object-position: 50% 52%;" loading="lazy"></div>
+      <div class="feedback-card feedback-card--live" data-label="Trong buổi workshop"><img src="https://drive.google.com/thumbnail?id=1B5tzajAq1fSGo43JbgE9bMNMismFMBYo&sz=w800" alt="My Phương chia sẻ về kết nối từ trái tim trong buổi workshop" style="object-position: 50% 35%;" loading="lazy"></div>
       <div class="feedback-card"><img src="https://drive.google.com/thumbnail?id=1t4qujGzIptFgeMZEPN_Xan2QVxPkM510&sz=w800" alt="Tin nhắn feedback thật từ học viên" loading="lazy"></div>
       <div class="feedback-card"><img src="https://drive.google.com/thumbnail?id=11VK2KaXSgmLJwdvApq3MU2cHjUI9re3D&sz=w800" alt="Tin nhắn feedback thật từ học viên" loading="lazy"></div>
       <div class="feedback-card"><img src="https://drive.google.com/thumbnail?id=1coFvkMMjRgr8-qANfVBFnlXVgtk9qbxA&sz=w800" alt="Tin nhắn feedback thật từ học viên" loading="lazy"></div>
-      <div class="feedback-card feedback-card--wide"><img src="https://drive.google.com/thumbnail?id=1_47gYiBucAWp5G0kLtMyosTZbcqlP6yd&sz=w1000" alt="Cảm nhận của học viên trong khung chat sau workshop" loading="lazy"></div>
     </div>
     <div class="fb-more"><button type="button" class="btn-secondary" id="fbMore" aria-expanded="false">Xem thêm phản hồi</button></div>
   </div>
