@@ -412,20 +412,24 @@ p { color: var(--text-muted); }
 .fb-quote figcaption { margin-top: 12px; font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); font-weight: 600; }
 .fb-note { margin-top: 26px; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); font-weight: 600; display: flex; align-items: center; gap: 14px; justify-content: center; }
 .fb-note::before, .fb-note::after { content: ''; height: 1px; width: 56px; background: var(--border); }
-.feedback-wall { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 20px; }
+.feedback-wall { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-flow: dense; gap: 18px; margin-top: 20px; }
 .feedback-wall .feedback-card { padding: 8px; background: var(--surface); border: 1px solid var(--border); border-radius: 20px; box-shadow: 0 12px 28px var(--accent-soft); aspect-ratio: auto; display: block; transition: transform .25s ease, box-shadow .25s ease; }
 .feedback-wall .feedback-card:hover { transform: translateY(-3px); box-shadow: 0 18px 38px rgba(198, 93, 123, 0.28); }
 .feedback-wall .feedback-card img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 13px; background: var(--bg); cursor: zoom-in; }
 .feedback-wall .feedback-card--wide img { object-fit: contain; }
+.feedback-wall .feedback-card--photo { grid-column: span 2; }
+.feedback-wall .feedback-card--photo img { aspect-ratio: 16 / 10; object-fit: cover; }
+.feedback-wall .feedback-card--full { grid-column: 1 / -1; }
+.feedback-wall .feedback-card--full img { aspect-ratio: 21 / 9; object-fit: cover; }
 .feedback-wall .feedback-card--live { position: relative; }
 .feedback-wall .feedback-card--live::after { content: attr(data-label); position: absolute; left: 18px; top: 18px; padding: 5px 12px; border-radius: 999px; background: rgba(255, 255, 255, 0.94); color: var(--accent-deep); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; box-shadow: 0 4px 12px rgba(61, 34, 34, 0.18); pointer-events: none; }
-.feedback-wall:not(.is-open) .feedback-card:nth-child(n+10) { display: none; }
+.feedback-wall:not(.is-open) .feedback-card:nth-child(n+8) { display: none; }
 .fb-more { margin-top: 22px; text-align: center; }
 .fb-more[hidden] { display: none; }
 .fb-lightbox { position: fixed; inset: 0; z-index: 300; background: rgba(40, 20, 24, 0.86); display: flex; align-items: center; justify-content: center; padding: 20px; cursor: zoom-out; }
 .fb-lightbox img { max-width: min(100%, 560px); max-height: 100%; border-radius: 14px; background: #fff; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
-@media (max-width: 900px) { .feedback-wall { grid-template-columns: repeat(2, 1fr); gap: 14px; } .feedback-wall:not(.is-open) .feedback-card:nth-child(n+9) { display: none; } }
-@media (max-width: 560px) { .feedback-wall { grid-template-columns: 1fr; } .feedback-wall:not(.is-open) .feedback-card:nth-child(n+4) { display: none; } }
+@media (max-width: 900px) { .feedback-wall { grid-template-columns: repeat(2, 1fr); gap: 14px; } .feedback-wall:not(.is-open) .feedback-card:nth-child(n+8) { display: none; } }
+@media (max-width: 560px) { .feedback-wall { grid-template-columns: 1fr; } .feedback-wall .feedback-card--photo { grid-column: auto; } .feedback-wall .feedback-card--full img { aspect-ratio: 16 / 10; } .feedback-wall:not(.is-open) .feedback-card:nth-child(n+4) { display: none; } }
 
 /* Pillar cards */
 .pillar {
@@ -1055,42 +1059,6 @@ footer p { color: inherit; }
   </div>
 </section>
 
-<!-- ===================== HÌNH ẢNH WORKSHOP THỰC TẾ ===================== -->
-<section class="section section-alt" id="workshop-real">
-  <div class="deco-daisy-cluster">
-    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
-    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
-    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
-  </div>
-  <div class="deco-daisy-cluster deco-daisy-cluster--br">
-    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
-    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
-    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
-  </div>
-  <div class="container text-center">
-    <span class="eyebrow">Đã diễn ra</span>
-    <h2>Hình Ảnh <span class="text-accent">Thực Tế</span> Từ Các Buổi Workshop Đã Tổ Chức</h2>
-    <div class="stage-grid">
-      <div class="stage-banner stage-banner--crop">
-        <img src="https://drive.google.com/thumbnail?id=1_47gYiBucAWp5G0kLtMyosTZbcqlP6yd&sz=w1000" alt="Buổi workshop online thực tế của My Phương">
-      </div>
-      <div class="stage-banner stage-banner--crop">
-        <img src="https://drive.google.com/thumbnail?id=1tdB68hZ3k9XQpGZrktlNnB5XpS8NOEwS&sz=w1000" alt="Học viên tham gia workshop online cùng My Phương">
-      </div>
-      <div class="stage-banner stage-banner--crop">
-        <img src="https://drive.google.com/thumbnail?id=19Eg1G0urlywGLcf9IxUVPlNd9ZKV8v6i&sz=w1000" alt="Buổi workshop thực tế đã tổ chức cùng My Phương">
-      </div>
-      <div class="stage-banner stage-banner--crop">
-        <img src="https://drive.google.com/thumbnail?id=1-Sp-PZPOlUKofwSIknPlsjH6fu2TFvRM&sz=w1000" alt="Buổi workshop thực tế đã tổ chức cùng My Phương">
-      </div>
-    </div>
-    <p class="stage-caption">Những buổi workshop online đã diễn ra thực tế, với sự tham gia và tương tác trực tiếp cùng học viên.</p>
-  </div>
-  <div class="wave-divider">
-    <svg viewBox="0 0 1000 40" preserveAspectRatio="none"><path d="M0,0 C 150,38 350,4 500,18 C 650,32 850,2 1000,14 L1000,40 L0,40 Z" fill="var(--bg)"/></svg>
-  </div>
-</section>
-
 <!-- ===================== BEFORE / AFTER ===================== -->
 <section class="section" id="before-after">
   <svg class="deco-branch deco-branch--right" viewBox="0 0 100 140"><use href="#deco-branch-shape"/></svg>
@@ -1191,9 +1159,14 @@ footer p { color: inherit; }
   </div>
 </section>
 
-<!-- ===================== FEEDBACK HỌC VIÊN ===================== -->
+<!-- ===================== FEEDBACK HỌC VIÊN + ẢNH WORKSHOP ===================== -->
 <section class="section" id="feedback">
   <div class="deco-daisy-cluster">
+    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
+    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
+    <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
+  </div>
+  <div class="deco-daisy-cluster deco-daisy-cluster--br">
     <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
     <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
     <svg class="deco-daisy" viewBox="0 0 100 100"><use href="#deco-daisy-shape"/></svg>
@@ -1201,7 +1174,7 @@ footer p { color: inherit; }
   <div class="container text-center">
     <span class="eyebrow">Học viên nói gì</span>
     <h2>Những Chia Sẻ Từ <span class="text-accent">Học Viên</span> Trong Các Workshop Trước</h2>
-    <p class="mt-4 text-muted">Phản hồi thực tế, tin nhắn thật từ học viên chưa qua chỉnh sửa.</p>
+    <p class="mt-4 text-muted">Phản hồi thực tế, tin nhắn thật từ học viên chưa qua chỉnh sửa, cùng hình ảnh từ các buổi workshop đã diễn ra.</p>
     <div class="fb-quotes">
       <figure class="fb-quote"><blockquote>Rất thực tế và hữu ích ạ.</blockquote><figcaption>Học viên sau workshop</figcaption></figure>
       <figure class="fb-quote"><blockquote>Hay quá chị Phương ơi, rất dễ hiểu ạ.</blockquote><figcaption>Học viên sau workshop</figcaption></figure>
@@ -1212,13 +1185,16 @@ footer p { color: inherit; }
       <div class="feedback-card"><img src="https://drive.google.com/thumbnail?id=1OS7niguM2EjOgZYRHPgaDh9g0EwUr7RM&sz=w800" alt="Học viên nhắn: rất hữu ích, rất cụ thể và chi tiết rõ ràng, rất dễ hiểu" style="object-position: 50% 57%;" loading="lazy"></div>
       <div class="feedback-card"><img src="https://drive.google.com/thumbnail?id=1HAgosWETM3s2dQ5KBQC1cEThlgdb2ZRO&sz=w800" alt="Feedback workshop từ học viên" style="object-position: 50% 0%;" loading="lazy"></div>
       <div class="feedback-card"><img src="https://drive.google.com/thumbnail?id=1qMFaFkBXEoACFamC3m-DV80Gtedbw6gz&sz=w800" alt="Học viên cảm ơn cô giáo tận tình và tận tâm sau workshop" style="object-position: 50% 59%;" loading="lazy"></div>
+      <div class="feedback-card feedback-card--photo feedback-card--live" data-label="Trong buổi workshop"><img src="https://drive.google.com/thumbnail?id=1tdB68hZ3k9XQpGZrktlNnB5XpS8NOEwS&sz=w1000" alt="Học viên tham gia workshop online cùng My Phương" loading="lazy"></div>
       <div class="feedback-card"><img src="https://drive.google.com/thumbnail?id=1ylzND-DsT3N1RSDlHFmbVwBMK-Kv13Hp&sz=w800" alt="Feedback workshop từ học viên" loading="lazy"></div>
       <div class="feedback-card"><img src="https://drive.google.com/thumbnail?id=12kbkAkltRdwc_9vVwJsqykGyfoE2rMf5&sz=w800" alt="Học viên cảm ơn những chia sẻ sâu sắc và thực tế sau workshop" style="object-position: 50% 49%;" loading="lazy"></div>
+      <div class="feedback-card feedback-card--photo feedback-card--live" data-label="Trong buổi workshop"><img src="https://drive.google.com/thumbnail?id=1_47gYiBucAWp5G0kLtMyosTZbcqlP6yd&sz=w1000" alt="My Phương trong buổi workshop cùng các tin nhắn cảm ơn của học viên" loading="lazy"></div>
       <div class="feedback-card"><img src="https://drive.google.com/thumbnail?id=1URa9aCdeB-C8ePzGq3C3CLfkIGLEgkWq&sz=w800" alt="Học viên nhắn: bài hay quá, nhiều góc nhìn mới" style="object-position: 50% 40%;" loading="lazy"></div>
-      <div class="feedback-card feedback-card--wide feedback-card--live" data-label="Trong buổi workshop"><img src="https://drive.google.com/thumbnail?id=1_47gYiBucAWp5G0kLtMyosTZbcqlP6yd&sz=w1000" alt="My Phương trong buổi workshop cùng các tin nhắn cảm ơn của học viên" loading="lazy"></div>
       <div class="feedback-card"><img src="https://drive.google.com/thumbnail?id=1t4qujGzIptFgeMZEPN_Xan2QVxPkM510&sz=w800" alt="Tin nhắn feedback thật từ học viên" loading="lazy"></div>
       <div class="feedback-card"><img src="https://drive.google.com/thumbnail?id=11VK2KaXSgmLJwdvApq3MU2cHjUI9re3D&sz=w800" alt="Tin nhắn feedback thật từ học viên" loading="lazy"></div>
+      <div class="feedback-card feedback-card--photo feedback-card--live" data-label="Trong buổi workshop"><img src="https://drive.google.com/thumbnail?id=19Eg1G0urlywGLcf9IxUVPlNd9ZKV8v6i&sz=w1000" alt="Buổi workshop online có học viên chia sẻ trong khung chat" loading="lazy"></div>
       <div class="feedback-card"><img src="https://drive.google.com/thumbnail?id=1coFvkMMjRgr8-qANfVBFnlXVgtk9qbxA&sz=w800" alt="Tin nhắn feedback thật từ học viên" loading="lazy"></div>
+      <div class="feedback-card feedback-card--full feedback-card--live" data-label="Trong buổi workshop"><img src="https://drive.google.com/thumbnail?id=1-Sp-PZPOlUKofwSIknPlsjH6fu2TFvRM&sz=w1000" alt="My Phương trong buổi workshop online" style="object-position: 50% 35%;" loading="lazy"></div>
     </div>
     <div class="fb-more"><button type="button" class="btn-secondary" id="fbMore" aria-expanded="false">Xem thêm phản hồi</button></div>
   </div>
