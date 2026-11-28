@@ -98,7 +98,6 @@ src="https://www.facebook.com/tr?id=963547762772869&ev=PageView&noscript=1"
   .bump-desc { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
   .bump-benefits { margin-top: 8px; font-size: 13px; color: var(--text); }
   .bump-benefits div { padding: 2px 0; }
-  .bump.bundle { border-color: var(--accent); border-width: 2px; }
   .save-badge { position: absolute; top: -10px; right: 14px; background: var(--accent); color: #fff; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; }
 
   .summary { background: var(--text); color: #fff; padding: 20px; border-radius: 10px; margin-bottom: 20px; }
@@ -115,6 +114,16 @@ src="https://www.facebook.com/tr?id=963547762772869&ev=PageView&noscript=1"
   .pulse { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: currentColor; margin-right: 8px; vertical-align: middle; animation: pulse 1.5s ease-in-out infinite; }
   @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
+  .pay-note { font-size: 13.5px; line-height: 1.6; color: var(--text-muted); margin: 14px 0 0; padding: 12px 14px; border-radius: 10px; background: var(--bg); border: 1px solid var(--border); }
+  .pay-note b { color: var(--text); font-weight: 600; }
+  .info-row > span:first-child { white-space: nowrap; padding-right: 10px; }
+  .info-val { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+  .copy-btn { border: 1px solid var(--accent); color: var(--accent-deep); background: transparent; border-radius: 999px; padding: 3px 11px; font-size: 12px; font-weight: 600; font-family: var(--font-b); cursor: pointer; transition: background .15s; }
+  .copy-btn:hover { background: var(--accent-soft); }
+  .copy-btn.copied { background: #E7F5E9; border-color: #2e7d32; color: #2e7d32; }
+  .help-box { margin-top: 14px; padding: 14px 16px; border-radius: 10px; background: var(--accent-soft); border: 1px solid var(--border); font-size: 13.5px; line-height: 1.6; color: var(--text); text-align: left; }
+  .help-box[hidden] { display: none; }
+  .help-box a { color: var(--accent-deep); font-weight: 700; text-decoration: underline; }
 </style>
 </head>
 <body>
@@ -200,7 +209,7 @@ src="https://www.facebook.com/tr?id=963547762772869&ev=PageView&noscript=1"
         </div>
 
         <div class="bumps-label">Ưu đãi đặc biệt</div>
-        <div class="bumps-sub">Chọn thêm nếu muốn, có thể tick từng món, hoặc chọn Combo Tiết Kiệm để được giá tốt nhất.</div>
+        <div class="bumps-sub">Chọn thêm nếu bạn muốn.</div>
         <div class="bumps" id="bumpsSection">
           <label class="bump" data-key="diag">
             <input type="checkbox" id="optDiag">
@@ -217,54 +226,37 @@ src="https://www.facebook.com/tr?id=963547762772869&ev=PageView&noscript=1"
               </div>
             </div>
           </label>
-
-          <label class="bump" data-key="oneOnOne">
-            <input type="checkbox" id="opt1on1">
-            <div class="bump-info">
-              <div class="bump-top">
-                <span class="bump-name">Phiên Khai Vấn 1:1 Chuyên Sâu 90 Phút</span>
-                <span class="bump-price-wrap"><span class="bump-price">+1.200.000đ</span></span>
-              </div>
-              <div class="bump-desc">Giải mã báo cáo chẩn đoán cùng Phương, 1:1 chuyên sâu để hiểu rõ hướng chuyển hóa của riêng bạn.</div>
-            </div>
-          </label>
-
-          <label class="bump bundle" data-key="bundle">
-            <span class="save-badge">Tiết kiệm 63%</span>
-            <input type="checkbox" id="optBundle">
-            <div class="bump-info">
-              <div class="bump-top">
-                <span class="bump-name">Combo Tiết Kiệm: Bộ Công Cụ Chẩn Đoán + Phiên Khai Vấn 1:1 90 Phút</span>
-                <span class="bump-price-wrap"><span class="bump-price-strike">1.349.000đ</span><span class="bump-price">499.000đ</span></span>
-              </div>
-              <div class="bump-desc">Bao gồm cả Bộ công cụ chẩn đoán năng lực xây dựng mối quan hệ hạnh phúc và Phiên Khai Vấn 1:1, cách tiết kiệm nhất nếu bạn muốn cả 2.</div>
-            </div>
-          </label>
         </div>
 
         <div class="summary">
           <div class="summary-row"><span>Vé VIP · Bản Đồ Tình Yêu</span><span id="base">99.000đ</span></div>
           <div class="summary-row" id="rowDiag" style="display:none"><span>Bộ công cụ chẩn đoán năng lực xây dựng mối quan hệ hạnh phúc</span><span>+149.000đ</span></div>
-          <div class="summary-row" id="row1on1" style="display:none"><span>Phiên Khai Vấn 1:1 Chuyên Sâu 90 Phút</span><span>+1.200.000đ</span></div>
-          <div class="summary-row" id="rowBundle" style="display:none"><span>Combo Tiết Kiệm: Chẩn Đoán + 1:1</span><span>+499.000đ</span></div>
           <div class="summary-row summary-total"><span>Tổng</span><span id="total">99.000đ</span></div>
         </div>
 
-        <p class="lead" style="text-align:center; margin-bottom: 0;">Chuyển khoản theo QR bên dưới, đơn được xác nhận tự động trong 30 giây.</p>
+        <p class="lead" style="text-align:center; margin-bottom: 0;">Quét mã QR hoặc chuyển khoản theo thông tin bên dưới, đơn được xác nhận tự động trong khoảng 30 giây.</p>
         <div class="qr-section">
           <img id="qrImg" alt="QR thanh toán">
         </div>
 
         <div class="info-box">
           <div class="info-row"><span>Ngân hàng</span><strong>VietinBank</strong></div>
-          <div class="info-row"><span>Số TK</span><strong>109006855197</strong></div>
+          <div class="info-row"><span>Số TK</span><span class="info-val"><strong>109006855197</strong><button type="button" class="copy-btn" data-copy="109006855197">Sao chép</button></span></div>
           <div class="info-row"><span>Chủ TK</span><strong>TO THI MY PHUONG</strong></div>
-          <div class="info-row"><span>Nội dung CK</span><strong id="ckContent">—</strong></div>
-          <div class="info-row"><span>Số tiền</span><strong id="amount">—</strong></div>
+          <div class="info-row"><span>Nội dung CK</span><span class="info-val"><strong id="ckContent">—</strong><button type="button" class="copy-btn" data-copy-from="ckContent">Sao chép</button></span></div>
+          <div class="info-row"><span>Số tiền</span><span class="info-val"><strong id="amount">—</strong><button type="button" class="copy-btn" data-copy-from="amount" data-digits="1">Sao chép</button></span></div>
         </div>
+        <p class="pay-note">Vui lòng giữ nguyên nội dung chuyển khoản để đơn được xác nhận tự động. Trang sẽ tự chuyển bước sau khi nhận được giao dịch.</p>
+
 
         <div class="status pending" id="statusBox">
           <span class="pulse"></span><span id="statusText">Đang chờ giao dịch...</span>
+        </div>
+
+        <div class="help-box" id="helpBox" hidden>
+          Bạn đã chuyển khoản mà chưa thấy xác nhận? Đừng lo, bạn chỉ cần nhắn Phương qua
+          <a href="https://zalo.me/0334793060" target="_blank" rel="noopener">Zalo 0334793060</a>
+          kèm <b>ảnh biên lai</b> và <b>email đã đăng ký</b>, Phương sẽ kiểm tra và xác nhận cho bạn ngay.
         </div>
       </div>
 
@@ -276,8 +268,6 @@ src="https://www.facebook.com/tr?id=963547762772869&ev=PageView&noscript=1"
   const GAS_URL = 'https://script.google.com/macros/s/AKfycbwhcFZbMSiPocvG18UZAj9uGtMVgC9vyKn6zhM4sJPZkrDOWVPnaJqjToAE27eHFim6dA/exec';
   const BASE_PRICE = 99000;
   const DIAG_PRICE = 149000;
-  const ONEONONE_PRICE = 1200000;
-  const BUNDLE_PRICE = 499000;
   const BANK_ACCOUNT = '109006855197';
   const BANK_CODE = 'ICB';
 
@@ -347,8 +337,6 @@ src="https://www.facebook.com/tr?id=963547762772869&ev=PageView&noscript=1"
     document.getElementById('ckContent').textContent = ckContentFull;
 
     const optDiag = document.getElementById('optDiag');
-    const opt1on1 = document.getElementById('opt1on1');
-    const optBundle = document.getElementById('optBundle');
 
     function syncCardStyles() {
       document.querySelectorAll('#step2Vip .bump').forEach(card => {
@@ -359,14 +347,9 @@ src="https://www.facebook.com/tr?id=963547762772869&ev=PageView&noscript=1"
 
     function calcTotal() {
       let total = BASE_PRICE;
-      let bump1 = false, bump2 = false;
-      if (optBundle.checked) {
-        total += BUNDLE_PRICE; bump1 = true; bump2 = true;
-      } else {
-        if (optDiag.checked) { total += DIAG_PRICE; bump1 = true; }
-        if (opt1on1.checked) { total += ONEONONE_PRICE; bump2 = true; }
-      }
-      return { total, bump1, bump2 };
+      let bump1 = false;
+      if (optDiag.checked) { total += DIAG_PRICE; bump1 = true; }
+      return { total, bump1, bump2: false };
     }
 
     function updateQR(amount) {
@@ -387,31 +370,13 @@ src="https://www.facebook.com/tr?id=963547762772869&ev=PageView&noscript=1"
 
     function refresh() {
       const { total, bump1, bump2 } = calcTotal();
-      const bundleOn = optBundle.checked;
-      document.getElementById('rowDiag').style.display = (!bundleOn && optDiag.checked) ? 'flex' : 'none';
-      document.getElementById('row1on1').style.display = (!bundleOn && opt1on1.checked) ? 'flex' : 'none';
-      document.getElementById('rowBundle').style.display = bundleOn ? 'flex' : 'none';
+      document.getElementById('rowDiag').style.display = optDiag.checked ? 'flex' : 'none';
       syncCardStyles();
       updateQR(total);
       updateOrderAPI(bump1, bump2, total);
     }
 
-    optBundle.addEventListener('change', () => {
-      if (optBundle.checked) {
-        optDiag.checked = false; opt1on1.checked = false;
-        optDiag.disabled = true; opt1on1.disabled = true;
-      } else {
-        optDiag.disabled = false; opt1on1.disabled = false;
-      }
-      refresh();
-    });
-
-    [optDiag, opt1on1].forEach(el => {
-      el.addEventListener('change', () => {
-        if (el.checked) { optBundle.checked = false; }
-        refresh();
-      });
-    });
+    optDiag.addEventListener('change', refresh);
 
     updateQR(BASE_PRICE);
     syncCardStyles();
@@ -434,6 +399,51 @@ src="https://www.facebook.com/tr?id=963547762772869&ev=PageView&noscript=1"
     }
     pollStatus();
   }
+</script>
+<script>
+  // Hỗ trợ thanh toán: nút sao chép + lời nhắn hỗ trợ nếu sau 2 phút chưa thấy xác nhận.
+  // Chỉ thêm giao diện, không đụng vào phần tạo đơn / kiểm tra thanh toán ở trên.
+  (function () {
+    document.addEventListener('click', function (e) {
+      var btn = e.target.closest ? e.target.closest('.copy-btn') : null;
+      if (!btn) return;
+      var text = btn.getAttribute('data-copy');
+      var fromId = btn.getAttribute('data-copy-from');
+      if (!text && fromId) {
+        var el = document.getElementById(fromId);
+        text = el ? el.textContent.trim() : '';
+        if (btn.getAttribute('data-digits')) text = text.replace(/\D/g, '');
+      }
+      if (!text || text === '—') return;
+      function done() {
+        var old = btn.textContent;
+        btn.textContent = 'Đã chép';
+        btn.classList.add('copied');
+        setTimeout(function () { btn.textContent = 'Sao chép'; btn.classList.remove('copied'); }, 1800);
+      }
+      function fallback() {
+        var ta = document.createElement('textarea');
+        ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.select();
+        try { document.execCommand('copy'); done(); } catch (err) {}
+        document.body.removeChild(ta);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, fallback);
+      } else { fallback(); }
+    });
+
+    var shownAt = null;
+    setInterval(function () {
+      var step = document.getElementById('step2Vip');
+      var box = document.getElementById('statusBox');
+      var help = document.getElementById('helpBox');
+      if (!step || !box || !help || step.classList.contains('hidden')) return;
+      if (shownAt === null) shownAt = Date.now();
+      if (box.classList.contains('paid')) { help.hidden = true; return; }
+      if (Date.now() - shownAt >= 120000) help.hidden = false;
+    }, 5000);
+  })();
 </script>
 </body>
 </html>
